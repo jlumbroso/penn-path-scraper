@@ -2,12 +2,13 @@
 Unit tests for Penn Courses API client.
 
 Tests API interactions with mocked HTTP responses.
+Uses pytest-mock for cleaner mocking with automatic cleanup.
 """
 
 import json
 import pathlib
+import time
 import typing
-import unittest.mock
 
 import pytest
 
@@ -56,11 +57,11 @@ class TestPennCoursesAPIClient:
         client = src.api_client.PennCoursesAPIClient(timeout=60)
         assert client.timeout == 60
 
-    @unittest.mock.patch("requests.post")
-    def test_search_by_school(self, mock_post, api_client, search_response):
+    def test_search_by_school(self, mocker, api_client, search_response):
         """Test searching courses by school."""
+        mock_post = mocker.patch("requests.post")
         mock_post.return_value.json.return_value = search_response
-        mock_post.return_value.raise_for_status = lambda: None
+        mock_post.return_value.raise_for_status = mocker.Mock()
 
         result = api_client.search_by_school(term="202530", school_code="E")
 
@@ -82,11 +83,11 @@ class TestPennCoursesAPIClient:
         assert result["count"] == 3
         assert len(result["results"]) == 3
 
-    @unittest.mock.patch("requests.post")
-    def test_search_by_keyword(self, mock_post, api_client, search_response):
+    def test_search_by_keyword(self, mocker, api_client, search_response):
         """Test searching courses by keyword."""
+        mock_post = mocker.patch("requests.post")
         mock_post.return_value.json.return_value = search_response
-        mock_post.return_value.raise_for_status = lambda: None
+        mock_post.return_value.raise_for_status = mocker.Mock()
 
         result = api_client.search_by_keyword(term="202530", keyword="lumbroso")
 
@@ -99,11 +100,11 @@ class TestPennCoursesAPIClient:
         # Verify response
         assert result["count"] == 3
 
-    @unittest.mock.patch("requests.post")
-    def test_get_course_details(self, mock_post, api_client, details_response):
+    def test_get_course_details(self, mocker, api_client, details_response):
         """Test getting detailed course information."""
+        mock_post = mocker.patch("requests.post")
         mock_post.return_value.json.return_value = details_response
-        mock_post.return_value.raise_for_status = lambda: None
+        mock_post.return_value.raise_for_status = mocker.Mock()
 
         result = api_client.get_course_details(
             term="202530",
@@ -128,11 +129,11 @@ class TestPennCoursesAPIClient:
         assert result["code"] == "NETS 2130"
         assert "seats" in result
 
-    @unittest.mock.patch("requests.post")
-    def test_get_all_schools(self, mock_post, api_client, search_response):
+    def test_get_all_schools(self, mocker, api_client, search_response):
         """Test getting courses for all schools in a term."""
+        mock_post = mocker.patch("requests.post")
         mock_post.return_value.json.return_value = search_response
-        mock_post.return_value.raise_for_status = lambda: None
+        mock_post.return_value.raise_for_status = mocker.Mock()
 
         results = list(api_client.get_all_schools(term="202530"))
 
@@ -144,9 +145,9 @@ class TestPennCoursesAPIClient:
         assert all(isinstance(r[0], str) for r in results)
         assert all(isinstance(r[1], dict) for r in results)
 
-    @unittest.mock.patch("requests.post")
-    def test_api_error_handling(self, mock_post, api_client):
+    def test_api_error_handling(self, mocker, api_client):
         """Test handling of API errors."""
+        mock_post = mocker.patch("requests.post")
         # Simulate HTTP error
         mock_post.return_value.raise_for_status.side_effect = Exception("API Error")
 
@@ -155,21 +156,22 @@ class TestPennCoursesAPIClient:
 
         assert "API Error" in str(exc_info.value)
 
-    @unittest.mock.patch("requests.post")
-    def test_json_decode_error(self, mock_post, api_client):
+    def test_json_decode_error(self, mocker, api_client):
         """Test handling of invalid JSON responses."""
+        mock_post = mocker.patch("requests.post")
         mock_post.return_value.json.side_effect = json.JSONDecodeError("", "", 0)
-        mock_post.return_value.raise_for_status = lambda: None
+        mock_post.return_value.raise_for_status = mocker.Mock()
 
         with pytest.raises(src.api_client.APIError) as exc_info:
             api_client.search_by_school(term="202530", school_code="E")
 
         assert "JSON" in str(exc_info.value)
 
-    @unittest.mock.patch("requests.post")
-    def test_timeout_error(self, mock_post, api_client):
+    def test_timeout_error(self, mocker, api_client):
         """Test handling of timeout errors."""
         import requests
+
+        mock_post = mocker.patch("requests.post")
         mock_post.side_effect = requests.Timeout("Request timed out")
 
         with pytest.raises(src.api_client.APIError) as exc_info:
@@ -177,31 +179,28 @@ class TestPennCoursesAPIClient:
 
         assert "timeout" in str(exc_info.value).lower()
 
-    def test_rate_limiting(self, api_client):
+    def test_rate_limiting(self, mocker, api_client):
         """Test that rate limiting is applied between requests."""
-        import time
-
-        # Mock successful requests
-        with unittest.mock.patch("requests.post") as mock_post:
-            mock_post.return_value.json.return_value = {"srcdb": "202530", "count": 0, "results": []}
-            mock_post.return_value.raise_for_status = lambda: None
-
-            # Set small rate limit delay for testing
-            api_client.rate_limit_delay = 0.1
-
-            start = time.time()
-            api_client.search_by_school(term="202530", school_code="E")
-            api_client.search_by_school(term="202530", school_code="W")
-            elapsed = time.time() - start
-
-            # Should take at least rate_limit_delay seconds
-            assert elapsed >= 0.1
-
-    @unittest.mock.patch("requests.post")
-    def test_user_agent_rotation(self, mock_post, api_client):
-        """Test that user agent is set in requests."""
+        mock_post = mocker.patch("requests.post")
         mock_post.return_value.json.return_value = {"srcdb": "202530", "count": 0, "results": []}
-        mock_post.return_value.raise_for_status = lambda: None
+        mock_post.return_value.raise_for_status = mocker.Mock()
+
+        # Set small rate limit delay for testing
+        api_client.rate_limit_delay = 0.1
+
+        start = time.time()
+        api_client.search_by_school(term="202530", school_code="E")
+        api_client.search_by_school(term="202530", school_code="W")
+        elapsed = time.time() - start
+
+        # Should take at least rate_limit_delay seconds
+        assert elapsed >= 0.1
+
+    def test_user_agent_rotation(self, mocker, api_client):
+        """Test that user agent is set in requests."""
+        mock_post = mocker.patch("requests.post")
+        mock_post.return_value.json.return_value = {"srcdb": "202530", "count": 0, "results": []}
+        mock_post.return_value.raise_for_status = mocker.Mock()
 
         api_client.search_by_school(term="202530", school_code="E")
 
@@ -239,26 +238,26 @@ class TestAPIHelpers:
         assert body["key"] == "crn:12345"
         assert body["userWithRolesStr"] == "!!!!!!"
 
-    def test_get_current_term(self):
+    def test_get_current_term(self, mocker):
         """Test getting current term code."""
         import datetime
 
-        # Mock current date
-        with unittest.mock.patch("src.api_client.datetime") as mock_datetime:
-            # Test Fall semester (August-December)
-            mock_datetime.datetime.now.return_value = datetime.datetime(2025, 10, 15)
-            term = src.api_client.get_current_term()
-            assert term == "202530"  # Fall 2025
+        mock_datetime = mocker.patch("src.api_client.datetime")
 
-            # Test Spring semester (January-May)
-            mock_datetime.datetime.now.return_value = datetime.datetime(2025, 3, 15)
-            term = src.api_client.get_current_term()
-            assert term == "202510"  # Spring 2025
+        # Test Fall semester (August-December)
+        mock_datetime.datetime.now.return_value = datetime.datetime(2025, 10, 15)
+        term = src.api_client.get_current_term()
+        assert term == "202530"  # Fall 2025
 
-            # Test Summer semester (June-July)
-            mock_datetime.datetime.now.return_value = datetime.datetime(2025, 6, 15)
-            term = src.api_client.get_current_term()
-            assert term == "202520"  # Summer 2025
+        # Test Spring semester (January-May)
+        mock_datetime.datetime.now.return_value = datetime.datetime(2025, 3, 15)
+        term = src.api_client.get_current_term()
+        assert term == "202510"  # Spring 2025
+
+        # Test Summer semester (June-July)
+        mock_datetime.datetime.now.return_value = datetime.datetime(2025, 6, 15)
+        term = src.api_client.get_current_term()
+        assert term == "202520"  # Summer 2025
 
     def test_get_next_term(self):
         """Test getting next term code."""

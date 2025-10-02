@@ -14,6 +14,8 @@ fake-useragent = "*"
 [dev-packages]
 pytest = "*"
 pytest-cov = "*"
+pytest-mock = "*"
+pytest-xdist = "*"
 mypy = "*"
 
 [requires]

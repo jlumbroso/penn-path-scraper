@@ -5,8 +5,16 @@ name = "pypi"
 
 [packages]
 requests = "*"
+peewee = "*"
+beautifulsoup4 = "*"
+structlog = "*"
+click = "*"
+fake-useragent = "*"
 
 [dev-packages]
+pytest = "*"
+pytest-cov = "*"
+mypy = "*"
 
 [requires]
 python_version = "3.12"

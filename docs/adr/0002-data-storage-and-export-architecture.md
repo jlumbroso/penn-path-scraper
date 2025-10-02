@@ -1,6 +1,6 @@
 # Data Storage and Export Architecture
 
-* Status: proposed
+* Status: accepted
 * Deciders: Jérémie Lumbroso (user), Claude Sonnet 4.5 (model)
 * Date: 2025-10-01
 
@@ -90,9 +90,39 @@ We need to scrape course data repeatedly over time to build a longitudinal datas
 - Makes refactoring safer
 - Pytest is powerful and flexible
 
-### Open Questions (Need User Input):
+### Decisions After Discussion:
 
-## Open Question 1: ORM vs. Raw SQL
+#### 5. Use Peewee ORM for Data Access
+
+**Chosen**: Peewee ORM (lightweight)
+
+**Rationale**:
+- Eliminates tedious marshaling/unmarshaling of SQL results
+- More Pythonic and maintainable
+- Less messy than writing quoted SQL strings
+- Still lightweight (minimal dependencies)
+- Easier for future maintainers to work with
+- Good balance between simplicity and functionality
+
+**Decision**: User prefers ORM for maintainability, Peewee chosen for its lightweight nature.
+
+#### 6. Scraping Strategy - Current and Next Term
+
+**Chosen**: Scrape current term AND next term (during advance registration period)
+
+**Rationale**:
+- Advanced registration happens in previous term (students sign up early)
+- Enrollment data during advance registration is valuable
+- Captures the full enrollment lifecycle
+- Will scrape terms with `srcdb` codes for current + next term
+
+**Decision**: User specifically requested next term to capture advance registration data.
+
+---
+
+## Open Questions (RESOLVED - kept for reference)
+
+## Open Question 1: ORM vs. Raw SQL (RESOLVED)
 
 **Context**: How should we interact with the SQLite database?
 
@@ -147,7 +177,7 @@ class Course(Base):
 * Bad: Overkill for this use case
 * Bad: Steeper learning curve
 
-**My Recommendation**: Option A (Raw SQL) - keeps things simple and explicit for this use case.
+**DECISION**: Option B (Peewee) - chosen for maintainability and cleaner Python code.
 
 ## Open Question 2: JSON Feed Granularity
 
@@ -221,9 +251,9 @@ class Course(Base):
 * Good: Search indexes are separate
 * Bad: Still somewhat complex
 
-**My Recommendation**: Option C (Hybrid) - separates frequently-updated data from static data.
+**DECISION**: Option C (Hybrid) - separates frequently-updated data from static data.
 
-## Open Question 3: Enrollment History Schema
+## Open Question 3: Enrollment History Schema (RESOLVED)
 
 **Context**: How should we structure time-series enrollment data?
 
@@ -292,9 +322,9 @@ class Course(Base):
 * Bad: More complex to query across time ranges
 * Bad: More files to manage
 
-**My Recommendation**: Option A (Array of Snapshots) - simple and clear, optimize later if needed.
+**DECISION**: Option A (Array of Snapshots) - simple and clear, optimize later if needed.
 
-## Open Question 4: Incremental vs. Full Scraping
+## Open Question 4: Incremental vs. Full Scraping (RESOLVED)
 
 **Context**: When the scraper runs, should it scrape everything or only what changed?
 
@@ -321,9 +351,9 @@ class Course(Base):
 * Bad: Need to track state
 * Bad: Risk of missing updates
 
-**My Recommendation**: Start with Option A (Full Scrape) for current term only, add incremental later if needed.
+**DECISION**: Option A (Full Scrape) for current AND next term (to capture advance registration), add incremental updates later if needed.
 
-## Implementation Plan
+## Implementation Plan (All Decisions Finalized)
 
 1. **Phase 1**: Core Infrastructure
    - Define TypedDict data structures
@@ -345,13 +375,15 @@ class Course(Base):
    - Scheduled scraping (daily)
    - Commit & push updated data
 
-## Next Steps
+## Summary of Decisions
 
-Need user decisions on:
-1. ORM choice (my rec: Raw SQL)
-2. Feed granularity (my rec: Hybrid approach)
-3. Enrollment schema (my rec: Array of snapshots)
-4. Scraping strategy (my rec: Full scrape of current term)
+All architectural decisions finalized:
+1. ✅ **ORM**: Peewee (lightweight, Pythonic)
+2. ✅ **Feed granularity**: Hybrid approach (course details + enrollments separate)
+3. ✅ **Enrollment schema**: Array of snapshots (simple, clear)
+4. ✅ **Scraping strategy**: Full scrape of current + next term (capture advance registration)
+
+Ready to begin implementation with TDD approach.
 
 ## Links
 

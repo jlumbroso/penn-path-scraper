@@ -1,0 +1,50 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(grep:*)",
+      "Bash(ls:*)",
+      "Bash(head:*)",
+      "Bash(tail:*)",
+      "Bash(for:*)",
+      "Bash(done:*)",
+      "Bash(find:*)",
+      "Bash(cat:*)",
+      "Read(//private/tmp/**)",
+      "Bash(test:*)",
+      "Bash(git tag:*)",
+      "Bash(git checkout:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git push:*)",
+      "Bash(git rm:*)",
+      "Bash(pipenv install:*)",
+      "Bash(pip search:*)",
+      "Bash(pipenv run:*)",
+      "Bash(curl:*)",
+      "Bash(grep:*)",
+      "Bash(xargs:*)",
+      "Bash(awk:*)",
+      "Bash(sleep:*)",
+      "Bash(pipenv:*)",
+      "Bash(pkill:*)",
+      "Bash(python:*)",
+      "Bash(git reset:*)",
+      "Bash(awk:*)",
+      "Bash(tree:*)",
+      "Bash(timeout:*)",
+      "Bash(python3:*)",
+      "Bash(do)",
+      "Bash(echo:*)",
+      "Bash(git clone:*)",
+      "Bash(npm create:*)",
+      "Bash(npm install)",
+      "Bash(npm install:*)",
+      "Bash(npm run build:*)"
+    ],
+    "deny": [
+      "Bash(pip:*)",
+      "Bash(pip install:*)"
+    ],
+    "ask": []
+  }
+}

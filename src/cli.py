@@ -91,6 +91,14 @@ def cli(ctx: click.Context, db: str) -> None:
     is_flag=True,
     help="Skip creating enrollment snapshots",
 )
+@click.option(
+    "--rate-limit",
+    "-r",
+    default=0.5,
+    type=float,
+    help="Delay between API requests in seconds",
+    show_default=True,
+)
 @click.pass_context
 def scrape(
     ctx: click.Context,
@@ -98,6 +106,7 @@ def scrape(
     schools: typing.Optional[str],
     next_term: bool,
     no_snapshots: bool,
+    rate_limit: float,
 ) -> None:
     """
     Scrape course data from Penn's catalog.
@@ -116,7 +125,7 @@ def scrape(
         school_codes = [s.strip().upper() for s in schools.split(",")]
 
     # Initialize API client and scraper
-    api_client = src.api_client.PennCoursesAPIClient()
+    api_client = src.api_client.PennCoursesAPIClient(rate_limit_delay=rate_limit)
     scraper = src.scraper.CourseScraper(
         api_client=api_client,
         db_path=ctx.obj["db_path"],
@@ -140,22 +149,23 @@ def scrape(
             SpinnerColumn(),
             TextColumn("[progress.description]{task.description}"),
             BarColumn(),
+            TextColumn("[progress.percentage]{task.percentage:>3.0f}%"),
             console=console,
         ) as progress:
-            # Determine schools to scrape
-            schools_list = school_codes or [s["code"] for s in src.types.SCHOOLS]
-            task = progress.add_task(
-                f"Scraping {len(schools_list)} schools...",
-                total=len(schools_list)
-            )
+            task = progress.add_task("Fetching course list...", total=None)
+
+            # Create progress callback
+            def update_progress(current: int, total: int) -> None:
+                progress.update(task, description=f"Processing courses", completed=current, total=total)
 
             result = scraper.scrape_term(
                 term=term_code,
                 schools=school_codes,
                 create_snapshots=not no_snapshots,
+                progress_callback=update_progress,
             )
 
-            progress.update(task, completed=len(schools_list))
+            progress.update(task, description="Complete!", completed=100, total=100)
 
         # Display results
         _display_scrape_results(result)
@@ -201,23 +211,37 @@ def search(
     if query is None:
         query = click.prompt("🔍 Search for courses", type=str)
 
-    # Build search query
-    query_obj = src.models.Course.select()
+    # Build search query - join with instructors to search by name
+    query_obj = (
+        src.models.Course
+        .select()
+        .join(
+            src.models.CourseInstructor,
+            on=(src.models.Course.crn == src.models.CourseInstructor.course),
+            join_type="LEFT OUTER"
+        )
+        .join(
+            src.models.Instructor,
+            on=(src.models.CourseInstructor.instructor == src.models.Instructor.id),
+            join_type="LEFT OUTER"
+        )
+    )
 
     # Add filters
     if term:
         query_obj = query_obj.where(src.models.Course.term == term)
 
-    # Search in code, title, or description
+    # Search in code, title, description, or instructor name
     search_condition = (
         src.models.Course.code.contains(query.upper()) |
         src.models.Course.title.contains(query) |
-        src.models.Course.description.contains(query)
+        src.models.Course.description.contains(query) |
+        src.models.Instructor.name.contains(query)
     )
     query_obj = query_obj.where(search_condition)
 
-    # Execute query
-    results = list(query_obj.limit(limit))
+    # Execute query with distinct to avoid duplicates from joins
+    results = list(query_obj.distinct().limit(limit))
 
     if not results:
         console.print(f"\n❌ [yellow]No courses found matching '{query}'[/yellow]\n")
@@ -270,11 +294,23 @@ def demo(ctx: click.Context, school: str) -> None:
 
     term = src.api_client.get_current_term()
 
-    with console.status(f"[bold green]Scraping {school_name}..."):
+    with Progress(
+        SpinnerColumn(),
+        TextColumn("[progress.description]{task.description}"),
+        BarColumn(),
+        TextColumn("[progress.percentage]{task.percentage:>3.0f}%"),
+        console=console,
+    ) as progress:
+        task = progress.add_task("Fetching course list...", total=None)
+
+        def update_progress(current: int, total: int) -> None:
+            progress.update(task, description=f"Processing courses", completed=current, total=total)
+
         result = scraper.scrape_school(
             term=term,
             school_code=school,
             create_snapshots=True,
+            progress_callback=update_progress,
         )
 
     console.print(f"\n✅ [green]Scraped {result['courses_saved']} courses![/green]\n")
@@ -284,7 +320,7 @@ def demo(ctx: click.Context, school: str) -> None:
     src.models.db.connect()
 
     console.print("[bold]🔍 Now you can search through the courses![/bold]")
-    console.print("[dim]Type 'exit' or 'quit' to stop.[/dim]\n")
+    console.print("[dim]Type 'exit' or 'quit' to stop. Search works for course codes, titles, or instructor names![/dim]\n")
 
     while True:
         try:
@@ -293,16 +329,28 @@ def demo(ctx: click.Context, school: str) -> None:
             if query.lower() in ["exit", "quit", "q", ""]:
                 break
 
-            # Search
+            # Search with instructor support
             results = list(
                 src.models.Course.select()
+                .join(
+                    src.models.CourseInstructor,
+                    on=(src.models.Course.crn == src.models.CourseInstructor.course),
+                    join_type="LEFT OUTER"
+                )
+                .join(
+                    src.models.Instructor,
+                    on=(src.models.CourseInstructor.instructor == src.models.Instructor.id),
+                    join_type="LEFT OUTER"
+                )
                 .where(
                     (src.models.Course.term == term) &
                     (
                         src.models.Course.code.contains(query.upper()) |
-                        src.models.Course.title.contains(query)
+                        src.models.Course.title.contains(query) |
+                        src.models.Instructor.name.contains(query)
                     )
                 )
+                .distinct()
                 .limit(10)
             )
 

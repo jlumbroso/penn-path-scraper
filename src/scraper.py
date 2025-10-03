@@ -80,6 +80,7 @@ class CourseScraper:
         term: str,
         schools: typing.Optional[typing.List[str]] = None,
         create_snapshots: bool = True,
+        progress_callback: typing.Optional[typing.Callable[[int, int], None]] = None,
     ) -> TermScrapeResult:
         """
         Scrape all courses for a term.
@@ -88,6 +89,7 @@ class CourseScraper:
             term: Term code (e.g., "202530")
             schools: List of school codes to scrape (None = all schools)
             create_snapshots: Whether to create enrollment snapshots
+            progress_callback: Optional callback(current, total) for progress updates
 
         Returns:
             TermScrapeResult with aggregated statistics
@@ -111,6 +113,7 @@ class CourseScraper:
                     term=term,
                     school_code=school_code,
                     create_snapshots=create_snapshots,
+                    progress_callback=progress_callback,
                 )
                 school_results.append(result)
             except Exception as e:
@@ -159,6 +162,7 @@ class CourseScraper:
         term: str,
         school_code: str,
         create_snapshots: bool = True,
+        progress_callback: typing.Optional[typing.Callable[[int, int], None]] = None,
     ) -> SchoolScrapeResult:
         """
         Scrape all courses for a school in a term.
@@ -167,6 +171,7 @@ class CourseScraper:
             term: Term code (e.g., "202530")
             school_code: School code (e.g., "E" for Engineering)
             create_snapshots: Whether to create enrollment snapshots
+            progress_callback: Optional callback(current, total) for progress updates
 
         Returns:
             SchoolScrapeResult with statistics
@@ -202,7 +207,7 @@ class CourseScraper:
         errors: typing.List[str] = []
 
         # Process each course
-        for course_summary in search_result["results"]:
+        for idx, course_summary in enumerate(search_result["results"], 1):
             try:
                 self._process_course(
                     course_code=course_summary["code"],
@@ -222,6 +227,10 @@ class CourseScraper:
                     crn=course_summary["crn"],
                     error=str(e),
                 )
+
+            # Call progress callback
+            if progress_callback:
+                progress_callback(idx, courses_found)
 
         duration = (datetime.datetime.now() - start_time).total_seconds()
 

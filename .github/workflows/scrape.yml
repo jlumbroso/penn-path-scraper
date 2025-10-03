@@ -43,15 +43,18 @@ jobs:
 
       - name: Scrape current and next term
         run: |
+          # Create db directory
+          mkdir -p ./db
+
           # Scrape current term
-          pipenv run scraper scrape --db ./db/courses.db
+          pipenv run scraper --db ./db/courses.db scrape
 
           # Scrape next term
-          pipenv run scraper scrape --db ./db/courses.db --next-term
+          pipenv run scraper --db ./db/courses.db scrape --next-term
 
       - name: Export to JSON
         run: |
-          pipenv run scraper export --db ./db/courses.db --output-dir ./data
+          pipenv run scraper --db ./db/courses.db export --output-dir ./data
 
       - name: Upload database artifact
         uses: actions/upload-artifact@v4
@@ -82,4 +85,4 @@ jobs:
 
       - name: Display statistics
         run: |
-          pipenv run scraper stats --db ./db/courses.db
+          pipenv run scraper --db ./db/courses.db stats

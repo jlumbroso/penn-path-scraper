@@ -142,6 +142,77 @@ Perfect for:
 - Frontend data visualization
 - Historical analysis
 
+#### Export Format
+
+**index.json** - List of all terms:
+```json
+{
+  "terms": [
+    {
+      "code": "202530",
+      "name": "Fall 2025",
+      "start_date": "2025-08-26",
+      "end_date": "2025-12-08",
+      "course_count": 952
+    }
+  ],
+  "generated_at": "2025-10-03T00:00:00"
+}
+```
+
+**{term_code}.json** - Complete term data with courses:
+```json
+{
+  "term_code": "202530",
+  "term_name": "Fall 2025",
+  "start_date": "2025-08-26",
+  "end_date": "2025-12-08",
+  "exported_at": "2025-10-03T00:00:00",
+  "courses": [
+    {
+      "crn": "12345",
+      "code": "CIS 1210",
+      "section": "001",
+      "title": "Data Structures and Algorithms",
+      "schedule_type": "Lecture",
+      "status": "Active",
+      "is_cancelled": false,
+      "enrolled": 45,
+      "max_enrollment": 50,
+      "seats_available": 5,
+      "credits": 1.0,
+      "instructors": ["Lumbroso, Jeremie"],
+      "meetings": [
+        {
+          "days": "TR",
+          "start_time": "10:30:00",
+          "end_time": "12:00:00",
+          "location": "TOWNE 303"
+        }
+      ],
+      "enrollment_history": [
+        {
+          "timestamp": "2025-08-01T12:00:00",
+          "enrolled": 30,
+          "capacity": 50
+        },
+        {
+          "timestamp": "2025-08-02T12:00:00",
+          "enrolled": 40,
+          "capacity": 50
+        }
+      ]
+    }
+  ]
+}
+```
+
+Use this data structure to build:
+- **Trend charts**: Plot `enrollment_history` over time
+- **Course finders**: Search `courses` array by `code`, `title`, or `instructors`
+- **Capacity tracking**: Compare `enrolled` vs `max_enrollment`
+- **Schedule builders**: Use `meetings` to find time slots
+
 ## 🤖 Automated Scraping
 
 The repository includes a GitHub Actions workflow that automatically:
@@ -377,6 +448,4 @@ Built with:
 
 ---
 
-**Made with ❤️ for Penn Course Research**
-
-🤖 Generated with [Claude Code](https://claude.com/claude-code)
+**Made with ❤️ for Penn CIS and Penn Engineering, by [@jlumbroso](https://github.com/jlumbroso/) with valiant assistance and support of [Claude Sonnet 4.5](https://claude.com/claude-code).**

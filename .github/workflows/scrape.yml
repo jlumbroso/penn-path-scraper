@@ -52,9 +52,9 @@ jobs:
           # Scrape next term
           pipenv run scraper --db ./db/courses.db scrape --next-term
 
-      - name: Export to JSON
+      - name: Export to JSON (granular ADR-0002 structure)
         run: |
-          pipenv run scraper --db ./db/courses.db export --output-dir ./data
+          pipenv run scraper --db ./db/courses.db export --output-dir .
 
       - name: Upload database artifact
         uses: actions/upload-artifact@v4
@@ -68,7 +68,7 @@ jobs:
           git config user.name "GitHub Actions Bot"
           git config user.email "actions@github.com"
 
-          git add data/
+          git add api/
 
           # Only commit if there are changes
           if git diff --staged --quiet; then
@@ -76,7 +76,7 @@ jobs:
           else
             git commit -m "chore: update course data $(date -u +'%Y-%m-%d %H:%M:%S UTC')
 
-            Automated scrape of Penn course catalog.
+            Automated scrape of Penn course catalog (granular structure).
 
             🤖 Generated with [Claude Code](https://claude.com/claude-code)"
 

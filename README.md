@@ -118,79 +118,132 @@ pipenv run scraper stats
 Export course data to JSON for static hosting:
 
 ```bash
-# Export all terms to ./data directory
+# Granular export (default, follows ADR-0002 Option C)
 pipenv run scraper export
+# Creates: ./api/ directory with granular structure
 
-# Export to custom directory
+# Monolithic export (simple one-file-per-term)
+pipenv run scraper export --monolithic
+# Creates: ./data/ directory with term files
+
+# Custom output directory
 pipenv run scraper export --output-dir ./public
 
-# Export specific term only
-pipenv run scraper export --term 202530
+# Monolithic: Export specific term only
+pipenv run scraper export --monolithic --term 202530
 ```
 
-Exported data includes:
-- **index.json**: List of all available terms with metadata
-- **{term_code}.json**: Complete course data for each term
-  - Course details (code, title, CRN, section, etc.)
-  - Enrollment history (time-series snapshots)
-  - Instructors and meeting times
-  - Linked sections
+#### Granular Export (Default - ADR-0002 Option C)
 
-Perfect for:
-- GitHub Pages hosting
-- Static site generators
-- Frontend data visualization
-- Historical analysis
+**Structure:**
+```
+api/
+  index.json                    # Master API index
+  courses/
+    CIS-1210/
+      index.json                # Course metadata (static)
+      enrollments.json          # Time-series data (updated daily)
+    NETS-2130/
+      index.json
+      enrollments.json
+  terms/
+    202530/
+      index.json                # All courses in Fall 2025
+  search/
+    instructors.json            # Instructor → courses mapping
+    departments.json            # Department → courses mapping
+```
 
-#### Export Format
+**Benefits:**
+- **Efficient updates**: Only changed files are modified (better git diffs)
+- **Flexible access**: Fetch exactly the data you need
+- **Separated concerns**: Static metadata vs. dynamic enrollment data
+- **Search indexes**: Pre-built indexes for common queries
 
-**index.json** - List of all terms:
+**Use cases:**
+- Production APIs on GitHub Pages
+- Gradual data loading in frontends
+- Minimal bandwidth usage
+- Long-term historical tracking
+
+#### Monolithic Export (--monolithic flag)
+
+**Structure:**
+```
+data/
+  index.json                    # List of all terms
+  202530.json                   # Complete Fall 2025 data
+  202610.json                   # Complete Spring 2026 data
+```
+
+**Benefits:**
+- **Simple**: One file has everything for a term
+- **Fast**: No need to fetch multiple files
+- **Easy debugging**: Single file to inspect
+
+**Use cases:**
+- Initial prototyping
+- Simple data analysis
+- One-time exports
+
+#### Granular Format Details
+
+**api/index.json** - Master API index:
 ```json
 {
-  "terms": [
-    {
-      "code": "202530",
-      "name": "Fall 2025",
-      "start_date": "2025-08-26",
-      "end_date": "2025-12-08",
-      "course_count": 952
-    }
-  ],
-  "generated_at": "2025-10-03T00:00:00"
+  "api_version": "1.0",
+  "total_terms": 1,
+  "total_courses": 338,
+  "total_instructors": 368,
+  "endpoints": {
+    "courses": "/api/courses/{course-code}/index.json",
+    "enrollments": "/api/courses/{course-code}/enrollments.json",
+    "terms": "/api/terms/{term-code}/index.json",
+    "instructor_search": "/api/search/instructors.json",
+    "department_search": "/api/search/departments.json"
+  }
 }
 ```
 
-**{term_code}.json** - Complete term data with courses:
+**api/courses/CIS-1210/index.json** - Course metadata (relatively static):
 ```json
 {
-  "term_code": "202530",
-  "term_name": "Fall 2025",
-  "start_date": "2025-08-26",
-  "end_date": "2025-12-08",
-  "exported_at": "2025-10-03T00:00:00",
-  "courses": [
+  "course_code": "CIS 1210",
+  "sections": [
     {
       "crn": "12345",
-      "code": "CIS 1210",
+      "term": "202530",
+      "term_name": "Fall 2025",
       "section": "001",
       "title": "Data Structures and Algorithms",
-      "schedule_type": "Lecture",
-      "status": "Active",
-      "is_cancelled": false,
-      "enrolled": 45,
-      "max_enrollment": 50,
-      "seats_available": 5,
-      "credits": 1.0,
-      "instructors": ["Lumbroso, Jeremie"],
+      "instructors": ["Arvind Bhusnurmath"],
       "meetings": [
         {
           "days": "TR",
-          "start_time": "10:30:00",
-          "end_time": "12:00:00",
-          "location": "TOWNE 303"
+          "start_time": "10:15:00",
+          "end_time": "11:44:00",
+          "location": "MEYH B1"
         }
       ],
-      "enrollment_history": [
+      "current_enrollment": {
+        "enrolled": 45,
+        "max_enrollment": 50,
+        "seats_available": 5
+      }
+    }
+  ]
+}
+```
+
+**api/courses/CIS-1210/enrollments.json** - Time-series data (updated daily):
+```json
+{
+  "course_code": "CIS 1210",
+  "enrollment_history": [
+    {
+      "crn": "12345",
+      "term": "202530",
+      "snapshots": [
         {
           "timestamp": "2025-08-01T12:00:00",
           "enrolled": 30,
@@ -207,11 +260,27 @@ Perfect for:
 }
 ```
 
-Use this data structure to build:
-- **Trend charts**: Plot `enrollment_history` over time
-- **Course finders**: Search `courses` array by `code`, `title`, or `instructors`
-- **Capacity tracking**: Compare `enrolled` vs `max_enrollment`
-- **Schedule builders**: Use `meetings` to find time slots
+**api/search/instructors.json** - Instructor search index:
+```json
+{
+  "instructors": {
+    "Jeremie Lumbroso": [
+      {
+        "crn": "80595",
+        "code": "NETS 2130",
+        "title": "Crowdsourcing and Human Computation",
+        "term": "202530"
+      }
+    ]
+  }
+}
+```
+
+**Usage examples:**
+- **Trend charts**: Fetch `/api/courses/CIS-1210/enrollments.json`, plot snapshots
+- **Course finder**: Search `/api/search/instructors.json` by name
+- **Department view**: Load `/api/search/departments.json`, filter by "CIS"
+- **Term listing**: Fetch `/api/terms/202530/index.json` for all Fall 2025 courses
 
 ## 🤖 Automated Scraping
 
@@ -219,8 +288,8 @@ The repository includes a GitHub Actions workflow that automatically:
 
 1. **Runs daily at 6 AM UTC** (2 AM ET)
 2. **Scrapes current + next term** for advance registration data
-3. **Exports to JSON** in the `./data` directory
-4. **Commits changes** to the repository
+3. **Exports to granular JSON structure** in the `./api` directory (ADR-0002 Option C)
+4. **Commits changes** to the repository (only modified files)
 5. **Preserves historical data** across runs
 
 ### Manual Trigger

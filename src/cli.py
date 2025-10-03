@@ -19,6 +19,7 @@ from rich import box
 
 import src.api_client
 import src.export
+import src.export_granular
 import src.models
 import src.persistence
 import src.scraper
@@ -212,19 +213,13 @@ def search(
         query = click.prompt("🔍 Search for courses", type=str)
 
     # Build search query - join with instructors to search by name
+    import peewee
+
     query_obj = (
         src.models.Course
         .select()
-        .join(
-            src.models.CourseInstructor,
-            on=(src.models.Course.crn == src.models.CourseInstructor.course),
-            join_type="LEFT OUTER"
-        )
-        .join(
-            src.models.Instructor,
-            on=(src.models.CourseInstructor.instructor == src.models.Instructor.id),
-            join_type="LEFT OUTER"
-        )
+        .join(src.models.CourseInstructor, peewee.JOIN.LEFT_OUTER)
+        .join(src.models.Instructor, peewee.JOIN.LEFT_OUTER)
     )
 
     # Add filters
@@ -330,18 +325,12 @@ def demo(ctx: click.Context, school: str) -> None:
                 break
 
             # Search with instructor support
+            import peewee
+
             results = list(
                 src.models.Course.select()
-                .join(
-                    src.models.CourseInstructor,
-                    on=(src.models.Course.crn == src.models.CourseInstructor.course),
-                    join_type="LEFT OUTER"
-                )
-                .join(
-                    src.models.Instructor,
-                    on=(src.models.CourseInstructor.instructor == src.models.Instructor.id),
-                    join_type="LEFT OUTER"
-                )
+                .join(src.models.CourseInstructor, peewee.JOIN.LEFT_OUTER)
+                .join(src.models.Instructor, peewee.JOIN.LEFT_OUTER)
                 .where(
                     (src.models.Course.term == term) &
                     (
@@ -602,59 +591,91 @@ def _display_enrollment_history(
 @click.option(
     "--term",
     "-t",
-    help="Export specific term only (default: all terms)",
+    help="Export specific term only (monolithic mode only)",
+)
+@click.option(
+    "--monolithic",
+    is_flag=True,
+    help="Use monolithic export (one file per term) instead of granular structure",
 )
 @click.pass_context
-def export(ctx: click.Context, output_dir: str, term: typing.Optional[str]) -> None:
+def export(ctx: click.Context, output_dir: str, term: typing.Optional[str], monolithic: bool) -> None:
     """
     📦 Export course data to JSON files.
 
-    Exports course data with enrollment history to static JSON feeds for GitHub Pages.
+    **Default**: Granular structure following ADR-0002 Option C
+    - Separate files per course with metadata + enrollment history
+    - Search indexes for instructors and departments
+    - Efficient updates (only changed files modified)
+
+    **Monolithic mode** (--monolithic): Simple one-file-per-term export
+    - Faster for initial setup
+    - Easier to consume as single file
+    - Larger git diffs on updates
     """
     # Initialize database (read-only)
     src.persistence.initialize_database(ctx.obj["db_path"])
 
     output_path = pathlib.Path(output_dir)
 
-    if term:
-        # Export single term
-        console.print(f"\n[bold cyan]📦 Exporting term {term}...[/bold cyan]\n")
+    if monolithic:
+        # Monolithic export (original behavior)
+        if term:
+            # Export single term
+            console.print(f"\n[bold cyan]📦 Exporting term {term} (monolithic)...[/bold cyan]\n")
 
-        try:
-            term_file = output_path / f"{term}.json"
-            src.export.export_term_to_json(term, str(term_file))
+            try:
+                term_file = output_path / f"{term}.json"
+                src.export.export_term_to_json(term, str(term_file))
 
-            console.print(f"✅ Exported to: [green]{term_file}[/green]")
+                console.print(f"✅ Exported to: [green]{term_file}[/green]")
 
-        except src.models.Term.DoesNotExist:
-            console.print(f"[red]❌ Error: Term {term} not found in database[/red]")
-            sys.exit(1)
+            except src.models.Term.DoesNotExist:
+                console.print(f"[red]❌ Error: Term {term} not found in database[/red]")
+                sys.exit(1)
+
+        else:
+            # Export all terms (monolithic)
+            console.print("[bold cyan]📦 Exporting all terms (monolithic)...[/bold cyan]\n")
+
+            term_count = src.models.Term.select().count()
+
+            if term_count == 0:
+                console.print("[yellow]⚠️  No terms found in database[/yellow]")
+                sys.exit(0)
+
+            with Progress(
+                SpinnerColumn(),
+                TextColumn("[progress.description]{task.description}"),
+                BarColumn(),
+                TextColumn("[progress.percentage]{task.percentage:>3.0f}%"),
+                console=console,
+            ) as progress:
+                task = progress.add_task(f"Exporting {term_count} terms...", total=term_count)
+
+                src.export.export_all_terms(str(output_path))
+
+                progress.update(task, completed=term_count)
+
+            console.print(f"\n✅ Exported {term_count} terms to: [green]{output_path}[/green]")
+            console.print(f"📄 Index file: [green]{output_path / 'index.json'}[/green]\n")
 
     else:
-        # Export all terms
-        console.print("[bold cyan]📦 Exporting all terms...[/bold cyan]\n")
+        # Granular export (ADR-0002 Option C)
+        if term:
+            console.print("[yellow]⚠️  --term flag only works with --monolithic mode[/yellow]")
+            console.print("[dim]Granular export always exports all data for consistency[/dim]\n")
 
-        term_count = src.models.Term.select().count()
+        console.print("[bold cyan]📦 Exporting granular structure (ADR-0002 Option C)...[/bold cyan]\n")
 
-        if term_count == 0:
-            console.print("[yellow]⚠️  No terms found in database[/yellow]")
-            sys.exit(0)
+        with console.status("[bold green]Building API structure..."):
+            src.export_granular.export_granular_structure(str(output_path))
 
-        with Progress(
-            SpinnerColumn(),
-            TextColumn("[progress.description]{task.description}"),
-            BarColumn(),
-            TextColumn("[progress.percentage]{task.percentage:>3.0f}%"),
-            console=console,
-        ) as progress:
-            task = progress.add_task(f"Exporting {term_count} terms...", total=term_count)
-
-            src.export.export_all_terms(str(output_path))
-
-            progress.update(task, completed=term_count)
-
-        console.print(f"\n✅ Exported {term_count} terms to: [green]{output_path}[/green]")
-        console.print(f"📄 Index file: [green]{output_path / 'index.json'}[/green]\n")
+        console.print(f"\n✅ [green]Exported granular API structure to: {output_path / 'api'}[/green]")
+        console.print(f"📄 Master index: [green]{output_path / 'api' / 'index.json'}[/green]")
+        console.print(f"📁 Course files: [green]{output_path / 'api' / 'courses'}[/green]")
+        console.print(f"📅 Term files: [green]{output_path / 'api' / 'terms'}[/green]")
+        console.print(f"🔍 Search indexes: [green]{output_path / 'api' / 'search'}[/green]\n")
 
 
 if __name__ == "__main__":

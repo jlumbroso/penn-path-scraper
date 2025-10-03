@@ -72,6 +72,9 @@ class CourseScraper:
         self.db_path = db_path
         self.logger = logger.bind(component="scraper")
 
+        # Initialize database connection
+        src.persistence.initialize_database(db_path)
+
     def scrape_term(
         self,
         term: str,
@@ -175,6 +178,9 @@ class CourseScraper:
             term=term,
             school_code=school_code,
         )
+
+        # Ensure term exists in database
+        ensure_term_exists(term)
 
         # Search for courses in this school
         try:

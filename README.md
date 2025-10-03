@@ -11,8 +11,11 @@ Create longitudinal datasets of course enrollments, track registration trends, a
 - 🔍 **Interactive Search**: Beautiful search interface with fuzzy matching
 - 🎬 **Demo Mode**: Quick demonstration with live scraping + search
 - 🌈 **Beautiful CLI**: Rich formatting, progress bars, and intuitive interface
-- 🧪 **Well-Tested**: 58 unit tests, 92% code coverage, TDD approach
+- 🧪 **Well-Tested**: 70 unit tests, 92% code coverage, TDD approach
 - 📊 **Multi-Term Support**: Scrape current + next term for advance registration data
+- 📦 **JSON Export**: Static feeds for GitHub Pages and data visualization
+- 🤖 **Automated Scraping**: GitHub Actions workflow for daily updates
+- 🗄️ **Historical Preservation**: Keep old terms while refreshing current data
 
 ## 🚀 Quick Start
 
@@ -110,6 +113,53 @@ View database stats:
 pipenv run scraper stats
 ```
 
+### JSON Export
+
+Export course data to JSON for static hosting:
+
+```bash
+# Export all terms to ./data directory
+pipenv run scraper export
+
+# Export to custom directory
+pipenv run scraper export --output-dir ./public
+
+# Export specific term only
+pipenv run scraper export --term 202530
+```
+
+Exported data includes:
+- **index.json**: List of all available terms with metadata
+- **{term_code}.json**: Complete course data for each term
+  - Course details (code, title, CRN, section, etc.)
+  - Enrollment history (time-series snapshots)
+  - Instructors and meeting times
+  - Linked sections
+
+Perfect for:
+- GitHub Pages hosting
+- Static site generators
+- Frontend data visualization
+- Historical analysis
+
+## 🤖 Automated Scraping
+
+The repository includes a GitHub Actions workflow that automatically:
+
+1. **Runs daily at 6 AM UTC** (2 AM ET)
+2. **Scrapes current + next term** for advance registration data
+3. **Exports to JSON** in the `./data` directory
+4. **Commits changes** to the repository
+5. **Preserves historical data** across runs
+
+### Manual Trigger
+
+You can manually trigger the workflow from the Actions tab in GitHub.
+
+### Historical Preservation
+
+The scraper **preserves old terms** when refreshing current/next term data. This means you build a comprehensive longitudinal dataset over time without losing historical information.
+
 ## 🏗️ Architecture
 
 ### Clean Separation of Concerns
@@ -122,6 +172,7 @@ src/
 ├── api_client.py      # Penn Courses API client
 ├── persistence.py     # Data transformation & persistence
 ├── scraper.py         # Orchestration layer
+├── export.py          # JSON export for static feeds
 └── cli.py             # Beautiful Click CLI
 ```
 
@@ -152,7 +203,7 @@ Penn API → API Client → Parsers → CourseDict → Persistence → Database
 We follow TDD with comprehensive test coverage:
 
 ```bash
-# Run all unit tests (58 tests)
+# Run all unit tests (70 tests)
 pipenv run test
 
 # Run with coverage report (92% coverage)
@@ -174,7 +225,7 @@ pipenv run typecheck
 - `tests/unit/` - Fast unit tests with mocked APIs
 - `tests/fixtures/` - Real API response samples
 - Uses pytest-mock for clean mocking
-- 58/58 tests passing, 0 warnings
+- 70/70 tests passing, 0 warnings
 
 ## 📊 Available Schools
 
@@ -299,11 +350,14 @@ pipenv run scraper track "NETS 2130"
 
 ## 🏆 Project Highlights
 
-- **58 unit tests, all passing**
+- **70 unit tests, all passing**
 - **92% code coverage**
 - **Zero warnings**
 - **Beautiful CLI with rich-click**
 - **Production-ready architecture**
+- **Automated GitHub Actions workflow**
+- **JSON export for static feeds**
+- **Historical data preservation**
 - **Comprehensive error handling**
 - **Structured logging with structlog**
 

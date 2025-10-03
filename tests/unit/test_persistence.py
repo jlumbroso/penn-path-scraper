@@ -20,25 +20,25 @@ import src.persistence
 import src.types
 
 
-# Use in-memory database for tests
-test_db = peewee.SqliteDatabase(":memory:")
+# Use in-memory database for tests (underscore prefix to avoid pytest collection warning)
+_test_db = peewee.SqliteDatabase(":memory:")
 
 
 @pytest.fixture(scope="function")
 def db():
     """Create fresh in-memory database for each test."""
     # Bind all models to test database
-    test_db.bind(src.models.ALL_MODELS, bind_refs=False, bind_backrefs=False)
+    _test_db.bind(src.models.ALL_MODELS, bind_refs=False, bind_backrefs=False)
 
     # Connect and create tables
-    test_db.connect()
-    test_db.create_tables(src.models.ALL_MODELS)
+    _test_db.connect()
+    _test_db.create_tables(src.models.ALL_MODELS)
 
-    yield test_db
+    yield _test_db
 
     # Clean up
-    test_db.drop_tables(src.models.ALL_MODELS)
-    test_db.close()
+    _test_db.drop_tables(src.models.ALL_MODELS)
+    _test_db.close()
 
 
 @pytest.fixture

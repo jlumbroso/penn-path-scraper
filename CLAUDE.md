@@ -113,22 +113,27 @@ maybe you think we need to use a database as a backend to store the data.
 
 ## Development Commands
 
-We want to build robust Python 
-
 ```bash
 # Testing
-pipenv run test-local [URL]        # Test with any Calendly URL
+pipenv run test                    # Run unit tests (default)
 pipenv run test-unit               # Fast unit tests
 pipenv run test-integration        # Real API tests
-pipenv run test-all                # Complete test suite
+pipenv run test-all                # Complete test suite (unit + integration)
+pipenv run check-fast              # Fast fail: stop on first failure
+
+# Coverage
+pipenv run coverage                # Coverage report for unit tests (92% current)
+pipenv run coverage-html           # Generate HTML coverage report
+pipenv run coverage-all            # Coverage for all tests
 
 # Code Quality
-pipenv run lint                    # Run ruff linter
-pipenv run format                  # Format code with ruff
-pipenv run check                   # Lint + unit tests
+pipenv run typecheck               # Run mypy type checker
 
-# Shortcuts
-pipenv run dev                     # Same as test-local
+# Performance
+pipenv run test-parallel           # Run tests in parallel (fast)
+
+# Documentation
+# See docs/TESTING.md for detailed testing guide
 ```
 
 ## Testing Strategy

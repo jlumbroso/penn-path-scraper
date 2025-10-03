@@ -18,5 +18,27 @@ pytest-mock = "*"
 pytest-xdist = "*"
 mypy = "*"
 
+[scripts]
+# Testing
+test-unit = "pytest tests/unit/ -v"
+test-integration = "pytest tests/integration/ -v"
+test-all = "pytest tests/ -v"
+test = "pytest tests/unit/ -v"
+
+# Coverage
+coverage = "pytest tests/unit/ --cov=src --cov-report=term-missing"
+coverage-html = "pytest tests/unit/ --cov=src --cov-report=html"
+coverage-all = "pytest tests/ --cov=src --cov-report=term-missing"
+
+# Type checking
+typecheck = "mypy src/"
+
+# Quick checks
+check = "bash -c 'pytest tests/unit/ -v'"
+check-fast = "pytest tests/unit/ -x"
+
+# Parallel execution (fast)
+test-parallel = "pytest tests/unit/ -n auto"
+
 [requires]
 python_version = "3.12"

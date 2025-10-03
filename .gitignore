@@ -1,2 +1,33 @@
 # macOS metadata
 .DS_Store
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Testing
+.coverage
+.pytest_cache/
+htmlcov/
+.tox/
+
+# Virtual environments
+.venv/
+venv/
+ENV/
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Database files
+*.db
+*.sqlite
+*.sqlite3
+
+# Logs
+*.log

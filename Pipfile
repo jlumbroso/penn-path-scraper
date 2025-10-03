@@ -1,34 +1,41 @@
 [[source]]
+name = "pypi"
 url = "https://pypi.org/simple"
 verify_ssl = true
-name = "pypi"
 
 [packages]
-requests = "*"
-peewee = "*"
 beautifulsoup4 = "*"
-structlog = "*"
 click = "*"
+click-didyoumean = "*"
 fake-useragent = "*"
+peewee = "*"
+requests = "*"
+rich = "*"
+rich-click = "*"
+structlog = "*"
 
 [dev-packages]
+mypy = "*"
 pytest = "*"
 pytest-cov = "*"
 pytest-mock = "*"
 pytest-xdist = "*"
-mypy = "*"
 
 [scripts]
+# CLI
+scraper = "python -m src.cli"
+demo = "python -m src.cli demo"
+
 # Testing
-test-unit = "pytest tests/unit/ -v"
-test-integration = "pytest tests/integration/ -v"
-test-all = "pytest tests/ -v"
 test = "pytest tests/unit/ -v"
+test-all = "pytest tests/ -v"
+test-integration = "pytest tests/integration/ -v"
+test-unit = "pytest tests/unit/ -v"
 
 # Coverage
 coverage = "pytest tests/unit/ --cov=src --cov-report=term-missing"
-coverage-html = "pytest tests/unit/ --cov=src --cov-report=html"
 coverage-all = "pytest tests/ --cov=src --cov-report=term-missing"
+coverage-html = "pytest tests/unit/ --cov=src --cov-report=html"
 
 # Type checking
 typecheck = "mypy src/"

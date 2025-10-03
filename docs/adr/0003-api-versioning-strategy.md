@@ -110,6 +110,18 @@ All endpoints include the version prefix:
 - `/api/v1/search/instructors.json`
 - `/api/v1/search/departments.json`
 
+### Deployment Strategy
+
+The API is deployed to GitHub Pages via a dedicated `gh-pages` branch:
+
+1. **Local structure**: `./api/v1/` (during export)
+2. **gh-pages branch**: Contains only the `api/` directory contents (no source code)
+3. **Public URLs**: `https://<username>.github.io/<repo>/v1/index.json`
+
+This keeps the source code separate from the published API:
+- **main branch**: Python source, tests, documentation (not publicly served)
+- **gh-pages branch**: Only JSON files (publicly served)
+
 ### Future Migration Path
 
 When we need to introduce breaking changes:
@@ -118,7 +130,12 @@ When we need to introduce breaking changes:
 3. Update documentation to recommend v2
 4. Eventually deprecate v1 (but keep files for backward compatibility)
 
+Both versions will be deployed to gh-pages simultaneously, accessible at:
+- `https://<username>.github.io/<repo>/v1/...` (legacy)
+- `https://<username>.github.io/<repo>/v2/...` (new)
+
 ## Links
 
 * Extends [ADR-0002 Data Storage and Export Architecture](0002-data-storage-and-export-architecture.md)
 * Master index at `/api/v1/index.json` includes `api_version` field for schema version tracking
+* Deployed via `peaceiris/actions-gh-pages` GitHub Action to `gh-pages` branch

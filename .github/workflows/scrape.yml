@@ -63,25 +63,15 @@ jobs:
           path: ./db/courses.db
           retention-days: 90
 
-      - name: Commit and push data
-        run: |
-          git config user.name "GitHub Actions Bot"
-          git config user.email "actions@github.com"
-
-          git add api/
-
-          # Only commit if there are changes
-          if git diff --staged --quiet; then
-            echo "No changes to commit"
-          else
-            git commit -m "chore: update course data $(date -u +'%Y-%m-%d %H:%M:%S UTC')
-
-            Automated scrape of Penn course catalog (granular structure).
-
-            🤖 Generated with [Claude Code](https://claude.com/claude-code)"
-
-            git push
-          fi
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./api
+          publish_branch: gh-pages
+          commit_message: "chore: update course data $(date -u +'%Y-%m-%d %H:%M:%S UTC')"
+          user_name: 'github-actions[bot]'
+          user_email: 'github-actions[bot]@users.noreply.github.com'
 
       - name: Display statistics
         run: |

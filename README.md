@@ -288,9 +288,21 @@ The repository includes a GitHub Actions workflow that automatically:
 
 1. **Runs daily at 6 AM UTC** (2 AM ET)
 2. **Scrapes current + next term** for advance registration data
-3. **Exports to granular JSON structure** in the `./api/v1/` directory (ADR-0002 Option C)
-4. **Commits changes to main branch** (only modified files)
+3. **Exports to granular JSON structure** (ADR-0002 Option C)
+4. **Deploys to GitHub Pages** via dedicated `gh-pages` branch (only JSON files, no source code)
 5. **Preserves historical data** across runs
+
+### GitHub Pages Deployment
+
+The workflow publishes the `./api` directory to the `gh-pages` branch, which serves **only the JSON files** (no source code).
+
+**Access the API at**: `https://<username>.github.io/<repo-name>/v1/index.json`
+
+Example endpoints:
+- `https://<username>.github.io/<repo-name>/v1/courses/CIS-1210/index.json`
+- `https://<username>.github.io/<repo-name>/v1/search/instructors.json`
+
+To enable: Go to **Settings → Pages → Source** and select "Deploy from a branch: gh-pages"
 
 ### Manual Trigger
 

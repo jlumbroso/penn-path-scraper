@@ -1,0 +1,85 @@
+name: Scrape Penn Courses
+
+on:
+  schedule:
+    # Run daily at 6 AM UTC (2 AM ET)
+    - cron: '0 6 * * *'
+  workflow_dispatch:  # Allow manual triggers
+  push:
+    branches:
+      - main
+    paths:
+      - '.github/workflows/scrape.yml'
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write  # Allow pushing changes
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install pipenv
+        run: |
+          pip install pipenv
+
+      - name: Install dependencies
+        run: |
+          pipenv install --deploy
+
+      - name: Restore database from artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: course-database
+          path: ./db
+        continue-on-error: true  # First run won't have artifact
+
+      - name: Scrape current and next term
+        run: |
+          # Scrape current term
+          pipenv run scraper scrape --db ./db/courses.db
+
+          # Scrape next term
+          pipenv run scraper scrape --db ./db/courses.db --next-term
+
+      - name: Export to JSON
+        run: |
+          pipenv run scraper export --db ./db/courses.db --output-dir ./data
+
+      - name: Upload database artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: course-database
+          path: ./db/courses.db
+          retention-days: 90
+
+      - name: Commit and push data
+        run: |
+          git config user.name "GitHub Actions Bot"
+          git config user.email "actions@github.com"
+
+          git add data/
+
+          # Only commit if there are changes
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "chore: update course data $(date -u +'%Y-%m-%d %H:%M:%S UTC')
+
+            Automated scrape of Penn course catalog.
+
+            🤖 Generated with [Claude Code](https://claude.com/claude-code)"
+
+            git push
+          fi
+
+      - name: Display statistics
+        run: |
+          pipenv run scraper stats --db ./db/courses.db

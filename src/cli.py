@@ -18,6 +18,7 @@ from rich.panel import Panel
 from rich import box
 
 import src.api_client
+import src.export
 import src.models
 import src.persistence
 import src.scraper
@@ -540,6 +541,72 @@ def _display_enrollment_history(
 
     console.print(table)
     console.print()
+
+
+@cli.command()
+@click.option(
+    "--output-dir",
+    "-o",
+    default="./data",
+    help="Output directory for JSON files",
+    show_default=True,
+)
+@click.option(
+    "--term",
+    "-t",
+    help="Export specific term only (default: all terms)",
+)
+@click.pass_context
+def export(ctx: click.Context, output_dir: str, term: typing.Optional[str]) -> None:
+    """
+    📦 Export course data to JSON files.
+
+    Exports course data with enrollment history to static JSON feeds for GitHub Pages.
+    """
+    # Initialize database (read-only)
+    src.persistence.initialize_database(ctx.obj["db_path"])
+
+    output_path = pathlib.Path(output_dir)
+
+    if term:
+        # Export single term
+        console.print(f"\n[bold cyan]📦 Exporting term {term}...[/bold cyan]\n")
+
+        try:
+            term_file = output_path / f"{term}.json"
+            src.export.export_term_to_json(term, str(term_file))
+
+            console.print(f"✅ Exported to: [green]{term_file}[/green]")
+
+        except src.models.Term.DoesNotExist:
+            console.print(f"[red]❌ Error: Term {term} not found in database[/red]")
+            sys.exit(1)
+
+    else:
+        # Export all terms
+        console.print("[bold cyan]📦 Exporting all terms...[/bold cyan]\n")
+
+        term_count = src.models.Term.select().count()
+
+        if term_count == 0:
+            console.print("[yellow]⚠️  No terms found in database[/yellow]")
+            sys.exit(0)
+
+        with Progress(
+            SpinnerColumn(),
+            TextColumn("[progress.description]{task.description}"),
+            BarColumn(),
+            TextColumn("[progress.percentage]{task.percentage:>3.0f}%"),
+            console=console,
+        ) as progress:
+            task = progress.add_task(f"Exporting {term_count} terms...", total=term_count)
+
+            src.export.export_all_terms(str(output_path))
+
+            progress.update(task, completed=term_count)
+
+        console.print(f"\n✅ Exported {term_count} terms to: [green]{output_path}[/green]")
+        console.print(f"📄 Index file: [green]{output_path / 'index.json'}[/green]\n")
 
 
 if __name__ == "__main__":

@@ -459,7 +459,12 @@ def stats(ctx: click.Context) -> None:
     table.add_row("Enrollment Snapshots", str(total_snapshots))
 
     if latest_scrape:
-        table.add_row("Last Scrape", latest_scrape.last_scraped.strftime("%Y-%m-%d %H:%M:%S"))
+        # Handle both datetime and string (SQLite sometimes returns strings)
+        last_scraped = latest_scrape.last_scraped
+        if isinstance(last_scraped, str):
+            table.add_row("Last Scrape", last_scraped)
+        else:
+            table.add_row("Last Scrape", last_scraped.strftime("%Y-%m-%d %H:%M:%S"))
 
     console.print(table)
     console.print()

@@ -671,11 +671,11 @@ def export(ctx: click.Context, output_dir: str, term: typing.Optional[str], mono
         with console.status("[bold green]Building API structure..."):
             src.export_granular.export_granular_structure(str(output_path))
 
-        console.print(f"\n✅ [green]Exported granular API structure to: {output_path / 'api'}[/green]")
-        console.print(f"📄 Master index: [green]{output_path / 'api' / 'index.json'}[/green]")
-        console.print(f"📁 Course files: [green]{output_path / 'api' / 'courses'}[/green]")
-        console.print(f"📅 Term files: [green]{output_path / 'api' / 'terms'}[/green]")
-        console.print(f"🔍 Search indexes: [green]{output_path / 'api' / 'search'}[/green]\n")
+        console.print(f"\n✅ [green]Exported granular API structure to: {output_path / 'api' / 'v1'}[/green]")
+        console.print(f"📄 Master index: [green]{output_path / 'api' / 'v1' / 'index.json'}[/green]")
+        console.print(f"📁 Course files: [green]{output_path / 'api' / 'v1' / 'courses'}[/green]")
+        console.print(f"📅 Term files: [green]{output_path / 'api' / 'v1' / 'terms'}[/green]")
+        console.print(f"🔍 Search indexes: [green]{output_path / 'api' / 'v1' / 'search'}[/green]\n")
 
 
 if __name__ == "__main__":

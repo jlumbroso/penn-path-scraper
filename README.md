@@ -120,7 +120,7 @@ Export course data to JSON for static hosting:
 ```bash
 # Granular export (default, follows ADR-0002 Option C)
 pipenv run scraper export
-# Creates: ./api/ directory with granular structure
+# Creates: ./api/v1/ directory with granular structure
 
 # Monolithic export (simple one-file-per-term)
 pipenv run scraper export --monolithic
@@ -137,7 +137,7 @@ pipenv run scraper export --monolithic --term 202530
 
 **Structure:**
 ```
-api/
+api/v1/
   index.json                    # Master API index
   courses/
     CIS-1210/
@@ -188,7 +188,7 @@ data/
 
 #### Granular Format Details
 
-**api/index.json** - Master API index:
+**api/v1/index.json** - Master API index:
 ```json
 {
   "api_version": "1.0",
@@ -196,16 +196,16 @@ data/
   "total_courses": 338,
   "total_instructors": 368,
   "endpoints": {
-    "courses": "/api/courses/{course-code}/index.json",
-    "enrollments": "/api/courses/{course-code}/enrollments.json",
-    "terms": "/api/terms/{term-code}/index.json",
-    "instructor_search": "/api/search/instructors.json",
-    "department_search": "/api/search/departments.json"
+    "courses": "/api/v1/courses/{course-code}/index.json",
+    "enrollments": "/api/v1/courses/{course-code}/enrollments.json",
+    "terms": "/api/v1/terms/{term-code}/index.json",
+    "instructor_search": "/api/v1/search/instructors.json",
+    "department_search": "/api/v1/search/departments.json"
   }
 }
 ```
 
-**api/courses/CIS-1210/index.json** - Course metadata (relatively static):
+**api/v1/courses/CIS-1210/index.json** - Course metadata (relatively static):
 ```json
 {
   "course_code": "CIS 1210",
@@ -235,7 +235,7 @@ data/
 }
 ```
 
-**api/courses/CIS-1210/enrollments.json** - Time-series data (updated daily):
+**api/v1/courses/CIS-1210/enrollments.json** - Time-series data (updated daily):
 ```json
 {
   "course_code": "CIS 1210",
@@ -260,7 +260,7 @@ data/
 }
 ```
 
-**api/search/instructors.json** - Instructor search index:
+**api/v1/search/instructors.json** - Instructor search index:
 ```json
 {
   "instructors": {
@@ -277,10 +277,10 @@ data/
 ```
 
 **Usage examples:**
-- **Trend charts**: Fetch `/api/courses/CIS-1210/enrollments.json`, plot snapshots
-- **Course finder**: Search `/api/search/instructors.json` by name
-- **Department view**: Load `/api/search/departments.json`, filter by "CIS"
-- **Term listing**: Fetch `/api/terms/202530/index.json` for all Fall 2025 courses
+- **Trend charts**: Fetch `/api/v1/courses/CIS-1210/enrollments.json`, plot snapshots
+- **Course finder**: Search `/api/v1/search/instructors.json` by name
+- **Department view**: Load `/api/v1/search/departments.json`, filter by "CIS"
+- **Term listing**: Fetch `/api/v1/terms/202530/index.json` for all Fall 2025 courses
 
 ## 🤖 Automated Scraping
 
@@ -288,8 +288,8 @@ The repository includes a GitHub Actions workflow that automatically:
 
 1. **Runs daily at 6 AM UTC** (2 AM ET)
 2. **Scrapes current + next term** for advance registration data
-3. **Exports to granular JSON structure** in the `./api` directory (ADR-0002 Option C)
-4. **Commits changes** to the repository (only modified files)
+3. **Exports to granular JSON structure** in the `./api/v1/` directory (ADR-0002 Option C)
+4. **Commits changes to main branch** (only modified files)
 5. **Preserves historical data** across runs
 
 ### Manual Trigger

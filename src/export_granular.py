@@ -21,7 +21,7 @@ def export_granular_structure(output_dir: str) -> None:
     Export all data using ADR-0002 Option C granular structure.
 
     Structure:
-    /api/
+    /api/v1/
       /courses/
         /{course-code}/
           index.json          # Course metadata + current sections
@@ -35,10 +35,10 @@ def export_granular_structure(output_dir: str) -> None:
       index.json              # Master index
 
     Args:
-        output_dir: Base directory for API structure (will create /api subdirectory)
+        output_dir: Base directory for API structure (will create /api/v1 subdirectory)
     """
     base_path = pathlib.Path(output_dir)
-    api_path = base_path / "api"
+    api_path = base_path / "api" / "v1"
 
     # Create directory structure
     (api_path / "courses").mkdir(parents=True, exist_ok=True)
@@ -342,11 +342,11 @@ def _export_master_index(output_file: pathlib.Path) -> None:
         "total_courses": len(course_codes),
         "total_instructors": instructor_count,
         "endpoints": {
-            "courses": "/api/courses/{course-code}/index.json",
-            "enrollments": "/api/courses/{course-code}/enrollments.json",
-            "terms": "/api/terms/{term-code}/index.json",
-            "instructor_search": "/api/search/instructors.json",
-            "department_search": "/api/search/departments.json",
+            "courses": "/api/v1/courses/{course-code}/index.json",
+            "enrollments": "/api/v1/courses/{course-code}/enrollments.json",
+            "terms": "/api/v1/terms/{term-code}/index.json",
+            "instructor_search": "/api/v1/search/instructors.json",
+            "department_search": "/api/v1/search/departments.json",
         },
     }
 

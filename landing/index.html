@@ -527,12 +527,12 @@
 
             <div class="code-example">
 <code><span class="comment"># Get all courses for Fall 2025</span>
-fetch('<span class="string">https://jlumbroso.github.io/penn-path-scraper/v1/terms/202530/</span>')
+fetch('<span class="string">https://jlumbroso.github.io/penn-path-scraper/api/v1/terms/202530/</span>')
   .then(res => res.json())
   .then(data => console.log(data))
 
 <span class="comment"># Get enrollment history for a specific course</span>
-fetch('<span class="string">https://jlumbroso.github.io/penn-path-scraper/v1/courses/CIS-1210/enrollments.json</span>')
+fetch('<span class="string">https://jlumbroso.github.io/penn-path-scraper/api/v1/courses/CIS-1210/enrollments.json</span>')
   .then(res => res.json())
   .then(data => console.log(data.enrollment_history))</code>
             </div>
@@ -543,27 +543,27 @@ fetch('<span class="string">https://jlumbroso.github.io/penn-path-scraper/v1/cou
             <h2 class="section-title">API Endpoints</h2>
             <div class="endpoint-grid">
                 <div class="endpoint-item">
-                    <div class="endpoint-path">/v1/</div>
+                    <div class="endpoint-path">/api/v1/</div>
                     <div class="endpoint-desc">Master API index with stats, available terms, and all course codes</div>
                 </div>
                 <div class="endpoint-item">
-                    <div class="endpoint-path">/v1/courses/{course-code}/</div>
+                    <div class="endpoint-path">/api/v1/courses/{course-code}/</div>
                     <div class="endpoint-desc">Course metadata: sections, instructors, meetings, current enrollment</div>
                 </div>
                 <div class="endpoint-item">
-                    <div class="endpoint-path">/v1/courses/{course-code}/enrollments.json</div>
+                    <div class="endpoint-path">/api/v1/courses/{course-code}/enrollments.json</div>
                     <div class="endpoint-desc">Time-series enrollment data with daily snapshots</div>
                 </div>
                 <div class="endpoint-item">
-                    <div class="endpoint-path">/v1/terms/{term-code}/</div>
+                    <div class="endpoint-path">/api/v1/terms/{term-code}/</div>
                     <div class="endpoint-desc">All courses offered in a specific term</div>
                 </div>
                 <div class="endpoint-item">
-                    <div class="endpoint-path">/v1/search/instructors.json</div>
+                    <div class="endpoint-path">/api/v1/search/instructors.json</div>
                     <div class="endpoint-desc">Instructor → courses mapping for all terms</div>
                 </div>
                 <div class="endpoint-item">
-                    <div class="endpoint-path">/v1/search/departments.json</div>
+                    <div class="endpoint-path">/api/v1/search/departments.json</div>
                     <div class="endpoint-desc">Department → courses mapping for all terms</div>
                 </div>
             </div>
@@ -657,7 +657,7 @@ fetch('<span class="string">https://jlumbroso.github.io/penn-path-scraper/v1/cou
         <div class="footer-content">
             <div class="footer-links">
                 <a href="https://github.com/jlumbroso/penn-path-scraper" class="footer-link" target="_blank">GitHub Repository</a>
-                <a href="v1/index.json" class="footer-link">API Master Index</a>
+                <a href="api/v1/index.json" class="footer-link">API Master Index</a>
                 <a href="https://github.com/jlumbroso/penn-path-scraper/issues" class="footer-link" target="_blank">Report Issue</a>
             </div>
 
@@ -678,7 +678,7 @@ fetch('<span class="string">https://jlumbroso.github.io/penn-path-scraper/v1/cou
         // Load API stats
         async function loadStats() {
             try {
-                const response = await fetch('v1/index.json');
+                const response = await fetch('api/v1/index.json');
                 const data = await response.json();
 
                 document.getElementById('stat-terms').textContent = data.total_terms;
@@ -699,8 +699,8 @@ fetch('<span class="string">https://jlumbroso.github.io/penn-path-scraper/v1/cou
         async function loadSearchData() {
             try {
                 const [instructorsRes, departmentsRes] = await Promise.all([
-                    fetch('v1/search/instructors.json'),
-                    fetch('v1/search/departments.json')
+                    fetch('api/v1/search/instructors.json'),
+                    fetch('api/v1/search/departments.json')
                 ]);
 
                 const instructorsData = await instructorsRes.json();
@@ -776,7 +776,7 @@ fetch('<span class="string">https://jlumbroso.github.io/penn-path-scraper/v1/cou
 
         async function loadTermsForChart() {
             try {
-                const response = await fetch('v1/index.json');
+                const response = await fetch('api/v1/index.json');
                 const data = await response.json();
 
                 termsData = data.terms || [];
@@ -809,7 +809,7 @@ fetch('<span class="string">https://jlumbroso.github.io/penn-path-scraper/v1/cou
                 chartLoading.style.display = 'block';
                 chartStats.style.display = 'none';
 
-                const response = await fetch(`v1/terms/${termCode}/`);
+                const response = await fetch(`api/v1/terms/${termCode}/`);
                 const data = await response.json();
 
                 // Group by department

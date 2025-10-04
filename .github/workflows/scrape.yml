@@ -34,12 +34,19 @@ jobs:
         run: |
           pipenv install --deploy
 
-      - name: Restore database from artifact
-        uses: actions/download-artifact@v4
-        with:
-          name: course-database
-          path: ./db
-        continue-on-error: true  # First run won't have artifact
+      - name: Restore database from gh-pages
+        run: |
+          # Try to download existing database from gh-pages branch
+          git clone --branch gh-pages --single-branch --depth 1 https://github.com/${{ github.repository }}.git gh-pages-db || true
+
+          mkdir -p ./db
+
+          if [ -f "gh-pages-db/db/courses.db" ]; then
+            cp gh-pages-db/db/courses.db ./db/courses.db
+            echo "✅ Restored database from gh-pages branch"
+          else
+            echo "ℹ️  No existing database found - starting fresh"
+          fi
 
       - name: Scrape current and next term
         run: |
@@ -67,12 +74,9 @@ jobs:
           # Copy API data
           cp -r ./api ./deploy/
 
-      - name: Upload database artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: course-database
-          path: ./db/courses.db
-          retention-days: 90
+          # Copy database to deployment (for persistence)
+          mkdir -p ./deploy/db
+          cp ./db/courses.db ./deploy/db/
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4

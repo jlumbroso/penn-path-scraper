@@ -1,0 +1,67 @@
+name: Deploy Landing Page
+
+on:
+  # Manual trigger with workflow_dispatch
+  workflow_dispatch:
+
+  # Auto-trigger on changes to landing page files
+  push:
+    branches:
+      - main
+    paths:
+      - 'landing/**'
+      - 'api/index.html'
+
+permissions:
+  contents: write
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Download latest API data and database from gh-pages
+        run: |
+          # Clone gh-pages branch to get existing data
+          git clone --branch gh-pages --single-branch https://github.com/${{ github.repository }}.git gh-pages-content || true
+
+          # Create deployment directory
+          mkdir -p ./deploy
+
+          # Copy API data if it exists (from previous deployment)
+          if [ -d "gh-pages-content/api" ]; then
+            cp -r gh-pages-content/api ./deploy/
+            echo "✅ Copied existing API data from gh-pages"
+          else
+            echo "⚠️  No existing API data found - this will be a fresh deployment"
+            mkdir -p ./deploy/api
+          fi
+
+          # Copy database if it exists (for persistence across deployments)
+          if [ -d "gh-pages-content/db" ]; then
+            cp -r gh-pages-content/db ./deploy/
+            echo "✅ Copied existing database from gh-pages"
+          fi
+
+      - name: Copy landing page
+        run: |
+          # Copy all landing page files
+          cp -r ./landing/* ./deploy/
+
+          # Copy API index if it exists
+          if [ -f "api/index.html" ]; then
+            cp api/index.html ./deploy/api/
+          fi
+
+          echo "✅ Landing page files copied to deployment directory"
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./deploy
+          force_orphan: false  # Keep history
+          commit_message: "docs: update landing page [skip ci]"

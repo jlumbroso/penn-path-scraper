@@ -33,5 +33,6 @@ ENV/
 *.log
 
 # Exported data (local testing)
-/api/
+/api/*
+!/api/index.html
 /data/

@@ -653,9 +653,19 @@ fetch('<span class="string">https://jlumbroso.github.io/penn-path-scraper/api/v1
             <!-- School-Level Enrollment -->
             <div style="background: white; border-radius: var(--penn-radius-lg); padding: 2rem; box-shadow: var(--penn-shadow-md); margin-top: 3rem;">
                 <h3 style="color: var(--penn-blue); margin-bottom: 1rem;">Enrollment by School</h3>
-                <p style="color: var(--penn-medium-gray); margin-bottom: 2rem; font-size: 0.9rem;">
+                <p style="color: var(--penn-medium-gray); margin-bottom: 1.5rem; font-size: 0.9rem;">
                     Distribution of enrollment across Penn's schools and colleges.
                 </p>
+
+                <div style="margin-bottom: 2rem;">
+                    <label style="font-weight: 600; color: var(--penn-dark-gray); display: block; margin-bottom: 0.5rem;">
+                        Filter by Term:
+                    </label>
+                    <select id="school-term-filter" class="viz-filter" style="width: 100%; max-width: 300px; padding: 0.75rem; border: 2px solid var(--penn-gray-300); border-radius: var(--penn-radius-md); font-family: var(--penn-font-primary); font-size: 1rem;">
+                        <option value="">All Terms</option>
+                    </select>
+                </div>
+
                 <canvas id="school-chart" style="max-height: 350px;"></canvas>
             </div>
 
@@ -663,16 +673,34 @@ fetch('<span class="string">https://jlumbroso.github.io/penn-path-scraper/api/v1
             <div style="background: white; border-radius: var(--penn-radius-lg); padding: 2rem; box-shadow: var(--penn-shadow-md); margin-top: 3rem;">
                 <h3 style="color: var(--penn-blue); margin-bottom: 1rem;">Top Courses by Enrollment</h3>
                 <p style="color: var(--penn-medium-gray); margin-bottom: 1.5rem; font-size: 0.9rem;">
-                    Largest courses by current enrollment. Filter by department to explore specific areas.
+                    Largest courses by current enrollment. Filter by school, department, or term.
                 </p>
 
-                <div style="margin-bottom: 2rem;">
-                    <label for="dept-filter" style="font-weight: 600; color: var(--penn-dark-gray); display: block; margin-bottom: 0.5rem;">
-                        Filter by Department:
-                    </label>
-                    <select id="dept-filter" style="width: 100%; max-width: 300px; padding: 0.75rem; border: 2px solid var(--penn-gray-300); border-radius: var(--penn-radius-md); font-family: var(--penn-font-primary); font-size: 1rem;">
-                        <option value="">All Departments</option>
-                    </select>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-bottom: 2rem;">
+                    <div>
+                        <label style="font-weight: 600; color: var(--penn-dark-gray); display: block; margin-bottom: 0.5rem;">
+                            School:
+                        </label>
+                        <select id="courses-school-filter" class="viz-filter" style="width: 100%; padding: 0.75rem; border: 2px solid var(--penn-gray-300); border-radius: var(--penn-radius-md); font-family: var(--penn-font-primary);">
+                            <option value="">All Schools</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label style="font-weight: 600; color: var(--penn-dark-gray); display: block; margin-bottom: 0.5rem;">
+                            Department:
+                        </label>
+                        <select id="courses-dept-filter" class="viz-filter" style="width: 100%; padding: 0.75rem; border: 2px solid var(--penn-gray-300); border-radius: var(--penn-radius-md); font-family: var(--penn-font-primary);">
+                            <option value="">All Departments</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label style="font-weight: 600; color: var(--penn-dark-gray); display: block; margin-bottom: 0.5rem;">
+                            Term:
+                        </label>
+                        <select id="courses-term-filter" class="viz-filter" style="width: 100%; padding: 0.75rem; border: 2px solid var(--penn-gray-300); border-radius: var(--penn-radius-md); font-family: var(--penn-font-primary);">
+                            <option value="">All Terms</option>
+                        </select>
+                    </div>
                 </div>
 
                 <canvas id="courses-chart" style="max-height: 400px;"></canvas>
@@ -681,9 +709,31 @@ fetch('<span class="string">https://jlumbroso.github.io/penn-path-scraper/api/v1
             <!-- Fill Rate Distribution (Bonus Viz #1) -->
             <div style="background: white; border-radius: var(--penn-radius-lg); padding: 2rem; box-shadow: var(--penn-shadow-md); margin-top: 3rem;">
                 <h3 style="color: var(--penn-blue); margin-bottom: 1rem;">Course Fill Rate Distribution</h3>
-                <p style="color: var(--penn-medium-gray); margin-bottom: 2rem; font-size: 0.9rem;">
+                <p style="color: var(--penn-medium-gray); margin-bottom: 1.5rem; font-size: 0.9rem;">
                     How full are courses? Shows the distribution of enrollment as a percentage of capacity.
                 </p>
+
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-bottom: 2rem;">
+                    <div>
+                        <label style="font-weight: 600; color: var(--penn-dark-gray); display: block; margin-bottom: 0.5rem;">School:</label>
+                        <select id="fillrate-school-filter" class="viz-filter" style="width: 100%; padding: 0.75rem; border: 2px solid var(--penn-gray-300); border-radius: var(--penn-radius-md); font-family: var(--penn-font-primary);">
+                            <option value="">All Schools</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label style="font-weight: 600; color: var(--penn-dark-gray); display: block; margin-bottom: 0.5rem;">Department:</label>
+                        <select id="fillrate-dept-filter" class="viz-filter" style="width: 100%; padding: 0.75rem; border: 2px solid var(--penn-gray-300); border-radius: var(--penn-radius-md); font-family: var(--penn-font-primary);">
+                            <option value="">All Departments</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label style="font-weight: 600; color: var(--penn-dark-gray); display: block; margin-bottom: 0.5rem;">Term:</label>
+                        <select id="fillrate-term-filter" class="viz-filter" style="width: 100%; padding: 0.75rem; border: 2px solid var(--penn-gray-300); border-radius: var(--penn-radius-md); font-family: var(--penn-font-primary);">
+                            <option value="">All Terms</option>
+                        </select>
+                    </div>
+                </div>
+
                 <canvas id="fillrate-chart" style="max-height: 300px;"></canvas>
                 <div style="margin-top: 1.5rem; padding: 1rem; background: var(--penn-gray-50); border-radius: var(--penn-radius-sm);">
                     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; text-align: center;">
@@ -710,20 +760,47 @@ fetch('<span class="string">https://jlumbroso.github.io/penn-path-scraper/api/v1
             <!-- Class Size Distribution (Bonus Viz #2) -->
             <div style="background: white; border-radius: var(--penn-radius-lg); padding: 2rem; box-shadow: var(--penn-shadow-md); margin-top: 3rem;">
                 <h3 style="color: var(--penn-blue); margin-bottom: 1rem;">Class Size Distribution</h3>
-                <p style="color: var(--penn-medium-gray); margin-bottom: 2rem; font-size: 0.9rem;">
+                <p style="color: var(--penn-medium-gray); margin-bottom: 1.5rem; font-size: 0.9rem;">
                     Distribution of course sizes by maximum enrollment capacity.
                 </p>
+
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-bottom: 2rem;">
+                    <div>
+                        <label style="font-weight: 600; color: var(--penn-dark-gray); display: block; margin-bottom: 0.5rem;">School:</label>
+                        <select id="classsize-school-filter" class="viz-filter" style="width: 100%; padding: 0.75rem; border: 2px solid var(--penn-gray-300); border-radius: var(--penn-radius-md); font-family: var(--penn-font-primary);">
+                            <option value="">All Schools</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label style="font-weight: 600; color: var(--penn-dark-gray); display: block; margin-bottom: 0.5rem;">Department:</label>
+                        <select id="classsize-dept-filter" class="viz-filter" style="width: 100%; padding: 0.75rem; border: 2px solid var(--penn-gray-300); border-radius: var(--penn-radius-md); font-family: var(--penn-font-primary);">
+                            <option value="">All Departments</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label style="font-weight: 600; color: var(--penn-dark-gray); display: block; margin-bottom: 0.5rem;">Term:</label>
+                        <select id="classsize-term-filter" class="viz-filter" style="width: 100%; padding: 0.75rem; border: 2px solid var(--penn-gray-300); border-radius: var(--penn-radius-md); font-family: var(--penn-font-primary);">
+                            <option value="">All Terms</option>
+                        </select>
+                    </div>
+                </div>
+
                 <canvas id="classsize-chart" style="max-height: 300px;"></canvas>
             </div>
 
             <!-- Most In-Demand Courses (Bonus Viz #3) -->
-            <div style="background: white; border-radius: var(--penn-radius-lg); padding: 2rem; box-shadow: var(--penn-shadow-md); margin-top: 3rem;">
+            <div style="background: white; border-radius: var(--penn-radius-lg); padding: 2rem; box-shadow: var(--penn-shadow-md); margin-top: 3rem; position: relative;">
                 <h3 style="color: var(--penn-blue); margin-bottom: 1rem;">🔥 Most In-Demand Courses</h3>
                 <p style="color: var(--penn-medium-gray); margin-bottom: 2rem; font-size: 0.9rem;">
                     Courses with highest demand (current enrollment exceeds capacity).
                 </p>
                 <div id="demand-list" style="display: grid; gap: 0.75rem;">
                     <!-- Populated by JavaScript -->
+                </div>
+                <div style="margin-top: 2rem; padding-top: 1rem; border-top: 1px solid var(--penn-gray-200); text-align: center; display: flex; align-items: center; justify-content: center; gap: 0.5rem; font-size: 0.875rem; color: var(--penn-medium-gray); font-style: italic;">
+                    <span>Visualizations crafted with insight and care by</span>
+                    <img src="https://claude.ai/favicon.ico" alt="Claude" style="width: 16px; height: 16px; opacity: 0.8;">
+                    <span style="color: var(--penn-electric-blue); font-weight: 600;">Claude Sonnet 4.5</span>
                 </div>
             </div>
         </section>
@@ -884,11 +961,13 @@ fetch('<span class="string">https://jlumbroso.github.io/penn-path-scraper/api/v1
                     `<option value="${term.code}">${term.name} (${term.code})</option>`
                 ).join('');
 
-                // Load first term by default
+                // Load first term by default for the department enrollment chart
                 if (termsData.length > 0) {
                     loadTermChart(termsData[0].code);
-                    loadAllVisualizations(termsData[0].code);  // Load all new visualizations too!
                 }
+
+                // Load all visualizations with cross-term data
+                loadAllTermsData();
             } catch (error) {
                 console.error('Error loading terms:', error);
             }
@@ -1021,11 +1100,10 @@ fetch('<span class="string">https://jlumbroso.github.io/penn-path-scraper/api/v1
             }
         }
 
-        // Term selector change handler
+        // Term selector change handler (only for the single-term department chart)
         document.getElementById('term-select').addEventListener('change', function() {
             if (this.value) {
                 loadTermChart(this.value);
-                loadAllVisualizations(this.value);
             }
         });
 
@@ -1089,7 +1167,9 @@ fetch('<span class="string">https://jlumbroso.github.io/penn-path-scraper/api/v1
         };
 
         function getDepartment(courseCode) {
-            return courseCode.split('-')[0] || courseCode.split(' ')[0];
+            // Handle both "CIS 1210" and "CIS-1210" formats
+            const parts = courseCode.split(/[\s-]+/);
+            return parts[0] || '';
         }
 
         function getSchool(courseCode) {
@@ -1097,37 +1177,127 @@ fetch('<span class="string">https://jlumbroso.github.io/penn-path-scraper/api/v1
             return DEPT_TO_SCHOOL[dept] || 'Other';
         }
 
-        // Charts state
+        // Charts state and global data for cross-term filtering
         let schoolChart = null;
         let coursesChart = null;
         let fillrateChart = null;
         let classsizeChart = null;
-        let currentTermData = null;
+        let allTermsData = [];
+        let allCourses = [];
 
-        async function loadAllVisualizations(termCode) {
+        // Load ALL term data for comprehensive filtering
+        async function loadAllTermsData() {
             try {
-                const response = await fetch(`api/v1/terms/${termCode}/`);
-                const data = await response.json();
-                currentTermData = data;
+                const response = await fetch('api/v1/index.json');
+                const masterData = await response.json();
 
-                loadSchoolChart(data);
-                loadCoursesChart(data);
-                loadFillRateChart(data);
-                loadClassSizeChart(data);
-                loadDemandList(data);
-                populateDepartmentFilter(data);
+                // Load data for each term
+                const termPromises = masterData.terms.map(async term => {
+                    const termResponse = await fetch(`api/v1/terms/${term.code}/`);
+                    return await termResponse.json();
+                });
+
+                allTermsData = await Promise.all(termPromises);
+
+                // Flatten all courses from all terms
+                allCourses = allTermsData.flatMap(termData =>
+                    termData.courses.map(course => ({
+                        ...course,
+                        term: termData.term_code,
+                        termName: termData.term_name
+                    }))
+                );
+
+                // Populate all filter dropdowns
+                populateAllFilters();
+
+                // Load all visualizations with default (all terms/schools/depts)
+                loadSchoolChart();
+                loadCoursesChart();
+                loadFillRateChart();
+                loadClassSizeChart();
+                loadDemandList();
+
             } catch (error) {
-                console.error('Error loading visualizations:', error);
+                console.error('Error loading all terms data:', error);
             }
         }
 
-        function loadSchoolChart(data) {
-            const schoolData = {};
-            data.courses.forEach(course => {
-                const school = getSchool(course.code);
-                if (!schoolData[school]) {
-                    schoolData[school] = 0;
+        function populateAllFilters() {
+            const allSchools = new Set();
+            const allDepts = new Set();
+            const allTerms = new Set();
+
+            allCourses.forEach(course => {
+                allSchools.add(getSchool(course.code));
+                allDepts.add(getDepartment(course.code));
+                allTerms.add(course.term);
+            });
+
+            // Populate term filters
+            const termFilterIds = ['school-term-filter', 'courses-term-filter', 'fillrate-term-filter', 'classsize-term-filter'];
+            termFilterIds.forEach(id => {
+                const select = document.getElementById(id);
+                if (select) {
+                    const sorted = Array.from(allTerms).sort().reverse();
+                    select.innerHTML = '<option value="">All Terms</option>' +
+                        sorted.map(term => `<option value="${term}">${term}</option>`).join('');
                 }
+            });
+
+            // Populate school filters
+            const schoolFilterIds = ['courses-school-filter', 'fillrate-school-filter', 'classsize-school-filter'];
+            schoolFilterIds.forEach(id => {
+                const select = document.getElementById(id);
+                if (select) {
+                    const sorted = Array.from(allSchools).filter(s => s !== 'Other').sort();
+                    sorted.push('Other');  // Put "Other" at the end
+                    select.innerHTML = '<option value="">All Schools</option>' +
+                        sorted.map(school => `<option value="${school}">${school}</option>`).join('');
+                }
+            });
+
+            // Populate department filters
+            const deptFilterIds = ['courses-dept-filter', 'fillrate-dept-filter', 'classsize-dept-filter'];
+            deptFilterIds.forEach(id => {
+                const select = document.getElementById(id);
+                if (select) {
+                    const sorted = Array.from(allDepts).sort();
+                    select.innerHTML = '<option value="">All Departments</option>' +
+                        sorted.map(dept => `<option value="${dept}">${dept}</option>`).join('');
+                }
+            });
+
+            // Attach event listeners
+            document.getElementById('school-term-filter')?.addEventListener('change', loadSchoolChart);
+            document.getElementById('courses-school-filter')?.addEventListener('change', loadCoursesChart);
+            document.getElementById('courses-dept-filter')?.addEventListener('change', loadCoursesChart);
+            document.getElementById('courses-term-filter')?.addEventListener('change', loadCoursesChart);
+            document.getElementById('fillrate-school-filter')?.addEventListener('change', loadFillRateChart);
+            document.getElementById('fillrate-dept-filter')?.addEventListener('change', loadFillRateChart);
+            document.getElementById('fillrate-term-filter')?.addEventListener('change', loadFillRateChart);
+            document.getElementById('classsize-school-filter')?.addEventListener('change', loadClassSizeChart);
+            document.getElementById('classsize-dept-filter')?.addEventListener('change', loadClassSizeChart);
+            document.getElementById('classsize-term-filter')?.addEventListener('change', loadClassSizeChart);
+        }
+
+        function filterCourses(termFilter, schoolFilter, deptFilter) {
+            return allCourses.filter(course => {
+                if (termFilter && course.term !== termFilter) return false;
+                if (schoolFilter && getSchool(course.code) !== schoolFilter) return false;
+                if (deptFilter && getDepartment(course.code) !== deptFilter) return false;
+                return true;
+            });
+        }
+
+        function loadSchoolChart() {
+            const termFilter = document.getElementById('school-term-filter')?.value || '';
+            const courses = filterCourses(termFilter, '', '');
+
+            const schoolData = {};
+            courses.forEach(course => {
+                const school = getSchool(course.code);
+                if (!schoolData[school]) schoolData[school] = 0;
                 schoolData[school] += course.enrolled || 0;
             });
 
@@ -1164,36 +1334,22 @@ fetch('<span class="string">https://jlumbroso.github.io/penn-path-scraper/api/v1
             });
         }
 
-        function populateDepartmentFilter(data) {
-            const depts = new Set();
-            data.courses.forEach(course => {
-                depts.add(getDepartment(course.code));
-            });
+        function loadCoursesChart() {
+            const termFilter = document.getElementById('courses-term-filter')?.value || '';
+            const schoolFilter = document.getElementById('courses-school-filter')?.value || '';
+            const deptFilter = document.getElementById('courses-dept-filter')?.value || '';
 
-            const select = document.getElementById('dept-filter');
-            select.innerHTML = '<option value="">All Departments</option>';
-            Array.from(depts).sort().forEach(dept => {
-                const option = document.createElement('option');
-                option.value = dept;
-                option.textContent = dept;
-                select.appendChild(option);
-            });
-
-            select.addEventListener('change', () => loadCoursesChart(currentTermData, select.value));
-        }
-
-        function loadCoursesChart(data, filterDept = '') {
-            let courses = data.courses;
-            if (filterDept) {
-                courses = courses.filter(c => getDepartment(c.code) === filterDept);
-            }
-
-            const sorted = courses
-                .sort((a, b) => (b.enrolled || 0) - (a.enrolled || 0))
-                .slice(0, 20);
+            const courses = filterCourses(termFilter, schoolFilter, deptFilter);
+            const sorted = courses.sort((a, b) => (b.enrolled || 0) - (a.enrolled || 0)).slice(0, 20);
 
             const ctx = document.getElementById('courses-chart').getContext('2d');
             if (coursesChart) coursesChart.destroy();
+
+            let title = 'Top 20 Courses';
+            if (schoolFilter) title += ` - ${schoolFilter}`;
+            if (deptFilter) title += ` - ${deptFilter}`;
+            if (termFilter) title += ` (${termFilter})`;
+            else title += ' (All Terms)';
 
             coursesChart = new Chart(ctx, {
                 type: 'bar',
@@ -1211,11 +1367,7 @@ fetch('<span class="string">https://jlumbroso.github.io/penn-path-scraper/api/v1
                     maintainAspectRatio: true,
                     plugins: {
                         legend: { display: false },
-                        title: {
-                            display: true,
-                            text: filterDept ? `Top 20 ${filterDept} Courses` : 'Top 20 Courses Overall',
-                            font: { size: 14, weight: 'bold' }
-                        }
+                        title: { display: true, text: title, font: { size: 14, weight: 'bold' } }
                     },
                     scales: {
                         x: { beginAtZero: true, title: { display: true, text: 'Students Enrolled' } }
@@ -1224,14 +1376,15 @@ fetch('<span class="string">https://jlumbroso.github.io/penn-path-scraper/api/v1
             });
         }
 
-        function loadFillRateChart(data) {
-            const fillRates = data.courses
-                .filter(c => c.max_enrollment > 0)
-                .map(c => (c.enrolled / c.max_enrollment) * 100);
+        function loadFillRateChart() {
+            const termFilter = document.getElementById('fillrate-term-filter')?.value || '';
+            const schoolFilter = document.getElementById('fillrate-school-filter')?.value || '';
+            const deptFilter = document.getElementById('fillrate-dept-filter')?.value || '';
 
-            const bins = {
-                '0-25%': 0, '25-50%': 0, '50-75%': 0, '75-100%': 0, '>100%': 0
-            };
+            const courses = filterCourses(termFilter, schoolFilter, deptFilter);
+            const fillRates = courses.filter(c => c.max_enrollment > 0).map(c => (c.enrolled / c.max_enrollment) * 100);
+
+            const bins = { '0-25%': 0, '25-50%': 0, '50-75%': 0, '75-100%': 0, '>100%': 0 };
             let oversubscribed = 0, nearlyFull = 0, moderate = 0, available = 0;
 
             fillRates.forEach(rate => {
@@ -1268,8 +1421,13 @@ fetch('<span class="string">https://jlumbroso.github.io/penn-path-scraper/api/v1
             });
         }
 
-        function loadClassSizeChart(data) {
-            const sizes = data.courses.map(c => c.max_enrollment || 0);
+        function loadClassSizeChart() {
+            const termFilter = document.getElementById('classsize-term-filter')?.value || '';
+            const schoolFilter = document.getElementById('classsize-school-filter')?.value || '';
+            const deptFilter = document.getElementById('classsize-dept-filter')?.value || '';
+
+            const courses = filterCourses(termFilter, schoolFilter, deptFilter);
+            const sizes = courses.map(c => c.max_enrollment || 0);
             const bins = {
                 'Small (<20)': 0, 'Medium (20-50)': 0,
                 'Large (50-100)': 0, 'Very Large (100-200)': 0, 'Huge (>200)': 0
@@ -1297,15 +1455,13 @@ fetch('<span class="string">https://jlumbroso.github.io/penn-path-scraper/api/v1
                 },
                 options: {
                     responsive: true,
-                    plugins: {
-                        legend: { position: 'right' }
-                    }
+                    plugins: { legend: { position: 'right' } }
                 }
             });
         }
 
-        function loadDemandList(data) {
-            const oversubscribed = data.courses
+        function loadDemandList() {
+            const oversubscribed = allCourses
                 .filter(c => c.enrolled > c.max_enrollment)
                 .map(c => ({
                     ...c,
@@ -1317,7 +1473,7 @@ fetch('<span class="string">https://jlumbroso.github.io/penn-path-scraper/api/v1
 
             const listEl = document.getElementById('demand-list');
             if (oversubscribed.length === 0) {
-                listEl.innerHTML = '<div style="text-align: center; padding: 2rem; color: var(--penn-medium-gray);">No oversubscribed courses in this term.</div>';
+                listEl.innerHTML = '<div style="text-align: center; padding: 2rem; color: var(--penn-medium-gray);">No oversubscribed courses found.</div>';
                 return;
             }
 
@@ -1327,10 +1483,11 @@ fetch('<span class="string">https://jlumbroso.github.io/penn-path-scraper/api/v1
                         <div>
                             <div style="font-weight: 600; color: var(--penn-blue);">${course.code} ${course.section}</div>
                             <div style="font-size: 0.9rem; color: var(--penn-dark-gray); margin-top: 0.25rem;">${course.title}</div>
+                            <div style="font-size: 0.8rem; color: var(--penn-medium-gray); margin-top: 0.25rem;">${course.termName || course.term}</div>
                         </div>
                         <div style="text-align: right;">
                             <div style="font-size: 1.25rem; font-weight: 700; color: var(--penn-red);">${course.fillRate}%</div>
-                            <div style="font-size: 0.85rem; color: var(--penn-medium-gray);">+${course.overflow} over capacity</div>
+                            <div style="font-size: 0.85rem; color: var(--penn-medium-gray);">+${course.overflow} over</div>
                         </div>
                     </div>
                     <div style="margin-top: 0.5rem; font-size: 0.875rem; color: var(--penn-medium-gray);">

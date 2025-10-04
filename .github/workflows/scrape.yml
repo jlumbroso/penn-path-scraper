@@ -8,10 +8,6 @@ on:
   push:
     branches:
       - main
-    paths:
-      - '.github/workflows/scrape.yml'
-      - 'src/**'
-      - 'Pipfile*'
     paths-ignore:
       - 'landing/**'
       - 'api/index.html'
@@ -139,6 +135,16 @@ jobs:
 
           # Copy API data (JSON only, no database)
           cp -r ./api ./deploy/
+
+          # Generate CNAME if configured
+          if [ -f "config.json" ]; then
+            CUSTOM_DOMAIN=$(jq -r '.site.customDomain // empty' config.json)
+            GENERATE_CNAME=$(jq -r '.deployment.generateCNAME' config.json)
+            if [ "$GENERATE_CNAME" = "true" ] && [ -n "$CUSTOM_DOMAIN" ]; then
+              echo "$CUSTOM_DOMAIN" > ./deploy/CNAME
+              echo "✅ Generated CNAME for $CUSTOM_DOMAIN"
+            fi
+          fi
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4

@@ -649,6 +649,83 @@ fetch('<span class="string">https://jlumbroso.github.io/penn-path-scraper/api/v1
             <div style="margin-top: 2rem; text-align: center; color: var(--penn-medium-gray); font-size: 0.9rem;">
                 <em>Historical comparison features will be available once multiple terms are scraped!</em>
             </div>
+
+            <!-- School-Level Enrollment -->
+            <div style="background: white; border-radius: var(--penn-radius-lg); padding: 2rem; box-shadow: var(--penn-shadow-md); margin-top: 3rem;">
+                <h3 style="color: var(--penn-blue); margin-bottom: 1rem;">Enrollment by School</h3>
+                <p style="color: var(--penn-medium-gray); margin-bottom: 2rem; font-size: 0.9rem;">
+                    Distribution of enrollment across Penn's schools and colleges.
+                </p>
+                <canvas id="school-chart" style="max-height: 350px;"></canvas>
+            </div>
+
+            <!-- Top Courses -->
+            <div style="background: white; border-radius: var(--penn-radius-lg); padding: 2rem; box-shadow: var(--penn-shadow-md); margin-top: 3rem;">
+                <h3 style="color: var(--penn-blue); margin-bottom: 1rem;">Top Courses by Enrollment</h3>
+                <p style="color: var(--penn-medium-gray); margin-bottom: 1.5rem; font-size: 0.9rem;">
+                    Largest courses by current enrollment. Filter by department to explore specific areas.
+                </p>
+
+                <div style="margin-bottom: 2rem;">
+                    <label for="dept-filter" style="font-weight: 600; color: var(--penn-dark-gray); display: block; margin-bottom: 0.5rem;">
+                        Filter by Department:
+                    </label>
+                    <select id="dept-filter" style="width: 100%; max-width: 300px; padding: 0.75rem; border: 2px solid var(--penn-gray-300); border-radius: var(--penn-radius-md); font-family: var(--penn-font-primary); font-size: 1rem;">
+                        <option value="">All Departments</option>
+                    </select>
+                </div>
+
+                <canvas id="courses-chart" style="max-height: 400px;"></canvas>
+            </div>
+
+            <!-- Fill Rate Distribution (Bonus Viz #1) -->
+            <div style="background: white; border-radius: var(--penn-radius-lg); padding: 2rem; box-shadow: var(--penn-shadow-md); margin-top: 3rem;">
+                <h3 style="color: var(--penn-blue); margin-bottom: 1rem;">Course Fill Rate Distribution</h3>
+                <p style="color: var(--penn-medium-gray); margin-bottom: 2rem; font-size: 0.9rem;">
+                    How full are courses? Shows the distribution of enrollment as a percentage of capacity.
+                </p>
+                <canvas id="fillrate-chart" style="max-height: 300px;"></canvas>
+                <div style="margin-top: 1.5rem; padding: 1rem; background: var(--penn-gray-50); border-radius: var(--penn-radius-sm);">
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; text-align: center;">
+                        <div>
+                            <div style="font-size: 1.5rem; font-weight: 700; color: var(--penn-red);" id="oversubscribed-count">-</div>
+                            <div style="font-size: 0.875rem; color: var(--penn-medium-gray);">Oversubscribed (>100%)</div>
+                        </div>
+                        <div>
+                            <div style="font-size: 1.5rem; font-weight: 700; color: var(--penn-electric-blue);" id="nearly-full-count">-</div>
+                            <div style="font-size: 0.875rem; color: var(--penn-medium-gray);">Nearly Full (75-100%)</div>
+                        </div>
+                        <div>
+                            <div style="font-size: 1.5rem; font-weight: 700; color: var(--penn-blue);" id="moderate-count">-</div>
+                            <div style="font-size: 0.875rem; color: var(--penn-medium-gray);">Moderate (50-75%)</div>
+                        </div>
+                        <div>
+                            <div style="font-size: 1.5rem; font-weight: 700; color: var(--penn-medium-gray);" id="available-count">-</div>
+                            <div style="font-size: 0.875rem; color: var(--penn-medium-gray);">Available (<50%)</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Class Size Distribution (Bonus Viz #2) -->
+            <div style="background: white; border-radius: var(--penn-radius-lg); padding: 2rem; box-shadow: var(--penn-shadow-md); margin-top: 3rem;">
+                <h3 style="color: var(--penn-blue); margin-bottom: 1rem;">Class Size Distribution</h3>
+                <p style="color: var(--penn-medium-gray); margin-bottom: 2rem; font-size: 0.9rem;">
+                    Distribution of course sizes by maximum enrollment capacity.
+                </p>
+                <canvas id="classsize-chart" style="max-height: 300px;"></canvas>
+            </div>
+
+            <!-- Most In-Demand Courses (Bonus Viz #3) -->
+            <div style="background: white; border-radius: var(--penn-radius-lg); padding: 2rem; box-shadow: var(--penn-shadow-md); margin-top: 3rem;">
+                <h3 style="color: var(--penn-blue); margin-bottom: 1rem;">🔥 Most In-Demand Courses</h3>
+                <p style="color: var(--penn-medium-gray); margin-bottom: 2rem; font-size: 0.9rem;">
+                    Courses with highest demand (current enrollment exceeds capacity).
+                </p>
+                <div id="demand-list" style="display: grid; gap: 0.75rem;">
+                    <!-- Populated by JavaScript -->
+                </div>
+            </div>
         </section>
     </div>
 
@@ -675,6 +752,21 @@ fetch('<span class="string">https://jlumbroso.github.io/penn-path-scraper/api/v1
 
     <!-- Application Logic -->
     <script>
+        // Configuration
+        let BASE_URL = '';  // Relative by default
+
+        // Load config to determine base URL (for custom domains)
+        async function loadConfig() {
+            try {
+                const response = await fetch('config.json');
+                const config = await response.json();
+                // Use relative URLs by default, config is for documentation
+                console.log('Site config loaded:', config);
+            } catch (error) {
+                console.log('No config.json found, using relative URLs');
+            }
+        }
+
         // Load API stats
         async function loadStats() {
             try {
@@ -932,10 +1024,323 @@ fetch('<span class="string">https://jlumbroso.github.io/penn-path-scraper/api/v1
         document.getElementById('term-select').addEventListener('change', function() {
             if (this.value) {
                 loadTermChart(this.value);
+                loadAllVisualizations(this.value);
             }
         });
 
+        // Department -> School mapping
+        const DEPT_TO_SCHOOL = {
+            // School of Engineering and Applied Science
+            'CIS': 'Engineering', 'ESE': 'Engineering', 'MEAM': 'Engineering',
+            'BE': 'Engineering', 'CIS': 'Engineering', 'EAS': 'Engineering',
+            'ENGR': 'Engineering', 'ENM': 'Engineering', 'IPD': 'Engineering',
+            'MSE': 'Engineering', 'NETS': 'Engineering', 'AMCS': 'Engineering',
+            'CBE': 'Engineering', 'DATS': 'Engineering',
+
+            // Wharton School
+            'ACCT': 'Wharton', 'BEPP': 'Wharton', 'FNCE': 'Wharton',
+            'HCMG': 'Wharton', 'LGST': 'Wharton', 'MGMT': 'Wharton',
+            'MKTG': 'Wharton', 'OIDD': 'Wharton', 'REAL': 'Wharton',
+            'STAT': 'Wharton', 'WH': 'Wharton',
+
+            // School of Arts & Sciences
+            'ANTH': 'Arts & Sciences', 'CIMS': 'Arts & Sciences', 'CLAS': 'Arts & Sciences',
+            'ECON': 'Arts & Sciences', 'ENGL': 'Arts & Sciences', 'HIST': 'Arts & Sciences',
+            'MATH': 'Arts & Sciences', 'PHIL': 'Arts & Sciences', 'PSYC': 'Arts & Sciences',
+            'SOCI': 'Arts & Sciences', 'AFRC': 'Arts & Sciences', 'ANCH': 'Arts & Sciences',
+            'ARTH': 'Arts & Sciences', 'ASAM': 'Arts & Sciences', 'BIOL': 'Arts & Sciences',
+            'CHEM': 'Arts & Sciences', 'CHIN': 'Arts & Sciences', 'COML': 'Arts & Sciences',
+            'DTCH': 'Arts & Sciences', 'EALC': 'Arts & Sciences', 'FREN': 'Arts & Sciences',
+            'GRMN': 'Arts & Sciences', 'GSWS': 'Arts & Sciences', 'ITAL': 'Arts & Sciences',
+            'JPAN': 'Arts & Sciences', 'LALS': 'Arts & Sciences', 'LING': 'Arts & Sciences',
+            'PHYS': 'Arts & Sciences', 'POLS': 'Arts & Sciences', 'PORT': 'Arts & Sciences',
+            'RELS': 'Arts & Sciences', 'RUSS': 'Arts & Sciences', 'SAST': 'Arts & Sciences',
+            'SPAN': 'Arts & Sciences', 'URBS': 'Arts & Sciences', 'WRIT': 'Arts & Sciences',
+
+            // Annenberg School for Communication
+            'COMM': 'Annenberg',
+
+            // School of Nursing
+            'NURS': 'Nursing',
+
+            // Graduate School of Education
+            'EDUC': 'Education',
+
+            // School of Social Policy & Practice
+            'NPLD': 'Social Policy', 'SWRK': 'Social Policy', 'SOCI': 'Social Policy',
+
+            // Perelman School of Medicine
+            'ANAT': 'Medicine', 'BIOC': 'Medicine', 'BMB': 'Medicine', 'CAMB': 'Medicine',
+            'GCB': 'Medicine', 'HCIN': 'Medicine', 'IMUN': 'Medicine', 'MED': 'Medicine',
+            'NRSC': 'Medicine', 'PATH': 'Medicine', 'PHRM': 'Medicine', 'PHYS': 'Medicine',
+
+            // Penn Carey Law
+            'LAW': 'Law',
+
+            // Stuart Weitzman School of Design
+            'ARCH': 'Design', 'CPLN': 'Design', 'LARP': 'Design', 'URBS': 'Design',
+
+            // School of Dental Medicine
+            'DENT': 'Dental Medicine', 'ORBI': 'Dental Medicine',
+
+            // School of Veterinary Medicine
+            'VBMS': 'Veterinary Medicine', 'VCSN': 'Veterinary Medicine',
+        };
+
+        function getDepartment(courseCode) {
+            return courseCode.split('-')[0] || courseCode.split(' ')[0];
+        }
+
+        function getSchool(courseCode) {
+            const dept = getDepartment(courseCode);
+            return DEPT_TO_SCHOOL[dept] || 'Other';
+        }
+
+        // Charts state
+        let schoolChart = null;
+        let coursesChart = null;
+        let fillrateChart = null;
+        let classsizeChart = null;
+        let currentTermData = null;
+
+        async function loadAllVisualizations(termCode) {
+            try {
+                const response = await fetch(`api/v1/terms/${termCode}/`);
+                const data = await response.json();
+                currentTermData = data;
+
+                loadSchoolChart(data);
+                loadCoursesChart(data);
+                loadFillRateChart(data);
+                loadClassSizeChart(data);
+                loadDemandList(data);
+                populateDepartmentFilter(data);
+            } catch (error) {
+                console.error('Error loading visualizations:', error);
+            }
+        }
+
+        function loadSchoolChart(data) {
+            const schoolData = {};
+            data.courses.forEach(course => {
+                const school = getSchool(course.code);
+                if (!schoolData[school]) {
+                    schoolData[school] = 0;
+                }
+                schoolData[school] += course.enrolled || 0;
+            });
+
+            const sorted = Object.entries(schoolData).sort((a, b) => b[1] - a[1]);
+            const colors = ['#011F5B', '#990000', '#63C7FF', '#0A3380', '#CC0000', '#2D2926', '#807456', '#4CAF50', '#FF9800', '#7B2D8E'];
+
+            const ctx = document.getElementById('school-chart').getContext('2d');
+            if (schoolChart) schoolChart.destroy();
+
+            schoolChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: sorted.map(s => s[0]),
+                    datasets: [{
+                        label: 'Total Enrollment',
+                        data: sorted.map(s => s[1]),
+                        backgroundColor: colors.slice(0, sorted.length),
+                        borderColor: '#FFFFFF',
+                        borderWidth: 2
+                    }]
+                },
+                options: {
+                    indexAxis: 'y',
+                    responsive: true,
+                    maintainAspectRatio: true,
+                    plugins: { legend: { display: false } },
+                    scales: {
+                        x: {
+                            beginAtZero: true,
+                            title: { display: true, text: 'Total Students Enrolled', font: { family: 'Pitch Sans, monospace' } }
+                        }
+                    }
+                }
+            });
+        }
+
+        function populateDepartmentFilter(data) {
+            const depts = new Set();
+            data.courses.forEach(course => {
+                depts.add(getDepartment(course.code));
+            });
+
+            const select = document.getElementById('dept-filter');
+            select.innerHTML = '<option value="">All Departments</option>';
+            Array.from(depts).sort().forEach(dept => {
+                const option = document.createElement('option');
+                option.value = dept;
+                option.textContent = dept;
+                select.appendChild(option);
+            });
+
+            select.addEventListener('change', () => loadCoursesChart(currentTermData, select.value));
+        }
+
+        function loadCoursesChart(data, filterDept = '') {
+            let courses = data.courses;
+            if (filterDept) {
+                courses = courses.filter(c => getDepartment(c.code) === filterDept);
+            }
+
+            const sorted = courses
+                .sort((a, b) => (b.enrolled || 0) - (a.enrolled || 0))
+                .slice(0, 20);
+
+            const ctx = document.getElementById('courses-chart').getContext('2d');
+            if (coursesChart) coursesChart.destroy();
+
+            coursesChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: sorted.map(c => `${c.code} ${c.section}`),
+                    datasets: [{
+                        label: 'Enrolled',
+                        data: sorted.map(c => c.enrolled || 0),
+                        backgroundColor: '#011F5B'
+                    }]
+                },
+                options: {
+                    indexAxis: 'y',
+                    responsive: true,
+                    maintainAspectRatio: true,
+                    plugins: {
+                        legend: { display: false },
+                        title: {
+                            display: true,
+                            text: filterDept ? `Top 20 ${filterDept} Courses` : 'Top 20 Courses Overall',
+                            font: { size: 14, weight: 'bold' }
+                        }
+                    },
+                    scales: {
+                        x: { beginAtZero: true, title: { display: true, text: 'Students Enrolled' } }
+                    }
+                }
+            });
+        }
+
+        function loadFillRateChart(data) {
+            const fillRates = data.courses
+                .filter(c => c.max_enrollment > 0)
+                .map(c => (c.enrolled / c.max_enrollment) * 100);
+
+            const bins = {
+                '0-25%': 0, '25-50%': 0, '50-75%': 0, '75-100%': 0, '>100%': 0
+            };
+            let oversubscribed = 0, nearlyFull = 0, moderate = 0, available = 0;
+
+            fillRates.forEach(rate => {
+                if (rate > 100) { bins['>100%']++; oversubscribed++; }
+                else if (rate >= 75) { bins['75-100%']++; nearlyFull++; }
+                else if (rate >= 50) { bins['50-75%']++; moderate++; }
+                else if (rate >= 25) { bins['25-50%']++; available++; }
+                else { bins['0-25%']++; available++; }
+            });
+
+            document.getElementById('oversubscribed-count').textContent = oversubscribed;
+            document.getElementById('nearly-full-count').textContent = nearlyFull;
+            document.getElementById('moderate-count').textContent = moderate;
+            document.getElementById('available-count').textContent = available;
+
+            const ctx = document.getElementById('fillrate-chart').getContext('2d');
+            if (fillrateChart) fillrateChart.destroy();
+
+            fillrateChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: Object.keys(bins),
+                    datasets: [{
+                        label: 'Number of Courses',
+                        data: Object.values(bins),
+                        backgroundColor: ['#807456', '#63C7FF', '#011F5B', '#0A3380', '#990000']
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: { legend: { display: false } },
+                    scales: { y: { beginAtZero: true, title: { display: true, text: 'Number of Courses' } } }
+                }
+            });
+        }
+
+        function loadClassSizeChart(data) {
+            const sizes = data.courses.map(c => c.max_enrollment || 0);
+            const bins = {
+                'Small (<20)': 0, 'Medium (20-50)': 0,
+                'Large (50-100)': 0, 'Very Large (100-200)': 0, 'Huge (>200)': 0
+            };
+
+            sizes.forEach(size => {
+                if (size > 200) bins['Huge (>200)']++;
+                else if (size >= 100) bins['Very Large (100-200)']++;
+                else if (size >= 50) bins['Large (50-100)']++;
+                else if (size >= 20) bins['Medium (20-50)']++;
+                else bins['Small (<20)']++;
+            });
+
+            const ctx = document.getElementById('classsize-chart').getContext('2d');
+            if (classsizeChart) classsizeChart.destroy();
+
+            classsizeChart = new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: Object.keys(bins),
+                    datasets: [{
+                        data: Object.values(bins),
+                        backgroundColor: ['#63C7FF', '#011F5B', '#0A3380', '#990000', '#2D2926']
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: { position: 'right' }
+                    }
+                }
+            });
+        }
+
+        function loadDemandList(data) {
+            const oversubscribed = data.courses
+                .filter(c => c.enrolled > c.max_enrollment)
+                .map(c => ({
+                    ...c,
+                    overflow: c.enrolled - c.max_enrollment,
+                    fillRate: ((c.enrolled / c.max_enrollment) * 100).toFixed(1)
+                }))
+                .sort((a, b) => b.overflow - a.overflow)
+                .slice(0, 10);
+
+            const listEl = document.getElementById('demand-list');
+            if (oversubscribed.length === 0) {
+                listEl.innerHTML = '<div style="text-align: center; padding: 2rem; color: var(--penn-medium-gray);">No oversubscribed courses in this term.</div>';
+                return;
+            }
+
+            listEl.innerHTML = oversubscribed.map(course => `
+                <div style="padding: 1rem; background: var(--penn-gray-50); border-left: 4px solid var(--penn-red); border-radius: var(--penn-radius-sm);">
+                    <div style="display: flex; justify-content: space-between; align-items: start;">
+                        <div>
+                            <div style="font-weight: 600; color: var(--penn-blue);">${course.code} ${course.section}</div>
+                            <div style="font-size: 0.9rem; color: var(--penn-dark-gray); margin-top: 0.25rem;">${course.title}</div>
+                        </div>
+                        <div style="text-align: right;">
+                            <div style="font-size: 1.25rem; font-weight: 700; color: var(--penn-red);">${course.fillRate}%</div>
+                            <div style="font-size: 0.85rem; color: var(--penn-medium-gray);">+${course.overflow} over capacity</div>
+                        </div>
+                    </div>
+                    <div style="margin-top: 0.5rem; font-size: 0.875rem; color: var(--penn-medium-gray);">
+                        ${course.enrolled} enrolled / ${course.max_enrollment} capacity
+                    </div>
+                </div>
+            `).join('');
+        }
+
         // Initialize
+        loadConfig();
         loadStats();
         loadSearchData();
         loadTermsForChart();

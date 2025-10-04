@@ -56,6 +56,17 @@ jobs:
         run: |
           pipenv run scraper --db ./db/courses.db export --output-dir .
 
+      - name: Prepare deployment directory
+        run: |
+          # Create deployment directory
+          mkdir -p ./deploy
+
+          # Copy landing page to root
+          cp -r ./landing/* ./deploy/
+
+          # Copy API data
+          cp -r ./api ./deploy/
+
       - name: Upload database artifact
         uses: actions/upload-artifact@v4
         with:
@@ -67,7 +78,7 @@ jobs:
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./api
+          publish_dir: ./deploy
           publish_branch: gh-pages
           commit_message: "chore: update course data $(date -u +'%Y-%m-%d %H:%M:%S UTC')"
           user_name: 'github-actions[bot]'

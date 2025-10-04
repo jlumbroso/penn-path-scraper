@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Penn Path Scraper API - Course Catalog Data & Enrollment Trends</title>
+    <meta name="description" content="Access Penn's course catalog data with enrollment trends, instructor search, and historical analysis. Beautiful REST API with granular access.">
+
+    <!-- Penn Engineering Styles -->
+    <link rel="stylesheet" href="assets/css/penn-engineering.css">
+    <link rel="stylesheet" href="assets/css/penn-ai-mode.css">
+
+    <!-- Penn Gradient Settings -->
+    <meta name="penn-gradient-settings" content='{"enableButtons": true, "enableInputs": true, "flashOnLoad": true}'>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--penn-font-primary);
+            color: var(--penn-dark-gray);
+            background: var(--penn-white);
+            line-height: 1.6;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--penn-blue) 0%, var(--penn-blue-dark) 100%);
+            color: var(--penn-white);
+            padding: 6rem 2rem 4rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("https://jlumbroso.github.io/penn-engineering-web-assets/visuals/blue/spark-of-ingenuity.png") no-repeat top right;
+            background-size: 600px;
+            opacity: 0.05;
+            pointer-events: none;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: var(--penn-white);
+            letter-spacing: -0.02em;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-top: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--penn-electric-blue);
+        }
+
+        .stat-label {
+            font-family: var(--penn-font-secondary);
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            opacity: 0.8;
+        }
+
+        /* Search Section */
+        .search-section {
+            max-width: 800px;
+            margin: -3rem auto 4rem;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 10;
+        }
+
+        .search-box {
+            background: white;
+            border-radius: var(--penn-radius-lg);
+            box-shadow: var(--penn-shadow-xl);
+            padding: 2rem;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 1rem 1.5rem;
+            font-size: 1.125rem;
+            border: 2px solid var(--penn-gray-300);
+            border-radius: var(--penn-radius-md);
+            transition: all var(--penn-transition-base);
+            font-family: var(--penn-font-primary);
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: var(--penn-electric-blue);
+            box-shadow: 0 0 0 3px rgba(99, 199, 255, 0.1);
+        }
+
+        .search-tabs {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .tab {
+            padding: 0.5rem 1.5rem;
+            border: 2px solid transparent;
+            background: var(--penn-gray-100);
+            border-radius: var(--penn-radius-md);
+            cursor: pointer;
+            transition: all var(--penn-transition-fast);
+            font-family: var(--penn-font-primary);
+            font-weight: 600;
+        }
+
+        .tab.active {
+            background: var(--penn-blue);
+            color: var(--penn-white);
+        }
+
+        .tab:hover:not(.active) {
+            background: var(--penn-gray-200);
+        }
+
+        .search-results {
+            margin-top: 1.5rem;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+
+        .result-item {
+            padding: 1rem;
+            border-left: 3px solid var(--penn-electric-blue);
+            background: var(--penn-gray-50);
+            margin-bottom: 0.75rem;
+            border-radius: var(--penn-radius-sm);
+            transition: all var(--penn-transition-fast);
+        }
+
+        .result-item:hover {
+            transform: translateX(4px);
+            box-shadow: var(--penn-shadow-sm);
+        }
+
+        .result-title {
+            font-weight: 600;
+            color: var(--penn-blue);
+            margin-bottom: 0.25rem;
+        }
+
+        .result-meta {
+            font-size: 0.875rem;
+            color: var(--penn-medium-gray);
+            font-family: var(--penn-font-secondary);
+        }
+
+        /* Content Sections */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .section {
+            margin-bottom: 5rem;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            color: var(--penn-blue);
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .section-title::before {
+            content: "";
+            width: 4px;
+            height: 3rem;
+            background: linear-gradient(180deg, var(--penn-red) 0%, var(--penn-electric-blue) 100%);
+            border-radius: 2px;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .feature-card {
+            background: white;
+            border: 1px solid var(--penn-gray-200);
+            border-radius: var(--penn-radius-lg);
+            padding: 2rem;
+            transition: all var(--penn-transition-base);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--penn-blue) 0%, var(--penn-electric-blue) 50%, var(--penn-red) 100%);
+            transform: scaleX(0);
+            transition: transform var(--penn-transition-base);
+        }
+
+        .feature-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--penn-shadow-lg);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--penn-blue);
+            margin-bottom: 0.75rem;
+        }
+
+        .feature-description {
+            color: var(--penn-dark-gray);
+            line-height: 1.6;
+        }
+
+        /* Code Examples */
+        .code-example {
+            background: var(--penn-dark-gray);
+            color: #f0f0f0;
+            padding: 1.5rem;
+            border-radius: var(--penn-radius-md);
+            overflow-x: auto;
+            margin: 1.5rem 0;
+            font-family: var(--penn-font-secondary);
+            font-size: 0.875rem;
+            line-height: 1.6;
+            box-shadow: var(--penn-shadow-md);
+        }
+
+        .code-example code {
+            font-family: inherit;
+        }
+
+        .comment {
+            color: #6A9955;
+        }
+
+        .string {
+            color: #CE9178;
+        }
+
+        .keyword {
+            color: #C586C0;
+        }
+
+        /* Endpoint Grid */
+        .endpoint-grid {
+            display: grid;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .endpoint-item {
+            background: var(--penn-gray-50);
+            padding: 1rem;
+            border-radius: var(--penn-radius-md);
+            border-left: 4px solid var(--penn-blue);
+            font-family: var(--penn-font-secondary);
+            font-size: 0.9rem;
+        }
+
+        .endpoint-path {
+            color: var(--penn-electric-blue);
+            font-weight: 600;
+        }
+
+        .endpoint-desc {
+            color: var(--penn-medium-gray);
+            margin-top: 0.25rem;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--penn-blue);
+            color: var(--penn-white);
+            padding: 3rem 2rem;
+            border-top: 4px solid var(--penn-red);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-link {
+            color: var(--penn-electric-blue);
+            text-decoration: none;
+            transition: color var(--penn-transition-fast);
+            font-family: var(--penn-font-secondary);
+            font-weight: 600;
+        }
+
+        .footer-link:hover {
+            color: var(--penn-white);
+        }
+
+        .claude-attribution {
+            margin-top: 2rem;
+            opacity: 0.8;
+            font-size: 0.875rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 2rem;
+            background: var(--penn-blue);
+            color: var(--penn-white);
+            text-decoration: none;
+            border-radius: var(--penn-radius-md);
+            font-weight: 600;
+            transition: all var(--penn-transition-base);
+            border: 2px solid var(--penn-blue);
+        }
+
+        .btn:hover {
+            background: var(--penn-blue-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--penn-shadow-md);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--penn-blue);
+            border-color: var(--penn-blue);
+        }
+
+        .btn-secondary:hover {
+            background: var(--penn-blue);
+            color: var(--penn-white);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-stats {
+                gap: 2rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+
+        /* Loading state */
+        .loading {
+            text-align: center;
+            padding: 2rem;
+            color: var(--penn-medium-gray);
+        }
+
+        .spinner {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            border: 4px solid var(--penn-gray-300);
+            border-top-color: var(--penn-electric-blue);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <div class="hero">
+        <div class="hero-content">
+            <h1>Penn Path Scraper API</h1>
+            <p>Access Penn's complete course catalog with enrollment trends, instructor search, and historical analysis</p>
+
+            <div class="hero-stats">
+                <div class="stat">
+                    <div class="stat-number" id="stat-terms">-</div>
+                    <div class="stat-label">Terms</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number" id="stat-courses">-</div>
+                    <div class="stat-label">Courses</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number" id="stat-instructors">-</div>
+                    <div class="stat-label">Instructors</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Search Section -->
+    <div class="search-section">
+        <div class="search-box">
+            <div class="search-tabs">
+                <button class="tab active" data-tab="instructors">Instructors</button>
+                <button class="tab" data-tab="departments">Departments</button>
+            </div>
+            <input type="text"
+                   class="search-input"
+                   id="search-input"
+                   placeholder="Search for an instructor or course..."
+                   autocomplete="off">
+            <div class="search-results" id="search-results"></div>
+        </div>
+    </div>
+
+    <!-- Content Container -->
+    <div class="container">
+        <!-- Features Section -->
+        <section class="section">
+            <h2 class="section-title">Features</h2>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3 class="feature-title">Enrollment Trends</h3>
+                    <p class="feature-description">Track course enrollment over time with daily snapshots. Perfect for forecasting and analysis.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔍</div>
+                    <h3 class="feature-title">Granular Access</h3>
+                    <p class="feature-description">Fetch exactly the data you need with separate endpoints for metadata and enrollment history.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🤖</div>
+                    <h3 class="feature-title">Auto-Updated</h3>
+                    <p class="feature-description">Daily scraping keeps data fresh. Historical preservation maintains long-term trends.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3 class="feature-title">Fast & Static</h3>
+                    <p class="feature-description">Served via GitHub Pages. No server required, no rate limits, lightning fast access.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h3 class="feature-title">Search Indexes</h3>
+                    <p class="feature-description">Pre-built indexes for instructors and departments. Find courses instantly.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📈</div>
+                    <h3 class="feature-title">Historical Data</h3>
+                    <p class="feature-description">Access past terms to analyze trends, compare semesters, and forecast demand.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quick Start Section -->
+        <section class="section">
+            <h2 class="section-title">Quick Start</h2>
+            <p>Access the API with simple HTTPS requests. No authentication required.</p>
+
+            <div class="code-example">
+<code><span class="comment"># Get all courses for Fall 2025</span>
+fetch('<span class="string">https://jlumbroso.github.io/penn-path-scraper/v1/terms/202530/index.json</span>')
+  .then(res => res.json())
+  .then(data => console.log(data))
+
+<span class="comment"># Get enrollment history for a specific course</span>
+fetch('<span class="string">https://jlumbroso.github.io/penn-path-scraper/v1/courses/CIS-1210/enrollments.json</span>')
+  .then(res => res.json())
+  .then(data => console.log(data.enrollment_history))</code>
+            </div>
+        </section>
+
+        <!-- API Endpoints Section -->
+        <section class="section">
+            <h2 class="section-title">API Endpoints</h2>
+            <div class="endpoint-grid">
+                <div class="endpoint-item">
+                    <div class="endpoint-path">/v1/index.json</div>
+                    <div class="endpoint-desc">Master API index with stats and available endpoints</div>
+                </div>
+                <div class="endpoint-item">
+                    <div class="endpoint-path">/v1/courses/{course-code}/index.json</div>
+                    <div class="endpoint-desc">Course metadata: sections, instructors, meetings, current enrollment</div>
+                </div>
+                <div class="endpoint-item">
+                    <div class="endpoint-path">/v1/courses/{course-code}/enrollments.json</div>
+                    <div class="endpoint-desc">Time-series enrollment data with daily snapshots</div>
+                </div>
+                <div class="endpoint-item">
+                    <div class="endpoint-path">/v1/terms/{term-code}/index.json</div>
+                    <div class="endpoint-desc">All courses offered in a specific term</div>
+                </div>
+                <div class="endpoint-item">
+                    <div class="endpoint-path">/v1/search/instructors.json</div>
+                    <div class="endpoint-desc">Instructor → courses mapping for all terms</div>
+                </div>
+                <div class="endpoint-item">
+                    <div class="endpoint-path">/v1/search/departments.json</div>
+                    <div class="endpoint-desc">Department → courses mapping for all terms</div>
+                </div>
+            </div>
+
+            <div style="margin-top: 2rem; text-align: center;">
+                <a href="https://github.com/jlumbroso/penn-path-scraper" class="btn" target="_blank">
+                    View Documentation on GitHub
+                </a>
+            </div>
+        </section>
+
+        <!-- Example Data Section -->
+        <section class="section">
+            <h2 class="section-title">Example Response</h2>
+            <p>Enrollment data includes latest values for quick access plus full snapshot history:</p>
+
+            <div class="code-example">
+<code>{
+  <span class="string">"course_code"</span>: <span class="string">"CIS 1210"</span>,
+  <span class="string">"enrollment_history"</span>: [
+    {
+      <span class="string">"crn"</span>: <span class="string">"12345"</span>,
+      <span class="string">"term"</span>: <span class="string">"202530"</span>,
+      <span class="string">"section"</span>: <span class="string">"001"</span>,
+      <span class="string">"enrolled"</span>: 48,          <span class="comment">// Latest value</span>
+      <span class="string">"capacity"</span>: 50,          <span class="comment">// Latest capacity</span>
+      <span class="string">"timestamp"</span>: <span class="string">"2025-10-03T12:00:00"</span>,
+      <span class="string">"snapshots"</span>: [           <span class="comment">// Full history (newest first)</span>
+        { <span class="string">"timestamp"</span>: <span class="string">"2025-10-03T12:00:00"</span>, <span class="string">"enrolled"</span>: 48, <span class="string">"capacity"</span>: 50 },
+        { <span class="string">"timestamp"</span>: <span class="string">"2025-10-02T12:00:00"</span>, <span class="string">"enrolled"</span>: 47, <span class="string">"capacity"</span>: 50 }
+      ]
+    }
+  ]
+}</code>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="https://github.com/jlumbroso/penn-path-scraper" class="footer-link" target="_blank">GitHub Repository</a>
+                <a href="v1/index.json" class="footer-link">API Master Index</a>
+                <a href="https://github.com/jlumbroso/penn-path-scraper/issues" class="footer-link" target="_blank">Report Issue</a>
+            </div>
+
+            <div class="claude-attribution">
+                <span>with joyful partnership of</span>
+                <img src="https://claude.ai/favicon.ico" alt="Claude" style="width: 20px; height: 20px;">
+                <span>Claude Sonnet 4.5</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Penn Gradient Flash -->
+    <script src="assets/js/penn-gradient-flash.js"></script>
+    <script src="assets/js/claude-footer.js"></script>
+
+    <!-- Application Logic -->
+    <script>
+        // Load API stats
+        async function loadStats() {
+            try {
+                const response = await fetch('v1/index.json');
+                const data = await response.json();
+
+                document.getElementById('stat-terms').textContent = data.total_terms;
+                document.getElementById('stat-courses').textContent = data.total_courses.toLocaleString();
+                document.getElementById('stat-instructors').textContent = data.total_instructors.toLocaleString();
+            } catch (error) {
+                console.error('Error loading stats:', error);
+            }
+        }
+
+        // Search functionality
+        let searchData = {
+            instructors: null,
+            departments: null
+        };
+        let currentTab = 'instructors';
+
+        async function loadSearchData() {
+            try {
+                const [instructorsRes, departmentsRes] = await Promise.all([
+                    fetch('v1/search/instructors.json'),
+                    fetch('v1/search/departments.json')
+                ]);
+
+                const instructorsData = await instructorsRes.json();
+                const departmentsData = await departmentsRes.json();
+
+                searchData.instructors = instructorsData.instructors;
+                searchData.departments = departmentsData.departments;
+            } catch (error) {
+                console.error('Error loading search data:', error);
+            }
+        }
+
+        function performSearch(query) {
+            const resultsDiv = document.getElementById('search-results');
+
+            if (!query.trim()) {
+                resultsDiv.innerHTML = '';
+                return;
+            }
+
+            const data = currentTab === 'instructors' ? searchData.instructors : searchData.departments;
+            if (!data) {
+                resultsDiv.innerHTML = '<div class="loading">Loading search data...</div>';
+                return;
+            }
+
+            const results = [];
+            const queryLower = query.toLowerCase();
+
+            for (const [key, courses] of Object.entries(data)) {
+                if (key.toLowerCase().includes(queryLower)) {
+                    results.push({ key, courses: courses.slice(0, 3) }); // Limit to 3 courses per result
+                }
+                if (results.length >= 10) break; // Limit to 10 results
+            }
+
+            if (results.length === 0) {
+                resultsDiv.innerHTML = '<div style="text-align: center; padding: 2rem; color: var(--penn-medium-gray);">No results found</div>';
+                return;
+            }
+
+            resultsDiv.innerHTML = results.map(result => `
+                <div class="result-item">
+                    <div class="result-title">${result.key}</div>
+                    <div class="result-meta">
+                        ${result.courses.map(c => `${c.code} - ${c.title}`).join(' • ')}
+                        ${result.courses.length < data[result.key].length ? ` (+${data[result.key].length - result.courses.length} more)` : ''}
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Event listeners
+        document.getElementById('search-input').addEventListener('input', (e) => {
+            performSearch(e.target.value);
+        });
+
+        document.querySelectorAll('.tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+                currentTab = tab.dataset.tab;
+                document.getElementById('search-input').placeholder =
+                    currentTab === 'instructors' ? 'Search for an instructor...' : 'Search for a department...';
+                document.getElementById('search-results').innerHTML = '';
+                document.getElementById('search-input').value = '';
+            });
+        });
+
+        // Initialize
+        loadStats();
+        loadSearchData();
+    </script>
+</body>
+</html>

@@ -314,6 +314,28 @@ To enable: Go to **Settings → Pages → Source** and select "Deploy from a bra
 
 You can manually trigger the workflow from the Actions tab in GitHub.
 
+### Historical Data Backfill
+
+To scrape historical terms (e.g., past 10 semesters), use the `scrape-historical` command:
+
+```bash
+# Scrape 10 historical terms (resumable)
+pipenv run scraper scrape-historical --terms 202430,202410,202330,202230,202210,202130,202110,202030,201930,201910
+
+# Skip specific schools for faster scraping
+pipenv run scraper scrape-historical --terms 202430,202410 --schools E,W
+```
+
+**Resume capability**: The command automatically skips terms that already have data, so you can:
+- Run it multiple times without re-scraping
+- Stop and resume if interrupted
+- Work within GitHub Actions' 6-hour time limits by splitting into multiple runs
+
+**Example workflow**:
+1. First run: Scrapes terms 1-4 (takes ~10 hours, interrupted at 6 hours)
+2. Second run: Skips terms 1-2 (complete), resumes from term 3
+3. Third run: Skips terms 1-4 (complete), scrapes terms 5-10
+
 ### Historical Preservation
 
 The scraper **preserves old terms** when refreshing current/next term data. This means you build a comprehensive longitudinal dataset over time without losing historical information.

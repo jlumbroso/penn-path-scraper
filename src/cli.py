@@ -172,6 +172,168 @@ def scrape(
         _display_scrape_results(result)
 
 
+@cli.command(name="scrape-historical")
+@click.option(
+    "--terms",
+    "-t",
+    required=True,
+    help="Comma-separated term codes (e.g., 202430,202410,202330)",
+)
+@click.option(
+    "--schools",
+    "-s",
+    help="Comma-separated school codes (e.g., E,W,A). Default: all schools",
+)
+@click.option(
+    "--rate-limit",
+    "-r",
+    default=0.5,
+    type=float,
+    help="Delay between API requests in seconds",
+    show_default=True,
+)
+@click.option(
+    "--skip-existing",
+    is_flag=True,
+    default=True,
+    help="Skip terms that already have data (enables resume capability)",
+    show_default=True,
+)
+@click.pass_context
+def scrape_historical(
+    ctx: click.Context,
+    terms: str,
+    schools: typing.Optional[str],
+    rate_limit: float,
+    skip_existing: bool,
+) -> None:
+    """
+    Scrape historical terms with resume capability.
+
+    This command is designed for backfilling historical data over multiple
+    runs (e.g., in GitHub Actions with 6-hour time limits).
+
+    Examples:
+        # Scrape 10 historical terms (resumable)
+        scraper scrape-historical --terms 202430,202410,202330,202230,202210,202130,202110,202030,201930,201910
+
+        # Force re-scrape even if data exists
+        scraper scrape-historical --terms 202430 --no-skip-existing
+    """
+    from rich.console import Console
+    from rich.progress import Progress, SpinnerColumn, TextColumn, BarColumn
+    from rich.panel import Panel
+    from rich.table import Table
+    from rich import box
+
+    console = Console()
+
+    # Parse terms
+    term_codes = [t.strip() for t in terms.split(",")]
+
+    # Parse schools
+    school_codes = None
+    if schools:
+        school_codes = [s.strip() for s in schools.split(",")]
+
+    # Initialize database
+    db_path = ctx.obj["db_path"]
+    src.persistence.initialize_database(str(db_path))
+
+    # Create API client
+    api_client = src.api_client.PennCoursesAPIClient(rate_limit_delay=rate_limit)
+    scraper_obj = src.scraper.CourseScraper(api_client)
+
+    # Track results
+    results_summary = {
+        "scraped": [],
+        "skipped": [],
+        "failed": [],
+    }
+
+    console.print(Panel.fit(
+        f"[bold cyan]Historical Scraping[/bold cyan]\n"
+        f"Terms: [yellow]{len(term_codes)}[/yellow]\n"
+        f"Schools: [yellow]{schools or 'all'}[/yellow]\n"
+        f"Skip existing: [yellow]{skip_existing}[/yellow]",
+        border_style="cyan"
+    ))
+
+    for idx, term_code in enumerate(term_codes, 1):
+        console.print(f"\n[bold]Term {idx}/{len(term_codes)}: [cyan]{term_code}[/cyan][/bold]")
+
+        # Check if term already has data
+        if skip_existing:
+            existing_courses = src.models.Course.select().where(
+                src.models.Course.term == src.models.Term.select().where(
+                    src.models.Term.code == term_code
+                )
+            ).count()
+
+            if existing_courses > 0:
+                console.print(f"  ⏭️  [yellow]Skipping - {existing_courses} courses already in database[/yellow]")
+                results_summary["skipped"].append((term_code, existing_courses))
+                continue
+
+        try:
+            # Scrape this term
+            with Progress(
+                SpinnerColumn(),
+                TextColumn("[progress.description]{task.description}"),
+                BarColumn(),
+                TextColumn("[progress.percentage]{task.percentage:>3.0f}%"),
+                console=console,
+            ) as progress:
+                task = progress.add_task(f"Scraping {term_code}...", total=None)
+
+                def update_progress(current: int, total: int) -> None:
+                    progress.update(task, description=f"Processing courses", completed=current, total=total)
+
+                result = scraper_obj.scrape_term(
+                    term=term_code,
+                    schools=school_codes,
+                    create_snapshots=True,  # Always create snapshots for historical data
+                    progress_callback=update_progress,
+                )
+
+            # Display results
+            console.print(f"  ✅ [green]Scraped {result['total_courses']} courses, {result['total_snapshots']} snapshots[/green]")
+            results_summary["scraped"].append((term_code, result['total_courses']))
+
+        except Exception as e:
+            console.print(f"  ❌ [red]Failed: {str(e)}[/red]")
+            results_summary["failed"].append((term_code, str(e)))
+            continue
+
+    # Display final summary
+    console.print("\n")
+    summary_table = Table(title="📊 Historical Scraping Summary", box=box.ROUNDED, border_style="cyan")
+    summary_table.add_column("Status", style="bold")
+    summary_table.add_column("Count", justify="right")
+    summary_table.add_column("Details")
+
+    summary_table.add_row(
+        "✅ Scraped",
+        str(len(results_summary["scraped"])),
+        ", ".join(f"{t} ({c} courses)" for t, c in results_summary["scraped"]) or "None"
+    )
+    summary_table.add_row(
+        "⏭️  Skipped",
+        str(len(results_summary["skipped"])),
+        ", ".join(f"{t} ({c} existing)" for t, c in results_summary["skipped"]) or "None"
+    )
+    summary_table.add_row(
+        "❌ Failed",
+        str(len(results_summary["failed"])),
+        ", ".join(t for t, _ in results_summary["failed"]) or "None"
+    )
+
+    console.print(summary_table)
+
+    if results_summary["failed"]:
+        console.print("\n[yellow]⚠️  Some terms failed. Re-run the same command to resume.[/yellow]")
+
+
 @cli.command()
 @click.argument("query", required=False)
 @click.option(

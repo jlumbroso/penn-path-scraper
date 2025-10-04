@@ -243,15 +243,19 @@ data/
     {
       "crn": "12345",
       "term": "202530",
+      "section": "001",
+      "enrolled": 40,
+      "capacity": 50,
+      "timestamp": "2025-08-02T12:00:00",
       "snapshots": [
-        {
-          "timestamp": "2025-08-01T12:00:00",
-          "enrolled": 30,
-          "capacity": 50
-        },
         {
           "timestamp": "2025-08-02T12:00:00",
           "enrolled": 40,
+          "capacity": 50
+        },
+        {
+          "timestamp": "2025-08-01T12:00:00",
+          "enrolled": 30,
           "capacity": 50
         }
       ]
@@ -259,6 +263,8 @@ data/
   ]
 }
 ```
+
+**Note**: Latest values are at section level for quick access. Snapshots are sorted DESC (newest first).
 
 **api/v1/search/instructors.json** - Instructor search index:
 ```json

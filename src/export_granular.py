@@ -6,14 +6,63 @@ Implements the hybrid approach with separate files for:
 - Enrollment history (frequently updated)
 - Search indexes
 - Term listings
+
+JSON Minification Strategy (ADR-0004):
+- Before 2026-04-01: Pretty-printed (indent=2) for debugging
+- After 2026-04-01: Minified for performance
+- Override with PENN_SCRAPER_COMPACT_JSON environment variable
 """
 
 import datetime
 import json
+import os
 import pathlib
 import typing
 
 import src.models
+
+
+# Minification trigger date (ADR-0004)
+MINIFICATION_TRIGGER_DATE = datetime.date(2026, 4, 1)
+
+
+def _should_compact_json() -> bool:
+    """
+    Determine if JSON should be compact (minified) based on ADR-0004.
+
+    Returns True if:
+    - PENN_SCRAPER_COMPACT_JSON=true (environment override)
+    - Current date >= MINIFICATION_TRIGGER_DATE
+
+    Returns False if:
+    - PENN_SCRAPER_COMPACT_JSON=false (environment override)
+    - Current date < MINIFICATION_TRIGGER_DATE
+    """
+    # Check environment variable override
+    env_compact = os.getenv("PENN_SCRAPER_COMPACT_JSON", "").lower()
+    if env_compact == "true":
+        return True
+    elif env_compact == "false":
+        return False
+
+    # Default: time-based trigger
+    return datetime.date.today() >= MINIFICATION_TRIGGER_DATE
+
+
+def _json_dump_kwargs() -> typing.Dict[str, typing.Any]:
+    """
+    Get kwargs for json.dump() based on compaction setting.
+
+    Returns:
+        Pretty-printed: {"indent": 2}
+        Minified: {"separators": (',', ':')}
+    """
+    if _should_compact_json():
+        # Minified: no whitespace
+        return {"separators": (',', ':')}
+    else:
+        # Pretty-printed: human-readable
+        return {"indent": 2}
 
 
 def export_granular_structure(output_dir: str) -> None:
@@ -159,7 +208,7 @@ def _export_course_metadata(
     }
 
     with open(output_file, "w") as f:
-        json.dump(data, f, indent=2)
+        json.dump(data, f, **_json_dump_kwargs())
 
 
 def _export_course_enrollments(
@@ -169,6 +218,10 @@ def _export_course_enrollments(
     Export enrollment history (frequently updated data).
 
     Separate from metadata to minimize git diffs and file sizes.
+
+    Format (ADR-0004):
+    - Latest values at section level for quick access
+    - Snapshots sorted DESC (newest first) for guaranteed ordering
     """
     sections_enrollment = []
 
@@ -177,7 +230,7 @@ def _export_course_enrollments(
         for snapshot in (
             src.models.EnrollmentSnapshot.select()
             .where(src.models.EnrollmentSnapshot.course == course)
-            .order_by(src.models.EnrollmentSnapshot.timestamp)
+            .order_by(src.models.EnrollmentSnapshot.timestamp.desc())  # DESC: newest first
         ):
             snapshots.append(
                 {
@@ -187,11 +240,21 @@ def _export_course_enrollments(
                 }
             )
 
+        # Extract latest values from first snapshot (newest)
+        latest_enrolled = snapshots[0]["enrolled"] if snapshots else None
+        latest_capacity = snapshots[0]["capacity"] if snapshots else None
+        latest_timestamp = snapshots[0]["timestamp"] if snapshots else None
+
         sections_enrollment.append(
             {
                 "crn": course.crn,
                 "term": course.term.code,
                 "section": course.section,
+                # Latest values for quick access (ADR-0004)
+                "enrolled": latest_enrolled,
+                "capacity": latest_capacity,
+                "timestamp": latest_timestamp,
+                # Full history (sorted DESC: newest first)
                 "snapshots": snapshots,
             }
         )
@@ -203,7 +266,7 @@ def _export_course_enrollments(
     }
 
     with open(output_file, "w") as f:
-        json.dump(data, f, indent=2)
+        json.dump(data, f, **_json_dump_kwargs())
 
 
 def _export_terms(terms_dir: pathlib.Path) -> None:
@@ -274,7 +337,7 @@ def _export_search_indexes(search_dir: pathlib.Path) -> None:
                 "last_updated": datetime.datetime.now().isoformat(),
             },
             f,
-            indent=2,
+            **_json_dump_kwargs(),
         )
 
     # Department index (extract from course codes)
@@ -303,7 +366,7 @@ def _export_search_indexes(search_dir: pathlib.Path) -> None:
                 "last_updated": datetime.datetime.now().isoformat(),
             },
             f,
-            indent=2,
+            **_json_dump_kwargs(),
         )
 
 
@@ -351,4 +414,4 @@ def _export_master_index(output_file: pathlib.Path) -> None:
     }
 
     with open(output_file, "w") as f:
-        json.dump(data, f, indent=2)
+        json.dump(data, f, **_json_dump_kwargs())

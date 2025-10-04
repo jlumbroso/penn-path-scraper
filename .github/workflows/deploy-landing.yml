@@ -59,5 +59,6 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./deploy
+          keep_files: true  # CRITICAL: Don't delete existing files (preserves API data)
           force_orphan: false  # Keep history
           commit_message: "docs: update landing page [skip ci]"

@@ -136,6 +136,12 @@ jobs:
           # Copy API data (JSON only, no database)
           cp -r ./api ./deploy/
 
+          # Copy config.json
+          if [ -f "config.json" ]; then
+            cp config.json ./deploy/
+            echo "✅ Copied config.json to deployment"
+          fi
+
           # Generate CNAME if configured
           if [ -f "config.json" ]; then
             CUSTOM_DOMAIN=$(jq -r '.site.customDomain // empty' config.json)

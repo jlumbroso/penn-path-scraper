@@ -52,6 +52,12 @@ jobs:
             cp api/index.html ./deploy/api/
           fi
 
+          # Copy config.json if it exists
+          if [ -f "config.json" ]; then
+            cp config.json ./deploy/
+            echo "✅ Copied config.json to deployment"
+          fi
+
           echo "✅ Landing page files copied to deployment directory"
 
       - name: Deploy to GitHub Pages

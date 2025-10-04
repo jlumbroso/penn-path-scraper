@@ -23,9 +23,9 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Download latest API data and database from gh-pages
+      - name: Download latest API data from gh-pages
         run: |
-          # Clone gh-pages branch to get existing data
+          # Clone gh-pages branch to get existing JSON API data
           git clone --branch gh-pages --single-branch https://github.com/${{ github.repository }}.git gh-pages-content || true
 
           # Create deployment directory
@@ -40,11 +40,7 @@ jobs:
             mkdir -p ./deploy/api
           fi
 
-          # Copy database if it exists (for persistence across deployments)
-          if [ -d "gh-pages-content/db" ]; then
-            cp -r gh-pages-content/db ./deploy/
-            echo "✅ Copied existing database from gh-pages"
-          fi
+          # Note: Database is now stored in GitHub Releases, not gh-pages
 
       - name: Copy landing page
         run: |

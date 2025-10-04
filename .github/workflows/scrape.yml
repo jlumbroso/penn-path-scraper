@@ -10,12 +10,24 @@ on:
       - main
     paths:
       - '.github/workflows/scrape.yml'
+      - 'src/**'
+      - 'Pipfile*'
+    paths-ignore:
+      - 'landing/**'
+      - 'api/index.html'
+      - 'docs/**'
+      - '**.md'
+
+# Prevent concurrent scrapes (2.5h runtime, avoid overlaps)
+concurrency:
+  group: scrape
+  cancel-in-progress: true
 
 jobs:
   scrape:
     runs-on: ubuntu-latest
     permissions:
-      contents: write  # Allow pushing changes
+      contents: write  # Allow pushing changes and creating releases
 
     steps:
       - name: Checkout repository
@@ -34,19 +46,19 @@ jobs:
         run: |
           pipenv install --deploy
 
-      - name: Restore database from gh-pages
+      - name: Restore database from latest release
         run: |
-          # Try to download existing database from gh-pages branch
-          git clone --branch gh-pages --single-branch --depth 1 https://github.com/${{ github.repository }}.git gh-pages-db || true
-
           mkdir -p ./db
 
-          if [ -f "gh-pages-db/db/courses.db" ]; then
-            cp gh-pages-db/db/courses.db ./db/courses.db
-            echo "✅ Restored database from gh-pages branch"
+          # Try to download compressed DB from latest-data release
+          if gh release download latest-data -p "courses.db.gz" -D ./db/ 2>/dev/null; then
+            gunzip ./db/courses.db.gz
+            echo "✅ Restored database from latest-data release"
           else
             echo "ℹ️  No existing database found - starting fresh"
           fi
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Scrape current and next term
         run: |
@@ -63,7 +75,61 @@ jobs:
         run: |
           pipenv run scraper --db ./db/courses.db export --output-dir .
 
-      - name: Prepare deployment directory
+      - name: Compress database for release
+        run: |
+          # Compress database (10MB → ~2MB)
+          gzip -9 -k ./db/courses.db
+          echo "✅ Compressed database: $(du -h ./db/courses.db.gz | cut -f1)"
+
+      - name: Create database manifest
+        run: |
+          # Create manifest for database discoverability
+          DB_SIZE=$(stat -f%z ./db/courses.db.gz 2>/dev/null || stat -c%s ./db/courses.db.gz)
+          DB_SHA256=$(sha256sum ./db/courses.db.gz | cut -d' ' -f1)
+
+          cat > ./api/v1/db-manifest.json << EOF
+          {
+            "database": {
+              "release_tag": "latest-data",
+              "download_url": "https://github.com/${{ github.repository }}/releases/download/latest-data/courses.db.gz",
+              "compressed_size": $DB_SIZE,
+              "sha256": "$DB_SHA256",
+              "format": "sqlite3",
+              "compression": "gzip",
+              "updated_at": "$(date -u +%Y-%m-%dT%H:%M:%SZ)"
+            },
+            "instructions": {
+              "download": "curl -L https://github.com/${{ github.repository }}/releases/download/latest-data/courses.db.gz -o courses.db.gz",
+              "decompress": "gunzip courses.db.gz"
+            }
+          }
+          EOF
+
+          echo "✅ Created database manifest at /api/v1/db-manifest.json"
+
+      - name: Upload database to latest-data release
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: latest-data
+          name: Latest Course Data
+          files: ./db/courses.db.gz
+          body: |
+            **Latest Penn Course Data**
+
+            Updated: ${{ github.event.head_commit.timestamp }}
+            Workflow: ${{ github.run_id }}
+
+            Download and decompress:
+            ```bash
+            curl -L https://github.com/${{ github.repository }}/releases/download/latest-data/courses.db.gz -o courses.db.gz
+            gunzip courses.db.gz
+            ```
+          draft: false
+          prerelease: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Prepare deployment directory (JSON only)
         run: |
           # Create deployment directory
           mkdir -p ./deploy
@@ -71,12 +137,8 @@ jobs:
           # Copy landing page to root
           cp -r ./landing/* ./deploy/
 
-          # Copy API data
+          # Copy API data (JSON only, no database)
           cp -r ./api ./deploy/
-
-          # Copy database to deployment (for persistence)
-          mkdir -p ./deploy/db
-          cp ./db/courses.db ./deploy/db/
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4

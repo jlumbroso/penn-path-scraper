@@ -15,6 +15,7 @@
 
     <!-- Chart.js for Data Visualization -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.2.0/dist/chartjs-plugin-datalabels.min.js"></script>
 
     <style>
         * {
@@ -481,6 +482,35 @@
         </div>
     </div>
 
+    <!-- Call to Action for Visualizations -->
+    <div style="max-width: 1000px; margin: 0 auto 4rem; padding: 0 2rem;">
+        <div style="background: linear-gradient(135deg, var(--penn-electric-blue) 0%, var(--penn-blue) 100%); padding: 2.5rem; border-radius: var(--penn-radius-lg); box-shadow: var(--penn-shadow-xl); text-align: center; color: white;">
+            <h2 style="font-size: 2rem; font-weight: 700; margin-bottom: 1rem; color: white;">📊 Explore Penn Through Data</h2>
+            <p style="font-size: 1.125rem; opacity: 0.95; margin-bottom: 1.5rem; line-height: 1.6;">
+                Discover fascinating insights about course enrollments, class sizes, and academic trends across Penn's schools and departments.
+            </p>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; margin-bottom: 2rem;">
+                <div style="background: rgba(255, 255, 255, 0.15); padding: 1rem; border-radius: var(--penn-radius-md); backdrop-filter: blur(10px);">
+                    <div style="font-size: 0.875rem; opacity: 0.9;">Which school has the highest enrollment?</div>
+                </div>
+                <div style="background: rgba(255, 255, 255, 0.15); padding: 1rem; border-radius: var(--penn-radius-md); backdrop-filter: blur(10px);">
+                    <div style="font-size: 0.875rem; opacity: 0.9;">What are the most in-demand courses?</div>
+                </div>
+                <div style="background: rgba(255, 255, 255, 0.15); padding: 1rem; border-radius: var(--penn-radius-md); backdrop-filter: blur(10px);">
+                    <div style="font-size: 0.875rem; opacity: 0.9;">How full are classes across departments?</div>
+                </div>
+                <div style="background: rgba(255, 255, 255, 0.15); padding: 1rem; border-radius: var(--penn-radius-md); backdrop-filter: blur(10px);">
+                    <div style="font-size: 0.875rem; opacity: 0.9;">Which courses are oversubscribed?</div>
+                </div>
+            </div>
+            <a href="#visualizations" style="display: inline-block; padding: 1rem 2.5rem; background: white; color: var(--penn-blue); text-decoration: none; border-radius: var(--penn-radius-md); font-weight: 700; font-size: 1.125rem; transition: all var(--penn-transition-base); box-shadow: var(--penn-shadow-md);"
+               onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 8px 16px rgba(0,0,0,0.2)'"
+               onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 6px rgba(0,0,0,0.1)'">
+                🔍 Explore Visualizations
+            </a>
+        </div>
+    </div>
+
     <!-- Content Container -->
     <div class="container">
         <!-- Features Section -->
@@ -602,7 +632,7 @@ fetch('<span class="string">https://jlumbroso.github.io/penn-path-scraper/api/v1
         </section>
 
         <!-- Data Visualization Section -->
-        <section class="section">
+        <section class="section" id="visualizations">
             <h2 class="section-title">Data Visualization</h2>
             <p>Explore enrollment patterns across departments and courses with interactive charts.</p>
 
@@ -791,9 +821,17 @@ fetch('<span class="string">https://jlumbroso.github.io/penn-path-scraper/api/v1
             <!-- Most In-Demand Courses (Bonus Viz #3) -->
             <div style="background: white; border-radius: var(--penn-radius-lg); padding: 2rem; box-shadow: var(--penn-shadow-md); margin-top: 3rem; position: relative;">
                 <h3 style="color: var(--penn-blue); margin-bottom: 1rem;">🔥 Most In-Demand Courses</h3>
-                <p style="color: var(--penn-medium-gray); margin-bottom: 2rem; font-size: 0.9rem;">
+                <p style="color: var(--penn-medium-gray); margin-bottom: 1.5rem; font-size: 0.9rem;">
                     Courses with highest demand (current enrollment exceeds capacity).
                 </p>
+
+                <div style="margin-bottom: 2rem;">
+                    <label style="font-weight: 600; color: var(--penn-dark-gray); display: block; margin-bottom: 0.5rem;">Filter by Term:</label>
+                    <select id="demand-term-filter" class="viz-filter" style="width: 100%; max-width: 300px; padding: 0.75rem; border: 2px solid var(--penn-gray-300); border-radius: var(--penn-radius-md); font-family: var(--penn-font-primary);">
+                        <option value="">All Terms</option>
+                    </select>
+                </div>
+
                 <div id="demand-list" style="display: grid; gap: 0.75rem;">
                     <!-- Populated by JavaScript -->
                 </div>
@@ -1110,11 +1148,11 @@ fetch('<span class="string">https://jlumbroso.github.io/penn-path-scraper/api/v1
         // Department -> School mapping
         const DEPT_TO_SCHOOL = {
             // School of Engineering and Applied Science
-            'CIS': 'Engineering', 'ESE': 'Engineering', 'MEAM': 'Engineering',
-            'BE': 'Engineering', 'CIS': 'Engineering', 'EAS': 'Engineering',
-            'ENGR': 'Engineering', 'ENM': 'Engineering', 'IPD': 'Engineering',
-            'MSE': 'Engineering', 'NETS': 'Engineering', 'AMCS': 'Engineering',
-            'CBE': 'Engineering', 'DATS': 'Engineering',
+            'AMCS': 'Engineering', 'BE': 'Engineering', 'CBE': 'Engineering',
+            'CIS': 'Engineering', 'CIT': 'Engineering', 'DATS': 'Engineering',
+            'EAS': 'Engineering', 'ENGR': 'Engineering', 'ENM': 'Engineering',
+            'ESE': 'Engineering', 'IPD': 'Engineering', 'MEAM': 'Engineering',
+            'MSE': 'Engineering', 'NETS': 'Engineering',
 
             // Wharton School
             'ACCT': 'Wharton', 'BEPP': 'Wharton', 'FNCE': 'Wharton',
@@ -1123,18 +1161,18 @@ fetch('<span class="string">https://jlumbroso.github.io/penn-path-scraper/api/v1
             'STAT': 'Wharton', 'WH': 'Wharton',
 
             // School of Arts & Sciences
-            'ANTH': 'Arts & Sciences', 'CIMS': 'Arts & Sciences', 'CLAS': 'Arts & Sciences',
-            'ECON': 'Arts & Sciences', 'ENGL': 'Arts & Sciences', 'HIST': 'Arts & Sciences',
-            'MATH': 'Arts & Sciences', 'PHIL': 'Arts & Sciences', 'PSYC': 'Arts & Sciences',
-            'SOCI': 'Arts & Sciences', 'AFRC': 'Arts & Sciences', 'ANCH': 'Arts & Sciences',
+            'AFRC': 'Arts & Sciences', 'ANCH': 'Arts & Sciences', 'ANTH': 'Arts & Sciences',
             'ARTH': 'Arts & Sciences', 'ASAM': 'Arts & Sciences', 'BIOL': 'Arts & Sciences',
-            'CHEM': 'Arts & Sciences', 'CHIN': 'Arts & Sciences', 'COML': 'Arts & Sciences',
-            'DTCH': 'Arts & Sciences', 'EALC': 'Arts & Sciences', 'FREN': 'Arts & Sciences',
-            'GRMN': 'Arts & Sciences', 'GSWS': 'Arts & Sciences', 'ITAL': 'Arts & Sciences',
-            'JPAN': 'Arts & Sciences', 'LALS': 'Arts & Sciences', 'LING': 'Arts & Sciences',
-            'PHYS': 'Arts & Sciences', 'POLS': 'Arts & Sciences', 'PORT': 'Arts & Sciences',
-            'RELS': 'Arts & Sciences', 'RUSS': 'Arts & Sciences', 'SAST': 'Arts & Sciences',
-            'SPAN': 'Arts & Sciences', 'URBS': 'Arts & Sciences', 'WRIT': 'Arts & Sciences',
+            'CHEM': 'Arts & Sciences', 'CHIN': 'Arts & Sciences', 'CIMS': 'Arts & Sciences',
+            'CLAS': 'Arts & Sciences', 'COML': 'Arts & Sciences', 'DTCH': 'Arts & Sciences',
+            'EALC': 'Arts & Sciences', 'ECON': 'Arts & Sciences', 'ENGL': 'Arts & Sciences',
+            'FREN': 'Arts & Sciences', 'GRMN': 'Arts & Sciences', 'GSWS': 'Arts & Sciences',
+            'HIST': 'Arts & Sciences', 'ITAL': 'Arts & Sciences', 'JPAN': 'Arts & Sciences',
+            'LALS': 'Arts & Sciences', 'LING': 'Arts & Sciences', 'MATH': 'Arts & Sciences',
+            'PHIL': 'Arts & Sciences', 'PHYS': 'Arts & Sciences', 'POLS': 'Arts & Sciences',
+            'PORT': 'Arts & Sciences', 'PSYC': 'Arts & Sciences', 'RELS': 'Arts & Sciences',
+            'RUSS': 'Arts & Sciences', 'SAST': 'Arts & Sciences', 'SOCI': 'Arts & Sciences',
+            'SPAN': 'Arts & Sciences', 'WRIT': 'Arts & Sciences',
 
             // Annenberg School for Communication
             'COMM': 'Annenberg',
@@ -1146,12 +1184,12 @@ fetch('<span class="string">https://jlumbroso.github.io/penn-path-scraper/api/v1
             'EDUC': 'Education',
 
             // School of Social Policy & Practice
-            'NPLD': 'Social Policy', 'SWRK': 'Social Policy', 'SOCI': 'Social Policy',
+            'NPLD': 'Social Policy', 'SWRK': 'Social Policy',
 
             // Perelman School of Medicine
             'ANAT': 'Medicine', 'BIOC': 'Medicine', 'BMB': 'Medicine', 'CAMB': 'Medicine',
             'GCB': 'Medicine', 'HCIN': 'Medicine', 'IMUN': 'Medicine', 'MED': 'Medicine',
-            'NRSC': 'Medicine', 'PATH': 'Medicine', 'PHRM': 'Medicine', 'PHYS': 'Medicine',
+            'NRSC': 'Medicine', 'PATH': 'Medicine', 'PHRM': 'Medicine',
 
             // Penn Carey Law
             'LAW': 'Law',
@@ -1268,6 +1306,14 @@ fetch('<span class="string">https://jlumbroso.github.io/penn-path-scraper/api/v1
                 }
             });
 
+            // Populate demand term filter
+            const demandTermFilter = document.getElementById('demand-term-filter');
+            if (demandTermFilter) {
+                const sorted = Array.from(allTerms).sort().reverse();
+                demandTermFilter.innerHTML = '<option value="">All Terms</option>' +
+                    sorted.map(term => `<option value="${term}">${term}</option>`).join('');
+            }
+
             // Attach event listeners
             document.getElementById('school-term-filter')?.addEventListener('change', loadSchoolChart);
             document.getElementById('courses-school-filter')?.addEventListener('change', loadCoursesChart);
@@ -1279,6 +1325,7 @@ fetch('<span class="string">https://jlumbroso.github.io/penn-path-scraper/api/v1
             document.getElementById('classsize-school-filter')?.addEventListener('change', loadClassSizeChart);
             document.getElementById('classsize-dept-filter')?.addEventListener('change', loadClassSizeChart);
             document.getElementById('classsize-term-filter')?.addEventListener('change', loadClassSizeChart);
+            document.getElementById('demand-term-filter')?.addEventListener('change', loadDemandList);
         }
 
         function filterCourses(termFilter, schoolFilter, deptFilter) {
@@ -1403,6 +1450,8 @@ fetch('<span class="string">https://jlumbroso.github.io/penn-path-scraper/api/v1
             const ctx = document.getElementById('fillrate-chart').getContext('2d');
             if (fillrateChart) fillrateChart.destroy();
 
+            const totalCourses = Object.values(bins).reduce((a, b) => a + b, 0);
+
             fillrateChart = new Chart(ctx, {
                 type: 'bar',
                 data: {
@@ -1415,9 +1464,21 @@ fetch('<span class="string">https://jlumbroso.github.io/penn-path-scraper/api/v1
                 },
                 options: {
                     responsive: true,
-                    plugins: { legend: { display: false } },
+                    plugins: {
+                        legend: { display: false },
+                        datalabels: {
+                            color: 'white',
+                            font: { weight: 'bold', size: 14 },
+                            formatter: (value, ctx) => {
+                                if (totalCourses === 0) return '';
+                                const percentage = ((value / totalCourses) * 100).toFixed(1);
+                                return percentage + '%';
+                            }
+                        }
+                    },
                     scales: { y: { beginAtZero: true, title: { display: true, text: 'Number of Courses' } } }
-                }
+                },
+                plugins: [ChartDataLabels]
             });
         }
 
@@ -1444,6 +1505,8 @@ fetch('<span class="string">https://jlumbroso.github.io/penn-path-scraper/api/v1
             const ctx = document.getElementById('classsize-chart').getContext('2d');
             if (classsizeChart) classsizeChart.destroy();
 
+            const totalCourses = Object.values(bins).reduce((a, b) => a + b, 0);
+
             classsizeChart = new Chart(ctx, {
                 type: 'doughnut',
                 data: {
@@ -1455,18 +1518,55 @@ fetch('<span class="string">https://jlumbroso.github.io/penn-path-scraper/api/v1
                 },
                 options: {
                     responsive: true,
-                    plugins: { legend: { position: 'right' } }
-                }
+                    plugins: {
+                        legend: {
+                            position: 'right',
+                            labels: {
+                                generateLabels: (chart) => {
+                                    const data = chart.data;
+                                    return data.labels.map((label, i) => {
+                                        const value = data.datasets[0].data[i];
+                                        const percentage = totalCourses > 0 ? ((value / totalCourses) * 100).toFixed(1) : 0;
+                                        return {
+                                            text: `${label}: ${value} (${percentage}%)`,
+                                            fillStyle: data.datasets[0].backgroundColor[i],
+                                            hidden: false,
+                                            index: i
+                                        };
+                                    });
+                                }
+                            }
+                        },
+                        datalabels: {
+                            color: 'white',
+                            font: { weight: 'bold', size: 13 },
+                            formatter: (value, ctx) => {
+                                if (totalCourses === 0) return '';
+                                const percentage = ((value / totalCourses) * 100).toFixed(1);
+                                return percentage + '%';
+                            }
+                        }
+                    }
+                },
+                plugins: [ChartDataLabels]
             });
         }
 
         function loadDemandList() {
-            const oversubscribed = allCourses
+            const termFilter = document.getElementById('demand-term-filter')?.value || '';
+
+            let courses = allCourses;
+            if (termFilter) {
+                courses = courses.filter(c => c.term === termFilter);
+            }
+
+            const oversubscribed = courses
                 .filter(c => c.enrolled > c.max_enrollment)
                 .map(c => ({
                     ...c,
                     overflow: c.enrolled - c.max_enrollment,
-                    fillRate: ((c.enrolled / c.max_enrollment) * 100).toFixed(1)
+                    fillRate: ((c.enrolled / c.max_enrollment) * 100).toFixed(1),
+                    instructorName: c.instructors && c.instructors.length > 0 ? c.instructors[0].name : 'TBA'
                 }))
                 .sort((a, b) => b.overflow - a.overflow)
                 .slice(0, 10);
@@ -1483,7 +1583,9 @@ fetch('<span class="string">https://jlumbroso.github.io/penn-path-scraper/api/v1
                         <div>
                             <div style="font-weight: 600; color: var(--penn-blue);">${course.code} ${course.section}</div>
                             <div style="font-size: 0.9rem; color: var(--penn-dark-gray); margin-top: 0.25rem;">${course.title}</div>
-                            <div style="font-size: 0.8rem; color: var(--penn-medium-gray); margin-top: 0.25rem;">${course.termName || course.term}</div>
+                            <div style="font-size: 0.8rem; color: var(--penn-medium-gray); margin-top: 0.25rem;">
+                                👨‍🏫 ${course.instructorName} • ${course.termName || course.term}
+                            </div>
                         </div>
                         <div style="text-align: right;">
                             <div style="font-size: 1.25rem; font-weight: 700; color: var(--penn-red);">${course.fillRate}%</div>

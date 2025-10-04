@@ -35,5 +35,7 @@ ENV/
 # Exported data (local testing)
 /api/*
 !/api/index.html
-!/api/schools/
+!/api/v1/
+/api/v1/*
+!/api/v1/schools/
 /data/

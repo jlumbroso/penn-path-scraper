@@ -401,13 +401,14 @@ def _export_master_index(output_file: pathlib.Path) -> None:
         "api_version": "1.0",
         "generated_at": datetime.datetime.now().isoformat(),
         "terms": term_list,
+        "course_codes": course_codes,  # List of all unique course codes
         "total_terms": len(term_list),
         "total_courses": len(course_codes),
         "total_instructors": instructor_count,
         "endpoints": {
-            "courses": "/api/v1/courses/{course-code}/index.json",
+            "courses": "/api/v1/courses/{course-code}/",
             "enrollments": "/api/v1/courses/{course-code}/enrollments.json",
-            "terms": "/api/v1/terms/{term-code}/index.json",
+            "terms": "/api/v1/terms/{term-code}/",
             "instructor_search": "/api/v1/search/instructors.json",
             "department_search": "/api/v1/search/departments.json",
         },

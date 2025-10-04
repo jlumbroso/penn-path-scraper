@@ -13,6 +13,9 @@
     <!-- Penn Gradient Settings -->
     <meta name="penn-gradient-settings" content='{"enableButtons": true, "enableInputs": true, "flashOnLoad": true}'>
 
+    <!-- Chart.js for Data Visualization -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.js"></script>
+
     <style>
         * {
             margin: 0;
@@ -282,10 +285,12 @@
             font-size: 0.875rem;
             line-height: 1.6;
             box-shadow: var(--penn-shadow-md);
+            white-space: pre-wrap;  /* Preserve newlines! */
         }
 
         .code-example code {
             font-family: inherit;
+            white-space: pre-wrap;  /* Preserve newlines in code tags too */
         }
 
         .comment {
@@ -522,7 +527,7 @@
 
             <div class="code-example">
 <code><span class="comment"># Get all courses for Fall 2025</span>
-fetch('<span class="string">https://jlumbroso.github.io/penn-path-scraper/v1/terms/202530/index.json</span>')
+fetch('<span class="string">https://jlumbroso.github.io/penn-path-scraper/v1/terms/202530/</span>')
   .then(res => res.json())
   .then(data => console.log(data))
 
@@ -538,11 +543,11 @@ fetch('<span class="string">https://jlumbroso.github.io/penn-path-scraper/v1/cou
             <h2 class="section-title">API Endpoints</h2>
             <div class="endpoint-grid">
                 <div class="endpoint-item">
-                    <div class="endpoint-path">/v1/index.json</div>
-                    <div class="endpoint-desc">Master API index with stats and available endpoints</div>
+                    <div class="endpoint-path">/v1/</div>
+                    <div class="endpoint-desc">Master API index with stats, available terms, and all course codes</div>
                 </div>
                 <div class="endpoint-item">
-                    <div class="endpoint-path">/v1/courses/{course-code}/index.json</div>
+                    <div class="endpoint-path">/v1/courses/{course-code}/</div>
                     <div class="endpoint-desc">Course metadata: sections, instructors, meetings, current enrollment</div>
                 </div>
                 <div class="endpoint-item">
@@ -550,7 +555,7 @@ fetch('<span class="string">https://jlumbroso.github.io/penn-path-scraper/v1/cou
                     <div class="endpoint-desc">Time-series enrollment data with daily snapshots</div>
                 </div>
                 <div class="endpoint-item">
-                    <div class="endpoint-path">/v1/terms/{term-code}/index.json</div>
+                    <div class="endpoint-path">/v1/terms/{term-code}/</div>
                     <div class="endpoint-desc">All courses offered in a specific term</div>
                 </div>
                 <div class="endpoint-item">
@@ -593,6 +598,56 @@ fetch('<span class="string">https://jlumbroso.github.io/penn-path-scraper/v1/cou
     }
   ]
 }</code>
+            </div>
+        </section>
+
+        <!-- Data Visualization Section -->
+        <section class="section">
+            <h2 class="section-title">Data Visualization</h2>
+            <p>Explore enrollment patterns across departments and courses with interactive charts.</p>
+
+            <div style="background: white; border-radius: var(--penn-radius-lg); padding: 2rem; box-shadow: var(--penn-shadow-md); margin-top: 2rem;">
+                <h3 style="color: var(--penn-blue); margin-bottom: 1rem;">Department Enrollment Distribution</h3>
+                <p style="color: var(--penn-medium-gray); margin-bottom: 2rem; font-size: 0.9rem;">
+                    Select a term to see how enrollment is distributed across departments.
+                </p>
+
+                <div style="margin-bottom: 2rem;">
+                    <label for="term-select" style="font-weight: 600; color: var(--penn-dark-gray); display: block; margin-bottom: 0.5rem;">
+                        Select Term:
+                    </label>
+                    <select id="term-select" style="width: 100%; max-width: 300px; padding: 0.75rem; border: 2px solid var(--penn-gray-300); border-radius: var(--penn-radius-md); font-family: var(--penn-font-primary); font-size: 1rem;">
+                        <option value="">Loading terms...</option>
+                    </select>
+                </div>
+
+                <div id="chart-loading" class="loading" style="display: none;">
+                    <div class="spinner"></div>
+                    <p style="margin-top: 1rem;">Loading enrollment data...</p>
+                </div>
+
+                <canvas id="enrollment-chart" style="max-height: 400px;"></canvas>
+
+                <div id="chart-stats" style="margin-top: 2rem; display: none;">
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;">
+                        <div style="background: var(--penn-gray-50); padding: 1rem; border-radius: var(--penn-radius-md); border-left: 4px solid var(--penn-blue);">
+                            <div style="font-size: 1.5rem; font-weight: 700; color: var(--penn-blue);" id="total-enrollment">-</div>
+                            <div style="font-size: 0.875rem; color: var(--penn-medium-gray);">Total Enrollment</div>
+                        </div>
+                        <div style="background: var(--penn-gray-50); padding: 1rem; border-radius: var(--penn-radius-md); border-left: 4px solid var(--penn-electric-blue);">
+                            <div style="font-size: 1.5rem; font-weight: 700; color: var(--penn-electric-blue);" id="total-capacity">-</div>
+                            <div style="font-size: 0.875rem; color: var(--penn-medium-gray);">Total Capacity</div>
+                        </div>
+                        <div style="background: var(--penn-gray-50); padding: 1rem; border-radius: var(--penn-radius-md); border-left: 4px solid var(--penn-red);">
+                            <div style="font-size: 1.5rem; font-weight: 700; color: var(--penn-red);" id="fill-rate">-</div>
+                            <div style="font-size: 0.875rem; color: var(--penn-medium-gray);">Overall Fill Rate</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="margin-top: 2rem; text-align: center; color: var(--penn-medium-gray); font-size: 0.9rem;">
+                <em>Historical comparison features will be available once multiple terms are scraped!</em>
             </div>
         </section>
     </div>
@@ -715,9 +770,175 @@ fetch('<span class="string">https://jlumbroso.github.io/penn-path-scraper/v1/cou
             });
         });
 
+        // Data Visualization
+        let enrollmentChart = null;
+        let termsData = [];
+
+        async function loadTermsForChart() {
+            try {
+                const response = await fetch('v1/index.json');
+                const data = await response.json();
+
+                termsData = data.terms || [];
+
+                const termSelect = document.getElementById('term-select');
+                if (termsData.length === 0) {
+                    termSelect.innerHTML = '<option value="">No terms available yet</option>';
+                    return;
+                }
+
+                // Populate term dropdown
+                termSelect.innerHTML = termsData.map(term =>
+                    `<option value="${term.code}">${term.name} (${term.code})</option>`
+                ).join('');
+
+                // Load first term by default
+                if (termsData.length > 0) {
+                    loadTermChart(termsData[0].code);
+                }
+            } catch (error) {
+                console.error('Error loading terms:', error);
+            }
+        }
+
+        async function loadTermChart(termCode) {
+            const chartLoading = document.getElementById('chart-loading');
+            const chartStats = document.getElementById('chart-stats');
+
+            try {
+                chartLoading.style.display = 'block';
+                chartStats.style.display = 'none';
+
+                const response = await fetch(`v1/terms/${termCode}/`);
+                const data = await response.json();
+
+                // Group by department
+                const deptData = {};
+                let totalEnrolled = 0;
+                let totalCapacity = 0;
+
+                data.courses.forEach(course => {
+                    const dept = course.code.split(' ')[0] || 'OTHER';
+                    if (!deptData[dept]) {
+                        deptData[dept] = { enrolled: 0, capacity: 0 };
+                    }
+                    deptData[dept].enrolled += course.enrolled || 0;
+                    deptData[dept].capacity += course.max_enrollment || 0;
+                    totalEnrolled += course.enrolled || 0;
+                    totalCapacity += course.max_enrollment || 0;
+                });
+
+                // Sort by enrollment and take top 12
+                const sortedDepts = Object.entries(deptData)
+                    .sort((a, b) => b[1].enrolled - a[1].enrolled)
+                    .slice(0, 12);
+
+                // Penn colors palette
+                const colors = [
+                    '#011F5B', // Penn Blue
+                    '#990000', // Penn Red
+                    '#63C7FF', // Electric Blue
+                    '#0A3380', // Penn Blue Light
+                    '#CC0000', // Red Light
+                    '#2D2926', // Dark Gray
+                    '#807456', // Medium Gray
+                    '#4CAF50', // Success Green
+                    '#FF9800', // Warning Orange
+                    '#7B2D8E', // Purple
+                    '#019CDE', // Light Blue
+                    '#F2F2F2', // Light Gray
+                ];
+
+                // Create/update chart
+                const ctx = document.getElementById('enrollment-chart').getContext('2d');
+
+                if (enrollmentChart) {
+                    enrollmentChart.destroy();
+                }
+
+                enrollmentChart = new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: sortedDepts.map(d => d[0]),
+                        datasets: [{
+                            label: 'Enrolled',
+                            data: sortedDepts.map(d => d[1].enrolled),
+                            backgroundColor: colors.slice(0, sortedDepts.length),
+                            borderColor: '#FFFFFF',
+                            borderWidth: 2
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: true,
+                        plugins: {
+                            legend: {
+                                display: false
+                            },
+                            title: {
+                                display: true,
+                                text: `Enrollment by Department - ${data.term_name}`,
+                                font: {
+                                    size: 16,
+                                    weight: 'bold',
+                                    family: 'TWK Everett, sans-serif'
+                                },
+                                color: '#011F5B'
+                            }
+                        },
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                title: {
+                                    display: true,
+                                    text: 'Number of Students Enrolled',
+                                    font: {
+                                        family: 'Pitch Sans, monospace'
+                                    }
+                                }
+                            },
+                            x: {
+                                title: {
+                                    display: true,
+                                    text: 'Department Code',
+                                    font: {
+                                        family: 'Pitch Sans, monospace'
+                                    }
+                                }
+                            }
+                        }
+                    }
+                });
+
+                // Update stats
+                const fillRate = totalCapacity > 0
+                    ? Math.round((totalEnrolled / totalCapacity) * 100)
+                    : 0;
+
+                document.getElementById('total-enrollment').textContent = totalEnrolled.toLocaleString();
+                document.getElementById('total-capacity').textContent = totalCapacity.toLocaleString();
+                document.getElementById('fill-rate').textContent = `${fillRate}%`;
+
+                chartStats.style.display = 'block';
+                chartLoading.style.display = 'none';
+
+            } catch (error) {
+                console.error('Error loading chart data:', error);
+                chartLoading.innerHTML = '<p style="color: var(--penn-red);">Error loading chart data. The term data may not be available yet.</p>';
+            }
+        }
+
+        // Term selector change handler
+        document.getElementById('term-select').addEventListener('change', function() {
+            if (this.value) {
+                loadTermChart(this.value);
+            }
+        });
+
         // Initialize
         loadStats();
         loadSearchData();
+        loadTermsForChart();
     </script>
 </body>
 </html>

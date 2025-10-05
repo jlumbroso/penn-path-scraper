@@ -42,6 +42,17 @@ HISTORICAL_TERMS=(
     "202030|Fall 2020"
 )
 
+# For later:
+# HISTORICAL_TERMS=(
+#     "202520|Summer 2025"
+#     "202420|Summer 2024"
+#     "202320|Summer 2023"
+#     "202220|Summer 2022"
+#     "202120|Summer 2021"
+#     "202020|Summer 2020"
+# )
+
+
 # Schools to scrape for each term
 SCHOOLS=("E" "W" "A" "M" "N" "L" "S" "F" "G" "C" "D" "V")
 
@@ -61,12 +72,57 @@ check_existing() {
     local term_code=$1
     local school_code=$2
 
-    # Check if term+school already has data in database
-    COUNT=$(pipenv run scraper --db "$DB_PATH" stats 2>/dev/null | grep "$term_code" | wc -l || echo "0")
-    if [ "$COUNT" -gt "0" ]; then
-        return 0  # Has data
+    # Check if all CRNs for this term/school already exist in the database
+    local status_raw
+    status_raw=$(pipenv run python - "$term_code" "$school_code" "$DB_PATH" <<'PY' 2>/dev/null
+import sys
+
+term = sys.argv[1]
+school = sys.argv[2]
+db_path = sys.argv[3]
+
+from src import api_client, models, persistence
+
+# Ensure database is initialized
+persistence.initialize_database(db_path)
+
+client = api_client.PennCoursesAPIClient(rate_limit_delay=0)
+try:
+    search = client.search_by_school(term=term, school_code=school)
+except Exception:
+    # If the API check fails, assume data is missing so we rescrape.
+    print("0")
+    sys.exit(0)
+
+results = search.get("results") or []
+crns = [item.get("crn") for item in results if item.get("crn")]
+if not crns:
+    print("0")
+    sys.exit(0)
+
+models.db.init(db_path)
+models.db.connect(reuse_if_open=True)
+try:
+    existing = (
+        models.Course
+        .select()
+        .where(models.Course.crn.in_(crns))
+        .count()
+    )
+finally:
+    if not models.db.is_closed():
+        models.db.close()
+
+print("1" if existing >= len(crns) else "0")
+PY
+)
+    local status
+    status=$(printf '%s' "$status_raw" | tail -n 1 | tr -d '[:space:]')
+
+    if [ "$status" = "1" ]; then
+        return 0
     else
-        return 1  # No data
+        return 1
     fi
 }
 
@@ -145,10 +201,11 @@ for term_entry in "${HISTORICAL_TERMS[@]}"; do
 
         # Run scraper
         log "   ⏳ Scraping..."
-        if pipenv run scraper --db "$DB_PATH" scrape \
-            --term "$TERM_CODE" \
-            --school "$SCHOOL" \
+        if pipenv run scraper --db "$DB_PATH" scrape-historical \
+            --terms "$TERM_CODE" \
+            --schools "$SCHOOL" \
             --rate-limit "$RATE_LIMIT" \
+            --no-skip-existing \
             >> "$LOG_FILE" 2>&1; then
             log "${GREEN}   ✓ Success${NC}"
             SCHOOLS_COMPLETED=$((SCHOOLS_COMPLETED + 1))

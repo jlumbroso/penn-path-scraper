@@ -193,8 +193,7 @@ def scrape(
     show_default=True,
 )
 @click.option(
-    "--skip-existing",
-    is_flag=True,
+    "--skip-existing/--no-skip-existing",
     default=True,
     help="Skip terms that already have data (enables resume capability)",
     show_default=True,
@@ -242,7 +241,7 @@ def scrape_historical(
 
     # Create API client
     api_client = src.api_client.PennCoursesAPIClient(rate_limit_delay=rate_limit)
-    scraper_obj = src.scraper.CourseScraper(api_client)
+    scraper_obj = src.scraper.CourseScraper(api_client=api_client, db_path=str(db_path))
 
     # Track results
     results_summary = {
@@ -297,8 +296,14 @@ def scrape_historical(
                 )
 
             # Display results
-            console.print(f"  ✅ [green]Scraped {result['total_courses']} courses, {result['total_snapshots']} snapshots[/green]")
-            results_summary["scraped"].append((term_code, result['total_courses']))
+            total_found = result.get("total_courses_found", 0)
+            total_saved = result.get("total_courses_saved", 0)
+            console.print(
+                "  ✅ [green]Scraped "
+                f"{total_saved}/{total_found} courses saved"
+                "[/green]"
+            )
+            results_summary["scraped"].append((term_code, total_saved))
 
         except Exception as e:
             console.print(f"  ❌ [red]Failed: {str(e)}[/red]")

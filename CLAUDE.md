@@ -4,14 +4,45 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 USER: Jérémie Lumbroso
 
-## RULE #1: EVERY DECISION MADE TOGETHER SHOULD BE DOCUMENTED AS AN ADR
+## RULE #1: COMMIT ALL DISCUSSION IMMEDIATELY TO AN ADR OR AIDR!!
 
-- Following template: docs/adr/template.md
-- Mark user (Jérémie Lumbroso) and model (Sonnet 4.5 or Opus 4.1) as decision maker
+**Core Principle**: Our conversations are precious and capture decision-making. **Never let discussion stay only in conversation** - commit it to documents immediately.
 
-Our conversations between human and model are precious and capture a lot of decision-making. This information should be captured in an ADR.
+### The Workflow
 
-ADR should meticulously synthethize richness of conversation. 
+**When the user gives you a stream-of-consciousness dump**:
+
+1. **Read the dump** (use subagents for large files)
+2. **Chunk into distinct threads** - identify separate topics/decisions
+3. **Create an ADR for each thread** using [`docs/adr/template-with-human-ai-collaboration.md`](docs/adr/template-with-human-ai-collaboration.md)
+4. **Seed each ADR** with relevant extract from the user's dump
+5. **Ask for supporting materials** using precise XML tags: `<code-example>`, `<api-call>`, `<documentation>`, `<url>`
+6. **Iterate on each ADR separately** - track evolution with iteration numbers
+
+**Key Patterns**:
+- Use `--------------------` dividers to separate sections
+- Use XML tags (starting on their own line) for easy grepping:
+  - `<code-example>` - Code snippets
+  - `<api-call>` - API request/response specs
+  - `<documentation>` - Reference docs
+  - `<url>` - External resources
+  - `<model-question>` - Your clarifying questions (with `<answer>` tags for human responses)
+- Mark deciders: user (Jérémie Lumbroso) and model (Sonnet 4.5 or Opus 4.1)
+- Increment iteration number each time ADR is updated
+- Navigate Q&A: `grep '<answer status="unanswered"'` to find questions needing answers
+
+**Why This Matters**:
+- ✅ Stream-of-consciousness preserved in version control (not lost after compaction)
+- ✅ Model has agency to engage strategically with information
+- ✅ Each ADR becomes focused discussion of one topic
+- ✅ Shared artifacts persist across context windows
+- ✅ Future collaborators (including future instances of you!) can understand decisions
+
+**Templates**:
+- Standard ADR: [`docs/adr/template.md`](docs/adr/template.md)
+- Human-AI Collaboration ADR: [`docs/adr/template-with-human-ai-collaboration.md`](docs/adr/template-with-human-ai-collaboration.md)
+
+**See Also**: [`docs/SHARED-WORKING-PRACTICES.md`](docs/SHARED-WORKING-PRACTICES.md) for our collaboration philosophy 
 
 ## Git Commit Message Format
 

@@ -202,12 +202,19 @@ class CourseScraper:
             )
             raise
 
-        courses_found = search_result["count"]
+        results_list = search_result.get("results") or []
+
+        count_value = search_result.get("count")
+        if isinstance(count_value, int):
+            courses_found = count_value
+        else:
+            courses_found = len(results_list)
+
         courses_saved = 0
         errors: typing.List[str] = []
 
         # Process each course
-        for idx, course_summary in enumerate(search_result["results"], 1):
+        for idx, course_summary in enumerate(results_list, 1):
             try:
                 self._process_course(
                     course_code=course_summary["code"],
@@ -230,7 +237,7 @@ class CourseScraper:
 
             # Call progress callback
             if progress_callback:
-                progress_callback(idx, courses_found)
+                progress_callback(idx, max(courses_found, len(results_list)))
 
         duration = (datetime.datetime.now() - start_time).total_seconds()
 

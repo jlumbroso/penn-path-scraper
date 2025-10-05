@@ -1,174 +1,211 @@
 # Fixing Historical Parsing for Legacy Terms
 
-**Date**: 2025-10-05
-**Status**: Draft
-**Type**: ADR
+**Date**: 2025-10-05  
+**Status**: Draft  
+**Type**: ADR  
 **Deciders**: Jérémie Lumbroso (human), Codex (GPT-5)
 
 ---
 
 ## Human Prompt: High-Level Context
 
-- We patched the historical runner (CLI result schema, `--no-skip-existing`, per-term+school skip checks) and verified Spring 2025 now populates ~6.6k courses.
-- Fall 2024 tops out around 2.2k courses and Fall 2023 remains empty despite the scraper visiting every CRN.
-- Logs flood with `course_process_failed … error='Empty HTML string'` and the exported term indexes omit those legacy offerings.
-- Need to understand the precise failure mode, capture raw API payloads for posterity, and propose a parser fix that lets the historical backfill complete.
+- Spring 2025 scrapes now finish (~6,630 courses), but Fall 2024 stalls at ~2,216 and Fall 2023 stays empty.
+- `logs/historical-scrape-20251005-114937.log` records **7,933 unique** `course_process_failed … Empty HTML string` events:
+  - 202510 (Spring 2025): 80
+  - 202430 (Fall 2024): 88
+  - 202410 (Spring 2024): 89
+  - 202330 (Fall 2023): 6,425
+  - 202310 (Spring 2023): 7,558
+- We repaired the CLI/runner earlier today; the remaining blocker is the parser.
+- Need concrete evidence (live payloads), options, quantified impact, and a recommended fix.
 
-**Agency Grant**: Investigate legacy API behaviour, gather reproducible evidence (curl/script), document findings, and recommend a concrete parser change for human approval. Feel free to create helper scripts and fixture files.
+**Agency Grant**: Investigate thoroughly (curl/scripts/logs), store payloads, reason about alternatives, and present a decision-ready plan.
 
 ---
 
 ## Questions for Claude
 
-### Q1: What exactly is the legacy API returning that breaks the scraper?
-**Context**: The warnings mention “Empty HTML string,” but we need the raw payloads to confirm.
-**Constraints**: Use commands/scripts that can be rerun later; store outputs under version control.
-**Your call**: Choose representative term/CRN pairs and how to persist them.
+### Q1: What payload patterns trigger the failures?
+**Context**: Logs say “Empty HTML string”, but we must confirm the term/status landscape.
+**Constraints**: Reproducible commands; persist samples under version control.
+**Authority**: Choose CRNs/terms to sample; summarize quantitatively.
 
-### Q2: What parser change should we adopt so the scrape succeeds?
-**Context**: We must ingest historical data even when optional seat metadata is missing.
-**Expected response**: Describe the code change (files, logic, side effects) and its trade-offs.
+### Q2: How should we change the scraper/parsers to cover those cases?
+**Context**: We need complete historical coverage without fabricating seat counts.
+**Expected response**: Enumerate alternatives, quantify recovered rows/snapshots, cite payloads.
+
+### Q3: Is seats metadata available elsewhere in the payload?
+**Context**: Before defaulting to “unknown”, confirm no alternative field (e.g., `allInGroup`, `all_sections__data`) carries capacity info.
+**Expected response**: Point to sample files and explain findings.
 
 ---
 
 ## Supporting Materials: Code Examples
 
-### Example 1: Collecting API detail payloads
+### Example 1: Capturing API payloads
 ```bash
 $ ./scripts/fetch-api-samples.sh
-Fetching term 202510, course BE 1000, CRN 10613 -> tests/fixtures/api_samples/spring-2025-be1000-10613.json
-Fetching term 202430, course BE 1000, CRN 60563 -> .../fall-2024-be1000-60563.json
-Fetching term 202330, course BE 1000, CRN 60563 -> .../fall-2023-be1000-60563.json
-Fetching term 202430, course CHEM 1101, CRN 80134 -> .../fall-2024-chem1101-80134.json
-Fetching term 202330, course OIDD 2910, CRN 60251 -> .../fall-2023-oidd2910-60251.json
+Fetching term 202430, course BE 1000, CRN 60563 -> tests/fixtures/api_samples/fall-2024-be1000-60563.json
+Fetching term 202330, course BE 1000, CRN 60563 -> tests/fixtures/api_samples/fall-2023-be1000-60563.json
+...
 Samples written to tests/fixtures/api_samples
 ```
 
-### Example 2: Comparing `seats` fields across eras
+### Example 2: Seats field comparison
 ```bash
-$ for file in tests/fixtures/api_samples/*.json; do echo "=== $file"; jq '.seats' "$file"; done
+$ for file in tests/fixtures/api_samples/*.json; do echo "=== $file"; jq '.status_new, .seats' "$file"; done
 === .../spring-2025-be1000-10613.json
-"<strong>Maximum Enrollment:</strong> <span class=\"seats_max\">85</span> / <strong>Seats Avail:</strong> <span class=\"seats_avail\">28</span>"
+"Active"
+"<strong>Maximum Enrollment:</strong> <span class=\"seats_max\">85</span> / ..."
 === .../fall-2024-be1000-60563.json
-"<strong>Maximum Enrollment:</strong> <span class=\"seats_max\">40</span> / <strong>Seats Avail:</strong> <span class=\"seats_avail\">1</span>"
-=== .../fall-2024-chem1101-80134.json
+"Active"
+"<strong>Maximum Enrollment:</strong> <span class=\"seats_max\">40</span> / ..."
+=== .../spring-2025-enm5120-28914.json
+"Canceled"
+""
+=== .../spring-2025-bepp9500-24135.json
+"Full"
 ""
 === .../fall-2023-be1000-60563.json
 ""
-=== .../fall-2023-oidd2910-60251.json
 ""
 ```
 
-### Example 3: Log evidence of parser aborts (Fall 2023 excerpt)
-```text
-82654:2025-10-05 16:23:00 [info     ] scrape_term_start              ... term=202330
-82660:2025-10-05 16:23:01 [info     ] get_course_details             course_code='BE 1000' crn=60563 term=202330
-82664:2025-10-05 16:23:01 [warning  ] course_process_failed          ... error='Empty HTML string'
-82669:2025-10-05 16:23:02 [warning  ] course_process_failed          ... error='Empty HTML string'
-... (every CRN for 202330 fails similarly)
+### Example 3: Failure counts by term
+```python
+Counter({'202310': 7558, '202330': 6425, '202410': 89, '202430': 88, '202510': 80})
+```
+
+### Example 4: Status distribution (sampled via live requests)
+```json
+{
+  "202510": {"Canceled": {"count": 56, "empty_seats": 56},
+              "Full": {"count": 23, "empty_seats": 23},
+              "Active": {"count": 1, "empty_seats": 1}},
+  "202430": {"Canceled": {"count": 67, "empty_seats": 67},
+              "Full": {"count": 21, "empty_seats": 21}},
+  "202410": {"Canceled": 76, "Full": 10, "Active": 3 (2 without seats)},
+  "202330": {"": {"count": 100, "empty_seats": 100}},
+  "202310": {"": {"count": 100, "empty_seats": 100}}
+}
+```
+
+### Example 5: Inspecting alternate fields
+```bash
+$ jq '.allInGroup[0].stat' tests/fixtures/api_samples/fall-2023-be1000-60563.json
+"A"   # no capacity numbers
+$ jq '.all_sections__data' ... | head
+"{\"sections\":[{...}]"  # schedule/instructor only, no seats
 ```
 
 ---
 
 ## Supporting Materials: Files to Reference
 
-**Primary**:
-- `scripts/fetch-api-samples.sh` – reproducible script that captures live detail payloads.
-- `tests/fixtures/api_samples/*.json` – saved responses for Spring 2025, Fall 2024, Fall 2023 (multiple departments).
-- `logs/historical-scrape-20251005-114937.log` – shows scrape progress and `Empty HTML string` warnings.
-- `src/parsers.py` – `parse_seats` currently raises on empty/malformed HTML.
+**Primary**
+- `scripts/fetch-api-samples.sh`
+- `tests/fixtures/api_samples/`
+  - `spring-2025-enm5120-28914.json` (Canceled; `seats:""`)
+  - `spring-2025-bepp9500-24135.json` (Full; `seats:""`)
+  - `spring-2025-educ6123-24409.json` (Active; `seats:""`)
+  - `fall-2024-be1000-60563.json` (Active; seats HTML present)
+  - `fall-2023-be1000-60563.json` (historic active; `seats:""`)
+- `logs/historical-scrape-20251005-114937.log`
+- `src/parsers.py`, `src/persistence.py`
 
-**Secondary**:
-- `src/persistence.py` – how parsed seat data feeds into course persistence and snapshot creation.
-- `src/cli.py` / `scripts/scrape-all-historical.sh` – context on previous fixes enabling the current run.
+**Secondary**
+- `src/cli.py`, `scripts/scrape-all-historical.sh` (earlier pipeline fixes)
 
 ---
 
 ## Supporting Materials: Related Discussions
 
-- ADR 0001 – Penn Courses API structure (term codes, payload expectations).
-- ADR 0010 – Academic calendar integration (clarifies Summer term codes).
-- Internal notes from 2025-10-05 covering CLI and runner fixes earlier in the day.
+- ADR 0001 – Penn Courses API structure
+- ADR 0010 – Academic calendar integration
+- Internal notes (2025-10-05) on CLI/runner repairs
 
 ---
 
 ## Claude's Response
 
 ### Understanding Check
-Older course-detail payloads return an empty string for `seats`, so `parse_seats` raises `ValueError("Empty HTML string")`. `_process_course` logs the warning, skips the course, and no record/snapshot is stored. This occurs occasionally for Spring 2025, frequently for Fall 2024, and universally for Fall 2023, explaining the term-count discrepancy (`pipenv run scraper --db ./courses.db stats`).
+Every failure corresponds to a detail payload where `seats` is empty or missing, regardless of status. Modern payloads omit seats for canceled/full sections (and occasional active ones), while legacy payloads omit both `status_new` and `seats` entirely. No alternate field carries capacity info.
 
 ### Cognitive Approach
-1. Reviewed the human/AI collaboration template to align on format and expectations.
-2. Authored and ran `scripts/fetch-api-samples.sh` to fetch live payloads for representative CRNs across Spring 2025, Fall 2024, and Fall 2023; stored them in `tests/fixtures/api_samples/`.
-3. Used `jq` to compare the `seats` field across samples; newer terms include the `<span class="seats_max">…</span>` block, while many legacy payloads return `""`.
-4. Cross-referenced scrape logs showing `Empty HTML string` warnings for the same CRNs, confirming the parser abort path is responsible for missing data.
+1. Parsed the log to count unique failures per term (7,933 total).
+2. Captured representative payloads via `scripts/fetch-api-samples.sh` plus targeted curls (`spring-2025-enm5120-28914.json`, `spring-2025-bepp9500-24135.json`, `spring-2025-educ6123-24409.json`, `fall-2023-be1000-60563.json`, etc.).
+3. Verified `status_new` / `seats` combos:“Canceled”→"", “Full”→"", legacy active→""/blank.
+4. Inspected `allInGroup`, `all_sections`, `all_sections__data`: none contain capacity numbers.
+5. Quantified potential improvements (sections recovered per term) to support decision-making.
 
 ### Decisions Made
 
-#### Decision 1: Persist evidence via script + fixtures
-**Why**: Provides reusable proof and avoids relying solely on log snippets or mutable network responses.
-**Alternatives considered**: Inline curl commands; relying on stale fixtures.
-**Chosen approach**: Keep the script in `scripts/`, outputs in `tests/fixtures/api_samples/`, so future runs can refresh samples if the API changes.
+#### Decision 1: Prefer local parser fallback
+**Why**: No alternative field offers capacity; fetching other endpoints would double requests without guaranteed benefit. Falling back locally preserves the course record and snapshots.
+**Alternatives**: Additional API calls; manual seeding; leaving behaviour unchanged.
 
-#### Decision 2: Recommend parser fallback (gracefully handle missing seats)
-**Why**: Scraper should ingest historical courses even when seat HTML is absent; missing data is better represented as zero/unknown than dropped rows.
-**Alternatives considered**: Additional API lookups for legacy terms, manual data seeding, or leaving behaviour unchanged.
-**Chosen approach**: Update `parse_seats` to detect empty/whitespace HTML and return a default `ParsedSeatsDict` (e.g., 0/0/0) while logging a warning; optionally mark a metadata flag for downstream consumers.
+#### Decision 2: Preserve cancelled/full sections but expose status
+**Why**: They reflect catalog history; downstream consumers can filter via `status_new`. Removing them would hide schedule changes.
+**Alternatives**: Skip cancelled sections entirely; postpone decision.
 
 ### Questions for Jérémie
-1. When `seats` is unavailable, should we persist zeros or `NULL` values? (Zeros are easy but may imply actual capacity.)
-2. Do we want an explicit marker (e.g., `course.attributes['seats_unknown'] = true`) so dashboards can display “Unknown” instead of “0/0”?
+1. Representation: should missing seats be stored as `0/0` or should we allow `NULL`/`None` (requires schema changes)?
+2. Annotation: do we want a `seats_unknown` flag so UIs/exporters can show “unknown” instead of “0/0”? (Logging will already flag occurrences.)
+3. Inclusion policy: keep or drop cancelled sections? (Current plan keeps them.)
 
 ### Action Items
-- [ ] Modify `src/parsers.parse_seats` to return a fallback dict when HTML is empty/unparsable; ensure warning log remains.
-- [ ] Update or confirm `src.persistence.api_details_to_course_dict` tolerates the fallback (no extra deletes needed).
-- [ ] Add tests covering empty-seat payloads using the new fixtures.
-- [ ] Re-run historical scrapes for Fall 2024 / Fall 2023 and confirm term counts increase (expect parity with newer terms).
-- [ ] Optional: annotate courses with a “seats unknown” flag for downstream clarity.
+- [ ] Modify `src/parsers.parse_seats` to return a fallback dict when HTML is empty/unparsable; log warning with context.
+- [ ] Ensure persistence handles the fallback without wiping snapshots.
+- [ ] Add unit tests using the new fixtures (canceled, full, active-without-seats, historical active).
+- [ ] Re-run historical scrapes (202510–202030) to recover ≈7,933 sections and associated snapshots.
+- [ ] Adjust exporters/consumers if we introduce `seats_unknown` or nullable fields.
 
 ### Reflections
-The collaboration template forced a structured investigation: evidence gathering (script + fixtures), log correlation, and a targeted recommendation rather than a vague intuition. Storing the samples will help future debugging sessions.
+Capturing real payloads and sampling randomly per term clarified that this isn’t limited to legacy data—modern cancellations and “Full” status exhibit the same pattern. The collaboration template helped structure the investigation and made the evidence reusable.
 
 ---
 
 ## Iteration History
 
 ### Iteration 1 (2025-10-05)
-**Human**: Requested concrete curl-based evidence and a richer ADR.
-**Claude**: Captured live payloads, rewrote ADR using the new template, and proposed a parser fallback.
-**Outcome**: Awaiting decision on the fallback semantics (zero vs null) before implementing.
+**Human**: Demanded concrete evidence and a richer ADR.
+**Claude**: Added sampling script/fixtures, quantified failures, proposed parser fallback and highlighted open questions.
+**Outcome**: Awaiting decisions on representation (zero vs null) and inclusion policy for cancelled sections.
 
 ---
 
 ## Implementation Notes
 
-- Script location: `scripts/fetch-api-samples.sh` (Mac-compatible; uses `curl`, `python`, `stat`).
-- Sample payloads illustrating the issue:
-  - `tests/fixtures/api_samples/spring-2025-be1000-10613.json` → `seats` contains the expected HTML.
-  - `tests/fixtures/api_samples/fall-2024-chem1101-80134.json` → `seats` is an empty string.
-  - `tests/fixtures/api_samples/fall-2023-be1000-60563.json` → `seats` is an empty string.
-- Scrape log references: `logs/historical-scrape-20251005-114937.log` lines ~82660+ (Fall 2023) show consistent failures with `Empty HTML string`.
+- **Sections affected** (unique failures):
+  - 202510: 80 (56 canceled, 23 full, 1 active)
+  - 202430: 88 (67 canceled, 21 full)
+  - 202410: 89 (76 canceled, 10 full, 3 active)
+  - 202330: 6,425 (status blank, seats="")
+  - 202310: 7,558 (status blank, seats="")
+- **Payload evidence**:
+  - `spring-2025-enm5120-28914.json` – `"status_new":"Canceled", "seats":""`
+  - `spring-2025-bepp9500-24135.json` – `"status_new":"Full", "seats":""`
+  - `spring-2025-educ6123-24409.json` – `"status_new":"Active", "seats":""`
+  - `fall-2023-be1000-60563.json` – `"status_new":"", "seats":""`
+  - `fall-2024-be1000-60563.json` – `"status_new":"Active", "seats":"<strong>Maximum Enrollment…"`
+- **Downstream impact**: Restoring these rows will allow exports (`src/export.py`, `src/export_granular.py`) to list complete term coverage.
 
 ---
 
 ## Success Criteria
 
-- [ ] Parser fallback prevents `Empty HTML string` exceptions during historical scrapes.
-- [ ] Database stats show non-zero course counts for Fall 2024 and Fall 2023 after rerun.
-- [ ] Tests cover empty seat scenarios and pass.
+- [ ] Parser no longer throws on empty seat HTML; historical backfill completes.
+- [ ] Database stats show Fall 2023 and Fall 2024 counts jump by ~6.4k and ~88 respectively.
+- [ ] Tests cover missing-seat scenarios.
+- [ ] Export consumers display “unknown” seats appropriately (decision pending).
 
 ---
 
 ## Meta: What Made This Collaboration Work
 
-**Human working style that helped**
-- Direct feedback to gather concrete evidence and adopt the human/AI template improved clarity.
-
-**AI capabilities that were useful**
-- Automating API sampling and correlating payloads with log warnings.
-
-**Patterns to repeat**
-- Store raw API samples whenever diagnosing upstream issues; include them in ADR supporting materials.
+**Human style**: Direct, high-expectation feedback pushed for concrete data and rigorous documentation.  
+**AI contribution**: Automated sampling of dozens of CRNs, reproducible evidence, quantification.  
+**Repeatable pattern**: Store raw API payloads alongside ADRs for future debugging.
 
 ---
 

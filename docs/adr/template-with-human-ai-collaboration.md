@@ -7,6 +7,20 @@
 
 ---
 
+## Quick Start (Delete this section after reading)
+
+**Human**: Dump your thoughts in "Human Context" section → Save file → Tell model "I've dumped thoughts in [filepath], please chunk into ADRs"
+
+**Model**: Read → Create ADRs → Add navigation codes (QST:, COD:, etc.) → Ask questions
+
+**Human**: Fill in **ANS:** blocks → Save → Tell model "I've answered questions in [filepath]"
+
+**Model**: Process answers → Fill "Model's Response" and "Decision Summary" sections
+
+**Both**: Check validation boxes when you agree with Decision Summary
+
+---
+
 ## How This Template Works
 
 **The Workflow**:

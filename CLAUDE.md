@@ -16,20 +16,27 @@ USER: Jérémie Lumbroso
 2. **Chunk into distinct threads** - identify separate topics/decisions
 3. **Create an ADR for each thread** using [`docs/adr/template-with-human-ai-collaboration.md`](docs/adr/template-with-human-ai-collaboration.md)
 4. **Seed each ADR** with relevant extract from the user's dump
-5. **Ask for supporting materials** using precise XML tags: `<code-example>`, `<api-call>`, `<documentation>`, `<url>`
-6. **Iterate on each ADR separately** - track evolution with iteration numbers
+5. **Add navigation codes** (QST:, COD:, API:, FIL:, DOC:) to structure the content - HUMAN writes naturally, MODEL adds codes
+6. **Ask for supporting materials** using these navigation codes
+7. **Iterate on each ADR separately** - track evolution with iteration numbers
 
 **Key Patterns**:
-- Use `--------------------` dividers to separate sections
-- Use XML tags (starting on their own line) for easy grepping:
-  - `<code-example>` - Code snippets
-  - `<api-call>` - API request/response specs
-  - `<documentation>` - Reference docs
-  - `<url>` - External resources
-  - `<model-question>` - Your clarifying questions (with `<answer>` tags for human responses)
+- Use `---` dividers to separate items at same level
+- Use navigation codes (MODEL adds these, not human):
+  - `QST:` - Questions (human writes naturally, model adds this code)
+  - `ANS:` - Answers (model structures the answer section)
+  - `COD:` - Code examples
+  - `API:` - API calls
+  - `FIL:` - Files to read
+  - `DOC:` - Documentation
 - Mark deciders: user (Jérémie Lumbroso) and model (Sonnet 4.5 or Opus 4.1)
 - Increment iteration number each time ADR is updated
-- Navigate Q&A: `grep '<answer status="unanswered"'` to find questions needing answers
+
+**Navigation Commands**:
+- Find all questions: `grep '^### QST:'`
+- Find unanswered: `grep -A 2 '^### QST:' | grep 'Status: unanswered'`
+- Find code examples: `grep '^### COD:'`
+- Find API calls: `grep '^### API:'`
 
 **Why This Matters**:
 - ✅ Stream-of-consciousness preserved in version control (not lost after compaction)
@@ -43,6 +50,18 @@ USER: Jérémie Lumbroso
 - Human-AI Collaboration ADR: [`docs/adr/template-with-human-ai-collaboration.md`](docs/adr/template-with-human-ai-collaboration.md)
 
 **See Also**: [`docs/SHARED-WORKING-PRACTICES.md`](docs/SHARED-WORKING-PRACTICES.md) for our collaboration philosophy 
+
+#### When to Use Which Template
+
+There are always trade-offs, but here is a heuristic that can be helpful:
+
+| Situation | Use This |
+|-----------|----------|
+| Quick question | Conversation |
+| Single decision | Standard ADR template |
+| Multi-thread discussion | Human-AI collaboration template |
+| Pure brainstorm | Simple markdown file |
+| Bug fix | Direct to PR with comments |
 
 ## Git Commit Message Format
 

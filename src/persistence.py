@@ -247,17 +247,26 @@ def save_course(course_dict: src.types.CourseDict) -> src.models.Course:
 def create_enrollment_snapshot(
     course: src.models.Course,
     timestamp: datetime.datetime,
-) -> src.models.EnrollmentSnapshot:
+) -> typing.Optional[src.models.EnrollmentSnapshot]:
     """
     Create enrollment snapshot for time-series tracking.
+
+    Skips snapshot creation if enrollment data is NULL (e.g., cancelled courses,
+    historical courses without seat data, or courses with "Full" status but no
+    actual enrollment numbers).
 
     Args:
         course: Course to snapshot
         timestamp: Time of snapshot
 
     Returns:
-        EnrollmentSnapshot model instance
+        EnrollmentSnapshot model instance, or None if enrollment data is unavailable
     """
+    # Skip snapshot if enrollment data is missing
+    # Historical courses and cancelled/full courses may have NULL enrollment
+    if course.enrolled is None or course.max_enrollment is None:
+        return None
+
     snapshot = src.models.EnrollmentSnapshot.create(
         course=course,
         timestamp=timestamp,

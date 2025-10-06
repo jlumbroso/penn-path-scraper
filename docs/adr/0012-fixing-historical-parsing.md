@@ -521,15 +521,16 @@ Historical scraper fails on ~19,710 sections due to empty seats HTML. Modern can
 **Human validation**: [x] Approved by Jérémie on 2025-10-05
 **Model validation**: [x] Confirmed by Claude Sonnet 4.5 on 2025-10-05
 
-**Implementation Status** (2025-10-05):
+**Implementation Status** (2025-10-06):
 - ✅ parse_seats() returns NULL for empty HTML (19,710 failures → 0)
 - ✅ Database schema updated (nullable enrollment fields)
 - ✅ is_cancelled detection fixed (uses status_new, not retired isCancelled field)
 - ✅ Duplicate instructor deduplication (1 UNIQUE constraint error → 0)
-- ✅ All 72 unit tests passing (including new duplicate instructor test)
+- ✅ Enrollment snapshot NULL handling (prevented IntegrityError on historical courses)
+- ✅ All 73 unit tests passing (including NULL snapshot test)
 - ✅ Migration script created: `scripts/migrate_nullable_enrollment.py`
 - ✅ **100% success rate on historical scraping** - ALL bugs fixed!
-- ⏳ Ready for historical rescrape
+- ⏳ Ready for historical rescrape validation
 
 **Key Decisions Validated**:
 1. **NULL over inference**: Use NULL instead of inferring seats_available=0 from "Full" status
@@ -582,6 +583,30 @@ Historical scraper fails on ~19,710 sections due to empty seats HTML. Modern can
   ```
 - **Test added**: `test_save_course_with_duplicate_instructors`
 - **Validation**: ✅ All 72 tests pass, 100% historical success rate achieved
+
+### Iteration 5 (2025-10-06)
+- **Critical Issue Spotted**: GPT-5 identified blocker before shipment
+- **Problem**: `create_enrollment_snapshot()` fails when enrollment data is NULL
+  - **Where**: src/persistence.py:247-267
+  - **Root cause**: After parse_seats() returns NULL, Course.enrolled/Course.max_enrollment are NULL
+  - **Error path**: create_enrollment_snapshot() tries to insert NULL into EnrollmentSnapshot.enrolled/capacity (non-nullable IntegerField)
+  - **Result**: `IntegrityError: NOT NULL constraint failed: enrollment_snapshots.enrolled`
+  - **Impact**: Every scrape of historical/cancelled/full courses would crash when creating snapshots
+- **Investigation**: User (Jérémie) requested thorough investigation: "Can you investigate? Can you double check the historical scraper is flawless?"
+- **Fix**: Modified create_enrollment_snapshot() to skip snapshot creation if enrollment is NULL (src/persistence.py:265-268)
+  ```python
+  # Skip snapshot if enrollment data is missing
+  if course.enrolled is None or course.max_enrollment is None:
+      return None  # Don't snapshot unknown enrollment
+  ```
+- **Test added**: `test_create_snapshot_with_null_enrollment`
+  - Verified IntegrityError reproduced before fix
+  - Confirmed fix allows NULL enrollment courses without crashing
+- **Rationale**: Snapshots track enrollment changes over time - if enrollment is unknown, there's nothing to track
+- **Alternative considered**: Make snapshot fields nullable → rejected (NULL snapshots provide no value)
+- **Return type**: Updated signature to `typing.Optional[EnrollmentSnapshot]`
+- **Validation**: ✅ All 73 tests pass (72 + new NULL snapshot test)
+- **Credit**: Issue identified by GPT-5 code review before shipment
 
 ---
 

@@ -437,6 +437,39 @@ class TestEnrollmentSnapshot:
         assert snapshots[1].enrolled == 85
 
 
+    def test_create_snapshot_with_null_enrollment(self, db):
+        """Test that creating snapshot with NULL enrollment data is skipped."""
+        term = src.models.Term.create(code="202530", name="Fall 2025")
+        course = src.models.Course.create(
+            crn="12345",
+            term=term,
+            code="HIST 1000",
+            section="001",
+            title="Historical Course",
+            description="",
+            schedule_type="Lecture",
+            credits="1",
+            max_enrollment=None,  # NULL - historical course without seat data
+            seats_available=None,
+            enrolled=None,
+            start_date="2025-08-26",
+            end_date="2025-12-08",
+            is_cancelled=False,
+            status="Active",
+        )
+
+        # Should not crash, should return None
+        timestamp = datetime.datetime(2025, 10, 1, 12, 0, 0)
+        result = src.persistence.create_enrollment_snapshot(
+            course=course,
+            timestamp=timestamp,
+        )
+
+        # Snapshot should not be created
+        assert result is None
+        assert course.enrollment_history.count() == 0
+
+
 class TestGetOrCreateInstructor:
     """Tests for instructor creation/retrieval."""
 

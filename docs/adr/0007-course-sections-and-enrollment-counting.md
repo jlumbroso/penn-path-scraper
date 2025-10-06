@@ -326,17 +326,279 @@ SUPPLEMENTARY_SECTIONS = {"Recitation", "Laboratory", "Discussion"}  # Additiona
 3. Are there patterns in incomplete registrations (certain lecture sections more likely)?
 4. How does recitation fill rate predict course drop rates?
 
-## Open Questions for Jérémie
+## ADDENDUM (2025-10-05): Online Courses Bug and Missing Fields
 
-1. **Other schedule types**: Have you seen types other than "Lecture" and "Recitation"? (Lab, Seminar, Discussion, etc.)
+### Critical Bug Fixed: Online Courses Were Being Dropped
 
-2. **Credits as filter**: Is `credits > 0` a reliable indicator of primary sections, or are there edge cases?
+**Problem Discovered**: Online courses (e.g., CIT 5920-501 taught by Val Tannen) were being completely dropped from the database during scraping.
 
-3. **Linked sections**: Should we use the `linked_sections` field to explicitly group lecture + recitation families?
+**Root Cause**: The API provides two critical fields that we weren't capturing:
+- `inst_method_code`: "In Class" vs "Online"
+- `campus_code`: "Philadelphia" vs "Online"
 
-4. **API presentation**: Do you want the `enrollment_summary` computed field in the JSON export, or calculate on-demand in visualizations?
+Online courses have meeting patterns like:
+```html
+<div class="meet">Meets Online 8/25 to 12/7</div>
+```
 
-5. **Historical comparison**: For the "Registration Rush" visualization idea, can we track when students move from lecture-only to lecture+recitation?
+Our parser only recognized traditional patterns like `"TR 5:15pm-6:44pm"`, causing online courses to be skipped entirely.
+
+**Fix Implemented** (2025-10-05):
+
+1. **Database Schema** (src/models.py:79-80):
+   - Added `inst_method_code` field (nullable)
+   - Added `campus_code` field (nullable)
+
+2. **Type Definitions** (src/types.py:148-149):
+   - Added fields to `CourseDict` TypedDict
+
+3. **Data Extraction** (src/persistence.py):
+   - Extract `inst_method_code` and `campus_code` from API
+   - Store during course creation and updates
+
+4. **Parser Enhancement** (src/parsers.py:93-128):
+   - Recognize "Meets Online [dates]" pattern
+   - Extract date range, set `room_code="Online"`
+   - No specific days/times for online courses
+
+5. **Migration Script** (scripts/migrate_add_online_fields.py):
+   - Adds columns to existing databases via ALTER TABLE
+   - Supports `--dry-run` for safety
+   - Usage: `python scripts/migrate_add_online_fields.py data/courses.db`
+
+**Examples Now Captured**:
+- CIT 5920-501 (Val Tannen) - `inst_method_code: "Online"`
+- CIS 5500-501 (Susan Davidson) - `inst_method_code: "Online"`
+- CIT 5910-501 - `inst_method_code: "Online"`
+
+**Impact on Enrollment Counting**:
+- Online courses should be counted using same rules as in-person courses
+- `inst_method_code` can be used to filter/segment by delivery method
+- Useful for analysis: "What % of courses are offered online?"
+
+### API Fields Available But Not Captured
+
+The Penn Courses API provides many fields we're currently **not** storing:
+
+| Field | Type | Example Value | Potential Use Case |
+|-------|------|---------------|-------------------|
+| `clssnotes` | HTML | "During Advance Registration this course became full" | Important student notices |
+| `attributes_detail` | HTML | "CIS Unrestricted Technical Elective (EUCU)" | Degree requirement tracking |
+| `fees` | String | Course fees | Cost analysis |
+| `exam_time` | String | Final exam schedule | Exam conflict detection |
+| `syllabus` | HTML/URL | Link to syllabus | Direct access to course materials |
+| `homepage` | URL | Course website | Additional course info |
+| `canvas_registered_url` | HTML | Canvas link for registered students | LMS integration |
+| `xlist` | HTML | Cross-listing info | Multi-department courses |
+| `cart_opts` | JSON | Grade modes, credit options | Registration flexibility analysis |
+| `registration_options` | HTML | Special registration info | Permission requirements |
+| `meetingTimes` | JSON | `[{"meet_day":"1","start_time":"1345","end_time":"1514"}]` | Alternative meeting time format |
+
+**Recommended for Future Capture**:
+1. ✅ **`clssnotes`** - Important for students (permission requirements, waitlist info)
+2. ✅ **`attributes_detail`** - Enables "find courses that satisfy requirement X"
+3. ✅ **`exam_time`** - Exam scheduling conflict detection
+4. ⚠️ **`xlist`** - Cross-listed courses (we see HTML but don't parse)
+5. 🤔 **`fees`** - Cost transparency (though often empty)
+
+**Fields We Can Safely Ignore**:
+- `key`, `mpkey` - Internal IDs, not semantically useful
+- `schd` - Redundant with `schedule_type`
+- `cart_opts_rules_json` - Registration system internals
+- `order_books_bn_html` - Bookstore integration (external)
+- `all_sections__data` - Duplicate of data we already capture
+
+**Decision**: Add `clssnotes` and `attributes_detail` to schema in next version (v1.2), as these provide high-value student-facing information.
+
+## Clarifying Questions and Answers
+
+### QST: Other schedule types beyond Lecture and Recitation?
+- Status: answered
+- Why asking: Need to know all possible values to build comprehensive counting rules
+- What helps: Examples from actual API data
+
+**ANS:** (by Jérémie Lumbroso, 2025-10-05)
+
+YES - Multiple types exist! Complete list from API:
+- `LEC` - Lecture
+- `REC` - Recitation
+- `LAB` - Laboratory (example: ARCH 6999 "Second Year Technology Lab", 0 credits)
+- `SEM` - Seminar (example: GSWS 3104 "Poetry Lab", 1 credit)
+- `STU` - Studio
+- `CLN` - Clinical
+- `FLD` - Field Work
+
+**Please study them and integrate them in our data model.** We should create a metadata index (possibly in `index.json`) of all types of possible schedule units.
+
+---
+
+### QST: Is credits > 0 a reliable indicator of primary sections?
+- Status: answered
+- Why asking: Need simple rule to distinguish primary from supplementary sections
+- What helps: yes/no with edge cases if any
+
+**ANS:** (by Jérémie Lumbroso, 2025-10-05)
+
+"AFAIK, yes, that's a brilliant solution!"
+
+Confirmed pattern:
+- Primary sections (Lectures, Seminars): `credits > 0`
+- Supplementary sections (Recitations, Labs): `credits = 0`
+
+---
+
+### QST: Should we use linked_sections field to group lecture + recitation families?
+- Status: answered
+- Why asking: Explicit relationships vs inferred patterns
+- What helps: yes/no with requirements
+
+**ANS:** (by Jérémie Lumbroso, 2025-10-05)
+
+"YES, I think that's an excellent idea."
+
+Requirements:
+- Should be **documented in code AND ADR explicitly**
+- We should identify how to notice if this leads to issues
+- We should document what kind of issues could arise
+
+---
+
+### QST: enrollment_summary in JSON export or calculate on-demand?
+- Status: answered
+- Why asking: Performance vs file size tradeoff
+- What helps: preferred approach with rationale
+
+**ANS:** (by Jérémie Lumbroso, 2025-10-05)
+
+Export directly in JSON.
+
+Rationale: "I think calculating this in 'enrollment_summary' directly would help make better visualizations, and make it easier for others to create visualizations, no? It is a one-time cost to generate on export."
+
+---
+
+### QST: Can we track lecture-only to lecture+recitation transitions historically?
+- Status: answered
+- Why asking: "Registration Rush" visualization idea
+- What helps: yes/no with interesting insights
+
+**ANS:** (by Jérémie Lumbroso, 2025-10-05)
+
+"YES, that would be really interesting."
+
+Additional insight: "Actually, I know that courses often add/remove a recitation component (often in response to active pedagogy styles), so being able to track that in the data would be invaluable."
+
+**Critical architectural note**: "Importantly, the API seems to be storing different semesters in different databases, so we should be on the look out for not making our architecture too rigid (i.e., claiming courses are the same throughout the terms)."
+
+---
+
+### QST: Should we segment visualizations by inst_method_code (In Class vs Online)?
+- Status: unanswered
+- Why asking: Online courses may have different enrollment patterns
+- What helps: yes/no with visualization ideas
+
+---
+
+### QST: Which uncaptured API fields should we prioritize?
+- Status: answered
+- Why asking: Many fields available, need to decide what to capture
+- What helps: prioritized list
+
+**ANS:** (by Jérémie Lumbroso, 2025-10-05)
+
+"Since we're only going to have to rescrape everything, we may as well only do it once. So let's just do our shopping cart."
+
+**Prioritize capturing**:
+1. ✅ `canvas_url` - Useful for LMS integration
+2. ✅ `syllabus` - Useful for course materials access
+3. ✅ `homepage` - Useful for additional course info
+4. ✅ `canvas_registered_url` - Useful for registered students
+5. ✅ `clssnotes` - Important student notices (permissions, waitlists)
+6. ✅ `attributes_detail` - Degree requirement tracking (enables "find courses that satisfy requirement X")
+7. ✅ `exam_time` - Exam scheduling conflict detection
+8. ⚠️ `xlist` - Cross-listing info (maybe useful)
+9. 🤔 `fees` - Cost transparency (often empty, lower priority)
+
+---
+
+### QST: Why use NULL instead of inferring seats_available=0 from "Full" status?
+- Status: answered
+- Why asking: When API returns `status_new="Full"` with empty seats HTML, could we infer `seats_available=0`?
+- What helps: Understand trade-offs between NULL vs partial inference
+
+**ANS:** (by Jérémie Lumbroso & Claude Sonnet 4.5, 2025-10-05)
+
+**NO - even seemingly safe inferences are problematic.**
+
+#### The Temptation
+
+When we see `status_new="Full"` with `seats=""`, it's tempting to infer:
+```python
+if status == "Full":
+    return {"max_enrollment": None, "seats_available": 0, "enrolled": None}
+```
+
+After all, "Full" means no seats available, right?
+
+#### Why This Fails
+
+**1. "Full" ≠ seats_available=0 (semantically)**
+
+"Full" status could mean:
+- Literally 0/50 seats remaining
+- Administratively closed at 28/30 for balanced sections
+- Instructor-requested cap at 15/50 to limit class size
+- Registration cut off early due to room change
+- Waitlist activated before true capacity
+
+**We simply don't know which.** Inferring `seats_available=0` fabricates precision we don't have.
+
+**2. NULL forces explicit decisions in analysis**
+
+Good code (with NULL):
+```python
+# Calculate % of classes that fill up
+has_capacity_data = df['max_enrollment'].notna()
+actually_full = (df['seats_available'] == 0) & has_capacity_data
+pct_full = actually_full.sum() / has_capacity_data.sum()  # Only real data
+```
+
+Bad code enabled by inference:
+```python
+# Silently includes admin-closed, cancelled, etc.
+pct_full = (df['seats_available'] == 0).sum() / len(df)
+```
+
+**3. Errors as features**
+
+If I write lazy code like:
+```python
+avg_availability = df['seats_available'].mean()
+```
+
+With NULL: **TypeError** - forces me to decide how to handle missing data
+With inferred 0: **Silent corruption** - fabricated zeros pollute statistics
+
+**4. The cancelled course problem**
+
+For cancelled courses, should they count as "full"?
+- With inference: `seats_available=0` for both Full AND Cancelled
+- Analysis can't distinguish "popular course that filled" from "course that didn't run"
+- NULL makes it explicit: neither in numerator nor denominator
+
+#### Decision
+
+**Use pure NULL for all unknown enrollment fields.** Add convenience flags for filtering:
+```python
+{
+    "max_enrollment": None,
+    "seats_available": None,
+    "enrolled": None,
+    "status": "Full",  # Consumers can filter on this
+    "is_cancelled": False
+}
+```
+
+This preserves truth while giving downstream code the semantic information it needs.
 
 ## Apology and Learning
 

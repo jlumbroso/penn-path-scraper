@@ -105,6 +105,8 @@ class TestAPIToCourseDict:
             "title": "Mathematical Foundations",
             "srcdb": "202530",
             "schedule_type": "Lecture",
+            "inst_method_code": "In Class",
+            "campus_code": "Philadelphia",
             "status_new": "Active",
             "isCancelled": "",
             "seats": '<strong>Maximum Enrollment:</strong> <span class="seats_max">80</span> / <strong>Seats Avail:</strong> <span class="seats_avail">17</span>',
@@ -130,9 +132,10 @@ class TestAPIToCourseDict:
             "title": "Cancelled Course",
             "srcdb": "202530",
             "schedule_type": "Lecture",
-            "status_new": "Cancelled",
-            "isCancelled": "1",
-            "seats": '<strong>Maximum Enrollment:</strong> <span class="seats_max">30</span> / <strong>Seats Avail:</strong> <span class="seats_avail">30</span>',
+            "inst_method_code": "In Class",
+            "campus_code": "Philadelphia",
+            "status_new": "Canceled",  # API uses American spelling
+            "seats": "",  # Cancelled courses have empty seats HTML
             "meeting_html": "",
             "instructordetail_html": "",
             "linked_crns": "",
@@ -145,7 +148,11 @@ class TestAPIToCourseDict:
         result = src.persistence.api_details_to_course_dict(api_data)
 
         assert result["is_cancelled"] is True
-        assert result["status"] == "Cancelled"
+        assert result["status"] == "Canceled"
+        # Cancelled courses have NULL enrollment data
+        assert result["max_enrollment"] is None
+        assert result["seats_available"] is None
+        assert result["enrolled"] is None
 
 
 class TestSaveCourse:
@@ -161,6 +168,8 @@ class TestSaveCourse:
             "title": "Data Structures and Algorithms",
             "description": "Learn data structures",
             "schedule_type": "Lecture",
+            "inst_method_code": "In Class",
+            "campus_code": "Philadelphia",
             "credits": "1",
             "max_enrollment": 100,
             "seats_available": 10,
@@ -244,6 +253,8 @@ class TestSaveCourse:
             "title": "Data Structures",
             "description": "",
             "schedule_type": "Lecture",
+            "inst_method_code": "In Class",
+            "campus_code": "Philadelphia",
             "credits": "1",
             "max_enrollment": 100,
             "seats_available": 10,
@@ -279,6 +290,8 @@ class TestSaveCourse:
             "title": "Math Foundations",
             "description": "",
             "schedule_type": "Lecture",
+            "inst_method_code": "In Class",
+            "campus_code": "Philadelphia",
             "credits": "1",
             "max_enrollment": 80,
             "seats_available": 17,

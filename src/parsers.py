@@ -24,13 +24,21 @@ def parse_seats(html: str) -> src.types.ParsedSeatsDict:
              <strong>Seats Avail:</strong> <span class="seats_avail">2</span>'
 
     Returns:
-        ParsedSeatsDict with max_enrollment, seats_available, and enrolled
+        ParsedSeatsDict with max_enrollment, seats_available, and enrolled.
+        All fields will be None if seats data is unavailable (e.g., cancelled,
+        full, or historical courses).
 
-    Raises:
-        ValueError: If HTML cannot be parsed
+    Note:
+        This function does NOT raise exceptions. Empty HTML returns None values
+        rather than fabricating 0 or -1 sentinel values.
     """
+    # Handle empty seats HTML (cancelled, full, or historical courses)
     if not html or not html.strip():
-        raise ValueError("Empty HTML string")
+        return src.types.ParsedSeatsDict(
+            max_enrollment=None,
+            seats_available=None,
+            enrolled=None,
+        )
 
     soup = bs4.BeautifulSoup(html, "html.parser")
 
@@ -88,6 +96,43 @@ def parse_meeting_html(html: str) -> typing.List[src.types.ParsedMeetingDict]:
 
         # Skip TBA
         if text == "TBA" or "TBA" in text:
+            continue
+
+        # Check for online courses (e.g., "Meets Online 8/25 to 12/7")
+        online_pattern = r"Meets\s+Online\s+(\d+/\d+)\s+to\s+(\d+/\d+)"
+        online_match = re.search(online_pattern, text)
+
+        if online_match:
+            # This is an online course - extract dates
+            start_str, end_str = online_match.groups()
+
+            # Parse dates
+            current_year = datetime.datetime.now().year
+            start_month, start_day = map(int, start_str.split("/"))
+            end_month, end_day = map(int, end_str.split("/"))
+
+            # Heuristic: if start month > end month, course spans year boundary
+            if start_month > end_month:
+                start_year = current_year
+                end_year = current_year + 1
+            else:
+                start_year = current_year
+                end_year = current_year
+
+            start_date = f"{start_year}-{start_month:02d}-{start_day:02d}"
+            end_date = f"{end_year}-{end_month:02d}-{end_day:02d}"
+
+            # Create meeting dict for online course (no specific days/times)
+            meeting: src.types.ParsedMeetingDict = {
+                "days": "",  # No specific meeting days
+                "start_time": "",  # No specific start time
+                "end_time": "",  # No specific end time
+                "room_code": "Online",
+                "room_url": None,
+                "start_date": start_date,
+                "end_date": end_date,
+            }
+            meetings.append(meeting)
             continue
 
         # Extract day/time pattern (e.g., "TR 5:15pm-6:44pm")

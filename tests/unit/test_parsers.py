@@ -53,9 +53,12 @@ class TestParseSeats:
         assert result["enrolled"] == 235
 
     def test_parse_seats_empty_string(self):
-        """Test parsing empty HTML."""
-        with pytest.raises(ValueError):
-            src.parsers.parse_seats("")
+        """Test parsing empty HTML returns None values."""
+        result = src.parsers.parse_seats("")
+
+        assert result["max_enrollment"] is None
+        assert result["seats_available"] is None
+        assert result["enrolled"] is None
 
     def test_parse_seats_malformed_html(self):
         """Test parsing malformed HTML."""
@@ -194,6 +197,26 @@ class TestParseMeetingHTML:
         assert meeting["days"] == "TR"
         assert meeting["room_code"] is None
         assert meeting["room_url"] is None
+
+    def test_parse_meeting_online_course(self):
+        """Test parsing online course with 'Meets Online' pattern."""
+        html = '<div class="meet">Meets Online 8/25 to 12/7</div>'
+
+        result = src.parsers.parse_meeting_html(html)
+
+        assert len(result) == 1
+        meeting = result[0]
+
+        # Online courses have no specific days/times
+        assert meeting["days"] == ""
+        assert meeting["start_time"] == ""
+        assert meeting["end_time"] == ""
+
+        # But they should have "Online" as room_code and dates
+        assert meeting["room_code"] == "Online"
+        assert meeting["room_url"] is None
+        assert "2025-08-25" in meeting["start_date"] or "2024-08-25" in meeting["start_date"]
+        assert "2025-12-07" in meeting["end_date"] or "2024-12-07" in meeting["end_date"]
 
 
 class TestParseInstructorHTML:

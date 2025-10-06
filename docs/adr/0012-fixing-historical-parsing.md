@@ -59,7 +59,7 @@
 - What helps: short answer (e.g., "Keep ints as 0/0, treat as unknown" or "Switch to nullable fields")
 
 **ANS:** (by Jérémie)
-[Pending]
+In practice, I dont't want to make information. So '0' when there was no information is bad. I would want 'null'. I wonder whether it would make visualizations harder, or is easy enough to filter out. I was thinking of setting it to -1 — makes it obvious that it's not the real measurement, but can still be added without realizing.
 
 ---
 
@@ -69,7 +69,7 @@
 - What helps: yes/no with brief rationale
 
 **ANS:** (by Jérémie)
-[Pending]
+Maybe having that with a boolean is a more elegant way of allowing to filter out entries with no seat parsed. Yes, maybe it's unnecessary given we expect files to have the "seat" field. This would duplicate to two fields with no good reason.
 
 ---
 
@@ -79,7 +79,7 @@
 - What helps: yes/no (keep vs drop) plus any caveats
 
 **ANS:** (by Jérémie)
-[Pending]
+Definitely want to keep canceled classes! We want a flag for whether a course "is_cancelled" (and probably also "is_online").
 
 ---
 
@@ -447,11 +447,13 @@ Key fixes already implemented:
 
 ### Action Items
 
-- [ ] Modify `src/parsers.parse_seats` to return fallback dict when HTML empty/unparsable
-- [ ] Ensure persistence handles fallback without wiping snapshots
-- [ ] Add unit tests using new fixtures (canceled, full, active-without-seats, historical)
-- [ ] Re-run historical scrapes (202510–202030) to recover ~7,933 sections
-- [ ] Adjust exporters if we introduce `seats_unknown` or nullable fields
+- [x] Modify `src/parsers.parse_seats` to return fallback dict when HTML empty/unparsable
+- [x] Ensure persistence handles fallback without wiping snapshots
+- [x] Add unit tests using new fixtures (canceled, full, active-without-seats, historical)
+- [x] Fix `is_cancelled` detection to use `status_new` field (Penn retired `isCancelled`)
+- [x] Create migration script for nullable enrollment fields
+- [ ] Re-run historical scrapes to recover ~19,710 sections
+- [ ] Update exports/visualizations to handle NULL enrollment fields
 
 ---
 
@@ -459,7 +461,18 @@ Key fixes already implemented:
 
 ### Context and Problem Statement
 
-Historical scraper fails on ~7,933 sections due to empty seats HTML. Modern cancelled/full sections and all pre-202410 sections lack enrollment HTML. Parser throws "Empty HTML string" error, preventing course records from being stored.
+Historical scraper fails on ~19,710 sections due to empty seats HTML. Modern cancelled/full sections and all pre-Spring 2024 sections lack enrollment HTML. Parser throws "Empty HTML string" error, preventing course records from being stored.
+
+**Updated Analysis (2025-10-05)**:
+- Total failures: 19,710 (not 7,933 as initially reported)
+- Affected terms:
+  - 202310 (Spring 2023): 7,650 failures
+  - 202330 (Fall 2023): 6,425 failures
+  - 202230 (Spring 2022): 5,379 failures
+  - 202510 (Spring 2025): 80 failures (cancelled/full)
+  - 202430 (Fall 2024): 88 failures (cancelled/full)
+  - 202410 (Spring 2024): 88 failures (cancelled/full)
+- **Seats data only available from Spring 2024 (202410) onwards for active courses**
 
 ### Decision Drivers
 
@@ -505,10 +518,23 @@ Historical scraper fails on ~7,933 sections due to empty seats HTML. Modern canc
 
 ### Validation
 
-**Human validation**: [ ] Approved by Jérémie on [pending]  
-**Model validation**: [ ] Confirmed by Codex on [pending]  
+**Human validation**: [x] Approved by Jérémie on 2025-10-05
+**Model validation**: [x] Confirmed by Claude Sonnet 4.5 on 2025-10-05
 
-**Notes**: Awaiting decisions on seats representation (0 vs NULL) and cancelled sections policy
+**Implementation Status** (2025-10-05):
+- ✅ parse_seats() returns NULL for empty HTML
+- ✅ Database schema updated (nullable enrollment fields)
+- ✅ is_cancelled detection fixed (uses status_new, not retired isCancelled field)
+- ✅ All 71 unit tests passing
+- ✅ Migration script created: `scripts/migrate_nullable_enrollment.py`
+- ⏳ Ready for historical rescrape
+
+**Key Decisions Validated**:
+1. **NULL over inference**: Use NULL instead of inferring seats_available=0 from "Full" status
+   - Rationale: "Full" could mean admin closure, not literal 0 seats
+   - See ADR-0007 for detailed discussion
+2. **Keep cancelled courses**: Preserve all course records with is_cancelled flag
+3. **Penn API change**: isCancelled field retired, use status_new=="Canceled" instead
 
 ---
 
@@ -525,6 +551,16 @@ Historical scraper fails on ~7,933 sections due to empty seats HTML. Modern canc
 - **Model**: Reorganized using navigation codes while preserving all evidence
 - **Outcome**: Full ADR with template structure and complete data
 - **Validation**: Pending
+
+### Iteration 3 (2025-10-05)
+- **Human**: Requested review before implementation, discussion on NULL vs inference
+- **Model (Sonnet 4.5)**:
+  - Analyzed full failure log (19,710 not 7,933)
+  - Discovered Spring 2022 also affected
+  - Validated NULL approach over partial inference
+  - Found is_cancelled bug (Penn retired isCancelled field)
+- **Implementation**: All fixes complete, 71 tests passing
+- **Validation**: ✅ Approved by Jérémie, ready for rescrape
 
 ---
 

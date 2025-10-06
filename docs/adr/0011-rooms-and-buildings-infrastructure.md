@@ -1,7 +1,8 @@
 # ADR-0011: Rooms and Buildings Data Infrastructure
 
 **Date**: 2025-10-04
-**Status**: Proposed
+**Updated**: 2025-10-05
+**Status**: Approved
 **Deciders**: Jérémie Lumbroso (user), Claude Sonnet 4.5 (assistant)
 **Context**: Spatial data integration for campus-aware course analytics
 
@@ -317,26 +318,86 @@ function analyzeSchoolClustering() {
 
 **Insight**: Engineering courses clustered in East Campus (TOWN, LRSM), Wharton in West (Huntsman, JMHH)
 
-## Implementation Roadmap
+## Proposed Architecture
 
-### Stage 1: Room Aggregation (Week 1)
-- [ ] Parse room codes from meeting data
+Based on the decision to implement as a module, here's the proposed project structure:
+
+```
+src/
+  courses/              # Existing course scraping (refactored)
+    api_client.py       # Penn courses API client
+    parsers.py          # HTML/JSON parsing for course data
+    models.py           # Course, Meeting, Instructor models
+    persistence.py      # Database operations for courses
+    scraper.py          # Course scraping orchestration
+
+  facilities/           # NEW: Facilities scraping module
+    scraper.py          # Scrape facilities.upenn.edu
+    parsers.py          # Parse building pages, extract metadata
+    models.py           # Room, Building models
+    persistence.py      # Database operations for facilities
+    enrichment.py       # Enrich course data with room/building info
+
+  shared/               # Shared utilities
+    types.py            # TypedDict definitions for both modules
+    database.py         # Database connection management
+    logging.py          # Structured logging setup
+
+  cli.py                # CLI orchestration for both modules
+  export.py             # Export both datasets to JSON
+```
+
+### Module Independence with Integration Points
+
+**Independent Operation**:
+```bash
+# Each module can run independently
+penn-scraper courses scrape --term 202530
+penn-scraper facilities scrape
+```
+
+**Integration Points**:
+1. **Database**: Shared database, separate tables
+   - `courses` table → `meetings` table (room_code field)
+   - `rooms` table → `buildings` table
+   - Foreign key: `meetings.room_code` → `rooms.code` (soft reference)
+
+2. **Exports**: Enriched course data when both modules have run
+   ```python
+   # If facilities data exists, enrich course exports
+   if room_exists(meeting.room_code):
+       meeting_json["room_capacity"] = room.capacity
+       meeting_json["building"] = building.name
+   ```
+
+3. **API Structure**: Modular endpoints
+   - `/api/v1/{term}/courses/` - Course data
+   - `/api/v1/{term}/rooms/` - All room usage per term
+   - `/api/v1/rooms/{room}/` - Room usage across terms
+   - `/api/v1/rooms/{room}/{term}` - Room usage across per term
+   - `/api/v1/facilities/buildings/` - Building metadata (term-independent)
+
+### Implementation Phases
+
+**Phase 1: Minimal Facilities Module** (Week 1-2)
+- [ ] Create `src/facilities/` module structure
+- [ ] Implement basic building scraper (facilities.upenn.edu)
+- [ ] Store building metadata in database
+- [ ] CLI: `penn-scraper facilities scrape`
+- [ ] Export: `/api/v1/facilities/buildings/index.json`
+
+**Phase 2: Room Aggregation** (Week 3)
+- [ ] Parse room codes from existing course meeting data
 - [ ] Group by building prefix
-- [ ] Calculate usage statistics
-- [ ] Export `/api/v1/rooms/index.json`
+- [ ] Calculate per-term usage statistics
+- [ ] Export: `/api/v1/{term}/rooms/{room}/index.json`
 
-### Stage 2: Building List (Week 2)
-- [ ] Create building code → name mapping
-- [ ] Add basic metadata (address, school affiliation)
-- [ ] Export `/api/v1/buildings/index.json`
+**Phase 3: Data Enrichment** (Week 4)
+- [ ] Link `Meeting` → `Room` → `Building`
+- [ ] Enrich course exports with room/building metadata
+- [ ] Add room capacity, building name to meeting JSON
 
-### Stage 3: Facilities Scraper (Week 3-4)
-- [ ] Scrape facilities.upenn.edu
-- [ ] Download building images
-- [ ] Convert to base64
-- [ ] Enrich building metadata
-
-### Stage 4: Visualizations (Week 5-6)
+**Phase 4: Visualizations** (Week 5-6)
 - [ ] Room utilization heat map
 - [ ] Building distribution chart
 - [ ] Interactive campus map
@@ -359,6 +420,7 @@ function analyzeSchoolClustering() {
 - Compress images before encoding (max 800px wide)
 - Lazy-load images (don't include in main index, fetch on-demand)
 - Offer separate image endpoint: `/api/v1/buildings/TOWN/image.json`
+- Offer original image: `/api/v1/buildings/TOWN/image.jpg`
 
 **Alternative**: Store images as separate files:
 
@@ -390,7 +452,131 @@ def normalize_room_code(location):
     return location
 ```
 
-## Open Questions
+## Clarifying Questions and Answers
+
+### QST: How should rooms API be structured?
+- Status: answered
+- Why asking: Original design had `/api/v1/rooms/index.json` linking to all courses using each room
+- What helps: Understand scalability concerns
+
+**ANS:** (by Jérémie Lumbroso, 2025-10-05)
+
+**Problem identified**:
+> "In the index.json, I'm afraid if you link to the courses — that list will be huge, especially because courses can change over terms! Not tractable."
+
+**Solution**: Per-term structure:
+```
+/api/v1/{term}/rooms/{room}/index.json
+```
+
+This gives the list of all sections that take place in that room **in that term**.
+
+**Benefits**:
+- Manageable file sizes (only one term's data)
+- Temporal consistency (courses tied to specific term)
+- Aligns with existing course API structure
+- Easy to compare room usage across terms
+
+---
+
+### QST: Should facilities scraper be a separate project or module in this project?
+- Status: answered
+- Why asking: Need to decide architecture before implementing
+- What helps: Analysis of pros/cons, maintenance burden, data integrity
+
+**ANS:** (by Claude Sonnet 4.5, validated by Jérémie Lumbroso, 2025-10-05)
+
+**Decision**: **Module in this project**
+
+#### Rationale
+
+**1. Conceptual Unity**
+
+This project is really about **"Penn academic infrastructure data"** - you can't meaningfully plan paths or analyze courses without knowing:
+- Where is LEVN 101?
+- What's the capacity?
+- Are these two classes in the same building?
+
+Courses and facilities are **tightly coupled** in the real world. They should be in our data model too.
+
+**2. Data Integrity**
+
+```python
+# Current Course data has:
+Meeting:
+  room_code: "LEVN 101"
+  room_url: "https://facilities.upenn.edu/maps/locations/levine-hall"
+
+# Facilities module would add:
+Room:
+  code: "LEVN 101"  # ← MUST MATCH!
+  capacity: 80
+  building: FK → Building
+
+Building:
+  code: "LEVN"
+  name: "Levine Hall, Melvin and Claire"
+  coordinates: (39.952259, -75.191121)
+```
+
+If these are **separate projects**, we have two repos trying to use the same room codes with no enforcement. Recipe for drift.
+
+**3. User Experience**
+
+Someone using `penn-path-scraper` wants **enriched course data**:
+
+```json
+{
+  "course": "CIS 1210",
+  "meetings": [{
+    "room": "LEVN 101",
+    "room_capacity": 80,
+    "building": "Levine Hall",
+    "building_location": {"lat": 39.95, "lon": -75.19},
+    "walking_distance_from_prev_class": "2min"  // ← requires facilities!
+  }]
+}
+```
+
+They don't want to manually join two datasets.
+
+**4. Infrastructure Reuse**
+
+We already have excellent patterns:
+- `structlog` logging
+- `click` CLI with subcommands
+- `peewee` ORM with migration scripts
+- `pytest` testing infrastructure
+- Export system
+
+Why rebuild all of this in a second repo?
+
+**5. Different Update Frequencies**
+
+```bash
+# CLI design:
+penn-scraper courses scrape --term 202530  # Run daily
+penn-scraper facilities scrape               # Run weekly
+
+# Cron jobs:
+0 2 * * * penn-scraper courses scrape       # 2am daily
+0 3 * * 0 penn-scraper facilities scrape    # 3am Sunday
+```
+
+One project, different schedules. Clean.
+
+**6. Future-Proofing**
+
+If we later decide to split:
+- Already modularized (`src/facilities/`)
+- Easy to extract to separate repo
+- Git history preserved
+
+But splitting now means we can never easily merge.
+
+---
+
+### Open Questions
 
 1. **Room capacity**: Can we scrape actual room capacities from Penn's systems? Or infer from max_enrollment of courses?
 

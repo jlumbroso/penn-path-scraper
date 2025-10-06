@@ -107,9 +107,9 @@ class APISearchResponse(typing.TypedDict):
 
 class ParsedSeatsDict(typing.TypedDict):
     """Parsed enrollment information from HTML."""
-    max_enrollment: int  # Maximum capacity
-    seats_available: int  # Currently available seats
-    enrolled: int  # Current enrollment (max - available)
+    max_enrollment: typing.Optional[int]  # Maximum capacity (None if unknown)
+    seats_available: typing.Optional[int]  # Currently available seats (None if unknown)
+    enrolled: typing.Optional[int]  # Current enrollment (None if unknown)
 
 
 class ParsedMeetingDict(typing.TypedDict):
@@ -145,12 +145,14 @@ class CourseDict(typing.TypedDict):
     title: str
     description: str
     schedule_type: str  # "Lecture", "Recitation", "Lab", etc.
+    inst_method_code: str  # "In Class", "Online", etc.
+    campus_code: str  # "Philadelphia", "Online", etc.
     credits: str
 
     # Enrollment (parsed from HTML)
-    max_enrollment: int
-    seats_available: int
-    enrolled: int
+    max_enrollment: typing.Optional[int]  # None if seats data unavailable
+    seats_available: typing.Optional[int]  # None if seats data unavailable
+    enrolled: typing.Optional[int]  # None if seats data unavailable
 
     # Meeting info (parsed from HTML)
     meetings: typing.List[ParsedMeetingDict]
@@ -176,7 +178,15 @@ class CourseDict(typing.TypedDict):
     notes: typing.NotRequired[str]
     restrictions: typing.NotRequired[str]
     attributes: typing.NotRequired[typing.List[str]]
+    attributes_detail: typing.NotRequired[str]
+    clssnotes: typing.NotRequired[str]
+    exam_time: typing.NotRequired[str]
+    fees: typing.NotRequired[str]
+    xlist: typing.NotRequired[str]
     canvas_url: typing.NotRequired[str]
+    canvas_registered_url: typing.NotRequired[str]
+    syllabus: typing.NotRequired[str]
+    homepage: typing.NotRequired[str]
 
 
 class EnrollmentSnapshotDict(typing.TypedDict):

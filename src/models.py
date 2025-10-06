@@ -76,12 +76,16 @@ class Course(BaseModel):
 
     # Schedule information
     schedule_type = peewee.CharField()  # "Lecture", "Recitation", "Lab", etc.
+    inst_method_code = peewee.CharField(null=True)  # "In Class", "Online", etc.
+    campus_code = peewee.CharField(null=True)  # "Philadelphia", "Online", etc.
     credits = peewee.CharField()
 
     # Enrollment (current snapshot)
-    max_enrollment = peewee.IntegerField()
-    seats_available = peewee.IntegerField()
-    enrolled = peewee.IntegerField()
+    # Note: These are nullable because cancelled/full/historical courses
+    # may not have seats data available in the API response
+    max_enrollment = peewee.IntegerField(null=True)
+    seats_available = peewee.IntegerField(null=True)
+    enrolled = peewee.IntegerField(null=True)
 
     # Dates
     start_date = peewee.DateField()
@@ -91,9 +95,20 @@ class Course(BaseModel):
     is_cancelled = peewee.BooleanField(default=False)
     status = peewee.CharField()  # "Active", "Closed", etc.
 
-    # Metadata
+    # Metadata and course resources
     attributes = peewee.TextField(null=True)  # JSON array of course attributes
+    attributes_detail = peewee.TextField(null=True)  # HTML: Degree requirements, fulfillments
+    clssnotes = peewee.TextField(null=True)  # HTML: Important student notices
+    exam_time = peewee.CharField(null=True)  # Final exam schedule
+    fees = peewee.CharField(null=True)  # Course fees
+    xlist = peewee.CharField(null=True)  # Cross-listing information
+
+    # Web resources
     canvas_url = peewee.CharField(null=True)
+    canvas_registered_url = peewee.CharField(null=True)
+    syllabus = peewee.CharField(null=True)  # URL or HTML link to syllabus
+    homepage = peewee.CharField(null=True)  # Course website
+
     last_scraped = peewee.DateTimeField(default=datetime.datetime.now)
     created_at = peewee.DateTimeField(default=datetime.datetime.now)
     updated_at = peewee.DateTimeField(default=datetime.datetime.now)
@@ -309,6 +324,8 @@ def course_to_dict(course: Course) -> typing.Dict[str, typing.Any]:
         "notes": course.notes,
         "restrictions": course.restrictions,
         "schedule_type": course.schedule_type,
+        "inst_method_code": course.inst_method_code,
+        "campus_code": course.campus_code,
         "credits": course.credits,
         "max_enrollment": course.max_enrollment,
         "seats_available": course.seats_available,
@@ -318,7 +335,15 @@ def course_to_dict(course: Course) -> typing.Dict[str, typing.Any]:
         "is_cancelled": course.is_cancelled,
         "status": course.status,
         "attributes": json.loads(course.attributes) if course.attributes else [],
+        "attributes_detail": course.attributes_detail,
+        "clssnotes": course.clssnotes,
+        "exam_time": course.exam_time,
+        "fees": course.fees,
+        "xlist": course.xlist,
         "canvas_url": course.canvas_url,
+        "canvas_registered_url": course.canvas_registered_url,
+        "syllabus": course.syllabus,
+        "homepage": course.homepage,
         "instructors": [
             {"name": ci.instructor.name, "pennkey": ci.instructor.pennkey}
             for ci in course.course_instructors

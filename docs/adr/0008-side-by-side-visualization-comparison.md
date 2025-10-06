@@ -1,7 +1,8 @@
 # ADR-0008: Side-by-Side Visualization Comparison with Dynamic Panels
 
 **Date**: 2025-10-04
-**Status**: Proposed
+**Updated**: 2025-10-05
+**Status**: Approved - Architecture Validated
 **Deciders**: Jérémie Lumbroso (user), Claude Sonnet 4.5 (assistant)
 **Context**: Visualization enhancement, user feedback on exploratory data analysis needs
 
@@ -304,31 +305,34 @@ For users creating many panels, allow collapsing to save space:
 
 ## Implementation Plan
 
-### Phase 1: Core Functionality (Week 1)
-- [ ] Implement panel state management
+**Architecture**: Wrapper-based (ComparisonManager) - zero intrusion on visualization classes
+
+### Phase 1: Core Infrastructure (Week 1)
+- [ ] Create `ComparisonManager` class (wrapper pattern)
+- [ ] Implement panel state management (4 max, warn at 4, hard limit at 6)
 - [ ] Add [+ Add] button to each visualization section
-- [ ] Implement panel removal (with single-panel protection)
-- [ ] Create responsive grid layout
-- [ ] Duplicate chart rendering logic with isolated state
+- [ ] Implement panel removal (protect last panel)
+- [ ] Create responsive grid layout (CSS Grid)
+- [ ] Default: **Copy filters from last panel** (per user feedback)
 
 ### Phase 2: Enhanced UX (Week 2)
 - [ ] Add panel titles (optional naming)
-- [ ] Implement Y-axis synchronization toggle
+- [ ] Implement **Y-axis sync ON by default** with toggle
 - [ ] Add visual feedback (loading states, empty states)
 - [ ] Polish animations (panel add/remove transitions)
-- [ ] Mobile optimization (vertical stacking, touch-friendly controls)
+- [ ] **Desktop-first** optimization (mobile secondary per user feedback)
 
-### Phase 3: Persistence (Week 3)
-- [ ] URL state serialization (shareable comparison links)
-- [ ] LocalStorage persistence (survive page refresh)
-- [ ] Export comparison as image (canvas → PNG)
-- [ ] Keyboard shortcuts (Ctrl+D to duplicate, Ctrl+W to remove)
+### Phase 3: Exploration Features (Week 3)
+- [ ] **Quests**: Preset comparison buttons ("Engineering vs Wharton")
+- [ ] **Exploration guide**: Educational language explaining comparison philosophy
+- [ ] URL hash serialization (shareable comparison links via #anchor)
+- [ ] Limit enforcement: Warning at 4 panels, block at 6
 
 ### Phase 4: Advanced Features (Future)
 - [ ] Drag-and-drop panel reordering
-- [ ] Collapse/expand panels
-- [ ] Preset comparisons ("Compare all schools across latest term")
-- [ ] Annotation/notes per panel
+- [ ] Export comparison as image (canvas → PNG)
+- [ ] Keyboard shortcuts (Ctrl+D to duplicate, Ctrl+W to remove)
+- [ ] Analytics tracking (requires backend - future ADR)
 
 ## Consequences
 
@@ -396,23 +400,227 @@ For users who embrace this:
 - Export all panels as multi-page PDF
 - Save favorite comparison configurations
 
-## Open Questions for Jérémie
+## Clarifying Questions and Answers
 
-1. **Panel Limit**: What's the max number of panels per visualization? (4? 6? unlimited with warning?)
+### QST: Panel limit and UX considerations
+- Status: answered
+- Why asking: Need to balance exploration vs performance
 
-2. **Default Behavior**: When adding a panel, should it:
-   - Copy current filters (easier to compare similar views)
-   - Reset to "All" (blank slate for new comparison)
+**ANS:** (by Jérémie Lumbroso, 2025-10-05)
 
-3. **Mobile Priority**: How important is the mobile experience for this feature? Should we simplify for mobile?
+**1. Panel Limit**: 4 (with warning), max 6
 
-4. **Persistence**: Should panel configurations survive page refresh via localStorage? Or intentionally ephemeral?
+**2. Default Behavior**: **Copy current filters**
+> "I think when people are using this, it is to compare mostly similar parameters that differ in one point. To facilitate that work, we should assume they'd rather have all their parameters copied. At worst, they will have to manually select each dimension (as they would with all defaults). But at best they will want to tweak only one dimension."
 
-5. **Y-Axis Sync**: Should this be ON by default (better for comparison) or OFF (shows each panel's natural scale)?
+**3. Mobile Priority**: Desktop first for MVP
+> "For now, it's more important to prototype and get this feature right. Fixing it for mobile will be secondary. If you want to reach for the stars as of now, you can, but I'd be happy if it were great on desktop for now."
 
-6. **Visual Design**: Should panels have colored borders to distinguish them? Or keep minimal?
+**4. Persistence**: **URL anchor** (not localStorage)
+> "No, this is not important at all. If convenient and not too complex, the best solution is to store the information and choices in the #anchor of the URL. But this can certainly be an ADR for the future."
+>
+> "These visualizations are an invitation to explore the main product, i.e. the API."
 
-7. **Analytics**: Would you want to track which comparisons users create most often? Could inform future preset options.
+**5. Y-Axis Sync**: **ON by default** with toggle
+> "Yes, on by default. Ideally with a toggle."
+
+**6. Visual Design**: My call
+> "Visually I am not very opinionated, and your gut instinct seem to far outpace mine."
+
+**7. Analytics**: Future feature
+> "I think this would require storage or backends of some sort, and is an interesting idea to flag for the future, but not for our next MVP."
+
+---
+
+### QST: How to implement without creating complexity spread?
+- Status: answered
+- Why asking: User's SUPER IMPORTANT concern about intrusive complexity
+- What helps: Architectural pattern that isolates comparison logic
+
+**🚨 User's Concern** (by Jérémie Lumbroso, 2025-10-05):
+> "SUPER IMPORTANT: But I think there's a possibility for this to not be scaffolded well, and to result in major coding complexity for all plots. Any ideas on this?"
+
+**ANS:** (by Claude Sonnet 4.5, 2025-10-05)
+
+**Decision**: Wrapper-based architecture with locality of concern
+
+The key is to **wrap, not modify** - treat each visualization as a black box that can be instantiated multiple times without knowing it's being compared.
+
+#### Architecture Pattern: The ComparisonManager
+
+```javascript
+// visualization.js - EXISTING CODE, NO CHANGES
+class SchoolEnrollmentChart {
+    constructor(canvasId, filters) {
+        this.canvasId = canvasId;
+        this.filters = filters;
+        this.chart = null;
+    }
+
+    render(data) {
+        // Draw chart
+        // All state is LOCAL to this instance
+    }
+
+    updateFilters(newFilters) {
+        this.filters = {...this.filters, ...newFilters};
+        this.refresh();
+    }
+}
+
+// comparison-wrapper.js - NEW, ISOLATED MODULE
+class ComparisonManager {
+    constructor(visualizationType, containerSelector) {
+        this.type = visualizationType;
+        this.container = document.querySelector(containerSelector);
+        this.panels = [];
+        this.syncYAxis = true;  // Default ON per user feedback
+    }
+
+    addPanel(initialFilters) {
+        const panelId = `panel-${Date.now()}`;
+        const panel = {
+            id: panelId,
+            filters: initialFilters || this.copyLastFilters(),
+            instance: null  // Will hold visualization instance
+        };
+
+        this.panels.push(panel);
+        this.renderPanel(panel);
+    }
+
+    renderPanel(panel) {
+        // Create DOM structure
+        const panelEl = this.createPanelDOM(panel);
+        this.container.appendChild(panelEl);
+
+        // Instantiate visualization (BLACK BOX)
+        const canvasId = `${this.type}-${panel.id}`;
+        panel.instance = new this.visualizationClass(canvasId, panel.filters);
+
+        // Render with data
+        panel.instance.render(this.getData());
+
+        // Sync Y-axis if enabled
+        if (this.syncYAxis) this.syncAllAxes();
+    }
+
+    // NO modification to visualization classes needed!
+}
+```
+
+#### Zero-Intrusion Integration
+
+**Before** (existing visualization):
+```html
+<div id="school-chart-section">
+    <canvas id="school-chart"></canvas>
+    <select onchange="updateFilters()">...</select>
+</div>
+
+<script>
+    const chart = new SchoolEnrollmentChart('school-chart', {});
+    chart.render(data);
+</script>
+```
+
+**After** (with comparison):
+```html
+<div id="school-chart-section">
+    <button onclick="comparisonManager.addPanel()">+ Add Comparison</button>
+    <div id="school-chart-panels"></div> <!-- Container managed by wrapper -->
+</div>
+
+<script>
+    // Initialize comparison manager (wraps existing class)
+    const comparisonManager = new ComparisonManager(
+        'school-enrollment',
+        '#school-chart-panels'
+    );
+    comparisonManager.visualizationClass = SchoolEnrollmentChart;
+    comparisonManager.addPanel({}); // Add initial panel
+</script>
+```
+
+**The visualization class never knows it's being compared!**
+
+#### Isolation Guarantees
+
+1. **No global state** - Each visualization instance is self-contained
+2. **No name collisions** - Panel IDs namespace everything (`panel-123-school-chart`)
+3. **No shared DOM** - Each panel has its own canvas, filters, controls
+4. **No cross-talk** - Panels communicate only through ComparisonManager
+
+#### Adding Comparison to a New Visualization
+
+**Steps**:
+1. Write visualization class (as you always would)
+2. Add one line: `comparisonManager.visualizationClass = YourChartClass`
+3. Done!
+
+**No modifications to**:
+- Chart rendering logic
+- Filter handling
+- Data fetching
+- Event listeners
+
+---
+
+### QST: Should we add explanatory language and "Quests"?
+- Status: answered
+- Why asking: User's excitement about making exploration educational
+
+**ANS:** (by Jérémie Lumbroso, 2025-10-05)
+
+On the "Why This Excites Me" section:
+> "Absolutely -> on that note, I wonder if there's any language we can put, maybe above the data visualizations, to explain both the feature and this philosophy. Maybe we can provide quests, that when clicked, provide a specific comparison... just ideas."
+
+**Design**: Add introductory section + preset "Quests"
+
+```html
+<div class="exploration-guide">
+    <h3>🔍 Explore Penn Through Comparison</h3>
+    <p>Every + click is a hypothesis. Every panel arrangement is a story.
+       Compare different views of the same data to discover patterns.</p>
+
+    <div class="quests">
+        <h4>Try these comparisons:</h4>
+        <button onclick="loadQuest('engineering-vs-wharton')">
+            📊 Engineering vs Wharton Enrollments
+        </button>
+        <button onclick="loadQuest('fall-spring-growth')">
+            📈 Fall to Spring Growth Patterns
+        </button>
+        <button onclick="loadQuest('online-vs-in-person')">
+            💻 Online (500s) vs In-Person Sections
+        </button>
+    </div>
+</div>
+```
+
+**Quest Implementation**:
+```javascript
+const QUESTS = {
+    'engineering-vs-wharton': [
+        { filters: { school: 'E', term: '202530' }, title: 'Engineering - Fall 2025' },
+        { filters: { school: 'W', term: '202530' }, title: 'Wharton - Fall 2025' }
+    ],
+    'fall-spring-growth': [
+        { filters: { term: '202530' }, title: 'Fall 2025' },
+        { filters: { term: '202510' }, title: 'Spring 2025' }
+    ],
+    'online-vs-in-person': [
+        { filters: { sectionPattern: '[5-9]\\d{2}' }, title: 'Online Sections (500+)' },
+        { filters: { sectionPattern: '[0-4]\\d{2}' }, title: 'In-Person Sections (000-499)' }
+    ]
+};
+
+function loadQuest(questId) {
+    const panels = QUESTS[questId];
+    comparisonManager.clear();
+    panels.forEach(p => comparisonManager.addPanel(p.filters, p.title));
+}
+```
 
 ## Why This Excites Me
 

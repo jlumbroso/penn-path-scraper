@@ -40,8 +40,10 @@ def api_details_to_course_dict(
         linked_crns = [crn.strip() for crn in linked_crns_str.split(",")]
 
     # Determine cancellation status
-    is_cancelled = bool(api_data.get("isCancelled"))
+    # Note: The 'isCancelled' field was retired by Penn and is inconsistent.
+    # Use 'status_new' as the authoritative source.
     status = api_data.get("status_new", "Active")
+    is_cancelled = (status == "Canceled")
 
     # Build CourseDict
     course_dict: src.types.CourseDict = {
@@ -52,6 +54,8 @@ def api_details_to_course_dict(
         "title": api_data.get("title", ""),
         "description": api_data.get("description", ""),
         "schedule_type": api_data.get("schedule_type", ""),
+        "inst_method_code": api_data.get("inst_method_code", ""),
+        "campus_code": api_data.get("campus_code", ""),
         "credits": api_data.get("hours_html", ""),
         "max_enrollment": seats["max_enrollment"],
         "seats_available": seats["seats_available"],
@@ -65,6 +69,30 @@ def api_details_to_course_dict(
         "end_date": api_data.get("end_date", ""),
         "last_scraped": datetime.datetime.now().isoformat(),
     }
+
+    # Add optional fields if present
+    if api_data.get("attributes_detail"):
+        course_dict["attributes_detail"] = api_data["attributes_detail"]
+    if api_data.get("clssnotes"):
+        course_dict["clssnotes"] = api_data["clssnotes"]
+    if api_data.get("exam_time"):
+        course_dict["exam_time"] = api_data["exam_time"]
+    if api_data.get("fees"):
+        course_dict["fees"] = api_data["fees"]
+    if api_data.get("xlist"):
+        course_dict["xlist"] = api_data["xlist"]
+    if api_data.get("canvas_url"):
+        course_dict["canvas_url"] = api_data["canvas_url"]
+    if api_data.get("canvas_registered_url"):
+        course_dict["canvas_registered_url"] = api_data["canvas_registered_url"]
+    if api_data.get("syllabus"):
+        course_dict["syllabus"] = api_data["syllabus"]
+    if api_data.get("homepage"):
+        course_dict["homepage"] = api_data["homepage"]
+    if api_data.get("registration_restrictions"):
+        course_dict["restrictions"] = api_data["registration_restrictions"]
+    if api_data.get("clssnotes"):
+        course_dict["notes"] = api_data["clssnotes"]
 
     return course_dict
 
@@ -109,6 +137,8 @@ def save_course(course_dict: src.types.CourseDict) -> src.models.Course:
             "title": course_dict["title"],
             "description": course_dict["description"],
             "schedule_type": course_dict["schedule_type"],
+            "inst_method_code": course_dict["inst_method_code"],
+            "campus_code": course_dict["campus_code"],
             "credits": course_dict["credits"],
             "max_enrollment": course_dict["max_enrollment"],
             "seats_available": course_dict["seats_available"],
@@ -118,6 +148,18 @@ def save_course(course_dict: src.types.CourseDict) -> src.models.Course:
             "is_cancelled": course_dict["is_cancelled"],
             "status": course_dict["status"],
             "last_scraped": course_dict["last_scraped"],
+            # Optional fields
+            "attributes_detail": course_dict.get("attributes_detail"),
+            "clssnotes": course_dict.get("clssnotes"),
+            "exam_time": course_dict.get("exam_time"),
+            "fees": course_dict.get("fees"),
+            "xlist": course_dict.get("xlist"),
+            "canvas_url": course_dict.get("canvas_url"),
+            "canvas_registered_url": course_dict.get("canvas_registered_url"),
+            "syllabus": course_dict.get("syllabus"),
+            "homepage": course_dict.get("homepage"),
+            "notes": course_dict.get("notes"),
+            "restrictions": course_dict.get("restrictions"),
         },
     )
 
@@ -128,6 +170,8 @@ def save_course(course_dict: src.types.CourseDict) -> src.models.Course:
         course.title = course_dict["title"]
         course.description = course_dict["description"]
         course.schedule_type = course_dict["schedule_type"]
+        course.inst_method_code = course_dict["inst_method_code"]
+        course.campus_code = course_dict["campus_code"]
         course.credits = course_dict["credits"]
         course.max_enrollment = course_dict["max_enrollment"]
         course.seats_available = course_dict["seats_available"]
@@ -137,6 +181,18 @@ def save_course(course_dict: src.types.CourseDict) -> src.models.Course:
         course.is_cancelled = course_dict["is_cancelled"]
         course.status = course_dict["status"]
         course.last_scraped = course_dict["last_scraped"]
+        # Optional fields
+        course.attributes_detail = course_dict.get("attributes_detail")
+        course.clssnotes = course_dict.get("clssnotes")
+        course.exam_time = course_dict.get("exam_time")
+        course.fees = course_dict.get("fees")
+        course.xlist = course_dict.get("xlist")
+        course.canvas_url = course_dict.get("canvas_url")
+        course.canvas_registered_url = course_dict.get("canvas_registered_url")
+        course.syllabus = course_dict.get("syllabus")
+        course.homepage = course_dict.get("homepage")
+        course.notes = course_dict.get("notes")
+        course.restrictions = course_dict.get("restrictions")
         course.save()
 
     # Clear existing related records to avoid duplicates

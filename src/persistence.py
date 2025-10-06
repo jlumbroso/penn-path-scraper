@@ -207,13 +207,19 @@ def save_course(course_dict: src.types.CourseDict) -> src.models.Course:
             src.models.LinkedSection.course == course
         ).execute()
 
-    # Add instructors
+    # Add instructors (deduplicate to avoid UNIQUE constraint violations)
+    # Some API responses contain duplicate instructor entries
+    seen_instructors = set()
     for instructor_dict in course_dict["instructors"]:
         instructor = get_or_create_instructor(instructor_dict["name"])
-        src.models.CourseInstructor.create(
-            course=course,
-            instructor=instructor,
-        )
+
+        # Skip if we've already linked this instructor to this course
+        if instructor.id not in seen_instructors:
+            src.models.CourseInstructor.create(
+                course=course,
+                instructor=instructor,
+            )
+            seen_instructors.add(instructor.id)
 
     # Add meetings
     for meeting_dict in course_dict["meetings"]:

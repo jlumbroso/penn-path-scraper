@@ -1,9 +1,17 @@
 # ADR-0009: Claude's Creative Visualizations - Implementation Roadmap
 
 **Date**: 2025-10-04
-**Status**: Proposed
+**Updated**: 2025-10-05
+**Status**: Approved
 **Deciders**: Jérémie Lumbroso (user), Claude Sonnet 4.5 (assistant)
 **Context**: Creative partnership, extending visualizations beyond functional requirements
+
+**User Feedback** (2025-10-05): "Excellent!!!!"
+
+**Data Availability Updates**:
+- Historical data scraping now in progress (see ADR-0012)
+- Spring 2026 enrollment data will be available for enrollment rush measurements
+- These visualizations will benefit from longitudinal data once historical scraping is complete
 
 ## The Prompt That Sparked This
 

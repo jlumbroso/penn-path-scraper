@@ -314,6 +314,45 @@ class TestSaveCourse:
         assert "61970" in linked_crns
         assert "61971" in linked_crns
 
+    def test_save_course_with_duplicate_instructors(self, db):
+        """Test saving course with duplicate instructor names (API bug)."""
+        term = src.models.Term.create(code="202530", name="Fall 2025")
+
+        # Simulate API response with duplicate instructor
+        course_dict: src.types.CourseDict = {
+            "code": "TEST 1000",
+            "crn": "99999",
+            "term": "202530",
+            "section": "001",
+            "title": "Test Course",
+            "description": "",
+            "schedule_type": "Lecture",
+            "inst_method_code": "In Class",
+            "campus_code": "Philadelphia",
+            "credits": "1",
+            "max_enrollment": 50,
+            "seats_available": 10,
+            "enrolled": 40,
+            "meetings": [],
+            "instructors": [
+                {"name": "John Doe"},
+                {"name": "John Doe"},  # Duplicate!
+            ],
+            "linked_crns": [],
+            "is_cancelled": False,
+            "status": "Active",
+            "start_date": "2025-08-26",
+            "end_date": "2025-12-08",
+            "last_scraped": "2025-10-01T12:00:00",
+        }
+
+        # Should not raise UNIQUE constraint error
+        course = src.persistence.save_course(course_dict)
+
+        # Verify only one instructor relationship created
+        assert course.course_instructors.count() == 1
+        assert course.course_instructors[0].instructor.name == "John Doe"
+
 
 class TestEnrollmentSnapshot:
     """Tests for enrollment snapshot creation."""

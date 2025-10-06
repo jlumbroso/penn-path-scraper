@@ -1,7 +1,8 @@
 # ADR-0010: Penn Academic Calendar Integration
 
 **Date**: 2025-10-04
-**Status**: Proposed
+**Updated**: 2025-10-05
+**Status**: Approved
 **Deciders**: Jérémie Lumbroso (user), Claude Sonnet 4.5 (assistant)
 **Context**: Enhancing API with temporal metadata for registration analysis
 
@@ -74,7 +75,8 @@ Per-term calendar with structured events:
       "name": "Advanced Registration Period",
       "start_date": "2025-04-01",
       "end_date": "2025-04-12",
-      "description": "Currently enrolled students register for fall courses"
+      "description": "Currently enrolled students register for fall courses",
+      "notes": "Registration opens 8:00 AM EST on April 1"
     },
     {
       "event_type": "drop_add",
@@ -96,6 +98,27 @@ Per-term calendar with structured events:
       "description": "Last day to add/drop without 'W' on transcript"
     },
     {
+      "event_type": "fall_break",
+      "name": "Fall Break",
+      "start_date": "2025-10-10",
+      "end_date": "2025-10-13",
+      "description": "Mid-semester break, no classes"
+    },
+    {
+      "event_type": "reading_week",
+      "name": "Reading Days",
+      "start_date": "2025-12-10",
+      "end_date": "2025-12-11",
+      "description": "Study period before final exams"
+    },
+    {
+      "event_type": "thanksgiving_break",
+      "name": "Thanksgiving Recess",
+      "start_date": "2025-11-26",
+      "end_date": "2025-11-30",
+      "description": "Thanksgiving break, no classes"
+    },
+    {
       "event_type": "classes_end",
       "name": "Last Day of Classes",
       "start_date": "2025-12-09",
@@ -104,8 +127,14 @@ Per-term calendar with structured events:
     {
       "event_type": "finals",
       "name": "Final Examination Period",
-      "start_date": "2025-12-11",
-      "end_date": "2025-12-18"
+      "start_date": "2025-12-12",
+      "end_date": "2025-12-19"
+    },
+    {
+      "event_type": "national_holiday",
+      "name": "Labor Day",
+      "start_date": "2025-09-01",
+      "description": "University closed"
     }
   ],
   "source_url": "https://almanac.upenn.edu/penn-academic-calendar#fall-2025",
@@ -329,17 +358,110 @@ Enrollment: ▁▂▃▄▅▆▇███████████────�
 - [ ] Implement "Registration Rush" timeline chart
 - [ ] Add drop/add analysis visualization
 
-## Open Questions
+## Clarifying Questions and Answers
 
-1. **Historical calendars**: How far back does Penn Almanac archive calendars? Can we scrape historical data?
+### QST: Historical calendar availability
+- Status: answered
+- Why asking: Need to know how far back we can scrape
+- What helps: Understanding Penn Almanac's archives
 
-2. **Calendar changes**: If Penn updates a calendar (e.g., extends drop/add), how do we handle versioning?
+**ANS:** (by Jérémie Lumbroso, 2025-10-05)
 
-3. **Multiple calendars**: Some schools (Wharton, Law) have different calendars. Do we need school-specific calendars?
+**Extensive historical data available!** Penn Almanac archives calendars as PDFs back to **1974**.
 
-4. **Timezone**: All dates in UTC or EST? Penn operates in EST.
+Sample archive list:
+- 2024-2025 through 2026-2027 (HTML)
+- 2023-2024 through 2025-2026 (PDF)
+- 2022-2023 through 2024-2025 (PDF)
+- ... back to ...
+- 1974-1975 (PDF)
 
-5. **Event granularity**: Should we capture hour-level precision (e.g., "Registration opens 8am") or just dates?
+**Full archive**: https://almanac.upenn.edu/penn-academic-calendar#archive
+
+**Implication**: We can build longitudinal calendar data, but pre-2025 requires PDF parsing.
+
+---
+
+### QST: Calendar change versioning
+- Status: answered
+- Why asking: How to handle updates to published calendars
+
+**ANS:** (by Jérémie Lumbroso, 2025-10-05)
+
+> "These are set in advance and don't change. We don't need to version, I think."
+
+**Decision**: No versioning system needed - calendars are static once published.
+
+---
+
+### QST: School-specific calendars
+- Status: answered
+- Why asking: Wharton, Law may have different calendars
+
+**ANS:** (by Jérémie Lumbroso, 2025-10-05)
+
+> "Hmm, maybe we can create `unit_calendars` to capture different public institutions calendars, and then we connect them to schools, departments, groups of departments; we wouldn't use this data until its importance is revealed"
+
+**Decision**: Create flexible `unit_calendars` table for future use, but don't prioritize populating it until need is demonstrated.
+
+---
+
+### QST: Timezone handling
+- Status: answered
+- Why asking: UTC vs EST for all date fields
+
+**ANS:** (by Jérémie Lumbroso, 2025-10-05)
+
+> "Not sure, please figure this out. We want everything to be in EST since Penn operates in EST"
+
+**Decision**: **All dates in EST**. Penn operates in EST, users expect EST, keep it simple.
+
+---
+
+### QST: Event granularity (hour-level precision)
+- Status: answered
+- Why asking: Should we parse "Registration opens 8am"?
+
+**ANS:** (by Jérémie Lumbroso, 2025-10-05)
+
+> "It would be great if maybe there was space for notes, and we put them there, but maybe not need to record the granularity in this way?"
+
+**Decision**: Add `notes` field to capture hour-level details as text, don't create separate time fields.
+
+---
+
+### QST: Additional calendar events to capture?
+- Status: answered
+- Why asking: What beyond registration/classes/exams?
+
+**ANS:** (by Jérémie Lumbroso, 2025-10-05)
+
+> "More importantly: it would be nice to store things like **reading week** and the various **breaks**, like fall break, thanksgiving, and maybe **national holidays**"
+
+**Decision**: Expand event types to include:
+- `reading_week` - Mid-semester reading period
+- `fall_break` - Fall break
+- `thanksgiving_break` - Thanksgiving break
+- `spring_break` - Spring break
+- `national_holiday` - Labor Day, MLK Day, etc.
+
+**Updated event classification**:
+```python
+def classify_event(event_name):
+    keywords = {
+        'advanced_registration': ['advanced registration', 'advance registration'],
+        'drop_add': ['drop/add', 'add/drop', 'course selection'],
+        'classes_begin': ['classes begin', 'instruction begins'],
+        'classes_end': ['classes end', 'instruction ends', 'last day of classes'],
+        'finals': ['final exam', 'finals week'],
+        'reading_week': ['reading days', 'reading period'],
+        'fall_break': ['fall break'],
+        'thanksgiving_break': ['thanksgiving', 'thanksgiving recess'],
+        'spring_break': ['spring break', 'spring recess'],
+        'national_holiday': ['labor day', 'mlk day', 'martin luther king']
+    }
+    # ... classification logic
+```
 
 ## Success Criteria
 

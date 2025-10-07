@@ -184,84 +184,120 @@ class CourseScraper:
             school_code=school_code,
         )
 
-        # Ensure term exists in database
+        # Ensure term and school exist in database
         ensure_term_exists(term)
+        term_obj = src.models.Term.get(src.models.Term.code == term)
+        school_obj, _ = src.models.School.get_or_create(code=school_code)
 
-        # Search for courses in this school
+        # Create scrape log entry (for resume capability)
+        scrape_log = src.models.ScrapeLog.create(
+            term=term_obj,
+            school=school_obj,
+            status='running',
+            started_at=start_time,
+        )
+
         try:
-            search_result = self.api_client.search_by_school(
+            # Search for courses in this school
+            try:
+                search_result = self.api_client.search_by_school(
+                    term=term,
+                    school_code=school_code,
+                )
+            except Exception as e:
+                self.logger.error(
+                    "search_failed",
+                    term=term,
+                    school_code=school_code,
+                    error=str(e),
+                )
+                raise
+
+            results_list = search_result.get("results") or []
+
+            count_value = search_result.get("count")
+            if isinstance(count_value, int):
+                courses_found = count_value
+            else:
+                courses_found = len(results_list)
+
+            courses_saved = 0
+            errors: typing.List[str] = []
+
+            # Process each course
+            for idx, course_summary in enumerate(results_list, 1):
+                try:
+                    self._process_course(
+                        course_code=course_summary["code"],
+                        crn=course_summary["crn"],
+                        term=term,
+                        create_snapshot=create_snapshots,
+                    )
+                    courses_saved += 1
+                except Exception as e:
+                    error_msg = f"Failed to process {course_summary['code']} (CRN {course_summary['crn']}): {e}"
+                    errors.append(error_msg)
+                    self.logger.warning(
+                        "course_process_failed",
+                        term=term,
+                        school_code=school_code,
+                        course_code=course_summary["code"],
+                        crn=course_summary["crn"],
+                        error=str(e),
+                    )
+
+                # Call progress callback
+                if progress_callback:
+                    progress_callback(idx, max(courses_found, len(results_list)))
+
+            duration = (datetime.datetime.now() - start_time).total_seconds()
+
+            result: SchoolScrapeResult = {
+                "school_code": school_code,
+                "term": term,
+                "courses_found": courses_found,
+                "courses_saved": courses_saved,
+                "errors_count": len(errors),
+                "error_details": errors,
+                "duration_seconds": duration,
+            }
+
+            # Mark scrape as completed
+            scrape_log.status = 'completed'
+            scrape_log.completed_at = datetime.datetime.now()
+            scrape_log.courses_scraped = courses_saved
+            scrape_log.errors_count = len(errors)
+            if errors:
+                import json
+                scrape_log.error_details = json.dumps(errors)
+            scrape_log.save()
+
+            self.logger.info(
+                "scrape_school_complete",
                 term=term,
                 school_code=school_code,
+                courses_found=courses_found,
+                courses_saved=courses_saved,
+                errors=len(errors),
+                duration=duration,
             )
+
+            return result
+
         except Exception as e:
+            # Mark scrape as failed
+            scrape_log.status = 'failed'
+            scrape_log.completed_at = datetime.datetime.now()
+            scrape_log.error_details = str(e)
+            scrape_log.save()
+
             self.logger.error(
-                "search_failed",
+                "scrape_school_failed",
                 term=term,
                 school_code=school_code,
                 error=str(e),
             )
             raise
-
-        results_list = search_result.get("results") or []
-
-        count_value = search_result.get("count")
-        if isinstance(count_value, int):
-            courses_found = count_value
-        else:
-            courses_found = len(results_list)
-
-        courses_saved = 0
-        errors: typing.List[str] = []
-
-        # Process each course
-        for idx, course_summary in enumerate(results_list, 1):
-            try:
-                self._process_course(
-                    course_code=course_summary["code"],
-                    crn=course_summary["crn"],
-                    term=term,
-                    create_snapshot=create_snapshots,
-                )
-                courses_saved += 1
-            except Exception as e:
-                error_msg = f"Failed to process {course_summary['code']} (CRN {course_summary['crn']}): {e}"
-                errors.append(error_msg)
-                self.logger.warning(
-                    "course_process_failed",
-                    term=term,
-                    school_code=school_code,
-                    course_code=course_summary["code"],
-                    crn=course_summary["crn"],
-                    error=str(e),
-                )
-
-            # Call progress callback
-            if progress_callback:
-                progress_callback(idx, max(courses_found, len(results_list)))
-
-        duration = (datetime.datetime.now() - start_time).total_seconds()
-
-        result: SchoolScrapeResult = {
-            "school_code": school_code,
-            "term": term,
-            "courses_found": courses_found,
-            "courses_saved": courses_saved,
-            "errors_count": len(errors),
-            "error_details": errors,
-            "duration_seconds": duration,
-        }
-
-        self.logger.info(
-            "scrape_school_complete",
-            term=term,
-            school_code=school_code,
-            courses_found=courses_found,
-            courses_saved=courses_saved,
-            errors=len(errors),
-            duration=duration,
-        )
-
-        return result
 
     def _process_course(
         self,

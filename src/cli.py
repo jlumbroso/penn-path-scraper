@@ -77,6 +77,42 @@ def cli(ctx: click.Context, db: str) -> None:
         console.print("✅ [green]Database initialized successfully![/green]\n")
 
 
+# =============================================================================
+# Helper Functions
+# =============================================================================
+
+def is_school_completed(term_code: str, school_code: str) -> bool:
+    """
+    Check if (term, school) was successfully scraped.
+
+    Uses ScrapeLog to determine if this combination is complete.
+    This enables per-school resume granularity for historical scrapes.
+
+    Returns:
+        True if ScrapeLog shows this (term, school) as 'completed'
+    """
+    try:
+        term_obj = src.models.Term.get(src.models.Term.code == term_code)
+        school_obj = src.models.School.get(src.models.School.code == school_code)
+
+        log = src.models.ScrapeLog.select().where(
+            (src.models.ScrapeLog.term == term_obj) &
+            (src.models.ScrapeLog.school == school_obj) &
+            (src.models.ScrapeLog.status == 'completed')
+        ).first()
+
+        return log is not None
+
+    except src.models.Term.DoesNotExist:
+        return False  # Term doesn't exist yet
+    except src.models.School.DoesNotExist:
+        return False  # School doesn't exist
+
+
+# =============================================================================
+# Commands
+# =============================================================================
+
 @cli.command()
 @click.argument("term", required=False)
 @click.option(
@@ -293,18 +329,33 @@ def scrape_historical(
     for idx, term_code in enumerate(term_codes, 1):
         console.print(f"\n[bold]Term {idx}/{len(term_codes)}: [cyan]{term_code}[/cyan][/bold]")
 
-        # Check if term already has data
-        if skip_existing:
-            existing_courses = src.models.Course.select().where(
-                src.models.Course.term == src.models.Term.select().where(
-                    src.models.Term.code == term_code
-                )
-            ).count()
+        # Determine which schools to scrape
+        schools_to_scrape = school_codes if school_codes else [s["code"] for s in src.types.SCHOOLS]
 
-            if existing_courses > 0:
-                console.print(f"  ⏭️  [yellow]Skipping - {existing_courses} courses already in database[/yellow]")
-                results_summary["skipped"].append((term_code, existing_courses))
+        # Filter out completed schools (per-school granularity!)
+        if skip_existing:
+            incomplete_schools = []
+            skipped_schools = []
+
+            for school_code in schools_to_scrape:
+                if is_school_completed(term_code, school_code):
+                    skipped_schools.append(school_code)
+                else:
+                    incomplete_schools.append(school_code)
+
+            # Report skipped schools
+            if skipped_schools:
+                console.print(f"  ⏭️  [yellow]Skipping schools (already complete): {', '.join(skipped_schools)}[/yellow]")
+
+            # Check if all schools are complete
+            if not incomplete_schools:
+                console.print(f"  ⏭️  [green]All schools complete for {term_code}[/green]")
+                results_summary["skipped"].append((term_code, len(schools_to_scrape)))
                 continue
+
+            # Only scrape incomplete schools
+            schools_to_scrape = incomplete_schools
+            console.print(f"  📚 [cyan]Scraping schools: {', '.join(schools_to_scrape)}[/cyan]")
 
         try:
             # Scrape this term
@@ -322,7 +373,7 @@ def scrape_historical(
 
                 result = scraper_obj.scrape_term(
                     term=term_code,
-                    schools=school_codes,
+                    schools=schools_to_scrape,  # Use filtered list (only incomplete schools)
                     create_snapshots=True,  # Always create snapshots for historical data
                     progress_callback=update_progress,
                 )

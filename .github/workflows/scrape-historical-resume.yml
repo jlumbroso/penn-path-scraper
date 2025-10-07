@@ -1,0 +1,211 @@
+name: Historical Scrape (Resume/Incremental)
+
+# This workflow RESUMES scraping from where it left off.
+# It downloads the existing database artifact and continues scraping incomplete schools.
+#
+# Use this for:
+# - Daily incremental scrapes (cron)
+# - Resuming after timeout
+# - Continuing after manual stop
+#
+# The per-school resume logic ensures only incomplete schools are scraped.
+
+on:
+  workflow_dispatch:  # Manual trigger (button)
+    inputs:
+      terms:
+        description: 'Comma-separated term codes (e.g., 202530,202430,202410)'
+        required: false
+        default: '202530,202430,202410,202330,202310,202230,202210,202130,202110,202030,201930,201910'
+      schools:
+        description: 'Comma-separated school codes (e.g., E,W,A) - leave empty for all schools'
+        required: false
+        default: ''
+      sample_rate:
+        description: 'Sample rate for verification (1 in N courses)'
+        required: false
+        default: '100'
+
+  schedule:
+    # Run daily at 2 AM UTC (9 PM EST / 10 PM EDT)
+    - cron: '0 2 * * *'
+
+# CRITICAL: Prevent concurrent scrapes
+concurrency:
+  group: historical-scraping
+  cancel-in-progress: true  # Skip new runs if one is already running
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+    timeout-minutes: 360  # 6 hours max
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.12'
+
+      - name: Install pipenv
+        run: pip install pipenv
+
+      - name: Install dependencies
+        run: pipenv install --deploy
+
+      - name: 📥 Download existing database
+        id: download-db
+        continue-on-error: true  # OK if artifact doesn't exist (first run)
+        uses: actions/download-artifact@v4
+        with:
+          name: courses-database
+          path: ~/.penn-scraper
+
+      - name: 📊 Check database status
+        run: |
+          if [ -f ~/.penn-scraper/courses.db ]; then
+            echo "✅ Existing database found - will resume scraping"
+            echo "📊 Current database stats:"
+            sqlite3 ~/.penn-scraper/courses.db << 'SQL'
+            SELECT '  📚 Total courses: ' || COUNT(*) FROM courses;
+            SELECT '  🏫 Terms: ' || COUNT(DISTINCT term_id) FROM courses;
+            SELECT '  ✅ Completed scrapes: ' || COUNT(*) FROM scrape_logs WHERE status='completed';
+            SQL
+          else
+            echo "🆕 No existing database - creating fresh one"
+            mkdir -p ~/.penn-scraper
+          fi
+
+      - name: 🔍 Run historical scrape (with resume)
+        env:
+          TERMS: ${{ github.event.inputs.terms || '202530,202430,202410,202330,202310,202230,202210,202130,202110,202030,201930,201910' }}
+          SCHOOLS: ${{ github.event.inputs.schools || '' }}
+          SAMPLE_RATE: ${{ github.event.inputs.sample_rate || '100' }}
+        run: |
+          echo "📚 Starting historical scrape with resume capability..."
+          echo "Terms: $TERMS"
+          echo "Schools: ${SCHOOLS:-all}"
+          echo "Sample rate: 1 in $SAMPLE_RATE"
+          echo "Skip existing: YES (per-school granularity)"
+
+          if [ -n "$SCHOOLS" ]; then
+            pipenv run scraper scrape-historical \
+              --terms "$TERMS" \
+              --schools "$SCHOOLS" \
+              --sample-rate "$SAMPLE_RATE"
+          else
+            pipenv run scraper scrape-historical \
+              --terms "$TERMS" \
+              --sample-rate "$SAMPLE_RATE"
+          fi
+
+      - name: ✅ Verify ground-truth samples
+        if: always()
+        run: |
+          echo "✅ Verifying ground-truth samples..."
+          if ls scrape-samples/*.json 1> /dev/null 2>&1; then
+            for sample_file in scrape-samples/*.json; do
+              echo "Verifying: $sample_file"
+              pipenv run scraper verify-samples "$sample_file" || echo "⚠️ Verification failed for $sample_file"
+            done
+          else
+            echo "ℹ️ No new sample files (all schools were already complete)"
+          fi
+
+      - name: 📊 Generate updated database stats
+        if: always()
+        run: |
+          echo "📊 Updated database statistics:"
+          sqlite3 ~/.penn-scraper/courses.db << 'SQL'
+          SELECT
+            '📚 Total courses: ' || COUNT(*)
+          FROM courses;
+
+          SELECT
+            '🏫 Courses per term:' as stats;
+          SELECT
+            '  ' || t.code || ' (' || t.name || '): ' || COUNT(c.id) as breakdown
+          FROM terms t
+          LEFT JOIN courses c ON c.term_id = t.code
+          GROUP BY t.code, t.name
+          ORDER BY t.code DESC;
+
+          SELECT
+            '✅ Completed scrapes (per school):' as logs;
+          SELECT
+            '  ' || t.code || ' - ' || s.code || ': ' || sl.status ||
+            ' (' || sl.courses_scraped || ' courses, ' ||
+            ROUND((julianday(sl.completed_at) - julianday(sl.started_at)) * 24 * 60, 1) || ' min)' as log_entry
+          FROM scrape_logs sl
+          JOIN terms t ON sl.term_id = t.id
+          JOIN schools s ON sl.school_id = s.id
+          WHERE sl.status = 'completed'
+          ORDER BY t.code DESC, s.code;
+
+          SELECT
+            '⚠️ Failed scrapes:' as failed_logs;
+          SELECT
+            '  ' || t.code || ' - ' || s.code || ': ' || sl.error_details as error
+          FROM scrape_logs sl
+          JOIN terms t ON sl.term_id = t.id
+          JOIN schools s ON sl.school_id = s.id
+          WHERE sl.status = 'failed'
+          ORDER BY t.code DESC, s.code;
+          SQL
+
+      - name: 🔍 Check for CRN reuse (validation)
+        if: always()
+        run: |
+          echo "🔍 Checking for CRN reuse across terms (should see many):"
+          sqlite3 ~/.penn-scraper/courses.db << 'SQL'
+          SELECT
+            '  CRNs appearing in multiple terms: ' || COUNT(*)
+          FROM (
+            SELECT crn
+            FROM courses
+            GROUP BY crn
+            HAVING COUNT(DISTINCT term_id) > 1
+          );
+
+          SELECT
+            '📝 Sample CRN reuse examples (first 5):' as examples;
+          SELECT
+            '  CRN ' || crn || ': appears in ' || COUNT(DISTINCT term_id) || ' terms' as example
+          FROM courses
+          GROUP BY crn
+          HAVING COUNT(DISTINCT term_id) > 1
+          LIMIT 5;
+          SQL
+
+      - name: 📦 Upload updated database artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: courses-database
+          path: ~/.penn-scraper/courses.db
+          retention-days: 90
+
+      - name: 📦 Upload sample files
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: scrape-samples-${{ github.run_number }}
+          path: scrape-samples/*.json
+          retention-days: 30
+
+      - name: 🎉 Summary
+        if: success()
+        run: |
+          echo "✅ Historical scrape completed!"
+          echo "📦 Database artifact updated"
+          echo ""
+          echo "What happened:"
+          echo "- Downloaded existing database"
+          echo "- Checked ScrapeLog for completed (term, school) combinations"
+          echo "- Only scraped incomplete schools (per-school resume logic)"
+          echo "- Updated database with new data"
+          echo "- Uploaded updated artifact for next run"
+          echo ""
+          echo "To check detailed results, view the 'Generate updated database stats' step above."

@@ -1,0 +1,177 @@
+name: Historical Scrape (Fresh Start)
+
+# This workflow FLUSHES the database and starts fresh with the new schema.
+# Use this when:
+# - Schema has changed (like the CRN reuse fix)
+# - Database is corrupted
+# - You want to start over from scratch
+#
+# This will DELETE any existing database artifact and create a new one.
+
+on:
+  workflow_dispatch:  # Manual trigger only (button in GitHub UI)
+    inputs:
+      terms:
+        description: 'Comma-separated term codes (e.g., 202530,202430,202410)'
+        required: false
+        default: '202530,202430,202410,202330,202310,202230,202210,202130,202110,202030,201930,201910'
+      schools:
+        description: 'Comma-separated school codes (e.g., E,W,A) - leave empty for all schools'
+        required: false
+        default: ''
+      sample_rate:
+        description: 'Sample rate for verification (1 in N courses)'
+        required: false
+        default: '100'
+
+# Prevent concurrent scrapes
+concurrency:
+  group: historical-scraping
+  cancel-in-progress: false  # Don't cancel running jobs, queue them
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+    timeout-minutes: 360  # 6 hours max
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.12'
+
+      - name: Install pipenv
+        run: pip install pipenv
+
+      - name: Install dependencies
+        run: pipenv install --deploy
+
+      - name: 🗑️ Delete old database artifact (FRESH START)
+        continue-on-error: true  # OK if artifact doesn't exist
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          echo "🗑️ Deleting existing 'courses-database' artifact..."
+          gh api \
+            --method GET \
+            -H "Accept: application/vnd.github+json" \
+            /repos/${{ github.repository }}/actions/artifacts \
+            | jq -r '.artifacts[] | select(.name == "courses-database") | .id' \
+            | xargs -I {} gh api \
+              --method DELETE \
+              -H "Accept: application/vnd.github+json" \
+              /repos/${{ github.repository }}/actions/artifacts/{} \
+            || echo "No existing artifact to delete"
+
+      - name: 🆕 Create fresh database
+        run: |
+          echo "🆕 Creating fresh database with new schema..."
+          mkdir -p ~/.penn-scraper
+          rm -f ~/.penn-scraper/courses.db
+          # Database will be created automatically by scraper
+
+      - name: 🔍 Run historical scrape
+        env:
+          TERMS: ${{ github.event.inputs.terms }}
+          SCHOOLS: ${{ github.event.inputs.schools }}
+          SAMPLE_RATE: ${{ github.event.inputs.sample_rate }}
+        run: |
+          echo "📚 Starting fresh historical scrape..."
+          echo "Terms: $TERMS"
+          echo "Schools: ${SCHOOLS:-all}"
+          echo "Sample rate: 1 in $SAMPLE_RATE"
+
+          if [ -n "$SCHOOLS" ]; then
+            pipenv run scraper scrape-historical \
+              --terms "$TERMS" \
+              --schools "$SCHOOLS" \
+              --sample-rate "$SAMPLE_RATE" \
+              --no-skip-existing
+          else
+            pipenv run scraper scrape-historical \
+              --terms "$TERMS" \
+              --sample-rate "$SAMPLE_RATE" \
+              --no-skip-existing
+          fi
+
+      - name: ✅ Verify ground-truth samples
+        if: always()  # Run even if scrape partially failed
+        run: |
+          echo "✅ Verifying ground-truth samples..."
+          if ls scrape-samples/*.json 1> /dev/null 2>&1; then
+            for sample_file in scrape-samples/*.json; do
+              echo "Verifying: $sample_file"
+              pipenv run scraper verify-samples "$sample_file" || echo "⚠️ Verification failed for $sample_file"
+            done
+          else
+            echo "⚠️ No sample files found"
+          fi
+
+      - name: 📊 Generate database stats
+        if: always()
+        run: |
+          echo "📊 Database statistics:"
+          sqlite3 ~/.penn-scraper/courses.db << 'SQL'
+          SELECT
+            '📚 Total courses: ' || COUNT(*)
+          FROM courses;
+
+          SELECT
+            '🏫 Courses per term:' as stats;
+          SELECT
+            '  ' || t.code || ' (' || t.name || '): ' || COUNT(c.id) as breakdown
+          FROM terms t
+          LEFT JOIN courses c ON c.term_id = t.code
+          GROUP BY t.code, t.name
+          ORDER BY t.code DESC;
+
+          SELECT
+            '✅ Scrape logs:' as logs;
+          SELECT
+            '  ' || t.code || ' - ' || s.code || ': ' || sl.status ||
+            ' (' || sl.courses_scraped || ' courses)' as log_entry
+          FROM scrape_logs sl
+          JOIN terms t ON sl.term_id = t.id
+          JOIN schools s ON sl.school_id = s.id
+          ORDER BY t.code DESC, s.code;
+          SQL
+
+      - name: 📦 Upload database artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: courses-database
+          path: ~/.penn-scraper/courses.db
+          retention-days: 90
+
+      - name: 📦 Upload sample files
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: scrape-samples
+          path: scrape-samples/*.json
+          retention-days: 30
+
+      - name: 📝 Upload logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: scrape-logs
+          path: |
+            logs/*.log
+          retention-days: 30
+
+      - name: 🎉 Success summary
+        if: success()
+        run: |
+          echo "✅ Fresh historical scrape completed successfully!"
+          echo "📦 Database artifact uploaded"
+          echo "🔍 Samples verified"
+          echo ""
+          echo "Next steps:"
+          echo "1. Download the database artifact"
+          echo "2. Run exports: pipenv run scraper export"
+          echo "3. Deploy to GitHub Pages"

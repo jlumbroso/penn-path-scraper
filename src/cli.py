@@ -5,12 +5,14 @@ Beautiful command-line interface for scraping and searching Penn course data.
 """
 
 import datetime
+import logging
 import pathlib
 import sys
 import typing
 
 import rich_click as click
 import click_didyoumean
+import structlog
 from rich.console import Console
 from rich.table import Table
 from rich.progress import Progress, SpinnerColumn, TextColumn, BarColumn
@@ -41,6 +43,32 @@ console = Console()
 
 # Default database path
 DEFAULT_DB_PATH = pathlib.Path.home() / ".penn-scraper" / "courses.db"
+
+
+def setup_file_logging(log_file: pathlib.Path) -> None:
+    """
+    Configure structlog to write to both console and file.
+
+    Args:
+        log_file: Path to log file
+    """
+    # Create logs directory
+    log_file.parent.mkdir(parents=True, exist_ok=True)
+
+    # Set up file handler for standard logging (structlog uses this)
+    file_handler = logging.FileHandler(str(log_file))
+    file_handler.setLevel(logging.DEBUG)
+    file_handler.setFormatter(logging.Formatter(
+        '%(asctime)s [%(levelname)s] %(message)s',
+        datefmt='%Y-%m-%d %H:%M:%S'
+    ))
+
+    # Add to root logger
+    root_logger = logging.getLogger()
+    root_logger.addHandler(file_handler)
+    root_logger.setLevel(logging.DEBUG)
+
+    console.print(f"📝 [dim]Logging to: {log_file}[/dim]")
 
 
 class DidYouMeanGroup(click_didyoumean.DYMGroup):
@@ -266,6 +294,12 @@ def scrape(
     help="Sample 1 in N courses for verification (use 100 for large scrapes, 10 for testing)",
     show_default=True,
 )
+@click.option(
+    "--logs/--no-logs",
+    default=True,
+    help="Write detailed logs to file (recommended for large scrapes)",
+    show_default=True,
+)
 @click.pass_context
 def scrape_historical(
     ctx: click.Context,
@@ -275,6 +309,7 @@ def scrape_historical(
     rate_limit: float,
     skip_existing: bool,
     sample_rate: int,
+    logs: bool,
 ) -> None:
     """
     Scrape historical terms with resume capability.
@@ -299,6 +334,12 @@ def scrape_historical(
     from rich import box
 
     console = Console()
+
+    # Set up file logging if enabled
+    if logs:
+        timestamp = datetime.datetime.now().strftime("%Y%m%d-%H%M%S")
+        log_file = pathlib.Path("logs") / f"scrape-historical-{timestamp}.log"
+        setup_file_logging(log_file)
 
     # Determine which terms to scrape
     if all_terms:

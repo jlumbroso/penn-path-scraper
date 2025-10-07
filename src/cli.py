@@ -102,6 +102,13 @@ def cli(ctx: click.Context, db: str) -> None:
     help="Delay between API requests in seconds",
     show_default=True,
 )
+@click.option(
+    "--sample-rate",
+    default=10,
+    type=int,
+    help="Sample 1 in N courses for verification (lower = more samples)",
+    show_default=True,
+)
 @click.pass_context
 def scrape(
     ctx: click.Context,
@@ -110,6 +117,7 @@ def scrape(
     next_term: bool,
     no_snapshots: bool,
     rate_limit: float,
+    sample_rate: int,
 ) -> None:
     """
     Scrape course data from Penn's catalog.
@@ -135,7 +143,7 @@ def scrape(
     )
 
     # Initialize sampling for ground-truth verification
-    src.scrape_verification.init_sampling(ctx.obj["db_path"], sample_rate=100)
+    src.scrape_verification.init_sampling(ctx.obj["db_path"], sample_rate=sample_rate)
 
     # Determine terms to scrape
     terms_to_scrape = [term]
@@ -211,6 +219,13 @@ def scrape(
     help="Skip terms that already have data (enables resume capability)",
     show_default=True,
 )
+@click.option(
+    "--sample-rate",
+    default=100,
+    type=int,
+    help="Sample 1 in N courses for verification (use 100 for large scrapes, 10 for testing)",
+    show_default=True,
+)
 @click.pass_context
 def scrape_historical(
     ctx: click.Context,
@@ -218,6 +233,7 @@ def scrape_historical(
     schools: typing.Optional[str],
     rate_limit: float,
     skip_existing: bool,
+    sample_rate: int,
 ) -> None:
     """
     Scrape historical terms with resume capability.
@@ -257,7 +273,7 @@ def scrape_historical(
     scraper_obj = src.scraper.CourseScraper(api_client=api_client, db_path=str(db_path))
 
     # Initialize sampling for ground-truth verification
-    src.scrape_verification.init_sampling(str(db_path), sample_rate=100)
+    src.scrape_verification.init_sampling(str(db_path), sample_rate=sample_rate)
 
     # Track results
     results_summary = {

@@ -58,10 +58,16 @@ class Course(BaseModel):
     Note: This represents a section, not a course catalog entry.
     The same course code (e.g., "CIS 1210") will have multiple
     Course records across different terms and sections.
+
+    IMPORTANT: CRNs are reused across terms by Penn. The unique identifier
+    is the combination (term, crn), not crn alone.
     """
 
-    # Primary identifiers
-    crn = peewee.CharField(primary_key=True)  # Course Reference Number (unique per term)
+    # Surrogate primary key
+    id = peewee.AutoField(primary_key=True)
+
+    # Natural key: (term, crn) is unique
+    crn = peewee.CharField(index=True)  # Course Reference Number (unique per term, reused across terms)
     term = peewee.ForeignKeyField(Term, backref="courses", on_delete="CASCADE")
 
     # Course identification
@@ -116,7 +122,10 @@ class Course(BaseModel):
     class Meta:
         table_name = "courses"
         indexes = (
-            # Composite index for efficient lookups
+            # UNIQUE constraint: (term, crn) must be unique
+            # This prevents CRN reuse across terms from causing data corruption
+            (("term", "crn"), True),  # True = UNIQUE
+            # Additional index for course code lookups
             (("term", "code"), False),
         )
 

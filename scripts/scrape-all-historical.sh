@@ -29,17 +29,36 @@ mkdir -p ./logs
 
 # Historical terms to scrape (most recent to oldest)
 # Format: TERM_CODE|TERM_NAME
+# HISTORICAL_TERMS=(
+#     "202510|Spring 2025"
+#     "202430|Fall 2024"
+#     "202410|Spring 2024"
+#     "202330|Fall 2023"
+#     "202310|Spring 2023"
+#     "202230|Fall 2022"
+#     "202210|Spring 2022"
+#     "202130|Fall 2021"
+#     "202110|Spring 2021"
+#     "202030|Fall 2020"
+# )
+#
 HISTORICAL_TERMS=(
+    "202520|Summer 2025"
     "202510|Spring 2025"
     "202430|Fall 2024"
+    "202420|Summer 2024"
     "202410|Spring 2024"
     "202330|Fall 2023"
+    "202320|Summer 2023"
     "202310|Spring 2023"
     "202230|Fall 2022"
+    "202220|Summer 2022"
     "202210|Spring 2022"
     "202130|Fall 2021"
+    "202120|Summer 2021"
     "202110|Spring 2021"
     "202030|Fall 2020"
+    "202530|Fall 2025"
 )
 
 # For later:

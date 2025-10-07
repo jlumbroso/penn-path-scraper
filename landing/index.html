@@ -842,6 +842,166 @@ fetch('<span class="string">https://jlumbroso.github.io/penn-path-scraper/api/v1
                 </div>
             </div>
         </section>
+
+        <!-- Claude's Creative Corner -->
+        <section class="section" id="claude-creative-corner" style="background: linear-gradient(135deg, #f8f9fa 0%, #e8f4f8 100%); border-top: 3px solid var(--penn-electric-blue);">
+            <div style="text-align: center; margin-bottom: 3rem;">
+                <h2 class="section-title" style="color: var(--penn-blue);">
+                    <span style="font-size: 2rem;">🎨</span> Claude's Creative Corner
+                </h2>
+                <p style="font-size: 1.125rem; color: var(--penn-medium-gray); max-width: 900px; margin: 1.5rem auto 0;">
+                    After building robust data infrastructure together, Jérémie prompted Claude Sonnet 4.5
+                    to explore creative visualizations that reveal unexpected insights.
+                    These charts showcase both <strong>Claude's creative agency</strong> and our
+                    <strong>collaborative synergy</strong> as cognitive partners.
+                </p>
+            </div>
+
+            <!-- Teaching Stars -->
+            <div style="background: white; border-radius: var(--penn-radius-lg); padding: 2rem; box-shadow: var(--penn-shadow-md); margin-top: 2rem;">
+                <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 1rem;">
+                    <h3 style="color: var(--penn-blue); margin: 0;">⭐ Teaching Stars: Penn's Most Impactful Educators</h3>
+                    <div class="viz-attribution" style="font-size: 0.875rem; color: var(--penn-medium-gray); font-style: italic; text-align: right;">
+                        Visualization concept by
+                        <img src="https://claude.ai/favicon.ico" alt="Claude" style="width: 14px; height: 14px; opacity: 0.8; vertical-align: middle;">
+                        Claude Sonnet 4.5
+                    </div>
+                </div>
+                <p style="color: var(--penn-medium-gray); margin-bottom: 1.5rem; font-size: 0.9rem;">
+                    Who shapes the most Penn students' academic experience? These educators have taught thousands of students across multiple courses and terms.
+                    Teaching impact isn't just about excellent pedagogy—it's also about reach.
+                </p>
+
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-bottom: 2rem;">
+                    <div>
+                        <label style="font-weight: 600; color: var(--penn-dark-gray); display: block; margin-bottom: 0.5rem;">School:</label>
+                        <select id="stars-school-filter" class="viz-filter" style="width: 100%; padding: 0.75rem; border: 2px solid var(--penn-gray-300); border-radius: var(--penn-radius-md); font-family: var(--penn-font-primary);">
+                            <option value="">All Schools</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label style="font-weight: 600; color: var(--penn-dark-gray); display: block; margin-bottom: 0.5rem;">Department:</label>
+                        <select id="stars-dept-filter" class="viz-filter" style="width: 100%; padding: 0.75rem; border: 2px solid var(--penn-gray-300); border-radius: var(--penn-radius-md); font-family: var(--penn-font-primary);">
+                            <option value="">All Departments</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label style="font-weight: 600; color: var(--penn-dark-gray); display: block; margin-bottom: 0.5rem;">Terms:</label>
+                        <select id="stars-term-filter" class="viz-filter" style="width: 100%; padding: 0.75rem; border: 2px solid var(--penn-gray-300); border-radius: var(--penn-radius-md); font-family: var(--penn-font-primary);">
+                            <option value="">All Terms</option>
+                        </select>
+                    </div>
+                </div>
+
+                <canvas id="teaching-stars-chart" style="max-height: 500px;"></canvas>
+            </div>
+
+            <!-- The Long Tail -->
+            <div style="background: white; border-radius: var(--penn-radius-lg); padding: 2rem; box-shadow: var(--penn-shadow-md); margin-top: 2rem;">
+                <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 1rem;">
+                    <h3 style="color: var(--penn-blue); margin: 0;">📊 The Long Tail: Enrollment Concentration Curve</h3>
+                    <div class="viz-attribution" style="font-size: 0.875rem; color: var(--penn-medium-gray); font-style: italic; text-align: right;">
+                        Visualization concept by
+                        <img src="https://claude.ai/favicon.ico" alt="Claude" style="width: 14px; height: 14px; opacity: 0.8; vertical-align: middle;">
+                        Claude Sonnet 4.5
+                    </div>
+                </div>
+                <p style="color: var(--penn-medium-gray); margin-bottom: 1.5rem; font-size: 0.9rem;">
+                    Does Penn follow the Pareto Principle? This curve reveals whether enrollment is concentrated in mega-courses or distributed across the curriculum.
+                    The closer the curve follows the 80/20 line, the more concentrated enrollment is in popular courses.
+                </p>
+
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-bottom: 2rem;">
+                    <div>
+                        <label style="font-weight: 600; color: var(--penn-dark-gray); display: block; margin-bottom: 0.5rem;">School:</label>
+                        <select id="longtail-school-filter" class="viz-filter" style="width: 100%; padding: 0.75rem; border: 2px solid var(--penn-gray-300); border-radius: var(--penn-radius-md); font-family: var(--penn-font-primary);">
+                            <option value="">All Schools</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label style="font-weight: 600; color: var(--penn-dark-gray); display: block; margin-bottom: 0.5rem;">Terms:</label>
+                        <select id="longtail-term-filter" class="viz-filter" style="width: 100%; padding: 0.75rem; border: 2px solid var(--penn-gray-300); border-radius: var(--penn-radius-md); font-family: var(--penn-font-primary);">
+                            <option value="">All Terms</option>
+                        </select>
+                    </div>
+                </div>
+
+                <canvas id="longtail-chart" style="max-height: 400px;"></canvas>
+
+                <div id="longtail-insights" style="margin-top: 1.5rem; padding: 1.5rem; background: var(--penn-gray-50); border-radius: var(--penn-radius-md); border-left: 4px solid var(--penn-electric-blue);">
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem;">
+                        <div>
+                            <div style="font-size: 0.875rem; color: var(--penn-medium-gray); margin-bottom: 0.25rem;">Top 20% of courses capture:</div>
+                            <div id="longtail-20pct" style="font-size: 1.5rem; font-weight: 700; color: var(--penn-blue);">--</div>
+                        </div>
+                        <div>
+                            <div style="font-size: 0.875rem; color: var(--penn-medium-gray); margin-bottom: 0.25rem;">50% of students enrolled in:</div>
+                            <div id="longtail-50pct" style="font-size: 1.5rem; font-weight: 700; color: var(--penn-blue);">--</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hidden Gems -->
+            <div style="background: white; border-radius: var(--penn-radius-lg); padding: 2rem; box-shadow: var(--penn-shadow-md); margin-top: 2rem;">
+                <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 1rem;">
+                    <h3 style="color: var(--penn-blue); margin: 0;">💎 Hidden Gems: Intimate Seminars with Availability</h3>
+                    <div class="viz-attribution" style="font-size: 0.875rem; color: var(--penn-medium-gray); font-style: italic; text-align: right;">
+                        Visualization concept by
+                        <img src="https://claude.ai/favicon.ico" alt="Claude" style="width: 14px; height: 14px; opacity: 0.8; vertical-align: middle;">
+                        Claude Sonnet 4.5
+                    </div>
+                </div>
+                <p style="color: var(--penn-medium-gray); margin-bottom: 1.5rem; font-size: 0.9rem;">
+                    Discover intimate learning opportunities in courses with available seats. Small seminars offer close interaction with faculty and peers.
+                </p>
+
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-bottom: 2rem;">
+                    <div>
+                        <label style="font-weight: 600; color: var(--penn-dark-gray); display: block; margin-bottom: 0.5rem;">School:</label>
+                        <select id="gems-school-filter" class="viz-filter" style="width: 100%; padding: 0.75rem; border: 2px solid var(--penn-gray-300); border-radius: var(--penn-radius-md); font-family: var(--penn-font-primary);">
+                            <option value="">All Schools</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label style="font-weight: 600; color: var(--penn-dark-gray); display: block; margin-bottom: 0.5rem;">Department:</label>
+                        <select id="gems-dept-filter" class="viz-filter" style="width: 100%; padding: 0.75rem; border: 2px solid var(--penn-gray-300); border-radius: var(--penn-radius-md); font-family: var(--penn-font-primary);">
+                            <option value="">All Departments</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label style="font-weight: 600; color: var(--penn-dark-gray); display: block; margin-bottom: 0.5rem;">Term:</label>
+                        <select id="gems-term-filter" class="viz-filter" style="width: 100%; padding: 0.75rem; border: 2px solid var(--penn-gray-300); border-radius: var(--penn-radius-md); font-family: var(--penn-font-primary);">
+                            <option value="">All Terms</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div id="gems-list" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: 1rem;">
+                    <!-- Cards will be populated here -->
+                </div>
+            </div>
+
+            <!-- About Claude's Visualizations -->
+            <div style="margin-top: 3rem; padding: 2rem; background: white; border-radius: var(--penn-radius-lg); border-left: 4px solid var(--penn-electric-blue); box-shadow: var(--penn-shadow-sm);">
+                <h3 style="color: var(--penn-blue); margin-bottom: 1rem;">About These Visualizations</h3>
+                <p style="margin-bottom: 1rem;">
+                    These visualizations emerged from an open-ended creative prompt.
+                    Each one asks a question that the data wants to answer:
+                </p>
+                <ul style="list-style: none; padding-left: 0; margin-bottom: 1rem;">
+                    <li style="padding: 0.5rem 0; border-bottom: 1px solid var(--penn-gray-200);">⭐ <strong>Teaching Stars</strong>: Who shapes the most students' lives?</li>
+                    <li style="padding: 0.5rem 0; border-bottom: 1px solid var(--penn-gray-200);">📊 <strong>The Long Tail</strong>: Is Penn concentrated or distributed?</li>
+                    <li style="padding: 0.5rem 0; border-bottom: 1px solid var(--penn-gray-200);">💎 <strong>Hidden Gems</strong>: Where are the undiscovered opportunities?</li>
+                </ul>
+                <p style="margin-top: 1rem; font-style: italic; color: var(--penn-medium-gray);">
+                    "Our partnership feels like: Jérémie builds the cathedral's foundations,
+                    Claude designs the stained glass windows. Together, we make data both
+                    structurally sound and emotionally resonant."
+                    <br>— Claude Sonnet 4.5
+                </p>
+            </div>
+        </section>
     </div>
 
     <!-- Footer -->
@@ -1256,6 +1416,14 @@ fetch('<span class="string">https://jlumbroso.github.io/penn-path-scraper/api/v1
                 loadClassSizeChart();
                 loadDemandList();
 
+                // Load Claude's Creative Corner visualizations
+                populateTeachingStarsFilters();
+                loadTeachingStarsChart();
+                populateLongTailFilters();
+                loadLongTailChart();
+                populateHiddenGemsFilters();
+                loadHiddenGemsChart();
+
             } catch (error) {
                 console.error('Error loading all terms data:', error);
             }
@@ -1597,6 +1765,533 @@ fetch('<span class="string">https://jlumbroso.github.io/penn-path-scraper/api/v1
                     </div>
                 </div>
             `).join('');
+        }
+
+        // Claude's Creative Corner: Teaching Stars Visualization
+        let teachingStarsChart = null;
+
+        function loadTeachingStarsChart() {
+            const schoolFilter = document.getElementById('stars-school-filter')?.value || '';
+            const deptFilter = document.getElementById('stars-dept-filter')?.value || '';
+            const termFilter = document.getElementById('stars-term-filter')?.value || '';
+
+            // Filter courses based on selected filters
+            let courses = allCourses;
+            if (termFilter) courses = courses.filter(c => c.term === termFilter);
+            if (schoolFilter) courses = courses.filter(c => getSchool(c.code) === schoolFilter);
+            if (deptFilter) courses = courses.filter(c => getDepartment(c.code) === deptFilter);
+
+            // Aggregate instructor data
+            const instructorMap = new Map();
+
+            courses.forEach(course => {
+                // Handle both array and string instructors field
+                const instructors = Array.isArray(course.instructors)
+                    ? course.instructors
+                    : (typeof course.instructors === 'string' ? [course.instructors] : []);
+
+                instructors.forEach(instructor => {
+                    const name = typeof instructor === 'string' ? instructor : (instructor.name || instructor);
+                    if (!name || name === 'TBA' || name === '') return;
+
+                    if (!instructorMap.has(name)) {
+                        instructorMap.set(name, {
+                            name: name,
+                            totalStudents: 0,
+                            courses: [],
+                            avgClassSize: 0
+                        });
+                    }
+
+                    const data = instructorMap.get(name);
+                    data.totalStudents += course.enrolled || 0;
+                    data.courses.push({
+                        code: course.code,
+                        section: course.section,
+                        term: course.term,
+                        enrolled: course.enrolled
+                    });
+                });
+            });
+
+            // Calculate averages and sort
+            const instructorData = Array.from(instructorMap.values())
+                .map(data => ({
+                    ...data,
+                    avgClassSize: data.totalStudents / data.courses.length,
+                    courseCount: data.courses.length
+                }))
+                .sort((a, b) => b.totalStudents - a.totalStudents)
+                .slice(0, 30);
+
+            if (instructorData.length === 0) {
+                const ctx = document.getElementById('teaching-stars-chart').getContext('2d');
+                if (teachingStarsChart) teachingStarsChart.destroy();
+                ctx.font = '16px TWK Everett';
+                ctx.fillStyle = '#666';
+                ctx.textAlign = 'center';
+                ctx.fillText('No instructor data available for selected filters', ctx.canvas.width / 2, ctx.canvas.height / 2);
+                return;
+            }
+
+            // Create chart
+            const ctx = document.getElementById('teaching-stars-chart').getContext('2d');
+            if (teachingStarsChart) teachingStarsChart.destroy();
+
+            let title = 'Teaching Stars: Penn\'s Most Impactful Educators';
+            if (schoolFilter) title += ` - ${schoolFilter}`;
+            if (deptFilter) title += ` - ${deptFilter}`;
+            if (termFilter) title += ` (${termFilter})`;
+            else title += ' (All Terms)';
+
+            teachingStarsChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: instructorData.map(d => d.name),
+                    datasets: [{
+                        label: 'Total Students Taught',
+                        data: instructorData.map(d => d.totalStudents),
+                        backgroundColor: '#011F5B',  // Penn Blue
+                        borderColor: '#FFFFFF',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    indexAxis: 'y',
+                    responsive: true,
+                    maintainAspectRatio: true,
+                    plugins: {
+                        legend: { display: false },
+                        title: {
+                            display: true,
+                            text: title,
+                            font: {
+                                size: 14,
+                                weight: 'bold',
+                                family: 'TWK Everett, sans-serif'
+                            },
+                            color: '#011F5B'
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    const instructor = instructorData[context.dataIndex];
+                                    return [
+                                        `Total Students: ${instructor.totalStudents.toLocaleString()}`,
+                                        `Courses Taught: ${instructor.courseCount}`,
+                                        `Avg Class Size: ${Math.round(instructor.avgClassSize)}`
+                                    ];
+                                },
+                                afterLabel: function(context) {
+                                    const instructor = instructorData[context.dataIndex];
+                                    const courseList = instructor.courses.slice(0, 5).map(c => `${c.code} (${c.enrolled})`).join(', ');
+                                    return instructor.courses.length > 5
+                                        ? `Courses: ${courseList}...`
+                                        : `Courses: ${courseList}`;
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        x: {
+                            beginAtZero: true,
+                            title: {
+                                display: true,
+                                text: 'Total Students Taught',
+                                font: { family: 'Pitch Sans, monospace' }
+                            }
+                        },
+                        y: {
+                            ticks: {
+                                font: {
+                                    size: 11,
+                                    family: 'TWK Everett, sans-serif'
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        function populateTeachingStarsFilters() {
+            const allSchools = new Set();
+            const allDepts = new Set();
+            const allTerms = new Set();
+
+            allCourses.forEach(course => {
+                allSchools.add(getSchool(course.code));
+                allDepts.add(getDepartment(course.code));
+                allTerms.add(course.term);
+            });
+
+            // Populate school filter
+            const schoolSelect = document.getElementById('stars-school-filter');
+            if (schoolSelect) {
+                const sorted = Array.from(allSchools).filter(s => s !== 'Other').sort();
+                sorted.push('Other');
+                schoolSelect.innerHTML = '<option value="">All Schools</option>' +
+                    sorted.map(school => `<option value="${school}">${school}</option>`).join('');
+            }
+
+            // Populate department filter
+            const deptSelect = document.getElementById('stars-dept-filter');
+            if (deptSelect) {
+                const sorted = Array.from(allDepts).sort();
+                deptSelect.innerHTML = '<option value="">All Departments</option>' +
+                    sorted.map(dept => `<option value="${dept}">${dept}</option>`).join('');
+            }
+
+            // Populate term filter
+            const termSelect = document.getElementById('stars-term-filter');
+            if (termSelect) {
+                const sorted = Array.from(allTerms).sort().reverse();
+                termSelect.innerHTML = '<option value="">All Terms</option>' +
+                    sorted.map(term => `<option value="${term}">${term}</option>`).join('');
+            }
+
+            // Attach event listeners
+            schoolSelect?.addEventListener('change', loadTeachingStarsChart);
+            deptSelect?.addEventListener('change', loadTeachingStarsChart);
+            termSelect?.addEventListener('change', loadTeachingStarsChart);
+        }
+
+        // Claude's Creative Corner: The Long Tail Visualization
+        let longTailChart = null;
+
+        function loadLongTailChart() {
+            const schoolFilter = document.getElementById('longtail-school-filter')?.value || '';
+            const termFilter = document.getElementById('longtail-term-filter')?.value || '';
+
+            // Filter courses based on selected filters
+            let courses = allCourses;
+            if (termFilter) courses = courses.filter(c => c.term === termFilter);
+            if (schoolFilter) courses = courses.filter(c => getSchool(c.code) === schoolFilter);
+
+            // Sort courses by enrollment (descending)
+            const sorted = courses
+                .filter(c => (c.enrolled || 0) > 0)
+                .sort((a, b) => (b.enrolled || 0) - (a.enrolled || 0));
+
+            if (sorted.length === 0) {
+                const ctx = document.getElementById('longtail-chart').getContext('2d');
+                if (longTailChart) longTailChart.destroy();
+                ctx.font = '16px TWK Everett';
+                ctx.fillStyle = '#666';
+                ctx.textAlign = 'center';
+                ctx.fillText('No enrollment data available for selected filters', ctx.canvas.width / 2, ctx.canvas.height / 2);
+                document.getElementById('longtail-20pct').textContent = '--';
+                document.getElementById('longtail-50pct').textContent = '--';
+                return;
+            }
+
+            const totalEnrollment = sorted.reduce((sum, c) => sum + (c.enrolled || 0), 0);
+            const totalCourses = sorted.length;
+
+            // Calculate cumulative percentages
+            let cumulative = 0;
+            const dataPoints = sorted.map((course, index) => {
+                cumulative += (course.enrolled || 0);
+                return {
+                    coursePercentile: ((index + 1) / totalCourses) * 100,
+                    enrollmentCaptured: (cumulative / totalEnrollment) * 100,
+                    courseCode: course.code,
+                    enrolled: course.enrolled
+                };
+            });
+
+            // Find key insights
+            // What % of enrollment is captured by top 20% of courses?
+            const top20Index = Math.floor(totalCourses * 0.2);
+            const top20Enrollment = dataPoints[top20Index]?.enrollmentCaptured || 0;
+
+            // What % of courses capture 50% of students?
+            const halfway = dataPoints.findIndex(d => d.enrollmentCaptured >= 50);
+            const coursesFor50Pct = halfway >= 0 ? ((halfway + 1) / totalCourses) * 100 : 100;
+
+            // Update insights
+            document.getElementById('longtail-20pct').textContent = `${Math.round(top20Enrollment)}% of enrollment`;
+            document.getElementById('longtail-50pct').textContent = `Top ${Math.round(coursesFor50Pct)}% of courses`;
+
+            // Create 80/20 reference line data
+            const paretoline = [
+                { x: 0, y: 0 },
+                { x: 20, y: 80 },
+                { x: 100, y: 100 }
+            ];
+
+            // Create chart
+            const ctx = document.getElementById('longtail-chart').getContext('2d');
+            if (longTailChart) longTailChart.destroy();
+
+            let title = 'Enrollment Concentration Curve';
+            if (schoolFilter) title += ` - ${schoolFilter}`;
+            if (termFilter) title += ` (${termFilter})`;
+            else title += ' (All Terms)';
+
+            longTailChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    datasets: [
+                        {
+                            label: 'Actual Distribution',
+                            data: dataPoints.map(d => ({ x: d.coursePercentile, y: d.enrollmentCaptured })),
+                            borderColor: '#011F5B',  // Penn Blue
+                            backgroundColor: 'rgba(1, 31, 91, 0.1)',
+                            fill: true,
+                            tension: 0.1,
+                            pointRadius: 1,
+                            pointHoverRadius: 5
+                        },
+                        {
+                            label: '80/20 Reference (Pareto)',
+                            data: paretoline,
+                            borderColor: '#990000',  // Penn Red
+                            borderDash: [5, 5],
+                            fill: false,
+                            pointRadius: 0,
+                            pointHoverRadius: 0
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: true,
+                    plugins: {
+                        legend: {
+                            display: true,
+                            position: 'top',
+                            labels: {
+                                font: { family: 'TWK Everett, sans-serif', size: 12 }
+                            }
+                        },
+                        title: {
+                            display: true,
+                            text: title,
+                            font: {
+                                size: 14,
+                                weight: 'bold',
+                                family: 'TWK Everett, sans-serif'
+                            },
+                            color: '#011F5B'
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    if (context.datasetIndex === 0) {
+                                        const point = dataPoints[context.dataIndex];
+                                        return [
+                                            `Top ${Math.round(point.coursePercentile)}% of courses`,
+                                            `Capture ${Math.round(point.enrollmentCaptured)}% of enrollment`,
+                                            `Course: ${point.courseCode} (${point.enrolled} students)`
+                                        ];
+                                    }
+                                    return `80/20 Reference Line`;
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        x: {
+                            type: 'linear',
+                            min: 0,
+                            max: 100,
+                            title: {
+                                display: true,
+                                text: 'Top % of Courses (by enrollment)',
+                                font: { family: 'Pitch Sans, monospace' }
+                            },
+                            ticks: {
+                                callback: function(value) {
+                                    return value + '%';
+                                }
+                            }
+                        },
+                        y: {
+                            min: 0,
+                            max: 100,
+                            title: {
+                                display: true,
+                                text: '% of Total Enrollment Captured',
+                                font: { family: 'Pitch Sans, monospace' }
+                            },
+                            ticks: {
+                                callback: function(value) {
+                                    return value + '%';
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        function populateLongTailFilters() {
+            const allSchools = new Set();
+            const allTerms = new Set();
+
+            allCourses.forEach(course => {
+                allSchools.add(getSchool(course.code));
+                allTerms.add(course.term);
+            });
+
+            // Populate school filter
+            const schoolSelect = document.getElementById('longtail-school-filter');
+            if (schoolSelect) {
+                const sorted = Array.from(allSchools).filter(s => s !== 'Other').sort();
+                sorted.push('Other');
+                schoolSelect.innerHTML = '<option value="">All Schools</option>' +
+                    sorted.map(school => `<option value="${school}">${school}</option>`).join('');
+            }
+
+            // Populate term filter
+            const termSelect = document.getElementById('longtail-term-filter');
+            if (termSelect) {
+                const sorted = Array.from(allTerms).sort().reverse();
+                termSelect.innerHTML = '<option value="">All Terms</option>' +
+                    sorted.map(term => `<option value="${term}">${term}</option>`).join('');
+            }
+
+            // Attach event listeners
+            schoolSelect?.addEventListener('change', loadLongTailChart);
+            termSelect?.addEventListener('change', loadLongTailChart);
+        }
+
+        // Claude's Creative Corner: Hidden Gems Visualization
+        function loadHiddenGemsChart() {
+            const schoolFilter = document.getElementById('gems-school-filter')?.value || '';
+            const deptFilter = document.getElementById('gems-dept-filter')?.value || '';
+            const termFilter = document.getElementById('gems-term-filter')?.value || '';
+
+            // Filter courses based on selected filters
+            let courses = allCourses;
+            if (termFilter) courses = courses.filter(c => c.term === termFilter);
+            if (schoolFilter) courses = courses.filter(c => getSchool(c.code) === schoolFilter);
+            if (deptFilter) courses = courses.filter(c => getDepartment(c.code) === deptFilter);
+
+            // Find hidden gems: small capacity (<= 20) and underenrolled (< 50% full)
+            const gems = courses
+                .filter(course => {
+                    const capacity = course.max_enrollment || 0;
+                    const enrolled = course.enrolled || 0;
+                    const fillRate = capacity > 0 ? enrolled / capacity : 0;
+
+                    return capacity <= 20 && capacity > 0 && fillRate < 0.5;
+                })
+                .map(course => {
+                    const instructorName = Array.isArray(course.instructors) && course.instructors.length > 0
+                        ? (typeof course.instructors[0] === 'string' ? course.instructors[0] : course.instructors[0].name || 'TBA')
+                        : 'TBA';
+
+                    return {
+                        ...course,
+                        seatsAvailable: course.max_enrollment - course.enrolled,
+                        fillRate: ((course.enrolled / course.max_enrollment) * 100).toFixed(1),
+                        instructorName: instructorName,
+                        tag: course.max_enrollment <= 15 ? 'Seminar' : 'Small Class'
+                    };
+                })
+                .sort((a, b) => a.enrolled - b.enrolled)  // Least enrolled first
+                .slice(0, 15);
+
+            const listEl = document.getElementById('gems-list');
+
+            if (gems.length === 0) {
+                listEl.innerHTML = `
+                    <div style="grid-column: 1 / -1; text-align: center; padding: 3rem; color: var(--penn-medium-gray);">
+                        <div style="font-size: 3rem; margin-bottom: 1rem;">💎</div>
+                        <div style="font-size: 1.125rem; margin-bottom: 0.5rem;">No hidden gems found</div>
+                        <div style="font-size: 0.9rem;">Try adjusting your filters to discover intimate learning opportunities</div>
+                    </div>
+                `;
+                return;
+            }
+
+            listEl.innerHTML = gems.map(course => `
+                <div style="padding: 1.5rem; background: linear-gradient(135deg, #f8f9fa 0%, #e8f4f8 100%); border-radius: var(--penn-radius-md); border-left: 4px solid var(--penn-electric-blue); box-shadow: var(--penn-shadow-sm); transition: transform 0.2s, box-shadow 0.2s;"
+                     onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.15)';"
+                     onmouseout="this.style.transform=''; this.style.boxShadow='var(--penn-shadow-sm)';">
+                    <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 0.75rem;">
+                        <div style="flex: 1;">
+                            <div style="font-weight: 700; color: var(--penn-blue); font-size: 1.125rem; margin-bottom: 0.25rem;">
+                                ${course.code} ${course.section}
+                            </div>
+                            <div style="font-size: 0.875rem; color: var(--penn-medium-gray); margin-bottom: 0.5rem;">
+                                ${course.title}
+                            </div>
+                        </div>
+                        <div style="background: var(--penn-electric-blue); color: white; padding: 0.25rem 0.75rem; border-radius: var(--penn-radius-sm); font-size: 0.75rem; font-weight: 600; white-space: nowrap;">
+                            ${course.tag}
+                        </div>
+                    </div>
+
+                    <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.75rem; color: var(--penn-dark-gray); font-size: 0.875rem;">
+                        <span>👨‍🏫</span>
+                        <span>${course.instructorName}</span>
+                    </div>
+
+                    <div style="display: flex; justify-content: space-between; align-items: center; padding-top: 0.75rem; border-top: 1px solid var(--penn-gray-300);">
+                        <div>
+                            <div style="font-size: 0.75rem; color: var(--penn-medium-gray); margin-bottom: 0.25rem;">Seats Available</div>
+                            <div style="font-size: 1.25rem; font-weight: 700; color: var(--penn-blue);">
+                                ${course.seatsAvailable} / ${course.max_enrollment}
+                            </div>
+                        </div>
+                        <div style="text-align: right;">
+                            <div style="font-size: 0.75rem; color: var(--penn-medium-gray); margin-bottom: 0.25rem;">Fill Rate</div>
+                            <div style="font-size: 1.25rem; font-weight: 700; color: #4CAF50;">
+                                ${course.fillRate}%
+                            </div>
+                        </div>
+                    </div>
+
+                    ${course.termName ? `<div style="margin-top: 0.5rem; font-size: 0.75rem; color: var(--penn-medium-gray); text-align: right;">
+                        ${course.termName}
+                    </div>` : ''}
+                </div>
+            `).join('');
+        }
+
+        function populateHiddenGemsFilters() {
+            const allSchools = new Set();
+            const allDepts = new Set();
+            const allTerms = new Set();
+
+            allCourses.forEach(course => {
+                allSchools.add(getSchool(course.code));
+                allDepts.add(getDepartment(course.code));
+                allTerms.add(course.term);
+            });
+
+            // Populate school filter
+            const schoolSelect = document.getElementById('gems-school-filter');
+            if (schoolSelect) {
+                const sorted = Array.from(allSchools).filter(s => s !== 'Other').sort();
+                sorted.push('Other');
+                schoolSelect.innerHTML = '<option value="">All Schools</option>' +
+                    sorted.map(school => `<option value="${school}">${school}</option>`).join('');
+            }
+
+            // Populate department filter
+            const deptSelect = document.getElementById('gems-dept-filter');
+            if (deptSelect) {
+                const sorted = Array.from(allDepts).sort();
+                deptSelect.innerHTML = '<option value="">All Departments</option>' +
+                    sorted.map(dept => `<option value="${dept}">${dept}</option>`).join('');
+            }
+
+            // Populate term filter
+            const termSelect = document.getElementById('gems-term-filter');
+            if (termSelect) {
+                const sorted = Array.from(allTerms).sort().reverse();
+                termSelect.innerHTML = '<option value="">All Terms</option>' +
+                    sorted.map(term => `<option value="${term}">${term}</option>`).join('');
+            }
+
+            // Attach event listeners
+            schoolSelect?.addEventListener('change', loadHiddenGemsChart);
+            deptSelect?.addEventListener('change', loadHiddenGemsChart);
+            termSelect?.addEventListener('change', loadHiddenGemsChart);
         }
 
         // Initialize

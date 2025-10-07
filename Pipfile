@@ -47,5 +47,13 @@ check-fast = "pytest tests/unit/ -x"
 # Parallel execution (fast)
 test-parallel = "pytest tests/unit/ -n auto"
 
+# Local development server
+serve = "python scripts/serve_local.py"
+serve-port = "python scripts/serve_local.py --port"
+
+# Database validation
+validate = "python -m src.cli validate"
+verify-samples = "python -m src.cli verify-samples"
+
 [requires]
 python_version = "3.12"

@@ -11,6 +11,7 @@ import peewee
 
 import src.models
 import src.parsers
+import src.scrape_verification
 import src.types
 
 
@@ -124,14 +125,18 @@ def save_course(course_dict: src.types.CourseDict) -> src.models.Course:
     Returns:
         Course model instance
     """
+    # Sample this course for ground-truth verification (before inserting)
+    src.scrape_verification.sample_course(course_dict)
+
     # Get term
     term = src.models.Term.get(src.models.Term.code == course_dict["term"])
 
     # Create or update course
+    # IMPORTANT: Use composite lookup (term, crn) because Penn reuses CRNs across terms
     course, created = src.models.Course.get_or_create(
+        term=term,
         crn=course_dict["crn"],
         defaults={
-            "term": term,
             "code": course_dict["code"],
             "section": course_dict["section"],
             "title": course_dict["title"],
@@ -165,6 +170,9 @@ def save_course(course_dict: src.types.CourseDict) -> src.models.Course:
 
     # Update if already exists
     if not created:
+        # Defensive: ensure term is set (should not be needed with composite key,
+        # but protects against any edge cases)
+        course.term = term
         course.code = course_dict["code"]
         course.section = course_dict["section"]
         course.title = course_dict["title"]

@@ -31,12 +31,14 @@ class CourseExportDict(typing.TypedDict):
     section: str
     title: str
     schedule_type: str
+    inst_method_code: typing.Optional[str]  # "In Class", "Online", etc.
+    campus_code: typing.Optional[str]  # "Philadelphia", "Online", etc.
     status: str
     is_cancelled: bool
-    enrolled: int
-    max_enrollment: int
-    seats_available: int
-    credits: float
+    enrolled: typing.Optional[int]  # Nullable for historical/cancelled courses
+    max_enrollment: typing.Optional[int]  # Nullable for historical/cancelled courses
+    seats_available: typing.Optional[int]  # Nullable for historical/cancelled courses
+    credits: str
     start_date: typing.Optional[str]
     end_date: typing.Optional[str]
     description: str
@@ -151,6 +153,8 @@ def export_term_to_dict(term_code: str) -> TermExportDict:
             "section": course.section,
             "title": course.title,
             "schedule_type": course.schedule_type,
+            "inst_method_code": course.inst_method_code,
+            "campus_code": course.campus_code,
             "status": course.status,
             "is_cancelled": course.is_cancelled,
             "enrolled": course.enrolled,

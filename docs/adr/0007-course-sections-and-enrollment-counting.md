@@ -376,6 +376,44 @@ Our parser only recognized traditional patterns like `"TR 5:15pm-6:44pm"`, causi
 - `inst_method_code` can be used to filter/segment by delivery method
 - Useful for analysis: "What % of courses are offered online?"
 
+### Export Layer Integration (2025-10-06)
+
+**Completion of Data Pipeline**: The `inst_method_code` and `campus_code` fields are now fully integrated through the entire data pipeline:
+
+1. ✅ **API Layer**: Fields captured from Penn Courses API
+2. ✅ **Database Layer**: Fields stored in Course model (src/models.py:79-80)
+3. ✅ **Persistence Layer**: Fields extracted and saved (src/persistence.py:57-58)
+4. ✅ **Export Layer**: Fields exported to JSON feed (src/export.py:34-35)
+
+**Export TypedDict Updates** (src/export.py):
+```python
+class CourseExportDict(typing.TypedDict):
+    # ... other fields ...
+    inst_method_code: typing.Optional[str]  # "In Class", "Online", etc.
+    campus_code: typing.Optional[str]  # "Philadelphia", "Online", etc.
+    # ... other fields ...
+```
+
+**JSON Feed Example**:
+```json
+{
+  "crn": "80595",
+  "code": "CIT 5920",
+  "section": "501",
+  "inst_method_code": "Online",
+  "campus_code": "Online",
+  "schedule_type": "Lecture",
+  "enrolled": 650,
+  ...
+}
+```
+
+**Frontend Capabilities Enabled**:
+- Filter courses by delivery method (online/in-person)
+- Segment visualizations by `inst_method_code`
+- Analysis: "What % of courses are offered online by school?"
+- Comparison: "Do online courses have higher enrollments?"
+
 ### API Fields Available But Not Captured
 
 The Penn Courses API provides many fields we're currently **not** storing:

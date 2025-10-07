@@ -23,7 +23,9 @@ import src.export_granular
 import src.models
 import src.persistence
 import src.scraper
+import src.scrape_verification
 import src.types
+import src.validation
 
 
 # Configure rich-click for beautiful help output
@@ -132,6 +134,9 @@ def scrape(
         db_path=ctx.obj["db_path"],
     )
 
+    # Initialize sampling for ground-truth verification
+    src.scrape_verification.init_sampling(ctx.obj["db_path"], sample_rate=100)
+
     # Determine terms to scrape
     terms_to_scrape = [term]
     if next_term:
@@ -170,6 +175,14 @@ def scrape(
 
         # Display results
         _display_scrape_results(result)
+
+    # Save ground-truth samples for verification
+    console.print("\n")
+    samples_file = src.scrape_verification.save_samples("scrape-samples")
+    if samples_file:
+        console.print(f"💾 [green]Saved {len(src.scrape_verification._current_samples)} ground-truth samples:[/green]")
+        console.print(f"   {samples_file}\n")
+        console.print(f"[dim]Verify with: pipenv run scraper verify-samples {samples_file}[/dim]\n")
 
 
 @cli.command(name="scrape-historical")
@@ -242,6 +255,9 @@ def scrape_historical(
     # Create API client
     api_client = src.api_client.PennCoursesAPIClient(rate_limit_delay=rate_limit)
     scraper_obj = src.scraper.CourseScraper(api_client=api_client, db_path=str(db_path))
+
+    # Initialize sampling for ground-truth verification
+    src.scrape_verification.init_sampling(str(db_path), sample_rate=100)
 
     # Track results
     results_summary = {
@@ -337,6 +353,14 @@ def scrape_historical(
 
     if results_summary["failed"]:
         console.print("\n[yellow]⚠️  Some terms failed. Re-run the same command to resume.[/yellow]")
+
+    # Save ground-truth samples for verification
+    console.print("\n")
+    samples_file = src.scrape_verification.save_samples("scrape-samples")
+    if samples_file:
+        console.print(f"💾 [green]Saved {len(src.scrape_verification._current_samples)} ground-truth samples:[/green]")
+        console.print(f"   {samples_file}\n")
+        console.print(f"[dim]Verify with: pipenv run scraper verify-samples {samples_file}[/dim]\n")
 
 
 @cli.command()
@@ -848,6 +872,128 @@ def export(ctx: click.Context, output_dir: str, term: typing.Optional[str], mono
         console.print(f"📁 Course files: [green]{output_path / 'api' / 'v1' / 'courses'}[/green]")
         console.print(f"📅 Term files: [green]{output_path / 'api' / 'v1' / 'terms'}[/green]")
         console.print(f"🔍 Search indexes: [green]{output_path / 'api' / 'v1' / 'search'}[/green]\n")
+
+
+@cli.command()
+@click.option(
+    "--expected-counts",
+    "-e",
+    help="Expected course counts as JSON: {\"202530\": 6535, \"202430\": 6519}",
+)
+@click.pass_context
+def validate(ctx: click.Context, expected_counts: typing.Optional[str]) -> None:
+    """
+    [bold cyan]Validate database integrity[/bold cyan] after scraping.
+
+    Runs comprehensive validation checks to catch data corruption issues:
+
+    - ✅ Course counts per term
+    - ✅ Foreign key integrity (no orphaned courses)
+    - ✅ CRN uniqueness per term
+    - ✅ Date alignment (courses within term dates)
+    - ✅ Recent scrape activity
+
+    This should be run after every scrape to ensure data quality.
+
+    [bold yellow]Example:[/bold yellow]
+
+        pipenv run scraper validate
+
+        pipenv run scraper validate --expected-counts '{"202530": 6535}'
+    """
+    db_path = ctx.obj["db_path"]
+
+    # Initialize database
+    src.models.db.init(db_path)
+    src.models.db.connect()
+
+    try:
+        # Parse expected counts if provided
+        expected_dict = None
+        if expected_counts:
+            import json
+
+            try:
+                expected_dict = json.loads(expected_counts)
+            except json.JSONDecodeError:
+                console.print(
+                    "[red]❌ Error: Invalid JSON in --expected-counts[/red]"
+                )
+                sys.exit(1)
+
+        # Run validation report
+        src.validation.print_validation_report()
+
+        # If expected counts provided, validate against them
+        if expected_dict:
+            console.print("\n📊 VALIDATING AGAINST EXPECTED COUNTS")
+            console.print("-" * 70)
+            try:
+                src.validation.validate_term_course_counts(expected_dict)
+                console.print("  ✅ All course counts match expected values\n")
+            except src.validation.ValidationError as e:
+                console.print(f"  ❌ {e}\n")
+                sys.exit(1)
+
+    except src.validation.ValidationError as e:
+        console.print(f"\n[bold red]❌ VALIDATION FAILED:[/bold red] {e}\n")
+        sys.exit(1)
+    except Exception as e:
+        console.print(f"\n[bold red]❌ UNEXPECTED ERROR:[/bold red] {e}\n")
+        raise
+    finally:
+        src.models.db.close()
+
+
+@cli.command()
+@click.argument("samples_file", type=click.Path(exists=True))
+@click.pass_context
+def verify_samples(ctx: click.Context, samples_file: str) -> None:
+    """
+    [bold cyan]Verify ground-truth samples[/bold cyan] against database.
+
+    This is the KEY validation that catches CRN reuse corruption.
+
+    During scraping, we randomly sample 1/100 courses and save them as
+    "ground truth" in a JSON file. After scraping, we verify those samples
+    are actually in the database with correct data.
+
+    If samples show Term 202530 but database has Term 202430 for the same
+    CRN → CORRUPTION DETECTED!
+
+    [bold yellow]Example:[/bold yellow]
+
+        pipenv run scraper verify-samples scrape-samples/scrape-samples-20251006-*.json
+
+    The samples file is automatically generated during scraping and saved to
+    the scrape-samples/ directory.
+    """
+    db_path = ctx.obj["db_path"]
+
+    console.print(f"\n[bold cyan]🔍 Verifying samples from:[/bold cyan] {samples_file}\n")
+    console.print(f"[bold cyan]📊 Against database:[/bold cyan] {db_path}\n")
+
+    try:
+        # Verify samples
+        with console.status("[bold green]Verifying samples..."):
+            results = src.scrape_verification.verify_samples(samples_file, db_path)
+
+        # Print report
+        src.scrape_verification.print_verification_report(results)
+
+        # Exit with error if corruption detected
+        if len(results["corrupted"]) > 0:
+            console.print(
+                "[bold red]❌ CORRUPTION DETECTED - See report above[/bold red]\n"
+            )
+            sys.exit(1)
+
+    except ValueError as e:
+        console.print(f"\n[bold red]❌ Error:[/bold red] {e}\n")
+        sys.exit(1)
+    except Exception as e:
+        console.print(f"\n[bold red]❌ Unexpected error:[/bold red] {e}\n")
+        raise
 
 
 if __name__ == "__main__":

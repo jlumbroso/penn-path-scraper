@@ -233,8 +233,12 @@ def scrape(
 @click.option(
     "--terms",
     "-t",
-    required=True,
     help="Comma-separated term codes (e.g., 202430,202410,202330)",
+)
+@click.option(
+    "--all-terms",
+    is_flag=True,
+    help="Scrape all historical terms (Fall 2020 through Fall 2025, including summers)",
 )
 @click.option(
     "--schools",
@@ -265,7 +269,8 @@ def scrape(
 @click.pass_context
 def scrape_historical(
     ctx: click.Context,
-    terms: str,
+    terms: typing.Optional[str],
+    all_terms: bool,
     schools: typing.Optional[str],
     rate_limit: float,
     skip_existing: bool,
@@ -278,11 +283,14 @@ def scrape_historical(
     runs (e.g., in GitHub Actions with 6-hour time limits).
 
     Examples:
-        # Scrape 10 historical terms (resumable)
-        scraper scrape-historical --terms 202430,202410,202330,202230,202210,202130,202110,202030,201930,201910
+        # Scrape ALL historical terms (Fall 2020 - Fall 2025)
+        scraper scrape-historical --all-terms
+
+        # Scrape specific terms
+        scraper scrape-historical --terms 202430,202410,202330
 
         # Force re-scrape even if data exists
-        scraper scrape-historical --terms 202430 --no-skip-existing
+        scraper scrape-historical --all-terms --no-skip-existing
     """
     from rich.console import Console
     from rich.progress import Progress, SpinnerColumn, TextColumn, BarColumn
@@ -292,8 +300,18 @@ def scrape_historical(
 
     console = Console()
 
-    # Parse terms
-    term_codes = [t.strip() for t in terms.split(",")]
+    # Determine which terms to scrape
+    if all_terms:
+        term_codes = src.types.HISTORICAL_TERMS
+        console.print(f"📅 [cyan]Using all historical terms:[/cyan] {len(term_codes)} terms (Fall 2020 - Fall 2025)\n")
+    elif terms:
+        term_codes = [t.strip() for t in terms.split(",")]
+    else:
+        console.print("❌ [red]Error:[/red] Must specify either --all-terms or provide TERMS argument")
+        console.print("\nExamples:")
+        console.print("  scraper scrape-historical --all-terms")
+        console.print("  scraper scrape-historical --terms 202430,202410")
+        raise click.UsageError("Must specify either --all-terms or TERMS argument")
 
     # Parse schools
     school_codes = None

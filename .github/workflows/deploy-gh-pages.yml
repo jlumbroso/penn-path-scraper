@@ -31,9 +31,11 @@ jobs:
 
       - name: Download latest database release
         run: |
-          curl -L https://github.com/${{ github.repository }}/releases/download/latest-data/courses.db.gz -o courses.db.gz
+          gh release download latest-data --pattern "courses.db.gz"
           gunzip courses.db.gz
           ls -lh courses.db
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Export JSON API
         run: |

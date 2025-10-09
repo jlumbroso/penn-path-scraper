@@ -731,7 +731,45 @@ pipenv run scraper verify-samples scrape-samples/scrape-samples-*.json
 3. ✅ **No orphaned courses** - all have valid term foreign keys
 4. ✅ **Date alignment** - courses within term dates
 
+**Post-Scrape Database Validation** (NEW):
+
+A comprehensive validation script that runs after scraping to detect data integrity issues:
+
+```bash
+pipenv run validate-db --db courses.db
+```
+
+**Checks performed**:
+1. ✅ **No duplicate (term, CRN) combinations** - CRITICAL check for the bug
+2. ✅ **CRN reuse working correctly** - Counts CRNs used across multiple terms
+3. ✅ **Enrollment data consistency** - Detects enrolled > max_enrollment (informational)
+4. ✅ **Instructor data integrity** - Validates instructor-to-course ratio
+5. ✅ **Enrollment snapshot consistency** - Checks for courses with enrollment but no snapshots
+6. ✅ **Database statistics** - Reports total courses, terms, instructors, snapshots
+
+**Output example**:
+```
+✅ DATABASE VALIDATION PASSED
+
+Total courses: 51230
+Total terms: 11
+Total instructors: 7817
+Total snapshots: 28010
+CRNs reused across terms: 12202
+```
+
+**If corruption detected**:
+```
+❌ VALIDATION ISSUES FOUND:
+
+CRITICAL: Found 327 duplicate (term, CRN) combinations
+  - Term 202530, CRN 60563: 2 instances
+  ... and 326 more
+```
+
 **Files**:
+- scripts/validate_database.py - Post-scrape validation script
+- Pipfile:57 - `validate-db` command
 - src/validation.py - Validation logic
 - src/cli.py:854-923 - Validate command
 
@@ -749,7 +787,10 @@ pipenv run scraper verify-samples scrape-samples/scrape-samples-*.json
 # 3. If verification passes, data is correct
 #    If verification fails → CORRUPTION DETECTED, fix required
 
-# 4. Optional: Run additional validations
+# 4. Run post-scrape database validation
+pipenv run validate-db --db courses.db
+
+# 5. Optional: Run additional validations
 pipenv run validate
 ```
 
@@ -765,13 +806,21 @@ pipenv run validate
 # 1. Start historical scrape
 pipenv run scraper scrape-historical
 
-# 2. After completion, validate ALL terms
+# 2. After completion, run database validation (CRITICAL!)
+pipenv run validate-db --db courses.db
+
+# 3. Verify the validation passes:
+#    - ✅ No duplicate (term, CRN) combinations
+#    - ✅ Expected CRN reuse across terms (>10%)
+#    - ✅ Reasonable course counts per term
+
+# 4. Run additional validations
 pipenv run validate
 
-# 3. Check for anomalies in the report
+# 5. Check for anomalies in the report
 # Look for: unexpected counts, date misalignments, etc.
 
-# 4. Before deploying, spot-check a few CRNs
+# 6. Before deploying, spot-check a few CRNs
 sqlite3 courses.db "SELECT term_id, crn, code, title
                     FROM courses
                     WHERE crn = '60563'
@@ -834,6 +883,7 @@ if not validation_result:
 | **Verification** 🔴 KEY | Verify samples match database | src/cli.py verify-samples | ✅ Implemented |
 | **Testing** | CRN reuse integration tests | tests/integration/test_crn_reuse.py | ✅ Implemented |
 | **Validation** | Secondary checks | src/validation.py | ✅ Implemented |
+| **Post-Scrape Validation** | Database integrity checks | scripts/validate_database.py | ✅ Implemented |
 | **Workflow** | Mandatory sample verification | This ADR | ✅ Documented |
 
 ---

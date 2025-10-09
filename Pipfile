@@ -54,6 +54,7 @@ serve-port = "python scripts/serve_local.py --port"
 # Database validation
 validate = "python -m src.cli validate"
 verify-samples = "python -m src.cli verify-samples"
+validate-db = "python scripts/validate_database.py"
 
 [requires]
 python_version = "3.12"

@@ -1,0 +1,1226 @@
+/* =========================================================================
+   Penn Engineering Theme for Hugo Geekdoc Class Template
+   =========================================================================
+   
+   A sumptuous, elegant theme implementing Penn Engineering's brand guidelines
+   Version: 1.0.0
+   Last Updated: January 2025
+   
+   This theme provides:
+   - Penn Engineering's official color palette
+   - TWK Everett and Pitch Sans typography
+   - Elegant visual treatments
+   - Responsive and accessible design
+   - Extensible CSS custom properties for fine-tuning
+   
+   ========================================================================= */
+
+/* Import Penn Engineering Brand Assets */
+@import url("https://jlumbroso.github.io/penn-engineering-web-assets/fonts.css");
+
+/* =========================================================================
+   CSS Custom Properties - Penn Engineering Brand Colors
+   ========================================================================= */
+
+:root {
+  /* Primary Brand Colors */
+  --penn-blue: #011F5B;
+  --penn-red: #990000;
+  --penn-white: #FFFFFF;
+  
+  /* Secondary Brand Colors */
+  --penn-dark-gray: #2D2926;
+  --penn-bright-red: #DB2929;
+  --penn-electric-blue: #63C7FF;
+  --penn-light-gray: #F2F2F2;
+  --penn-medium-gray: #807456;
+  
+  /* Extended Palette for UI */
+  --penn-blue-dark: #001442;
+  --penn-blue-light: #0A3380;
+  --penn-red-dark: #660000;
+  --penn-red-light: #CC0000;
+  --penn-gray-50: #FAFAFA;
+  --penn-gray-100: #F5F5F5;
+  --penn-gray-200: #EEEEEE;
+  --penn-gray-300: #E0E0E0;
+  --penn-gray-400: #BDBDBD;
+  --penn-gray-500: #9E9E9E;
+  --penn-gray-600: #757575;
+  --penn-gray-700: #616161;
+  --penn-gray-800: #424242;
+  --penn-gray-900: #212121;
+  
+  /* Semantic Colors */
+  --penn-success: #4CAF50;
+  --penn-warning: #FF9800;
+  --penn-error: var(--penn-bright-red);
+  --penn-info: var(--penn-electric-blue);
+  
+  /* Typography */
+  --penn-font-primary: "TWK Everett", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --penn-font-secondary: "Pitch Sans", "SF Mono", Monaco, "Roboto Mono", "Courier New", monospace;
+  
+  /* Font Weights */
+  --penn-font-light: 300;
+  --penn-font-regular: 400;
+  --penn-font-medium: 500;
+  --penn-font-semibold: 600;
+  --penn-font-bold: 700;
+  
+  /* Spacing Scale */
+  --penn-spacing-xs: 0.25rem;
+  --penn-spacing-sm: 0.5rem;
+  --penn-spacing-md: 1rem;
+  --penn-spacing-lg: 1.5rem;
+  --penn-spacing-xl: 2rem;
+  --penn-spacing-2xl: 3rem;
+  --penn-spacing-3xl: 4rem;
+  
+  /* Border Radius */
+  --penn-radius-sm: 2px;
+  --penn-radius-md: 4px;
+  --penn-radius-lg: 8px;
+  --penn-radius-xl: 16px;
+  
+  /* Shadows */
+  --penn-shadow-sm: 0 1px 3px rgba(1, 31, 91, 0.12), 0 1px 2px rgba(1, 31, 91, 0.24);
+  --penn-shadow-md: 0 3px 6px rgba(1, 31, 91, 0.15), 0 2px 4px rgba(1, 31, 91, 0.12);
+  --penn-shadow-lg: 0 10px 20px rgba(1, 31, 91, 0.15), 0 3px 6px rgba(1, 31, 91, 0.10);
+  --penn-shadow-xl: 0 15px 25px rgba(1, 31, 91, 0.15), 0 5px 10px rgba(1, 31, 91, 0.05);
+  
+  /* Transitions */
+  --penn-transition-fast: 150ms ease-in-out;
+  --penn-transition-base: 250ms ease-in-out;
+  --penn-transition-slow: 350ms ease-in-out;
+  
+  /* Z-index Scale */
+  --penn-z-base: 1;
+  --penn-z-dropdown: 1000;
+  --penn-z-sticky: 1020;
+  --penn-z-fixed: 1030;
+  --penn-z-modal-backdrop: 1040;
+  --penn-z-modal: 1050;
+  --penn-z-popover: 1060;
+  --penn-z-tooltip: 1070;
+}
+
+/* =========================================================================
+   Geekdoc Theme Override - Light Mode (Penn Engineering)
+   ========================================================================= */
+
+:root,
+:root[color-theme="light"] {
+  /* Header */
+  --header-background: var(--penn-blue);
+  --header-font-color: var(--penn-white);
+  
+  /* Body */
+  --body-background: var(--penn-white);
+  --body-font-color: var(--penn-dark-gray);
+  
+  /* Links */
+  --link-color: var(--penn-blue);
+  --link-color-visited: var(--penn-blue-dark);
+  
+  /* Buttons */
+  --button-background: var(--penn-blue);
+  --button-border-color: var(--penn-blue-dark);
+  
+  /* Code Blocks */
+  --code-background: var(--penn-gray-50);
+  --code-accent-color: var(--penn-light-gray);
+  --code-accent-color-lite: var(--penn-gray-100);
+  --code-font-color: var(--penn-dark-gray);
+  
+  --code-copy-background: var(--penn-gray-100);
+  --code-copy-font-color: var(--penn-gray-700);
+  --code-copy-border-color: var(--penn-gray-400);
+  --code-copy-success-color: var(--penn-success);
+  
+  /* Accent Colors */
+  --accent-color: var(--penn-light-gray);
+  --accent-color-lite: var(--penn-gray-50);
+  
+  /* Control Icons */
+  --control-icons: var(--penn-medium-gray);
+  
+  /* Footer */
+  --footer-background: var(--penn-blue);
+  --footer-font-color: var(--penn-white);
+  --footer-link-color: var(--penn-electric-blue);
+  --footer-link-color-visited: var(--penn-electric-blue);
+  
+  /* Highlights */
+  --mark-color: rgba(99, 199, 255, 0.2);
+  
+  /* Penn Engineering Extensions */
+  --penn-header-accent: var(--penn-red);
+  --penn-section-bg: var(--penn-gray-50);
+  --penn-card-bg: var(--penn-white);
+  --penn-card-border: var(--penn-gray-200);
+}
+
+/* =========================================================================
+   Dark Mode Theme Override (Penn Engineering)
+   ========================================================================= */
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --header-background: var(--penn-blue-dark);
+    --header-font-color: var(--penn-white);
+    
+    --body-background: #1a1a1a;
+    --body-font-color: #e0e0e0;
+    
+    --link-color: var(--penn-electric-blue);
+    --link-color-visited: #4BA8E5;
+    
+    --button-background: var(--penn-blue);
+    --button-border-color: var(--penn-electric-blue);
+    
+    --code-background: #2d2d2d;
+    --code-accent-color: #3a3a3a;
+    --code-accent-color-lite: #333333;
+    --code-font-color: #f0f0f0;
+    
+    --accent-color: #2a2a2a;
+    --accent-color-lite: #1f1f1f;
+    
+    --footer-background: var(--penn-blue-dark);
+    --mark-color: rgba(99, 199, 255, 0.4);
+    
+    --penn-section-bg: #242424;
+    --penn-card-bg: #2a2a2a;
+    --penn-card-border: #3a3a3a;
+  }
+}
+
+:root[color-theme="dark"] {
+  --header-background: var(--penn-blue-dark);
+  --header-font-color: var(--penn-white);
+  
+  --body-background: #1a1a1a;
+  --body-font-color: #e0e0e0;
+  
+  --link-color: var(--penn-electric-blue);
+  --link-color-visited: #4BA8E5;
+  
+  --button-background: var(--penn-blue);
+  --button-border-color: var(--penn-electric-blue);
+  
+  --code-background: #2d2d2d;
+  --code-accent-color: #3a3a3a;
+  --code-accent-color-lite: #333333;
+  --code-font-color: #f0f0f0;
+  
+  --accent-color: #2a2a2a;
+  --accent-color-lite: #1f1f1f;
+  
+  --footer-background: var(--penn-blue-dark);
+  --mark-color: rgba(99, 199, 255, 0.4);
+  
+  --penn-section-bg: #242424;
+  --penn-card-bg: #2a2a2a;
+  --penn-card-border: #3a3a3a;
+}
+
+/* =========================================================================
+   Typography Enhancements
+   ========================================================================= */
+
+body {
+  font-family: var(--penn-font-primary);
+  font-weight: var(--penn-font-regular);
+  line-height: 1.6;
+  letter-spacing: 0.01em;
+}
+
+/* Override Geekdoc's default Metropolis font everywhere */
+* {
+  font-family: inherit;
+}
+
+/* Headings - TWK Everett Bold */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--penn-font-primary);
+  font-weight: var(--penn-font-bold);
+  line-height: 1.2;
+  color: var(--penn-blue);
+}
+
+/* Brand title in header needs special treatment */
+.gdoc-header .gdoc-brand__title,
+.gdoc-header__title {
+  font-family: var(--penn-font-primary);
+  font-weight: var(--penn-font-bold);
+  line-height: 1.2;
+  color: var(--penn-white); /* White text in header */
+  font-size: 2rem; /* Ensure it's large */
+}
+
+/* Ensure navigation uses Penn fonts */
+.gdoc-nav,
+.gdoc-nav__entry,
+.gdoc-page__header,
+.gdoc-page__footer,
+.gdoc-footer {
+  font-family: var(--penn-font-primary);
+}
+
+:root[color-theme="dark"] h1,
+:root[color-theme="dark"] h2,
+:root[color-theme="dark"] h3,
+:root[color-theme="dark"] h4,
+:root[color-theme="dark"] h5,
+:root[color-theme="dark"] h6 {
+  color: var(--penn-white);
+}
+
+/* Penn Red for Primary Headlines */
+h1 {
+  color: var(--penn-red);
+  font-size: 2.5rem;
+  margin-bottom: var(--penn-spacing-lg);
+}
+
+:root[color-theme="dark"] h1 {
+  color: var(--penn-electric-blue);
+}
+
+/* Fix blog post titles in dark mode */
+:root[color-theme="dark"] .gdoc-markdown h1,
+:root[color-theme="dark"] .gdoc-markdown h2,
+:root[color-theme="dark"] .gdoc-markdown h3,
+@media (prefers-color-scheme: dark) {
+  :root .gdoc-markdown h1,
+  :root .gdoc-markdown h2,
+  :root .gdoc-markdown h3 {
+    color: var(--penn-white);
+  }
+  
+  :root .gdoc-markdown h1 {
+    color: var(--penn-electric-blue);
+  }
+}
+
+/* Subheadings and Metadata - Pitch Sans (per brand guidelines) */
+.gdoc-page__header time,
+.gdoc-page__header .gdoc-page__meta,
+.gdoc-page__footer,
+.gdoc-footer__item,
+.announcement-meta,
+.module dt,
+.schedule-header,
+.staffer-meta dt,
+.gdoc-search__input,
+.gdoc-search__list,
+.gdoc-toc,
+.gdoc-button,
+code,
+pre,
+kbd,
+samp {
+  font-family: var(--penn-font-secondary) !important;
+}
+
+/* Technical Annotations */
+.code-annotation,
+.technical-note,
+blockquote {
+  font-family: var(--penn-font-secondary);
+  font-weight: var(--penn-font-medium);
+  color: var(--penn-dark-gray);
+  border-left: 4px solid var(--penn-electric-blue);
+  padding-left: var(--penn-spacing-md);
+  margin: var(--penn-spacing-lg) 0;
+}
+
+:root[color-theme="dark"] .code-annotation,
+:root[color-theme="dark"] .technical-note,
+:root[color-theme="dark"] blockquote {
+  color: var(--penn-gray-300);
+}
+
+/* =========================================================================
+   Header Enhancements
+   ========================================================================= */
+
+.gdoc-header {
+  background: var(--header-background);
+  box-shadow: var(--penn-shadow-md);
+  border-bottom: 3px solid var(--penn-red);
+}
+
+.gdoc-header__title {
+  font-family: var(--penn-font-primary);
+  font-weight: var(--penn-font-bold);
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  font-size: 2rem; /* Much larger title */
+  color: var(--penn-white);
+  line-height: 1.2;
+}
+
+/* Make sure brand title is also large */
+.gdoc-brand__title {
+  font-size: 2rem;
+}
+
+/* Fix logo sizing to maintain aspect ratio */
+.gdoc-brand__img {
+  height: 50px; /* Slightly larger to match title */
+  width: auto !important;
+  max-width: none !important;
+  object-fit: contain;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/* Ensure proper spacing between logo and title */
+.gdoc-brand {
+  display: flex;
+  align-items: center;
+  gap: var(--penn-spacing-md);
+}
+
+.gdoc-brand__link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  transition: opacity var(--penn-transition-fast);
+}
+
+.gdoc-brand__link:hover {
+  opacity: 0.9;
+}
+
+/* GitHub and other header links - use Pitch Sans for metadata/technical elements */
+.gdoc-header__link {
+  font-family: var(--penn-font-secondary);
+  font-weight: var(--penn-font-medium);
+  font-size: 0.875rem; /* Keep small for metadata */
+  color: var(--penn-white);
+  transition: color var(--penn-transition-fast);
+}
+
+.gdoc-header__link:hover {
+  color: var(--penn-electric-blue);
+}
+
+/* =========================================================================
+   Navigation Enhancements
+   ========================================================================= */
+
+.gdoc-nav__entry {
+  font-family: var(--penn-font-primary);
+  transition: all var(--penn-transition-fast);
+}
+
+.gdoc-nav__entry:hover {
+  background-color: var(--penn-gray-50);
+  border-left: 3px solid var(--penn-electric-blue);
+  padding-left: calc(1rem - 3px);
+}
+
+.gdoc-nav__entry.is-active {
+  background-color: var(--penn-light-gray);
+  border-left: 3px solid var(--penn-red);
+  padding-left: calc(1rem - 3px);
+  font-weight: var(--penn-font-semibold);
+}
+
+/* Dark mode navigation active state */
+:root[color-theme="dark"] .gdoc-nav__entry.is-active,
+@media (prefers-color-scheme: dark) {
+  :root .gdoc-nav__entry.is-active {
+    background-color: rgba(99, 199, 255, 0.15);
+    color: var(--penn-white);
+  }
+}
+
+:root[color-theme="dark"] .gdoc-nav__entry:hover,
+@media (prefers-color-scheme: dark) {
+  :root .gdoc-nav__entry:hover {
+    background-color: rgba(99, 199, 255, 0.1);
+  }
+}
+
+/* =========================================================================
+   Content Area Enhancements
+   ========================================================================= */
+
+.gdoc-markdown {
+  font-family: var(--penn-font-primary);
+}
+
+/* Links with elegant underline */
+.gdoc-markdown a:not(.gdoc-button) {
+  color: var(--penn-blue);
+  text-decoration: none;
+  background-image: linear-gradient(to right, var(--penn-electric-blue) 0%, var(--penn-electric-blue) 100%);
+  background-size: 0% 2px;
+  background-repeat: no-repeat;
+  background-position: left bottom;
+  transition: background-size var(--penn-transition-base);
+}
+
+.gdoc-markdown a:not(.gdoc-button):hover {
+  background-size: 100% 2px;
+}
+
+/* =========================================================================
+   Announcement Styling (Penn Engineering)
+   ========================================================================= */
+
+.announcement {
+  background: linear-gradient(135deg, var(--penn-gray-50) 0%, var(--penn-white) 100%);
+  border-left: 4px solid var(--penn-red);
+  border-radius: var(--penn-radius-md);
+  padding: var(--penn-spacing-lg);
+  margin: var(--penn-spacing-xl) 0;
+  box-shadow: var(--penn-shadow-sm);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Dark mode announcement panels */
+:root[color-theme="dark"] .announcement,
+@media (prefers-color-scheme: dark) {
+  :root .announcement {
+    background: linear-gradient(135deg, #2a2a2a 0%, #1f1f1f 100%);
+    border-left-color: var(--penn-electric-blue);
+  }
+}
+
+.announcement::before {
+  content: "⚡";
+  position: absolute;
+  top: -20px;
+  right: -20px;
+  font-size: 120px;
+  opacity: 0.05;
+  color: var(--penn-electric-blue);
+  transform: rotate(-15deg);
+}
+
+.announcement h2 {
+  color: var(--penn-red);
+  font-size: 1.75rem;
+  margin-bottom: var(--penn-spacing-sm);
+}
+
+/* Dark mode announcement titles */
+:root[color-theme="dark"] .announcement h2,
+@media (prefers-color-scheme: dark) {
+  :root .announcement h2 {
+    color: var(--penn-electric-blue);
+  }
+}
+
+.announcement-meta {
+  font-family: var(--penn-font-secondary);
+  font-size: 0.875rem;
+  color: var(--penn-medium-gray);
+  margin-bottom: var(--penn-spacing-md);
+  font-weight: var(--penn-font-medium);
+}
+
+/* Dark mode announcement metadata */
+:root[color-theme="dark"] .announcement-meta,
+@media (prefers-color-scheme: dark) {
+  :root .announcement-meta {
+    color: var(--penn-gray-400);
+  }
+}
+
+/* =========================================================================
+   Module Styling (Penn Engineering)
+   ========================================================================= */
+
+.module {
+  background: var(--penn-card-bg);
+  border: 1px solid var(--penn-card-border);
+  border-radius: var(--penn-radius-md);
+  padding: var(--penn-spacing-lg);
+  margin: var(--penn-spacing-lg) 0;
+  transition: transform var(--penn-transition-base), box-shadow var(--penn-transition-base);
+}
+
+.module:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--penn-shadow-lg);
+}
+
+.module dt {
+  font-family: var(--penn-font-secondary);
+  font-weight: var(--penn-font-semibold);
+  color: var(--penn-blue);
+  font-size: 1.125rem;
+  margin-bottom: var(--penn-spacing-sm);
+}
+
+/* Dark mode module date colors */
+:root[color-theme="dark"] .module dt,
+@media (prefers-color-scheme: dark) {
+  :root .module dt {
+    color: var(--penn-electric-blue);
+  }
+}
+
+.module dd {
+  margin-left: var(--penn-spacing-lg);
+  padding-left: var(--penn-spacing-md);
+  border-left: 2px solid var(--penn-light-gray);
+}
+
+/* Module page link styling */
+.module a,
+.module-content a {
+  color: var(--penn-blue);
+  text-decoration: none;
+  border-bottom: 1px dotted var(--penn-blue);
+  transition: all var(--penn-transition-fast);
+  display: inline-block;
+}
+
+.module a:hover,
+.module-content a:hover {
+  color: var(--penn-electric-blue);
+  border-bottom: 2px solid var(--penn-electric-blue);
+  transform: translateX(2px);
+}
+
+/* Special styling for placeholder links */
+.module a[href="#"],
+.module-content a[href="#"] {
+  color: var(--penn-gray-600);
+  border-bottom: 1px dashed var(--penn-gray-400);
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.module a[href="#"]:hover,
+.module-content a[href="#"]:hover {
+  color: var(--penn-gray-700);
+  border-bottom: 1px dashed var(--penn-gray-500);
+  transform: none;
+}
+
+/* Dark mode module links */
+:root[color-theme="dark"] .module a,
+:root[color-theme="dark"] .module-content a {
+  color: var(--penn-electric-blue);
+  border-bottom-color: var(--penn-electric-blue);
+}
+
+:root[color-theme="dark"] .module a:hover,
+:root[color-theme="dark"] .module-content a:hover {
+  color: #8AD5FF;
+  border-bottom-color: #8AD5FF;
+}
+
+:root[color-theme="dark"] .module a[href="#"],
+:root[color-theme="dark"] .module-content a[href="#"] {
+  color: var(--penn-gray-500);
+  border-bottom-color: var(--penn-gray-600);
+}
+
+/* =========================================================================
+   Schedule Styling (Penn Engineering)
+   ========================================================================= */
+
+.schedule {
+  background: var(--penn-white);
+  border-radius: var(--penn-radius-lg);
+  padding: var(--penn-spacing-xl);
+  box-shadow: var(--penn-shadow-md);
+}
+
+/* Dark mode schedule background */
+:root[color-theme="dark"] .schedule,
+@media (prefers-color-scheme: dark) {
+  :root .schedule {
+    background: #2a2a2a;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+  }
+}
+
+.schedule-header {
+  font-family: var(--penn-font-secondary);
+  font-weight: var(--penn-font-bold);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--penn-blue);
+  font-size: 0.875rem;
+}
+
+/* Dark mode schedule headers */
+:root[color-theme="dark"] .schedule-header,
+@media (prefers-color-scheme: dark) {
+  :root .schedule-header {
+    color: var(--penn-white);
+  }
+}
+
+.schedule-event {
+  border-radius: var(--penn-radius-md);
+  transition: all var(--penn-transition-fast);
+  border: 1px solid transparent;
+}
+
+.schedule-event:hover {
+  transform: scale(1.02);
+  box-shadow: var(--penn-shadow-md);
+  border-color: var(--penn-electric-blue);
+}
+
+.schedule-event.lecture {
+  background: linear-gradient(135deg, var(--penn-blue) 0%, var(--penn-blue-light) 100%);
+  color: var(--penn-white);
+}
+
+.schedule-event.section {
+  background: linear-gradient(135deg, var(--penn-electric-blue) 0%, #8AD5FF 100%);
+  color: var(--penn-blue-dark);
+}
+
+.schedule-event.office-hours {
+  background: linear-gradient(135deg, var(--penn-red) 0%, var(--penn-red-light) 100%);
+  color: var(--penn-white);
+}
+
+/* =========================================================================
+   Staff Cards (Penn Engineering)
+   ========================================================================= */
+
+.staffer {
+  background: var(--penn-card-bg);
+  border: 1px solid var(--penn-card-border);
+  border-radius: var(--penn-radius-lg);
+  padding: var(--penn-spacing-lg);
+  text-align: center;
+  transition: all var(--penn-transition-base);
+  position: relative;
+  overflow: hidden;
+}
+
+.staffer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--penn-blue) 0%, var(--penn-electric-blue) 50%, var(--penn-red) 100%);
+  transform: scaleX(0);
+  transition: transform var(--penn-transition-base);
+}
+
+.staffer:hover::before {
+  transform: scaleX(1);
+}
+
+.staffer:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--penn-shadow-lg);
+}
+
+.staffer img {
+  border-radius: 50%;
+  border: 3px solid var(--penn-light-gray);
+  transition: border-color var(--penn-transition-base);
+}
+
+.staffer:hover img {
+  border-color: var(--penn-electric-blue);
+}
+
+.staffer-name {
+  font-family: var(--penn-font-primary);
+  font-weight: var(--penn-font-bold);
+  color: var(--penn-blue);
+  font-size: 1.25rem;
+  margin: var(--penn-spacing-md) 0 var(--penn-spacing-sm);
+}
+
+.staffer-pronouns {
+  font-family: var(--penn-font-secondary);
+  font-size: 0.875rem;
+  color: var(--penn-medium-gray);
+  font-style: italic;
+}
+
+.staffer-role {
+  font-family: var(--penn-font-secondary);
+  font-weight: var(--penn-font-medium);
+  color: var(--penn-red);
+  font-size: 1rem;
+  margin: var(--penn-spacing-sm) 0;
+}
+
+.staffer-email {
+  font-family: var(--penn-font-secondary);
+  font-size: 0.875rem;
+  color: var(--penn-blue);
+}
+
+/* =========================================================================
+   Labels (Penn Engineering Style)
+   ========================================================================= */
+
+.label {
+  font-family: var(--penn-font-secondary);
+  font-weight: var(--penn-font-semibold);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: var(--penn-spacing-xs) var(--penn-spacing-sm);
+  border-radius: var(--penn-radius-md);
+  display: inline-block;
+  transition: all var(--penn-transition-fast);
+}
+
+.label:hover {
+  transform: scale(1.05);
+  box-shadow: var(--penn-shadow-sm);
+}
+
+.label-blue {
+  background-color: var(--penn-blue);
+  color: var(--penn-white);
+}
+
+.label-red {
+  background-color: var(--penn-red);
+  color: var(--penn-white);
+}
+
+.label-purple {
+  background-color: #7B2D8E;
+  color: var(--penn-white);
+}
+
+.label-green {
+  background-color: var(--penn-success);
+  color: var(--penn-white);
+}
+
+.label-yellow {
+  background-color: var(--penn-warning);
+  color: var(--penn-dark-gray);
+}
+
+/* =========================================================================
+   Buttons (Penn Engineering Style)
+   ========================================================================= */
+
+.gdoc-button,
+.gdoc-button__link {
+  font-family: var(--penn-font-primary);
+  font-weight: var(--penn-font-semibold);
+  background: var(--penn-blue);
+  color: var(--penn-white);
+  border: 2px solid var(--penn-blue);
+  border-radius: var(--penn-radius-md);
+  padding: var(--penn-spacing-sm) var(--penn-spacing-lg);
+  transition: all var(--penn-transition-base);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  box-shadow: var(--penn-shadow-sm);
+}
+
+.gdoc-button:hover,
+.gdoc-button__link:hover {
+  background: var(--penn-blue-dark);
+  border-color: var(--penn-blue-dark);
+  transform: translateY(-2px);
+  box-shadow: var(--penn-shadow-md);
+}
+
+/* Secondary Button Style */
+.gdoc-button--secondary {
+  background: var(--penn-white);
+  color: var(--penn-blue);
+  border-color: var(--penn-blue);
+}
+
+.gdoc-button--secondary:hover {
+  background: var(--penn-blue);
+  color: var(--penn-white);
+}
+
+/* =========================================================================
+   Tags Styling - Override button appearance completely
+   ========================================================================= */
+
+/* Target the actual tag structure from the template */
+.gdoc-post__tag.gdoc-button {
+  /* Complete reset of button styling */
+  all: revert;
+  /* Apply minimal tag styling */
+  display: inline-block;
+  padding: 2px 6px;
+  margin: 0 3px;
+  font-size: 0.65rem;
+  line-height: 1.2;
+  border: none;
+  background: transparent;
+  box-shadow: none;
+}
+
+.gdoc-post__tag.gdoc-button .gdoc-button__link {
+  /* Style the link inside */
+  all: revert;
+  font-family: var(--penn-font-secondary);
+  font-size: 0.65rem;
+  font-weight: 400;
+  color: var(--penn-gray-600);
+  background: var(--penn-gray-100);
+  padding: 2px 8px;
+  border-radius: 10px;
+  text-decoration: none;
+  display: inline-block;
+  transition: all 0.2s ease;
+  text-transform: none;
+  letter-spacing: normal;
+  line-height: 1.3;
+  border: 1px solid var(--penn-gray-200);
+}
+
+.gdoc-post__tag.gdoc-button .gdoc-button__link:hover,
+.gdoc-post__tag.gdoc-button .gdoc-button__link:focus,
+.gdoc-post__tag.gdoc-button .gdoc-button__link:active {
+  background: var(--penn-blue);
+  color: var(--penn-white) !important; /* Force white text for readability */
+  border-color: var(--penn-blue);
+  transform: none;
+}
+
+/* Also target if they appear in headers/metadata */
+.gdoc-post__meta .gdoc-post__tag.gdoc-button,
+.gdoc-page__meta .gdoc-post__tag.gdoc-button {
+  display: inline-block;
+  margin: 0 2px;
+}
+
+/* Dark mode */
+:root[color-theme="dark"] .gdoc-post__tag.gdoc-button .gdoc-button__link {
+  color: var(--penn-gray-400);
+  background: var(--penn-gray-800);
+  border-color: var(--penn-gray-700);
+}
+
+:root[color-theme="dark"] .gdoc-post__tag.gdoc-button .gdoc-button__link:hover {
+  background: var(--penn-electric-blue);
+  color: var(--penn-white); /* Ensure white text for readability */
+  border-color: var(--penn-electric-blue);
+}
+
+/* =========================================================================
+   Post/Page Metadata Styling
+   ========================================================================= */
+
+.gdoc-page__header {
+  margin-bottom: var(--penn-spacing-xl);
+  padding-bottom: var(--penn-spacing-lg);
+  border-bottom: 2px solid var(--penn-light-gray);
+}
+
+.gdoc-page__meta {
+  font-family: var(--penn-font-secondary) !important;
+  font-size: 0.875rem;
+  color: var(--penn-medium-gray);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--penn-spacing-lg); /* Better spacing between metadata items */
+  align-items: center;
+  margin-top: var(--penn-spacing-md);
+}
+
+.gdoc-page__meta > span {
+  display: flex;
+  align-items: center;
+  gap: var(--penn-spacing-xs);
+}
+
+/* Add separators between metadata items */
+.gdoc-page__meta > span:not(:last-child)::after {
+  content: "•";
+  margin-left: var(--penn-spacing-lg);
+  color: var(--penn-gray-400);
+}
+
+/* Reading time and date styling */
+.gdoc-page__meta time {
+  font-weight: var(--penn-font-semibold);
+  color: var(--penn-blue);
+}
+
+/* Dark mode metadata */
+:root[color-theme="dark"] .gdoc-page__header {
+  border-bottom-color: var(--penn-gray-700);
+}
+
+:root[color-theme="dark"] .gdoc-page__meta {
+  color: var(--penn-gray-400);
+}
+
+:root[color-theme="dark"] .gdoc-page__meta time {
+  color: var(--penn-electric-blue);
+}
+
+/* =========================================================================
+   Footer (Penn Engineering)
+   ========================================================================= */
+
+.gdoc-footer {
+  background: var(--footer-background);
+  border-top: 4px solid var(--penn-red);
+  padding: var(--penn-spacing-2xl) 0;
+}
+
+.gdoc-footer__content {
+  font-family: var(--penn-font-primary);
+}
+
+.gdoc-footer__link {
+  color: var(--penn-electric-blue);
+  transition: color var(--penn-transition-fast);
+}
+
+.gdoc-footer__link:hover {
+  color: var(--penn-white);
+}
+
+/* Penn Engineering Footer Tagline Styling */
+.gdoc-footer__tagline {
+  font-family: var(--penn-font-secondary);
+  font-weight: var(--penn-font-bold);
+  font-size: 0.875rem;
+  letter-spacing: 0.2em;
+  color: var(--penn-electric-blue);
+  text-align: center;
+  margin-bottom: var(--penn-spacing-lg);
+  padding-top: var(--penn-spacing-lg);
+  text-transform: uppercase; /* Ensure all caps */
+}
+
+/* Dark mode tagline color */
+:root[color-theme="dark"] .gdoc-footer__tagline,
+@media (prefers-color-scheme: dark) {
+  :root .gdoc-footer__tagline {
+    color: var(--penn-electric-blue);
+  }
+}
+
+/* =========================================================================
+   Spark of Ingenuity Background Pattern
+   ========================================================================= */
+
+.gdoc-page {
+  position: relative;
+}
+
+.gdoc-page::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 600px;
+  height: 600px;
+  background-image: url("https://jlumbroso.github.io/penn-engineering-web-assets/visuals/blue/spark-of-ingenuity.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: top right;
+  opacity: 0.03;
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* =========================================================================
+   Responsive Design
+   ========================================================================= */
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 1.75rem;
+  }
+  
+  /* Adjust header title for mobile */
+  .gdoc-header__title {
+    font-size: 1.5rem !important;
+  }
+  
+  .gdoc-brand__img {
+    height: 40px;
+  }
+  
+  .gdoc-page::before {
+    width: 400px;
+    height: 400px;
+  }
+  
+  .announcement::before {
+    font-size: 80px;
+  }
+  
+  /* Stack metadata on mobile */
+  .gdoc-page__meta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--penn-spacing-sm);
+  }
+  
+  .gdoc-page__meta > span:not(:last-child)::after {
+    display: none; /* Remove separators on mobile */
+  }
+}
+
+/* =========================================================================
+   Print Styles
+   ========================================================================= */
+
+@media print {
+  .gdoc-header,
+  .gdoc-footer,
+  .gdoc-nav {
+    display: none;
+  }
+  
+  .gdoc-page::before {
+    display: none;
+  }
+  
+  body {
+    font-size: 12pt;
+    color: black;
+  }
+  
+  h1, h2, h3 {
+    color: var(--penn-blue);
+  }
+}
+
+/* =========================================================================
+   Accessibility Enhancements
+   ========================================================================= */
+
+/* Focus styles */
+*:focus {
+  outline: 2px solid var(--penn-electric-blue);
+  outline-offset: 2px;
+}
+
+/* Skip to content link */
+.skip-to-content {
+  position: absolute;
+  left: -9999px;
+  z-index: 999;
+  padding: var(--penn-spacing-sm) var(--penn-spacing-md);
+  background: var(--penn-blue);
+  color: var(--penn-white);
+  text-decoration: none;
+}
+
+.skip-to-content:focus {
+  left: 50%;
+  transform: translateX(-50%);
+  top: var(--penn-spacing-sm);
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .gdoc-button,
+  .label,
+  .schedule-event {
+    border-width: 2px;
+  }
+}
+
+/* =========================================================================
+   Animation Classes
+   ========================================================================= */
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in-up {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+@keyframes spark {
+  0%, 100% {
+    opacity: 0.03;
+  }
+  50% {
+    opacity: 0.08;
+  }
+}
+
+.gdoc-page::before {
+  animation: spark 10s ease-in-out infinite;
+}
+
+/* =========================================================================
+   Module Update Divider - Penn Engineering Theme Override
+   
+   Penn-specific styling for the moduleUpdate shortcode
+   - HR with Penn gradient (red to blue)
+   - Message with Penn electric blue background and white text
+   ========================================================================= */
+
+.module-update-container {
+    margin: 30px 0 !important;
+    padding: 0 !important;
+}
+
+.module-update-divider {
+    /* Penn gradient from red to blue - mimicking PennGradient */
+    background: linear-gradient(90deg, var(--penn-red) 0%, var(--penn-blue) 100%) !important;
+    height: 10px !important;
+    border: none !important;
+    margin: 0 0 -2px 0 !important;
+}
+
+.module-update-message {
+    /* Penn electric blue background with white text for visibility */
+    background: var(--penn-electric-blue) !important;
+    color: var(--penn-white) !important;
+    padding: 14px 24px !important;
+    margin-top: 0 !important;
+    /*border-radius: 6px !important;*/
+    font-weight: 600 !important;
+    text-align: center !important;
+    font-size: 0.95em !important;
+    letter-spacing: 0.5px !important;
+    box-shadow: 0 3px 6px rgba(99, 199, 255, 0.25) !important; /* Subtle glow with electric blue */
+    font-family: var(--font-family-primary) !important; /* Use Penn typography */
+}
+
+/* Dark mode adjustments */
+@media (prefers-color-scheme: dark) {
+    .module-update-divider {
+        /* Reverse gradient in dark mode for better visibility */
+        background: linear-gradient(90deg, var(--penn-bright-red) 0%, var(--penn-electric-blue) 100%) !important;
+    }
+    
+    .module-update-message {
+        /* Darker blue with adjusted opacity for dark mode */
+        background: rgba(99, 199, 255, 0.9) !important;
+        color: var(--penn-blue-dark) !important;
+        box-shadow: 0 3px 8px rgba(99, 199, 255, 0.35) !important;
+    }
+}
+
+/* =========================================================================
+   End of Penn Engineering Theme
+   ========================================================================= */

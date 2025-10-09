@@ -1,0 +1,45 @@
+{
+  "course_code": "EDUC 6580",
+  "enrollment_history": [
+    {
+      "crn": "82142",
+      "term": "202530",
+      "section": "001",
+      "enrolled": null,
+      "capacity": null,
+      "timestamp": null,
+      "snapshots": []
+    },
+    {
+      "crn": "85382",
+      "term": "202530",
+      "section": "002",
+      "enrolled": 25,
+      "capacity": 37,
+      "timestamp": "2025-10-08T04:29:52.006252",
+      "snapshots": [
+        {
+          "timestamp": "2025-10-08T04:29:52.006252",
+          "enrolled": 25,
+          "capacity": 37
+        }
+      ]
+    },
+    {
+      "crn": "82142",
+      "term": "202430",
+      "section": "001",
+      "enrolled": 20,
+      "capacity": 20,
+      "timestamp": "2025-10-08T07:33:18.348512",
+      "snapshots": [
+        {
+          "timestamp": "2025-10-08T07:33:18.348512",
+          "enrolled": 20,
+          "capacity": 20
+        }
+      ]
+    }
+  ],
+  "last_updated": "2025-10-09T03:38:25.681651"
+}

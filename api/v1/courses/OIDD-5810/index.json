@@ -1,0 +1,68 @@
+{
+  "course_code": "OIDD 5810",
+  "sections": [
+    {
+      "crn": "28926",
+      "term": "202510",
+      "term_name": "Spring 2025",
+      "section": "401",
+      "title": "Convex Optimization for Statistics and Data Science",
+      "schedule_type": "Lecture",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "1",
+      "start_date": null,
+      "end_date": null,
+      "description": "Convex optimization has become a real pillar of modern data science and has transformed algorithm designs. A wide spectrum of problems in statistics, machine learning, and engineering can be formulated as optimization tasks that exhibit favorable convexity properties, which admit standardized and efficient solutions. This course aims to introduce the elements of convex optimization, concentrating on modeling aspects and algorithms that are useful in data science applications. Topics include convex sets, convex functions, linear and quadratic programs, semidefinite programming, optimality conditions and duality theory. We will visit important applications in statistics and machine learning to demonstrate the wide applicability of convex optimization. We will also cover effective optimization algorithms like gradient descent and Newton's method. Prerequisites: Basic linear algebra, basic calculus, basic probability, and knowledge of a programming language like MATLAB or Python to conduct simulation exercises.",
+      "instructors": [
+        "Yuxin Chen"
+      ],
+      "meetings": [
+        {
+          "days": "TR",
+          "start_time": "10:15:00",
+          "end_time": "11:44:00",
+          "location": "JMHH 340"
+        }
+      ],
+      "linked_sections": [],
+      "current_enrollment": {
+        "enrolled": 73,
+        "max_enrollment": 78,
+        "seats_available": 5
+      }
+    },
+    {
+      "crn": "74990",
+      "term": "202330",
+      "term_name": "Fall 2023",
+      "section": "401",
+      "title": "Convex Optimization for Statistics and Data Science",
+      "schedule_type": "Lecture",
+      "status": "",
+      "is_cancelled": false,
+      "credits": "1",
+      "start_date": null,
+      "end_date": null,
+      "description": "Convex optimization has become a real pillar of modern data science and has transformed algorithm designs. A wide spectrum of problems in statistics, machine learning, and engineering can be formulated as optimization tasks that exhibit favorable convexity properties, which admit standardized and efficient solutions. This course aims to introduce the elements of convex optimization, concentrating on modeling aspects and algorithms that are useful in data science applications. Topics include convex sets, convex functions, linear and quadratic programs, semidefinite programming, optimality conditions and duality theory. We will visit important applications in statistics and machine learning to demonstrate the wide applicability of convex optimization. We will also cover effective optimization algorithms like gradient descent and Newton's method. Prerequisites: Basic linear algebra, basic calculus, basic probability, and knowledge of a programming language like MATLAB or Python to conduct simulation exercises.",
+      "instructors": [
+        "Yuxin Chen"
+      ],
+      "meetings": [
+        {
+          "days": "TR",
+          "start_time": "10:15:00",
+          "end_time": "11:44:00",
+          "location": "SHDH 211"
+        }
+      ],
+      "linked_sections": [],
+      "current_enrollment": {
+        "enrolled": null,
+        "max_enrollment": null,
+        "seats_available": null
+      }
+    }
+  ],
+  "last_updated": "2025-10-09T03:38:55.202343"
+}

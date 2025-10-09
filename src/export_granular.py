@@ -403,7 +403,8 @@ def _export_master_index(output_file: pathlib.Path) -> None:
         "terms": term_list,
         "course_codes": course_codes,  # List of all unique course codes
         "total_terms": len(term_list),
-        "total_courses": len(course_codes),
+        "total_courses": src.models.Course.select().count(),  # Total course instances across all terms
+        "total_course_codes": len(course_codes),  # Unique course codes
         "total_instructors": instructor_count,
         "endpoints": {
             "courses": "/api/v1/courses/{course-code}/",

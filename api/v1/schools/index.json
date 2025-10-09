@@ -1,0 +1,190 @@
+{
+  "schools": [
+    {
+      "code": "E",
+      "name": "School of Engineering and Applied Science",
+      "short_name": "Engineering",
+      "website": "https://www.seas.upenn.edu",
+      "departments": [
+        "AMCS",
+        "BE",
+        "CBE",
+        "CIS",
+        "DATS",
+        "EAS",
+        "ENGR",
+        "ENM",
+        "ESE",
+        "IPD",
+        "MEAM",
+        "MSE",
+        "NETS"
+      ]
+    },
+    {
+      "code": "W",
+      "name": "The Wharton School",
+      "short_name": "Wharton",
+      "website": "https://www.wharton.upenn.edu",
+      "departments": [
+        "ACCT",
+        "BEPP",
+        "FNCE",
+        "HCMG",
+        "LGST",
+        "MGMT",
+        "MKTG",
+        "OIDD",
+        "REAL",
+        "STAT",
+        "WH"
+      ]
+    },
+    {
+      "code": "A",
+      "name": "School of Arts & Sciences",
+      "short_name": "Arts & Sciences",
+      "website": "https://www.sas.upenn.edu",
+      "departments": [
+        "AFRC",
+        "ANCH",
+        "ANTH",
+        "ARTH",
+        "ASAM",
+        "BIOL",
+        "CHEM",
+        "CHIN",
+        "CIMS",
+        "CLAS",
+        "COML",
+        "DTCH",
+        "EALC",
+        "ECON",
+        "ENGL",
+        "FREN",
+        "GRMN",
+        "GSWS",
+        "HIST",
+        "ITAL",
+        "JPAN",
+        "LALS",
+        "LING",
+        "MATH",
+        "PHIL",
+        "PHYS",
+        "POLS",
+        "PORT",
+        "PSYC",
+        "RELS",
+        "RUSS",
+        "SAST",
+        "SOCI",
+        "SPAN",
+        "URBS",
+        "WRIT"
+      ]
+    },
+    {
+      "code": "C",
+      "name": "Annenberg School for Communication",
+      "short_name": "Annenberg",
+      "website": "https://www.asc.upenn.edu",
+      "departments": [
+        "COMM"
+      ]
+    },
+    {
+      "code": "N",
+      "name": "School of Nursing",
+      "short_name": "Nursing",
+      "website": "https://www.nursing.upenn.edu",
+      "departments": [
+        "NURS"
+      ]
+    },
+    {
+      "code": "G",
+      "name": "Graduate School of Education",
+      "short_name": "Education",
+      "website": "https://www.gse.upenn.edu",
+      "departments": [
+        "EDUC"
+      ]
+    },
+    {
+      "code": "S",
+      "name": "School of Social Policy & Practice",
+      "short_name": "Social Policy",
+      "website": "https://www.sp2.upenn.edu",
+      "departments": [
+        "NPLD",
+        "SWRK"
+      ]
+    },
+    {
+      "code": "M",
+      "name": "Perelman School of Medicine",
+      "short_name": "Medicine",
+      "website": "https://www.med.upenn.edu",
+      "departments": [
+        "ANAT",
+        "BIOC",
+        "BMB",
+        "CAMB",
+        "GCB",
+        "HCIN",
+        "IMUN",
+        "MED",
+        "NRSC",
+        "PATH",
+        "PHRM"
+      ]
+    },
+    {
+      "code": "L",
+      "name": "Penn Carey Law",
+      "short_name": "Law",
+      "website": "https://www.law.upenn.edu",
+      "departments": [
+        "LAW"
+      ]
+    },
+    {
+      "code": "F",
+      "name": "Stuart Weitzman School of Design",
+      "short_name": "Design",
+      "website": "https://www.design.upenn.edu",
+      "departments": [
+        "ARCH",
+        "CPLN",
+        "LARP"
+      ]
+    },
+    {
+      "code": "D",
+      "name": "School of Dental Medicine",
+      "short_name": "Dental Medicine",
+      "website": "https://www.dental.upenn.edu",
+      "departments": [
+        "DENT",
+        "ORBI"
+      ]
+    },
+    {
+      "code": "V",
+      "name": "School of Veterinary Medicine",
+      "short_name": "Veterinary Medicine",
+      "website": "https://www.vet.upenn.edu",
+      "departments": [
+        "VBMS",
+        "VCSN"
+      ]
+    }
+  ],
+  "metadata": {
+    "version": "1.0",
+    "last_updated": "2025-10-04",
+    "description": "Penn school metadata and department mappings",
+    "note": "The 'code' field represents the single-letter encoding used in Penn's course registration system"
+  }
+}

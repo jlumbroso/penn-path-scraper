@@ -1179,7 +1179,7 @@ fetch('<span class="string">https://jlumbroso.github.io/penn-path-scraper/api/v1
                 chartLoading.style.display = 'block';
                 chartStats.style.display = 'none';
 
-                const response = await fetch(`api/v1/terms/${termCode}/`);
+                const response = await fetch(`api/v1/terms/${termCode}/index.json`);
                 const data = await response.json();
 
                 // Group by department
@@ -1391,7 +1391,7 @@ fetch('<span class="string">https://jlumbroso.github.io/penn-path-scraper/api/v1
 
                 // Load data for each term
                 const termPromises = masterData.terms.map(async term => {
-                    const termResponse = await fetch(`api/v1/terms/${term.code}/`);
+                    const termResponse = await fetch(`api/v1/terms/${term.code}/index.json`);
                     return await termResponse.json();
                 });
 

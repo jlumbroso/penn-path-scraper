@@ -1,0 +1,71 @@
+name: Deploy to GitHub Pages
+
+on:
+  workflow_dispatch:  # Manual trigger only
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install pipenv
+        run: pip install pipenv
+
+      - name: Install dependencies
+        run: pipenv install --dev
+
+      - name: Download latest database release
+        run: |
+          curl -L https://github.com/${{ github.repository }}/releases/download/latest-data/courses.db.gz -o courses.db.gz
+          gunzip courses.db.gz
+          ls -lh courses.db
+
+      - name: Export JSON API
+        run: |
+          pipenv run scraper --db courses.db export --output-dir ./export
+          ls -lh export/api/v1/
+
+      - name: Prepare gh-pages deployment
+        run: |
+          # Create clean deployment directory
+          mkdir -p deploy
+
+          # Copy API files
+          cp -r export/api deploy/
+
+          # Copy landing page
+          cp -r landing/* deploy/
+
+          # Add .nojekyll to prevent Jekyll processing
+          touch deploy/.nojekyll
+
+          # Verify structure
+          echo "=== Deployment structure ==="
+          ls -la deploy/
+          echo "=== API structure ==="
+          ls -la deploy/api/v1/ | head -20
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./deploy
+          force_orphan: true  # Clean history on gh-pages
+          user_name: 'github-actions[bot]'
+          user_email: 'github-actions[bot]@users.noreply.github.com'
+          commit_message: 'deploy: update GitHub Pages from latest-data release'

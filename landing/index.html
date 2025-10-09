@@ -1198,6 +1198,26 @@ fetch('<span class="string">https://jlumbroso.github.io/penn-path-scraper/api/v1
                     totalCapacity += course.max_enrollment || 0;
                 });
 
+                // Check if we have any enrollment data
+                if (totalEnrolled === 0 && totalCapacity === 0) {
+                    chartLoading.style.display = 'none';
+                    chartStats.style.display = 'block';
+                    document.getElementById('total-enrollment').textContent = 'N/A';
+                    document.getElementById('total-capacity').textContent = 'N/A';
+                    document.getElementById('fill-rate').textContent = 'N/A';
+
+                    // Show message on canvas
+                    const ctx = document.getElementById('enrollment-chart').getContext('2d');
+                    if (enrollmentChart) {
+                        enrollmentChart.destroy();
+                    }
+                    ctx.font = '16px "TWK Everett", sans-serif';
+                    ctx.fillStyle = '#666';
+                    ctx.textAlign = 'center';
+                    ctx.fillText('Enrollment data not available for this term', ctx.canvas.width / 2, ctx.canvas.height / 2);
+                    return;
+                }
+
                 // Sort by enrollment and take top 12
                 const sortedDepts = Object.entries(deptData)
                     .sort((a, b) => b[1].enrolled - a[1].enrolled)
@@ -1498,6 +1518,8 @@ fetch('<span class="string">https://jlumbroso.github.io/penn-path-scraper/api/v1
 
         function filterCourses(termFilter, schoolFilter, deptFilter) {
             return allCourses.filter(course => {
+                // Skip courses without enrollment data for visualizations
+                if (course.enrolled == null || course.max_enrollment == null) return false;
                 if (termFilter && course.term !== termFilter) return false;
                 if (schoolFilter && getSchool(course.code) !== schoolFilter) return false;
                 if (deptFilter && getDepartment(course.code) !== deptFilter) return false;

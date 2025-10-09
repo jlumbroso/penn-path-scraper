@@ -896,23 +896,18 @@ fetch('<span class="string">https://jlumbroso.github.io/penn-path-scraper/api/v1
                 <em>Historical comparison features will be available once multiple terms are scraped!</em>
             </div>
 
-            <!-- School-Level Enrollment -->
+            <!-- School-Level Enrollment (with Comparison Support - ADR-0008) -->
             <div style="background: white; border-radius: var(--penn-radius-lg); padding: 2rem; box-shadow: var(--penn-shadow-md); margin-top: 3rem;">
                 <h3 style="color: var(--penn-blue); margin-bottom: 1rem;">Enrollment by School</h3>
-                <p style="color: var(--penn-medium-gray); margin-bottom: 1.5rem; font-size: 0.9rem;">
+                <p style="color: var(--penn-medium-gray); margin-bottom: 1rem; font-size: 0.9rem;">
                     Distribution of enrollment across Penn's schools and colleges.
                 </p>
+                <p style="color: var(--penn-blue); margin-bottom: 1.5rem; font-size: 0.875rem; font-weight: 600;">
+                    ✨ Click "+ Add Comparison Panel" to compare different terms or schools side-by-side!
+                </p>
 
-                <div style="margin-bottom: 2rem;">
-                    <label style="font-weight: 600; color: var(--penn-dark-gray); display: block; margin-bottom: 0.5rem;">
-                        Filter by Term:
-                    </label>
-                    <select id="school-term-filter" class="viz-filter" style="width: 100%; max-width: 300px; padding: 0.75rem; border: 2px solid var(--penn-gray-300); border-radius: var(--penn-radius-md); font-family: var(--penn-font-primary); font-size: 1rem;">
-                        <option value="">All Terms</option>
-                    </select>
-                </div>
-
-                <canvas id="school-chart" style="max-height: 350px;"></canvas>
+                <!-- ComparisonManager will populate this container -->
+                <div id="school-chart-comparison"></div>
             </div>
 
             <!-- Top Courses -->
@@ -1722,7 +1717,7 @@ fetch('<span class="string">https://jlumbroso.github.io/penn-path-scraper/api/v1
             }
 
             // Attach event listeners
-            document.getElementById('school-term-filter')?.addEventListener('change', loadSchoolChart);
+            // Note: school-term-filter removed - now handled by ComparisonManager
             document.getElementById('courses-school-filter')?.addEventListener('change', loadCoursesChart);
             document.getElementById('courses-dept-filter')?.addEventListener('change', loadCoursesChart);
             document.getElementById('courses-term-filter')?.addEventListener('change', loadCoursesChart);
@@ -1746,48 +1741,100 @@ fetch('<span class="string">https://jlumbroso.github.io/penn-path-scraper/api/v1
             });
         }
 
-        function loadSchoolChart() {
-            const termFilter = document.getElementById('school-term-filter')?.value || '';
-            const courses = filterCourses(termFilter, '', '');
+        // School Chart using ComparisonManager (ADR-0008)
+        let schoolChartManager = null;
 
-            const schoolData = {};
-            courses.forEach(course => {
-                const school = getSchool(course.code);
-                if (!schoolData[school]) schoolData[school] = 0;
-                schoolData[school] += course.enrolled || 0;
-            });
+        function initializeSchoolChartComparison() {
+            // Get available terms for filter
+            const allTerms = new Set();
+            allCourses.forEach(course => allTerms.add(course.term));
+            const sortedTerms = Array.from(allTerms).sort().reverse();
 
-            const sorted = Object.entries(schoolData).sort((a, b) => b[1] - a[1]);
-            const colors = ['#011F5B', '#990000', '#63C7FF', '#0A3380', '#CC0000', '#2D2926', '#807456', '#4CAF50', '#FF9800', '#7B2D8E'];
+            // Get available schools
+            const allSchools = new Set();
+            allCourses.forEach(course => allSchools.add(getSchool(course.code)));
+            const sortedSchools = Array.from(allSchools).sort();
 
-            const ctx = document.getElementById('school-chart').getContext('2d');
-            if (schoolChart) schoolChart.destroy();
+            // Define filter options
+            const termOptions = [
+                { value: '', label: 'All Terms' },
+                ...sortedTerms.map(term => ({ value: term, label: term }))
+            ];
 
-            schoolChart = new Chart(ctx, {
-                type: 'bar',
-                data: {
-                    labels: sorted.map(s => s[0]),
-                    datasets: [{
-                        label: 'Total Enrollment',
-                        data: sorted.map(s => s[1]),
-                        backgroundColor: colors.slice(0, sorted.length),
-                        borderColor: '#FFFFFF',
-                        borderWidth: 2
-                    }]
+            const schoolOptions = [
+                { value: '', label: 'All Schools' },
+                ...sortedSchools.map(school => ({ value: school, label: school }))
+            ];
+
+            // Initialize ComparisonManager
+            schoolChartManager = new ComparisonManager({
+                containerId: 'school-chart-comparison',
+                chartType: 'school-enrollment',
+                defaultFilters: {
+                    term: '',
+                    school: ''
                 },
-                options: {
-                    indexAxis: 'y',
-                    responsive: true,
-                    maintainAspectRatio: true,
-                    plugins: { legend: { display: false } },
-                    scales: {
-                        x: {
-                            beginAtZero: true,
-                            title: { display: true, text: 'Total Students Enrolled', font: { family: 'Pitch Sans, monospace' } }
+                filterDefinitions: [
+                    { name: 'term', label: 'Term', options: termOptions },
+                    { name: 'school', label: 'School', options: schoolOptions }
+                ],
+                renderFunction: (canvasId, filters, panelId) => {
+                    // Filter courses based on panel filters
+                    const filteredCourses = filterCourses(filters.term, filters.school, '');
+
+                    // Aggregate by school
+                    const schoolData = {};
+                    filteredCourses.forEach(course => {
+                        const school = getSchool(course.code);
+                        if (!schoolData[school]) schoolData[school] = 0;
+                        schoolData[school] += course.enrolled || 0;
+                    });
+
+                    const sorted = Object.entries(schoolData).sort((a, b) => b[1] - a[1]);
+                    const colors = ['#011F5B', '#990000', '#63C7FF', '#0A3380', '#CC0000', '#2D2926', '#807456', '#4CAF50', '#FF9800', '#7B2D8E'];
+
+                    // Create Chart.js instance
+                    const ctx = document.getElementById(canvasId).getContext('2d');
+                    const chart = new Chart(ctx, {
+                        type: 'bar',
+                        data: {
+                            labels: sorted.map(s => s[0]),
+                            datasets: [{
+                                label: 'Total Enrollment',
+                                data: sorted.map(s => s[1]),
+                                backgroundColor: colors.slice(0, sorted.length),
+                                borderColor: '#FFFFFF',
+                                borderWidth: 2
+                            }]
+                        },
+                        options: {
+                            indexAxis: 'y',
+                            responsive: true,
+                            maintainAspectRatio: true,
+                            plugins: { legend: { display: false } },
+                            scales: {
+                                x: {
+                                    beginAtZero: true,
+                                    title: {
+                                        display: true,
+                                        text: 'Total Students Enrolled',
+                                        font: { family: 'Pitch Sans, monospace' }
+                                    }
+                                }
+                            }
                         }
-                    }
+                    });
+
+                    return chart; // IMPORTANT: Return chart instance for Y-axis sync
                 }
             });
+        }
+
+        // Legacy compatibility: keep function name but redirect to ComparisonManager
+        function loadSchoolChart() {
+            if (!schoolChartManager) {
+                initializeSchoolChartComparison();
+            }
         }
 
         function loadCoursesChart() {

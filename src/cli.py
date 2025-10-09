@@ -13,6 +13,7 @@ import typing
 import rich_click as click
 import click_didyoumean
 import structlog
+import peewee
 from rich.console import Console
 from rich.table import Table
 from rich.progress import Progress, SpinnerColumn, TextColumn, BarColumn
@@ -40,6 +41,8 @@ click.rich_click.STYLE_ERRORS_SUGGESTION = "yellow italic"
 # Rich console for beautiful output
 console = Console()
 
+# Structlog logger
+logger = structlog.get_logger()
 
 # Default database path
 DEFAULT_DB_PATH = pathlib.Path.home() / ".penn-scraper" / "courses.db"
@@ -99,15 +102,78 @@ def cli(ctx: click.Context, db: str) -> None:
     db_path.parent.mkdir(parents=True, exist_ok=True)
 
     # Initialize database if it doesn't exist
-    if not db_path.exists():
+    db_exists = db_path.exists()
+    if not db_exists:
         with console.status("[bold green]Initializing database..."):
             src.persistence.initialize_database(str(db_path))
         console.print("✅ [green]Database initialized successfully![/green]\n")
+
+    # Print diagnostics about database state
+    print_database_diagnostics(str(db_path), newly_created=not db_exists)
 
 
 # =============================================================================
 # Helper Functions
 # =============================================================================
+
+def print_database_diagnostics(db_path: str, newly_created: bool = False) -> None:
+    """
+    Print diagnostic information about the database state.
+
+    Args:
+        db_path: Path to the database file
+        newly_created: Whether this is a newly initialized database
+    """
+    logger.info("database_diagnostics", db_path=db_path, newly_created=newly_created)
+
+    # Initialize connection
+    src.models.db.init(db_path)
+    src.models.db.connect(reuse_if_open=True)
+
+    try:
+        if newly_created:
+            console.print("📊 [cyan]Database Status:[/cyan] Newly created (empty)")
+        else:
+            console.print(f"📊 [cyan]Database Status:[/cyan] Loaded from {db_path}")
+
+        # Get statistics
+        total_courses = src.models.Course.select().count()
+        total_terms = src.models.Term.select().count()
+        total_instructors = src.models.Instructor.select().count()
+        total_snapshots = src.models.EnrollmentSnapshot.select().count()
+
+        if total_courses == 0:
+            console.print("   [dim]Database is empty (no courses scraped yet)[/dim]\n")
+        else:
+            console.print(f"   [green]Courses:[/green] {total_courses:,}")
+            console.print(f"   [green]Terms:[/green] {total_terms}")
+            console.print(f"   [green]Instructors:[/green] {total_instructors:,}")
+            console.print(f"   [green]Enrollment snapshots:[/green] {total_snapshots:,}")
+
+            # Show term breakdown
+            if total_terms > 0:
+                term_stats = (
+                    src.models.Course
+                    .select(
+                        src.models.Course.term,
+                        peewee.fn.COUNT(src.models.Course.id).alias('count')
+                    )
+                    .join(src.models.Term)
+                    .group_by(src.models.Course.term)
+                    .order_by(src.models.Term.code.desc())
+                )
+
+                console.print("   [cyan]Courses per term:[/cyan]")
+                for stat in term_stats:
+                    term_name = src.types.format_term_code(stat.term.code)
+                    console.print(f"     • {term_name}: {stat.count:,} courses")
+
+            console.print()
+
+    finally:
+        if not src.models.db.is_closed():
+            src.models.db.close()
+
 
 def is_school_completed(term_code: str, school_code: str) -> bool:
     """

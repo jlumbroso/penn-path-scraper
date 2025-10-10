@@ -60,7 +60,38 @@
         "max_enrollment": 144,
         "seats_available": 95
       }
+    },
+    {
+      "crn": "34853",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "001",
+      "title": "Big Data Analytics",
+      "schedule_type": "Lecture",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "1",
+      "start_date": null,
+      "end_date": null,
+      "description": "In the new era of big data, we are increasingly faced with the challenges of processing vast volumes of data. Given the limits of individual machines (compute power, memory, bandwidth), increasingly the solution is to process the data in parallel on many machines. This course focuses on the fundamentals of scaling computation to handle common data analytics tasks. You will learn about basic tasks in collecting, wrangling, and structuring data; programming models for performing certain kinds of computation in a scalable way across many compute nodes; common approaches to converting algorithms to such programming models; standard toolkits for data analysis consisting of a wide variety of primitives; and popular distributed frameworks for analytics tasks such as filtering, graph analysis, clustering, and classification. Recommended: broad familiarity with probability and statistics, as well as programming in Python. Additional background in statistics, data analysis (e.g., in Matlab or R), and machine learning is helpful (e.g., <a href=\"/search/?p=ESE%205420\" data-action=\"result-detail\" data-group=\"code:ESE 5420\" >ESE 5420</a>).",
+      "instructors": [
+        "Zachary Ives"
+      ],
+      "meetings": [
+        {
+          "days": "TR",
+          "start_time": "13:45:00",
+          "end_time": "15:14:00",
+          "location": ""
+        }
+      ],
+      "linked_sections": [],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 100,
+        "seats_available": 100
+      }
     }
   ],
-  "last_updated": "2025-10-09T08:26:17.754039"
+  "last_updated": "2025-10-10T09:38:45.108573"
 }

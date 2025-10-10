@@ -7,8 +7,18 @@
       "section": "001",
       "enrolled": 73,
       "capacity": 80,
-      "timestamp": "2025-10-09T07:58:56.426363",
+      "timestamp": "2025-10-10T08:09:37.885712",
       "snapshots": [
+        {
+          "timestamp": "2025-10-10T08:09:37.885712",
+          "enrolled": 73,
+          "capacity": 80
+        },
+        {
+          "timestamp": "2025-10-10T06:57:40.254240",
+          "enrolled": 73,
+          "capacity": 80
+        },
         {
           "timestamp": "2025-10-09T07:58:56.426363",
           "enrolled": 73,
@@ -166,7 +176,67 @@
       "capacity": null,
       "timestamp": null,
       "snapshots": []
+    },
+    {
+      "crn": "34067",
+      "term": "202610",
+      "section": "001",
+      "enrolled": 0,
+      "capacity": 50,
+      "timestamp": "2025-10-10T09:12:31.561763",
+      "snapshots": [
+        {
+          "timestamp": "2025-10-10T09:12:31.561763",
+          "enrolled": 0,
+          "capacity": 50
+        }
+      ]
+    },
+    {
+      "crn": "14740",
+      "term": "202610",
+      "section": "002",
+      "enrolled": 0,
+      "capacity": 82,
+      "timestamp": "2025-10-10T09:12:32.181325",
+      "snapshots": [
+        {
+          "timestamp": "2025-10-10T09:12:32.181325",
+          "enrolled": 0,
+          "capacity": 82
+        }
+      ]
+    },
+    {
+      "crn": "24215",
+      "term": "202610",
+      "section": "201",
+      "enrolled": 0,
+      "capacity": 41,
+      "timestamp": "2025-10-10T09:12:32.806291",
+      "snapshots": [
+        {
+          "timestamp": "2025-10-10T09:12:32.806291",
+          "enrolled": 0,
+          "capacity": 41
+        }
+      ]
+    },
+    {
+      "crn": "24216",
+      "term": "202610",
+      "section": "202",
+      "enrolled": 0,
+      "capacity": 41,
+      "timestamp": "2025-10-10T09:12:33.432582",
+      "snapshots": [
+        {
+          "timestamp": "2025-10-10T09:12:33.432582",
+          "enrolled": 0,
+          "capacity": 41
+        }
+      ]
     }
   ],
-  "last_updated": "2025-10-09T08:26:19.651489"
+  "last_updated": "2025-10-10T09:38:47.271974"
 }

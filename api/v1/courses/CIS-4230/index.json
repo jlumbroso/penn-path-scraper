@@ -93,7 +93,38 @@
         "max_enrollment": null,
         "seats_available": null
       }
+    },
+    {
+      "crn": "14337",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "401",
+      "title": "Ethical Algorithm Design",
+      "schedule_type": "Lecture",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "1",
+      "start_date": null,
+      "end_date": null,
+      "description": "This class introduces aspiring data science technologists to the spectrum of ethical concerns, focusing on social norms like fairness, transparency and privacy. It introduces technical approaches to a number of these problems, including by hands-on examination of the tradeoffs in fairness and accuracy in predictive technology, introduction to differential privacy, and overview of evaluation conventions for predictive technology. It also provides guidelines for examining system training data for bias, representation (of race, gender and other characteristics) and ecological validity. Equipped with this knowledge, students will learn how to conduct informed analysis of the usefulness of predictive systems; they will audit for ethical concerns papers from the contemporary top artificial intelligence venues and the ongoing senior design projects.",
+      "instructors": [
+        "Michael Kearns"
+      ],
+      "meetings": [
+        {
+          "days": "TR",
+          "start_time": "10:15:00",
+          "end_time": "11:44:00",
+          "location": ""
+        }
+      ],
+      "linked_sections": [],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 150,
+        "seats_available": 150
+      }
     }
   ],
-  "last_updated": "2025-10-09T08:26:49.520522"
+  "last_updated": "2025-10-10T09:39:20.452323"
 }

@@ -172,7 +172,38 @@
         "max_enrollment": null,
         "seats_available": null
       }
+    },
+    {
+      "crn": "23844",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "001",
+      "title": "Advanced Topics in Machine Learning",
+      "schedule_type": "Seminar",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "1",
+      "start_date": null,
+      "end_date": null,
+      "description": "This course covers a variety of advanced topics in machine learning, such as the following: statistical learning theory (statistical consistency properties of surrogate loss minimizing algorithms); approximate inference in probabilistic graphical models (variational inference methods and sampling-based inference methods); structured prediction (algorithms and theory for supervised learning problems involving complex/structured labels); and online learning in complex/structured domains. The precise topics covered may vary from year to year based on student interest and developments in the field.",
+      "instructors": [
+        "Jacob Gardner"
+      ],
+      "meetings": [
+        {
+          "days": "TR",
+          "start_time": "15:30:00",
+          "end_time": "16:59:00",
+          "location": ""
+        }
+      ],
+      "linked_sections": [],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 48,
+        "seats_available": 48
+      }
     }
   ],
-  "last_updated": "2025-10-09T08:26:18.408935"
+  "last_updated": "2025-10-10T09:38:45.922986"
 }

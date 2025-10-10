@@ -186,7 +186,38 @@
         "max_enrollment": null,
         "seats_available": null
       }
+    },
+    {
+      "crn": "14343",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "001",
+      "title": "Software Systems",
+      "schedule_type": "Lecture",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "1",
+      "start_date": null,
+      "end_date": null,
+      "description": "This course provides an introduction to fundamental concepts of distributed systems, and the design principles for building large scale computational systems. Topics covered include communication, concurrency, programming paradigms, naming, managing shared state, caching, synchronization, reaching agreement, fault tolerance, security, middleware, and distributed applications. This course is appropriate as an upper-level undergraduate CIS elective. Prerequisite: Undergraduate-level knowledge of Operating Systems and Networking, programming experience. Prerequisite: Undergraduate-level knowledge of Operating Systems and Networking.",
+      "instructors": [
+        "Linh Phan"
+      ],
+      "meetings": [
+        {
+          "days": "TR",
+          "start_time": "10:15:00",
+          "end_time": "11:44:00",
+          "location": ""
+        }
+      ],
+      "linked_sections": [],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 100,
+        "seats_available": 100
+      }
     }
   ],
-  "last_updated": "2025-10-09T08:26:17.970773"
+  "last_updated": "2025-10-10T09:38:45.349284"
 }

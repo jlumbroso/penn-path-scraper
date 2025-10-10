@@ -213,7 +213,64 @@
         "max_enrollment": null,
         "seats_available": null
       }
+    },
+    {
+      "crn": "12213",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "001",
+      "title": "Health Care of Childbearing Women, Clinical",
+      "schedule_type": "Lecture",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "1",
+      "start_date": null,
+      "end_date": null,
+      "description": "This course focuses on the management and evaluation of the childbearing women and their families in primary care settings. The course presents the opportunity to implement the role of the Nurse Practitioner with the childbearing woman and her family. The focus is on comprehensive physical, psychosocial and educational management of women and their families during pregnancy and postpartum.",
+      "instructors": [
+        "Abby Howe-Heyman",
+        "Emma Dorsey"
+      ],
+      "meetings": [],
+      "linked_sections": [
+        "12214",
+        "22406",
+        "22407",
+        "23634"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 25,
+        "seats_available": 25
+      }
+    },
+    {
+      "crn": "12214",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "101",
+      "title": "Health Care of Childbearing Women, Clinical",
+      "schedule_type": "Clinical",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "0",
+      "start_date": null,
+      "end_date": null,
+      "description": "This course focuses on the management and evaluation of the childbearing women and their families in primary care settings. The course presents the opportunity to implement the role of the Nurse Practitioner with the childbearing woman and her family. The focus is on comprehensive physical, psychosocial and educational management of women and their families during pregnancy and postpartum.",
+      "instructors": [
+        "Casey Benchimol",
+        "Carmen Alvarez"
+      ],
+      "meetings": [],
+      "linked_sections": [
+        "12213"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 25,
+        "seats_available": 25
+      }
     }
   ],
-  "last_updated": "2025-10-09T08:26:55.872817"
+  "last_updated": "2025-10-10T09:39:28.063962"
 }

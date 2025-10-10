@@ -180,7 +180,73 @@
         "max_enrollment": null,
         "seats_available": null
       }
+    },
+    {
+      "crn": "14756",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "001",
+      "title": "Numerical Methods and Modeling",
+      "schedule_type": "Lecture",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "1",
+      "start_date": null,
+      "end_date": null,
+      "description": "This course provides an advanced introduction to various numerical methods for solving systems of algebraic equations (linear and non-linear) and differential equations (ordinary and partial). Techniques covered include Newton's method, implicit and explicit time stepping, and the finite difference and finite element methods. The MATLAB software package will be used to implement the various methods and execute representative calculations.",
+      "instructors": [
+        "Talid Sinno"
+      ],
+      "meetings": [
+        {
+          "days": "TR",
+          "start_time": "13:45:00",
+          "end_time": "15:14:00",
+          "location": ""
+        }
+      ],
+      "linked_sections": [
+        "14759"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 35,
+        "seats_available": 35
+      }
+    },
+    {
+      "crn": "14759",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "201",
+      "title": "Numerical Methods and Modeling",
+      "schedule_type": "Recitation",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "0",
+      "start_date": null,
+      "end_date": null,
+      "description": "This course provides an advanced introduction to various numerical methods for solving systems of algebraic equations (linear and non-linear) and differential equations (ordinary and partial). Techniques covered include Newton's method, implicit and explicit time stepping, and the finite difference and finite element methods. The MATLAB software package will be used to implement the various methods and execute representative calculations.",
+      "instructors": [
+        "Talid Sinno"
+      ],
+      "meetings": [
+        {
+          "days": "M",
+          "start_time": "15:30:00",
+          "end_time": "16:29:00",
+          "location": ""
+        }
+      ],
+      "linked_sections": [
+        "14756"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 35,
+        "seats_available": 35
+      }
     }
   ],
-  "last_updated": "2025-10-09T08:26:50.255422"
+  "last_updated": "2025-10-10T09:39:21.177560"
 }

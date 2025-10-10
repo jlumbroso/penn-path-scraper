@@ -79,7 +79,31 @@
         "max_enrollment": null,
         "seats_available": null
       }
+    },
+    {
+      "crn": "29525",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "001",
+      "title": "Theory of Computation",
+      "schedule_type": "Lecture",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "1",
+      "start_date": null,
+      "end_date": null,
+      "description": "Review of regular and context-free languages and machine models. Turing machines and RAM models, Decidability, Halting problem, Reductions, Recursively enumerable sets, Universal TMs, Church/Turing thesis. Time and space complexity, hierarchy theorems, the complexity classes P, NP, PSPACE, L, NL, and co-NL. Reductions revisited, Cook-Levin Theorem, completeness, NL = co-NL. Advanced topics as time permits: Circuit complexity and parallel computation, randomized complexity, approximability, interaction and cryptography. Discrete Mathematics, Automata theory or Algorithms at the undergraduate level.",
+      "instructors": [
+        "Jean Gallier"
+      ],
+      "meetings": [],
+      "linked_sections": [],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 100,
+        "seats_available": 100
+      }
     }
   ],
-  "last_updated": "2025-10-09T08:26:49.536698"
+  "last_updated": "2025-10-10T09:39:20.472511"
 }

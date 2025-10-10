@@ -221,7 +221,39 @@
         "max_enrollment": null,
         "seats_available": null
       }
+    },
+    {
+      "crn": "14335",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "401",
+      "title": "Applied Machine Learning",
+      "schedule_type": "Lecture",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "1",
+      "start_date": null,
+      "end_date": null,
+      "description": "Machine learning has been essential to the success of many recent technologies, including autonomous vehicles, search engines, genomics, automated medical diagnosis, image recognition, and social network analysis, among many others. This course will introduce the fundamental concepts and algorithms that enable computers to learn from experience, with an emphasis on their practical application to real problems. This course will introduce supervised learning (decision trees, logistic regression, support vector machines, Bayesian methods, neural networks and deep learning), unsupervised learning (clustering, dimensionality reduction), and reinforcement learning. Additionally, the course will discuss evaluation methodology and recent applications of machine learning, including large scale learning for big data and network analysis.",
+      "instructors": [
+        "Osbert Bastani",
+        "Mingmin Zhao"
+      ],
+      "meetings": [
+        {
+          "days": "MW",
+          "start_time": "13:45:00",
+          "end_time": "15:14:00",
+          "location": ""
+        }
+      ],
+      "linked_sections": [],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 222,
+        "seats_available": 222
+      }
     }
   ],
-  "last_updated": "2025-10-09T08:26:17.839833"
+  "last_updated": "2025-10-10T09:38:45.206247"
 }

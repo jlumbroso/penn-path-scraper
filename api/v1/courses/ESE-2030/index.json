@@ -184,7 +184,59 @@
         "max_enrollment": 120,
         "seats_available": 107
       }
+    },
+    {
+      "crn": "28989",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "001",
+      "title": "Linear Algebra with Applications to Engineering and AI",
+      "schedule_type": "Lecture",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "1",
+      "start_date": null,
+      "end_date": null,
+      "description": "This first course in Linear Algebra will introduce students to key concepts of the field, including but not limited to vectors, vector norms and inner products, matrices, matrix-vector and matrix-matrix multiplication, matrix inverses, solving systems of linear equations, vector spaces, orthogonality, least-squares, eigenvalues and eigenvectors, singular value decompositions, and principal component analysis. These theoretical tools will be grounded in exciting problems from the sciences, engineering, machine learning, data science, logistics, and economics. Through application-based case studies, you will be shown how to model problems using linear algebra and how to solve the resulting problem using standard Python scientific computing modules. Enrollment in this course assumes students have comfort with programming at the level of <a href=\"/search/?p=CIS%201100\" data-action=\"result-detail\" data-group=\"code:CIS 1100\" >CIS 1100</a> (Python).",
+      "instructors": [
+        "Robert Ghrist"
+      ],
+      "meetings": [],
+      "linked_sections": [
+        "28990"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 120,
+        "seats_available": 120
+      }
+    },
+    {
+      "crn": "28990",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "201",
+      "title": "Linear Algebra with Applications to Engineering and AI",
+      "schedule_type": "Recitation",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "0",
+      "start_date": null,
+      "end_date": null,
+      "description": "This first course in Linear Algebra will introduce students to key concepts of the field, including but not limited to vectors, vector norms and inner products, matrices, matrix-vector and matrix-matrix multiplication, matrix inverses, solving systems of linear equations, vector spaces, orthogonality, least-squares, eigenvalues and eigenvectors, singular value decompositions, and principal component analysis. These theoretical tools will be grounded in exciting problems from the sciences, engineering, machine learning, data science, logistics, and economics. Through application-based case studies, you will be shown how to model problems using linear algebra and how to solve the resulting problem using standard Python scientific computing modules. Enrollment in this course assumes students have comfort with programming at the level of <a href=\"/search/?p=CIS%201100\" data-action=\"result-detail\" data-group=\"code:CIS 1100\" >CIS 1100</a> (Python).",
+      "instructors": [
+        "Robert Ghrist"
+      ],
+      "meetings": [],
+      "linked_sections": [
+        "28989"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 120,
+        "seats_available": 120
+      }
     }
   ],
-  "last_updated": "2025-10-09T08:26:19.767821"
+  "last_updated": "2025-10-10T09:38:47.402706"
 }

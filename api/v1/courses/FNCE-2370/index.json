@@ -454,7 +454,73 @@
         "max_enrollment": null,
         "seats_available": null
       }
+    },
+    {
+      "crn": "23396",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "001",
+      "title": "Data Science for Finance",
+      "schedule_type": "Lecture",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "0",
+      "start_date": null,
+      "end_date": null,
+      "description": "This course will introduce students to data science for financial applications using the Python programming language and its ecosystem of packages (e.g., Dask, Matplotlib, Numpy, Numba, Pandas, SciPy, Scikit-Learn, StatsModels). To do so, students will investigate a variety of empirical questions from different areas within finance including: FinTech, investment management, corporate finance, corporate governance, venture capital, private equity, and entrepreneurial finance. The course will highlight how big data and data analytics shape the way finance is practiced. Some programming experience is helpful though knowledge of Python is not assumed.",
+      "instructors": [
+        "Wei Dou"
+      ],
+      "meetings": [
+        {
+          "days": "MW",
+          "start_time": "13:45:00",
+          "end_time": "15:14:00",
+          "location": ""
+        }
+      ],
+      "linked_sections": [
+        "23409"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 57,
+        "seats_available": 57
+      }
+    },
+    {
+      "crn": "23409",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "201",
+      "title": "Data Science for Finance",
+      "schedule_type": "Recitation",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "1",
+      "start_date": null,
+      "end_date": null,
+      "description": "This course will introduce students to data science for financial applications using the Python programming language and its ecosystem of packages (e.g., Dask, Matplotlib, Numpy, Numba, Pandas, SciPy, Scikit-Learn, StatsModels). To do so, students will investigate a variety of empirical questions from different areas within finance including: FinTech, investment management, corporate finance, corporate governance, venture capital, private equity, and entrepreneurial finance. The course will highlight how big data and data analytics shape the way finance is practiced. Some programming experience is helpful though knowledge of Python is not assumed.",
+      "instructors": [
+        "Wei Dou"
+      ],
+      "meetings": [
+        {
+          "days": "F",
+          "start_time": "13:45:00",
+          "end_time": "14:44:00",
+          "location": ""
+        }
+      ],
+      "linked_sections": [
+        "23396"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 57,
+        "seats_available": 57
+      }
     }
   ],
-  "last_updated": "2025-10-09T08:26:58.616500"
+  "last_updated": "2025-10-10T09:39:31.261334"
 }

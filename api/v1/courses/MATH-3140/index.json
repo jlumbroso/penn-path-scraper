@@ -829,7 +829,171 @@
         "max_enrollment": null,
         "seats_available": null
       }
+    },
+    {
+      "crn": "16061",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "001",
+      "title": "Advanced Linear Algebra",
+      "schedule_type": "Lecture",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "1",
+      "start_date": null,
+      "end_date": null,
+      "description": "Topics will include: Vector spaces, Basis and dimension, quotients; Linear maps and matrices; Determinants, Dual spaces and maps; Invariant subspaces, Cononical forms; Scalar products: Euclidean, unitary and symplectic spaces; Orthogonal and Unitary operators; Tensor products and polylinear maps; Symmetric and skew-symmetric tensors and exterior algebra.",
+      "instructors": [
+        "Andrew Cooper"
+      ],
+      "meetings": [
+        {
+          "days": "TR",
+          "start_time": "15:30:00",
+          "end_time": "16:59:00",
+          "location": ""
+        }
+      ],
+      "linked_sections": [
+        "34873",
+        "34874"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 60,
+        "seats_available": 60
+      }
+    },
+    {
+      "crn": "34808",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "002",
+      "title": "Advanced Linear Algebra",
+      "schedule_type": "Lecture",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "1",
+      "start_date": null,
+      "end_date": null,
+      "description": "Topics will include: Vector spaces, Basis and dimension, quotients; Linear maps and matrices; Determinants, Dual spaces and maps; Invariant subspaces, Cononical forms; Scalar products: Euclidean, unitary and symplectic spaces; Orthogonal and Unitary operators; Tensor products and polylinear maps; Symmetric and skew-symmetric tensors and exterior algebra.",
+      "instructors": [
+        "Florian Pop"
+      ],
+      "meetings": [
+        {
+          "days": "MW",
+          "start_time": "10:15:00",
+          "end_time": "11:44:00",
+          "location": ""
+        }
+      ],
+      "linked_sections": [
+        "34809",
+        "34810"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 60,
+        "seats_available": 60
+      }
+    },
+    {
+      "crn": "34873",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "101",
+      "title": "Advanced Linear Algebra",
+      "schedule_type": "Laboratory",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "0",
+      "start_date": null,
+      "end_date": null,
+      "description": "Topics will include: Vector spaces, Basis and dimension, quotients; Linear maps and matrices; Determinants, Dual spaces and maps; Invariant subspaces, Cononical forms; Scalar products: Euclidean, unitary and symplectic spaces; Orthogonal and Unitary operators; Tensor products and polylinear maps; Symmetric and skew-symmetric tensors and exterior algebra.",
+      "instructors": [],
+      "meetings": [],
+      "linked_sections": [
+        "16061"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 30,
+        "seats_available": 30
+      }
+    },
+    {
+      "crn": "34874",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "102",
+      "title": "Advanced Linear Algebra",
+      "schedule_type": "Laboratory",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "0",
+      "start_date": null,
+      "end_date": null,
+      "description": "Topics will include: Vector spaces, Basis and dimension, quotients; Linear maps and matrices; Determinants, Dual spaces and maps; Invariant subspaces, Cononical forms; Scalar products: Euclidean, unitary and symplectic spaces; Orthogonal and Unitary operators; Tensor products and polylinear maps; Symmetric and skew-symmetric tensors and exterior algebra.",
+      "instructors": [],
+      "meetings": [],
+      "linked_sections": [
+        "16061"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 30,
+        "seats_available": 30
+      }
+    },
+    {
+      "crn": "34809",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "103",
+      "title": "Advanced Linear Algebra",
+      "schedule_type": "Laboratory",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "0",
+      "start_date": null,
+      "end_date": null,
+      "description": "Topics will include: Vector spaces, Basis and dimension, quotients; Linear maps and matrices; Determinants, Dual spaces and maps; Invariant subspaces, Cononical forms; Scalar products: Euclidean, unitary and symplectic spaces; Orthogonal and Unitary operators; Tensor products and polylinear maps; Symmetric and skew-symmetric tensors and exterior algebra.",
+      "instructors": [],
+      "meetings": [],
+      "linked_sections": [
+        "34808"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 30,
+        "seats_available": 30
+      }
+    },
+    {
+      "crn": "34810",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "104",
+      "title": "Advanced Linear Algebra",
+      "schedule_type": "Laboratory",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "0",
+      "start_date": null,
+      "end_date": null,
+      "description": "Topics will include: Vector spaces, Basis and dimension, quotients; Linear maps and matrices; Determinants, Dual spaces and maps; Invariant subspaces, Cononical forms; Scalar products: Euclidean, unitary and symplectic spaces; Orthogonal and Unitary operators; Tensor products and polylinear maps; Symmetric and skew-symmetric tensors and exterior algebra.",
+      "instructors": [],
+      "meetings": [],
+      "linked_sections": [
+        "34808"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 30,
+        "seats_available": 30
+      }
     }
   ],
-  "last_updated": "2025-10-09T08:26:06.927354"
+  "last_updated": "2025-10-10T09:38:33.425670"
 }

@@ -179,7 +179,36 @@
         "max_enrollment": null,
         "seats_available": null
       }
+    },
+    {
+      "crn": "34620",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "001",
+      "title": "Statistical Methods PSCI",
+      "schedule_type": "Lecture",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "1",
+      "start_date": null,
+      "end_date": null,
+      "description": "This course is designed as a follow-up to <a href=\"/search/?p=PSCI%201800\" data-action=\"result-detail\" data-group=\"code:PSCI 1800\" >PSCI 1800</a>. In that class students learn a great deal about how to work with individual data sets in R: cleaning, tidying, merging, describing and visualizing data. PSCI 1801 shifts focus to the ultimate goal of data science: making inferences about the world based on the small sample of data that we have. Using a methodology that emphasizes intuition and simulation over mathematics, this course will cover the key statistical concepts of probability, sampling, distributions, hypothesis testing, and covariance. The ultimate goal of the class is for students to have the knowledge and ability to perform, customize, and explain bivariate and multivariate regression. Students who have not taken PSCI-1800 should have basic familiarity with R, including working with vectors and matrices, basic summary statistics, visualizations, and for() loops.",
+      "instructors": [],
+      "meetings": [
+        {
+          "days": "MW",
+          "start_time": "10:15:00",
+          "end_time": "11:44:00",
+          "location": ""
+        }
+      ],
+      "linked_sections": [],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 31,
+        "seats_available": 31
+      }
     }
   ],
-  "last_updated": "2025-10-09T08:27:01.391204"
+  "last_updated": "2025-10-10T09:39:34.444906"
 }

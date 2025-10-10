@@ -391,7 +391,73 @@
         "max_enrollment": null,
         "seats_available": null
       }
+    },
+    {
+      "crn": "14747",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "001",
+      "title": "Analytical Methods for Engineering",
+      "schedule_type": "Lecture",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "1",
+      "start_date": null,
+      "end_date": null,
+      "description": "This course introduces students to physical models and mathematical methods that are widely encountered in various branches of engineering. Illustrative examples are used to motivate mathematical topics including ordinary and partial differential equations, Fourier analysis, eigenvalue problems, and stability analysis. Analytical techniques that yield exact solutions to problems are developed when possible, but in many cases, numerical calculations are employed using programs such as Matlab and Maple. Students will learn the importance of mathematics in engineering. Prerequisite: Sophomore standing in SEAS or permission of instructor(s)",
+      "instructors": [
+        "Michael Carchidi"
+      ],
+      "meetings": [
+        {
+          "days": "MW",
+          "start_time": "10:15:00",
+          "end_time": "11:44:00",
+          "location": ""
+        }
+      ],
+      "linked_sections": [
+        "14750"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 40,
+        "seats_available": 40
+      }
+    },
+    {
+      "crn": "14750",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "202",
+      "title": "Analytical Methods for Engineering",
+      "schedule_type": "Recitation",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "0",
+      "start_date": null,
+      "end_date": null,
+      "description": "This course introduces students to physical models and mathematical methods that are widely encountered in various branches of engineering. Illustrative examples are used to motivate mathematical topics including ordinary and partial differential equations, Fourier analysis, eigenvalue problems, and stability analysis. Analytical techniques that yield exact solutions to problems are developed when possible, but in many cases, numerical calculations are employed using programs such as Matlab and Maple. Students will learn the importance of mathematics in engineering. Prerequisite: Sophomore standing in SEAS or permission of instructor(s)",
+      "instructors": [
+        "Michael Carchidi"
+      ],
+      "meetings": [
+        {
+          "days": "F",
+          "start_time": "10:15:00",
+          "end_time": "11:14:00",
+          "location": ""
+        }
+      ],
+      "linked_sections": [
+        "14747"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 40,
+        "seats_available": 40
+      }
     }
   ],
-  "last_updated": "2025-10-09T08:26:19.709245"
+  "last_updated": "2025-10-10T09:38:47.338557"
 }

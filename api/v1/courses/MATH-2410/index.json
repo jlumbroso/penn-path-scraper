@@ -1892,7 +1892,167 @@
         "max_enrollment": null,
         "seats_available": null
       }
+    },
+    {
+      "crn": "15481",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "001",
+      "title": "Calculus, Part IV",
+      "schedule_type": "Lecture",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "0",
+      "start_date": null,
+      "end_date": null,
+      "description": "Partial differential equations and their solutions, including solutions of the wave, heat and Laplace equations, and Sturm-Liouville problems. Introduction to Fourier series and Fourier transforms. Computation of solutions, modeling using PDE's, geometric intuition, and qualitative understanding of the evolution of systems according to the type of partial differential operator.",
+      "instructors": [
+        "Michael Carchidi"
+      ],
+      "meetings": [
+        {
+          "days": "TR",
+          "start_time": "10:15:00",
+          "end_time": "11:44:00",
+          "location": ""
+        }
+      ],
+      "linked_sections": [
+        "15482",
+        "15483",
+        "15484",
+        "23598"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 94,
+        "seats_available": 94
+      }
+    },
+    {
+      "crn": "15482",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "211",
+      "title": "Calculus, Part IV",
+      "schedule_type": "Recitation",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "1",
+      "start_date": null,
+      "end_date": null,
+      "description": "Partial differential equations and their solutions, including solutions of the wave, heat and Laplace equations, and Sturm-Liouville problems. Introduction to Fourier series and Fourier transforms. Computation of solutions, modeling using PDE's, geometric intuition, and qualitative understanding of the evolution of systems according to the type of partial differential operator.",
+      "instructors": [],
+      "meetings": [
+        {
+          "days": "M",
+          "start_time": "08:30:00",
+          "end_time": "09:29:00",
+          "location": ""
+        }
+      ],
+      "linked_sections": [
+        "15481"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 23,
+        "seats_available": 23
+      }
+    },
+    {
+      "crn": "15483",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "212",
+      "title": "Calculus, Part IV",
+      "schedule_type": "Recitation",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "1",
+      "start_date": null,
+      "end_date": null,
+      "description": "Partial differential equations and their solutions, including solutions of the wave, heat and Laplace equations, and Sturm-Liouville problems. Introduction to Fourier series and Fourier transforms. Computation of solutions, modeling using PDE's, geometric intuition, and qualitative understanding of the evolution of systems according to the type of partial differential operator.",
+      "instructors": [],
+      "meetings": [
+        {
+          "days": "M",
+          "start_time": "10:15:00",
+          "end_time": "11:14:00",
+          "location": ""
+        }
+      ],
+      "linked_sections": [
+        "15481"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 23,
+        "seats_available": 23
+      }
+    },
+    {
+      "crn": "15484",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "213",
+      "title": "Calculus, Part IV",
+      "schedule_type": "Recitation",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "1",
+      "start_date": null,
+      "end_date": null,
+      "description": "Partial differential equations and their solutions, including solutions of the wave, heat and Laplace equations, and Sturm-Liouville problems. Introduction to Fourier series and Fourier transforms. Computation of solutions, modeling using PDE's, geometric intuition, and qualitative understanding of the evolution of systems according to the type of partial differential operator.",
+      "instructors": [],
+      "meetings": [
+        {
+          "days": "F",
+          "start_time": "08:30:00",
+          "end_time": "09:29:00",
+          "location": ""
+        }
+      ],
+      "linked_sections": [
+        "15481"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 24,
+        "seats_available": 24
+      }
+    },
+    {
+      "crn": "23598",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "214",
+      "title": "Calculus, Part IV",
+      "schedule_type": "Recitation",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "1",
+      "start_date": null,
+      "end_date": null,
+      "description": "Partial differential equations and their solutions, including solutions of the wave, heat and Laplace equations, and Sturm-Liouville problems. Introduction to Fourier series and Fourier transforms. Computation of solutions, modeling using PDE's, geometric intuition, and qualitative understanding of the evolution of systems according to the type of partial differential operator.",
+      "instructors": [],
+      "meetings": [
+        {
+          "days": "F",
+          "start_time": "10:15:00",
+          "end_time": "11:14:00",
+          "location": ""
+        }
+      ],
+      "linked_sections": [
+        "15481"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 24,
+        "seats_available": 24
+      }
     }
   ],
-  "last_updated": "2025-10-09T08:26:06.844310"
+  "last_updated": "2025-10-10T09:38:33.331544"
 }

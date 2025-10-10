@@ -93,7 +93,66 @@
         "max_enrollment": null,
         "seats_available": null
       }
+    },
+    {
+      "crn": "16639",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "001",
+      "title": "Environmental Systems II",
+      "schedule_type": "Lecture",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "0.5",
+      "start_date": null,
+      "end_date": null,
+      "description": "The second course in the Environmental Systems sequence considers the environmental and global systems of larger, more complex buildings. Contemporary buildings are characterized by the use of systems such as ventilation, heating, cooling, dehumidification, lighting, acoustics, and controls that not only have their own demands, but interact dynamically with one another. At a global scale, factors that connect the built environment to carbon emissions are explored, developing careful and rigorous analysis techniques to minimize both lifecycle and operational carbon emissions of buildings. As more buildings over the coming decades become all-electric, frontiers and opportunities for novel system design are explored.",
+      "instructors": [
+        "Efrie Escott"
+      ],
+      "meetings": [
+        {
+          "days": "T",
+          "start_time": "10:15:00",
+          "end_time": "11:44:00",
+          "location": ""
+        }
+      ],
+      "linked_sections": [
+        "34979"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 90,
+        "seats_available": 90
+      }
+    },
+    {
+      "crn": "34979",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "101",
+      "title": "Environmental Systems II Lab",
+      "schedule_type": "Laboratory",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "0",
+      "start_date": null,
+      "end_date": null,
+      "description": "The second course in the Environmental Systems sequence considers the environmental and global systems of larger, more complex buildings. Contemporary buildings are characterized by the use of systems such as ventilation, heating, cooling, dehumidification, lighting, acoustics, and controls that not only have their own demands, but interact dynamically with one another. At a global scale, factors that connect the built environment to carbon emissions are explored, developing careful and rigorous analysis techniques to minimize both lifecycle and operational carbon emissions of buildings. As more buildings over the coming decades become all-electric, frontiers and opportunities for novel system design are explored.",
+      "instructors": [
+        "Efrie Escott"
+      ],
+      "meetings": [],
+      "linked_sections": [
+        "16639"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 90,
+        "seats_available": 90
+      }
     }
   ],
-  "last_updated": "2025-10-09T08:26:51.556650"
+  "last_updated": "2025-10-10T09:39:22.749850"
 }

@@ -2314,7 +2314,127 @@
         "max_enrollment": null,
         "seats_available": null
       }
+    },
+    {
+      "crn": "15151",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "001",
+      "title": "Introduction to Calculus",
+      "schedule_type": "Lecture",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "0",
+      "start_date": null,
+      "end_date": null,
+      "description": "Introduction to concepts and methods of calculus for students with little or no previous calculus experience. Polynomial and elementary transcendental functions and their applications, derivatives, extremum problems, curve-sketching, approximations; integrals and the fundamental theorem of calculus.",
+      "instructors": [
+        "Shanyin Tong"
+      ],
+      "meetings": [
+        {
+          "days": "TR",
+          "start_time": "15:30:00",
+          "end_time": "16:59:00",
+          "location": ""
+        }
+      ],
+      "linked_sections": [
+        "16912",
+        "23677"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 60,
+        "seats_available": 60
+      }
+    },
+    {
+      "crn": "16912",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "201",
+      "title": "Introduction to Calculus",
+      "schedule_type": "Recitation",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "1",
+      "start_date": null,
+      "end_date": null,
+      "description": "Introduction to concepts and methods of calculus for students with little or no previous calculus experience. Polynomial and elementary transcendental functions and their applications, derivatives, extremum problems, curve-sketching, approximations; integrals and the fundamental theorem of calculus.",
+      "instructors": [],
+      "meetings": [
+        {
+          "days": "F",
+          "start_time": "08:30:00",
+          "end_time": "09:59:00",
+          "location": ""
+        }
+      ],
+      "linked_sections": [
+        "15151"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 30,
+        "seats_available": 30
+      }
+    },
+    {
+      "crn": "23677",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "202",
+      "title": "Introduction to Calculus",
+      "schedule_type": "Recitation",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "1",
+      "start_date": null,
+      "end_date": null,
+      "description": "Introduction to concepts and methods of calculus for students with little or no previous calculus experience. Polynomial and elementary transcendental functions and their applications, derivatives, extremum problems, curve-sketching, approximations; integrals and the fundamental theorem of calculus.",
+      "instructors": [],
+      "meetings": [
+        {
+          "days": "F",
+          "start_time": "10:15:00",
+          "end_time": "11:44:00",
+          "location": ""
+        }
+      ],
+      "linked_sections": [
+        "15151"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 30,
+        "seats_available": 30
+      }
+    },
+    {
+      "crn": "13579",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "601",
+      "title": "Introduction to Calculus",
+      "schedule_type": "Lecture",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "1",
+      "start_date": null,
+      "end_date": null,
+      "description": "Introduction to concepts and methods of calculus for students with little or no previous calculus experience. Polynomial and elementary transcendental functions and their applications, derivatives, extremum problems, curve-sketching, approximations; integrals and the fundamental theorem of calculus.",
+      "instructors": [
+        "Sukalpa Basu"
+      ],
+      "meetings": [],
+      "linked_sections": [],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 35,
+        "seats_available": 35
+      }
     }
   ],
-  "last_updated": "2025-10-09T08:26:05.855407"
+  "last_updated": "2025-10-10T09:38:32.296838"
 }

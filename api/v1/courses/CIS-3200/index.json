@@ -279,7 +279,38 @@
         "max_enrollment": null,
         "seats_available": null
       }
+    },
+    {
+      "crn": "14329",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "001",
+      "title": "Introduction to Algorithms",
+      "schedule_type": "Lecture",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "1",
+      "start_date": null,
+      "end_date": null,
+      "description": "How do you optimally encode a text file? How do you find shortest paths in a map? How do you design a communication network? How do you route data in a network? What are the limits of efficient computation? This course gives a comprehensive introduction to design and analysis of algorithms, and answers along the way to these and many other interesting computational questions. You will learn about problem-solving; advanced data structures such as universal hashing and red-black trees; advanced design and analysis techniques such as dynamic programming and amortized analysis; graph algorithms such as minimum spanning trees and network flows; NP-completeness theory; and approximation algorithms.",
+      "instructors": [
+        "Erik Waingarten"
+      ],
+      "meetings": [
+        {
+          "days": "MW",
+          "start_time": "15:30:00",
+          "end_time": "16:59:00",
+          "location": ""
+        }
+      ],
+      "linked_sections": [],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 200,
+        "seats_available": 200
+      }
     }
   ],
-  "last_updated": "2025-10-09T08:26:17.790562"
+  "last_updated": "2025-10-10T09:38:45.149802"
 }

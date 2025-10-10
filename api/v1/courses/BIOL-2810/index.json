@@ -185,7 +185,96 @@
         "max_enrollment": null,
         "seats_available": null
       }
+    },
+    {
+      "crn": "34269",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "001",
+      "title": "Biochemistry",
+      "schedule_type": "Lecture",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "1",
+      "start_date": null,
+      "end_date": null,
+      "description": "BIOL 2810 examines the basic principles of protein structure, protein purification and characterization, proteomics, enzyme kinetics and mechanism, membrane structure and function, metabolism, and cellular energy transduction. The primary objective is to provide life scientists with an appreciation of basic principles of modern biochemistry, and of how the current conceptual and technical framework arose. Emphasis is placed on the experimental approaches and reasoning behind the dissection and reconstitution of these processes in a biological and, in some cases, clinical context. Discussions directed at biochemical problem solving, experimental design and the application of quantitative methods are integral to the course.",
+      "instructors": [
+        "Philip Rea"
+      ],
+      "meetings": [
+        {
+          "days": "MW",
+          "start_time": "13:45:00",
+          "end_time": "15:14:00",
+          "location": ""
+        }
+      ],
+      "linked_sections": [
+        "34270",
+        "34271"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 65,
+        "seats_available": 65
+      }
+    },
+    {
+      "crn": "34270",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "201",
+      "title": "Biochemistry",
+      "schedule_type": "Recitation",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "0",
+      "start_date": null,
+      "end_date": null,
+      "description": "BIOL 2810 examines the basic principles of protein structure, protein purification and characterization, proteomics, enzyme kinetics and mechanism, membrane structure and function, metabolism, and cellular energy transduction. The primary objective is to provide life scientists with an appreciation of basic principles of modern biochemistry, and of how the current conceptual and technical framework arose. Emphasis is placed on the experimental approaches and reasoning behind the dissection and reconstitution of these processes in a biological and, in some cases, clinical context. Discussions directed at biochemical problem solving, experimental design and the application of quantitative methods are integral to the course.",
+      "instructors": [],
+      "meetings": [],
+      "linked_sections": [
+        "34269"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 35,
+        "seats_available": 35
+      }
+    },
+    {
+      "crn": "34271",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "202",
+      "title": "Biochemistry",
+      "schedule_type": "Recitation",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "0",
+      "start_date": null,
+      "end_date": null,
+      "description": "BIOL 2810 examines the basic principles of protein structure, protein purification and characterization, proteomics, enzyme kinetics and mechanism, membrane structure and function, metabolism, and cellular energy transduction. The primary objective is to provide life scientists with an appreciation of basic principles of modern biochemistry, and of how the current conceptual and technical framework arose. Emphasis is placed on the experimental approaches and reasoning behind the dissection and reconstitution of these processes in a biological and, in some cases, clinical context. Discussions directed at biochemical problem solving, experimental design and the application of quantitative methods are integral to the course.",
+      "instructors": [],
+      "meetings": [
+        {
+          "days": "R",
+          "start_time": "17:15:00",
+          "end_time": "18:14:00",
+          "location": ""
+        }
+      ],
+      "linked_sections": [
+        "34269"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 30,
+        "seats_available": 30
+      }
     }
   ],
-  "last_updated": "2025-10-09T08:27:03.328494"
+  "last_updated": "2025-10-10T09:39:36.514147"
 }

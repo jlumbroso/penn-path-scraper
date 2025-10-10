@@ -429,7 +429,175 @@
         "max_enrollment": 12,
         "seats_available": 5
       }
+    },
+    {
+      "crn": "23362",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "001",
+      "title": "Foundations of Data Science",
+      "schedule_type": "Lecture",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "1.5",
+      "start_date": null,
+      "end_date": null,
+      "description": "This is a gateway course in programming, data analysis, and data science in Python appropriate for all College students. The course will cover a range of topics from basic programming, data manipulation, data visualization, randomness, probability, statistics, predictions, interpreting results, and data ethics. Some advanced topics including time-series and image analysis will also be covered. No prior exposure to programming is assumed. Registration for a separate coding lab section is required.",
+      "instructors": [
+        "Robert Johnson"
+      ],
+      "meetings": [
+        {
+          "days": "TR",
+          "start_time": "13:45:00",
+          "end_time": "15:14:00",
+          "location": ""
+        }
+      ],
+      "linked_sections": [
+        "23365",
+        "23367",
+        "23368",
+        "23369"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 60,
+        "seats_available": 60
+      }
+    },
+    {
+      "crn": "23365",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "161",
+      "title": "Foundations of Data Science",
+      "schedule_type": "Laboratory",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "0",
+      "start_date": null,
+      "end_date": null,
+      "description": "This is a gateway course in programming, data analysis, and data science in Python appropriate for all College students. The course will cover a range of topics from basic programming, data manipulation, data visualization, randomness, probability, statistics, predictions, interpreting results, and data ethics. Some advanced topics including time-series and image analysis will also be covered. No prior exposure to programming is assumed. Registration for a separate coding lab section is required.",
+      "instructors": [
+        "Robert Johnson"
+      ],
+      "meetings": [
+        {
+          "days": "M",
+          "start_time": "15:30:00",
+          "end_time": "18:29:00",
+          "location": ""
+        }
+      ],
+      "linked_sections": [
+        "23362"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 15,
+        "seats_available": 15
+      }
+    },
+    {
+      "crn": "23367",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "163",
+      "title": "Foundations of Data Science",
+      "schedule_type": "Laboratory",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "0",
+      "start_date": null,
+      "end_date": null,
+      "description": "This is a gateway course in programming, data analysis, and data science in Python appropriate for all College students. The course will cover a range of topics from basic programming, data manipulation, data visualization, randomness, probability, statistics, predictions, interpreting results, and data ethics. Some advanced topics including time-series and image analysis will also be covered. No prior exposure to programming is assumed. Registration for a separate coding lab section is required.",
+      "instructors": [
+        "Robert Johnson"
+      ],
+      "meetings": [
+        {
+          "days": "W",
+          "start_time": "15:30:00",
+          "end_time": "18:29:00",
+          "location": ""
+        }
+      ],
+      "linked_sections": [
+        "23362"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 15,
+        "seats_available": 15
+      }
+    },
+    {
+      "crn": "23368",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "164",
+      "title": "Foundations of Data Science",
+      "schedule_type": "Laboratory",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "0",
+      "start_date": null,
+      "end_date": null,
+      "description": "This is a gateway course in programming, data analysis, and data science in Python appropriate for all College students. The course will cover a range of topics from basic programming, data manipulation, data visualization, randomness, probability, statistics, predictions, interpreting results, and data ethics. Some advanced topics including time-series and image analysis will also be covered. No prior exposure to programming is assumed. Registration for a separate coding lab section is required.",
+      "instructors": [
+        "Robert Johnson"
+      ],
+      "meetings": [
+        {
+          "days": "W",
+          "start_time": "17:15:00",
+          "end_time": "20:14:00",
+          "location": ""
+        }
+      ],
+      "linked_sections": [
+        "23362"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 15,
+        "seats_available": 15
+      }
+    },
+    {
+      "crn": "23369",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "165",
+      "title": "Foundations of Data Science",
+      "schedule_type": "Laboratory",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "0",
+      "start_date": null,
+      "end_date": null,
+      "description": "This is a gateway course in programming, data analysis, and data science in Python appropriate for all College students. The course will cover a range of topics from basic programming, data manipulation, data visualization, randomness, probability, statistics, predictions, interpreting results, and data ethics. Some advanced topics including time-series and image analysis will also be covered. No prior exposure to programming is assumed. Registration for a separate coding lab section is required.",
+      "instructors": [
+        "Robert Johnson"
+      ],
+      "meetings": [
+        {
+          "days": "F",
+          "start_time": "15:30:00",
+          "end_time": "18:29:00",
+          "location": ""
+        }
+      ],
+      "linked_sections": [
+        "23362"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 15,
+        "seats_available": 15
+      }
     }
   ],
-  "last_updated": "2025-10-09T08:26:47.179104"
+  "last_updated": "2025-10-10T09:39:17.616596"
 }

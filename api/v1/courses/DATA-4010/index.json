@@ -20,9 +20,9 @@
       "meetings": [],
       "linked_sections": [],
       "current_enrollment": {
-        "enrolled": 17,
+        "enrolled": 18,
         "max_enrollment": 42,
-        "seats_available": 25
+        "seats_available": 24
       }
     },
     {
@@ -168,7 +168,31 @@
         "max_enrollment": null,
         "seats_available": null
       }
+    },
+    {
+      "crn": "11520",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "620",
+      "title": "Advanced Data Analytics",
+      "schedule_type": "Lecture",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "1",
+      "start_date": null,
+      "end_date": null,
+      "description": "Data Analytics 4010: Advanced Topics in Data Analytics emphasizes the skills necessary to do predictive modeling of data. This is one of the most commonly sought-after skills in data science jobs, since it can help companies structure future investments, non-profits organize funding drives, or political candidates decide where to focus their get-out-the-vote efforts. The class begins with a comprehensive discussion on basic regression analysis and then moves on to more advanced topics in R like web scraping, mapping, textual analysis, and working with string variables. The course also features content about more advanced data visualization skills, including creating interactive data visualizations in RShiny. Please submit a permission request in Path@Penn to register for this class.",
+      "instructors": [
+        "Matt Simkus"
+      ],
+      "meetings": [],
+      "linked_sections": [],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 45,
+        "seats_available": 45
+      }
     }
   ],
-  "last_updated": "2025-10-09T08:25:59.128268"
+  "last_updated": "2025-10-10T09:38:25.082595"
 }

@@ -93,7 +93,38 @@
         "max_enrollment": null,
         "seats_available": null
       }
+    },
+    {
+      "crn": "12560",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "001",
+      "title": "Modern Convex Optimization",
+      "schedule_type": "Lecture",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "1",
+      "start_date": null,
+      "end_date": null,
+      "description": "This course concentrates on recognizing and solving convex optimization problems that arise in engineering. Topics include: convex sets, functions, and optimization problems. Basis of convex analysis. Linear, quadratic, geometric, and semidefinite programming. Optimality conditions, duality theory, theorems of alternative, and applications. Interior-point methods, ellipsoid algorithm and barrier methods, self-concordance. Applications to signal processing, control, digital and analog circuit design, computation geometry, statistics, and mechanical engineering. Knowledge of linear algebra and willingness to do programming. Exposure to numerical computing, optimization, and application fields is helpful but not required.",
+      "instructors": [
+        "Nikolai Matni"
+      ],
+      "meetings": [
+        {
+          "days": "TR",
+          "start_time": "15:30:00",
+          "end_time": "16:59:00",
+          "location": ""
+        }
+      ],
+      "linked_sections": [],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 120,
+        "seats_available": 120
+      }
     }
   ],
-  "last_updated": "2025-10-09T08:26:50.542285"
+  "last_updated": "2025-10-10T09:39:21.541897"
 }

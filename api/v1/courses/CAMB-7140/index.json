@@ -117,7 +117,38 @@
         "max_enrollment": null,
         "seats_available": null
       }
+    },
+    {
+      "crn": "12765",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "001",
+      "title": "DIYtranscriptomics",
+      "schedule_type": "Lecture",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "1",
+      "start_date": null,
+      "end_date": null,
+      "description": "As access to high-throughput sequencing technology increases, the bottleneck in biomedical research has shifted from generating data, to analyzing and integrating diverse data types. Addressing these needs requires that students and postdocs equip themselves with a toolkit for data mining and interrogation. This course focuses specifically on studying global gene expression (transcriptomics) through the use of the R programming environment and the Bioconductor suite of software packages - a versatile and robust collection of tools for bioinformatics, statistics, and plotting. During this semester-long course students participate in a mix of lectures and guided code review, all while working with real datasets directly on their laptop. Students will learn to analyze RNAseq data using a lightweight and reusable set of modular scripts that leverage open-source software. In addition, students will learn best practices in data science for working in R/Bioconductor, including creating interactive data visualizations, making their analsyes transparent and reproducible, and identifying experimental bias in large datasets. Students are encouraged, but not required, to bring their own RNAseq data to the course. This course requires completion of pre-course materials provided by the instructor.",
+      "instructors": [
+        "Daniel Beiting"
+      ],
+      "meetings": [
+        {
+          "days": "W",
+          "start_time": "15:30:00",
+          "end_time": "17:29:00",
+          "location": ""
+        }
+      ],
+      "linked_sections": [],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 72,
+        "seats_available": 72
+      }
     }
   ],
-  "last_updated": "2025-10-09T08:26:53.841781"
+  "last_updated": "2025-10-10T09:39:25.470220"
 }

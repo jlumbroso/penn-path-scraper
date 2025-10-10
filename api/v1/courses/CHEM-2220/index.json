@@ -331,7 +331,121 @@
         "max_enrollment": null,
         "seats_available": null
       }
+    },
+    {
+      "crn": "15061",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "001",
+      "title": "Physical Chemistry II",
+      "schedule_type": "Lecture",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "1",
+      "start_date": null,
+      "end_date": null,
+      "description": "Continuation of <a href=\"/search/?p=CHEM%202210\" data-action=\"result-detail\" data-group=\"code:CHEM 2210\"  class=\"notoffered\">CHEM 2210</a>: Physical Chemistry I. Principles and applications of thermodynamics, and a molecular-based understanding of macroscopic properties.",
+      "instructors": [
+        "Zahra Fakhraai"
+      ],
+      "meetings": [
+        {
+          "days": "MW",
+          "start_time": "10:15:00",
+          "end_time": "11:44:00",
+          "location": ""
+        }
+      ],
+      "linked_sections": [
+        "29617",
+        "29618",
+        "29619"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 72,
+        "seats_available": 72
+      }
+    },
+    {
+      "crn": "29617",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "201",
+      "title": "Physical Chemistry II",
+      "schedule_type": "Recitation",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "0",
+      "start_date": null,
+      "end_date": null,
+      "description": "Continuation of <a href=\"/search/?p=CHEM%202210\" data-action=\"result-detail\" data-group=\"code:CHEM 2210\"  class=\"notoffered\">CHEM 2210</a>: Physical Chemistry I. Principles and applications of thermodynamics, and a molecular-based understanding of macroscopic properties.",
+      "instructors": [],
+      "meetings": [
+        {
+          "days": "F",
+          "start_time": "10:15:00",
+          "end_time": "11:14:00",
+          "location": ""
+        }
+      ],
+      "linked_sections": [
+        "15061"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 25,
+        "seats_available": 25
+      }
+    },
+    {
+      "crn": "29618",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "202",
+      "title": "Physical Chemistry II",
+      "schedule_type": "Recitation",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "0",
+      "start_date": null,
+      "end_date": null,
+      "description": "Continuation of <a href=\"/search/?p=CHEM%202210\" data-action=\"result-detail\" data-group=\"code:CHEM 2210\"  class=\"notoffered\">CHEM 2210</a>: Physical Chemistry I. Principles and applications of thermodynamics, and a molecular-based understanding of macroscopic properties.",
+      "instructors": [],
+      "meetings": [],
+      "linked_sections": [
+        "15061"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 25,
+        "seats_available": 25
+      }
+    },
+    {
+      "crn": "29619",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "203",
+      "title": "Physical Chemistry II",
+      "schedule_type": "Recitation",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "0",
+      "start_date": null,
+      "end_date": null,
+      "description": "Continuation of <a href=\"/search/?p=CHEM%202210\" data-action=\"result-detail\" data-group=\"code:CHEM 2210\"  class=\"notoffered\">CHEM 2210</a>: Physical Chemistry I. Principles and applications of thermodynamics, and a molecular-based understanding of macroscopic properties.",
+      "instructors": [],
+      "meetings": [],
+      "linked_sections": [
+        "15061"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 23,
+        "seats_available": 23
+      }
     }
   ],
-  "last_updated": "2025-10-09T08:26:43.204327"
+  "last_updated": "2025-10-10T09:39:12.796311"
 }

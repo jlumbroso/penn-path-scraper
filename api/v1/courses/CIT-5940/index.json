@@ -539,7 +539,124 @@
         "max_enrollment": null,
         "seats_available": null
       }
+    },
+    {
+      "crn": "15037",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "001",
+      "title": "Data Structures and Software Design",
+      "schedule_type": "Lecture",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "1",
+      "start_date": null,
+      "end_date": null,
+      "description": "This course focuses on data structures, software design, and advanced Java. Students will explore fundamental data structures such as lists, stacks, queues, trees, hash tables, sets, maps, and graphs. The course emphasizes understanding how these structures are implemented, analyzing their performance, and applying them to solve real-world problems. In addition, students will learn principles of software design and explore key software design patterns to create efficient and maintainable programs.",
+      "instructors": [
+        "Talie Massachi"
+      ],
+      "meetings": [
+        {
+          "days": "MW",
+          "start_time": "15:30:00",
+          "end_time": "16:59:00",
+          "location": ""
+        }
+      ],
+      "linked_sections": [
+        "15142",
+        "15143"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 120,
+        "seats_available": 120
+      }
+    },
+    {
+      "crn": "15142",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "201",
+      "title": "Data Structures and Software Design",
+      "schedule_type": "Recitation",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "0",
+      "start_date": null,
+      "end_date": null,
+      "description": "This course focuses on data structures, software design, and advanced Java. Students will explore fundamental data structures such as lists, stacks, queues, trees, hash tables, sets, maps, and graphs. The course emphasizes understanding how these structures are implemented, analyzing their performance, and applying them to solve real-world problems. In addition, students will learn principles of software design and explore key software design patterns to create efficient and maintainable programs.",
+      "instructors": [
+        "Talie Massachi"
+      ],
+      "meetings": [
+        {
+          "days": "F",
+          "start_time": "10:15:00",
+          "end_time": "11:44:00",
+          "location": ""
+        }
+      ],
+      "linked_sections": [
+        "15037"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 60,
+        "seats_available": 60
+      }
+    },
+    {
+      "crn": "15143",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "202",
+      "title": "Data Structures and Software Design",
+      "schedule_type": "Recitation",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "0",
+      "start_date": null,
+      "end_date": null,
+      "description": "This course focuses on data structures, software design, and advanced Java. Students will explore fundamental data structures such as lists, stacks, queues, trees, hash tables, sets, maps, and graphs. The course emphasizes understanding how these structures are implemented, analyzing their performance, and applying them to solve real-world problems. In addition, students will learn principles of software design and explore key software design patterns to create efficient and maintainable programs.",
+      "instructors": [
+        "Talie Massachi"
+      ],
+      "meetings": [],
+      "linked_sections": [
+        "15037"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 60,
+        "seats_available": 60
+      }
+    },
+    {
+      "crn": "17651",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "501",
+      "title": "Data Structures and Software Design",
+      "schedule_type": "Lecture",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "1",
+      "start_date": null,
+      "end_date": null,
+      "description": "This course focuses on data structures, software design, and advanced Java. Students will explore fundamental data structures such as lists, stacks, queues, trees, hash tables, sets, maps, and graphs. The course emphasizes understanding how these structures are implemented, analyzing their performance, and applying them to solve real-world problems. In addition, students will learn principles of software design and explore key software design patterns to create efficient and maintainable programs.",
+      "instructors": [
+        "Nan Zheng"
+      ],
+      "meetings": [],
+      "linked_sections": [],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 650,
+        "seats_available": 650
+      }
     }
   ],
-  "last_updated": "2025-10-09T08:26:19.181771"
+  "last_updated": "2025-10-10T09:38:46.735364"
 }

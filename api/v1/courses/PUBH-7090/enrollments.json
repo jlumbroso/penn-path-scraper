@@ -7,8 +7,18 @@
       "section": "001",
       "enrolled": 7,
       "capacity": 8,
-      "timestamp": "2025-10-09T08:13:19.924411",
+      "timestamp": "2025-10-10T08:24:41.548984",
       "snapshots": [
+        {
+          "timestamp": "2025-10-10T08:24:41.548984",
+          "enrolled": 7,
+          "capacity": 8
+        },
+        {
+          "timestamp": "2025-10-10T07:13:02.663059",
+          "enrolled": 7,
+          "capacity": 8
+        },
         {
           "timestamp": "2025-10-09T08:13:19.924411",
           "enrolled": 7,
@@ -32,8 +42,18 @@
       "section": "002",
       "enrolled": 8,
       "capacity": 8,
-      "timestamp": "2025-10-09T08:13:20.523517",
+      "timestamp": "2025-10-10T08:24:42.159073",
       "snapshots": [
+        {
+          "timestamp": "2025-10-10T08:24:42.159073",
+          "enrolled": 8,
+          "capacity": 8
+        },
+        {
+          "timestamp": "2025-10-10T07:13:03.288253",
+          "enrolled": 8,
+          "capacity": 8
+        },
         {
           "timestamp": "2025-10-09T08:13:20.523517",
           "enrolled": 8,
@@ -347,7 +367,52 @@
       "capacity": null,
       "timestamp": null,
       "snapshots": []
+    },
+    {
+      "crn": "35013",
+      "term": "202610",
+      "section": "001",
+      "enrolled": 0,
+      "capacity": 12,
+      "timestamp": "2025-10-10T09:23:10.987004",
+      "snapshots": [
+        {
+          "timestamp": "2025-10-10T09:23:10.987004",
+          "enrolled": 0,
+          "capacity": 12
+        }
+      ]
+    },
+    {
+      "crn": "35014",
+      "term": "202610",
+      "section": "002",
+      "enrolled": 0,
+      "capacity": 12,
+      "timestamp": "2025-10-10T09:23:11.615515",
+      "snapshots": [
+        {
+          "timestamp": "2025-10-10T09:23:11.615515",
+          "enrolled": 0,
+          "capacity": 12
+        }
+      ]
+    },
+    {
+      "crn": "35015",
+      "term": "202610",
+      "section": "003",
+      "enrolled": 0,
+      "capacity": 12,
+      "timestamp": "2025-10-10T09:23:12.251789",
+      "snapshots": [
+        {
+          "timestamp": "2025-10-10T09:23:12.251789",
+          "enrolled": 0,
+          "capacity": 12
+        }
+      ]
     }
   ],
-  "last_updated": "2025-10-09T08:26:29.947147"
+  "last_updated": "2025-10-10T09:38:58.120639"
 }

@@ -425,7 +425,73 @@
         "max_enrollment": null,
         "seats_available": null
       }
+    },
+    {
+      "crn": "35359",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "001",
+      "title": "Principles of Monitoring & Evaluation in International Education Development",
+      "schedule_type": "Lecture",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "1",
+      "start_date": null,
+      "end_date": null,
+      "description": "This course covers theories, methods, and applications of monitoring and evaluation for educational and social programs, with special emphasis on international education development. Topics include basic statistical concepts, program theory, process and outcome assessment, concepts in survey methods, introduction to causal inference, introductory regression analysis, and an overview of impact assessments and cost-benefit/cost-effectiveness analysis.",
+      "instructors": [
+        "Amrit Thapa"
+      ],
+      "meetings": [
+        {
+          "days": "W",
+          "start_time": "11:45:00",
+          "end_time": "13:44:00",
+          "location": ""
+        }
+      ],
+      "linked_sections": [
+        "35360"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 33,
+        "seats_available": 33
+      }
+    },
+    {
+      "crn": "35360",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "101",
+      "title": "Principles of Monitoring & Evaluation in International Education Development",
+      "schedule_type": "Laboratory",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "0",
+      "start_date": null,
+      "end_date": null,
+      "description": "This course covers theories, methods, and applications of monitoring and evaluation for educational and social programs, with special emphasis on international education development. Topics include basic statistical concepts, program theory, process and outcome assessment, concepts in survey methods, introduction to causal inference, introductory regression analysis, and an overview of impact assessments and cost-benefit/cost-effectiveness analysis.",
+      "instructors": [
+        "Amrit Thapa"
+      ],
+      "meetings": [
+        {
+          "days": "R",
+          "start_time": "11:45:00",
+          "end_time": "13:44:00",
+          "location": ""
+        }
+      ],
+      "linked_sections": [
+        "35359"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 33,
+        "seats_available": 33
+      }
     }
   ],
-  "last_updated": "2025-10-09T08:26:25.615299"
+  "last_updated": "2025-10-10T09:38:53.633399"
 }

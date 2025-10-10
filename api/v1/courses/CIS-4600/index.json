@@ -458,7 +458,73 @@
         "max_enrollment": null,
         "seats_available": null
       }
+    },
+    {
+      "crn": "14517",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "401",
+      "title": "Interactive Computer Graphics",
+      "schedule_type": "Lecture",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "1",
+      "start_date": null,
+      "end_date": null,
+      "description": "This course focuses on programming the essential mathematical and geometric concepts underlying modern computer graphics. Using 3D interactive implementations, it covers fundamental topics such as mesh data structures, transformation sequences, rendering algorithms, and curve interpolation for animation. Students are also introduced to two programming languages widely used in the computer graphics industry: C++ and GLSL. The curriculum is heavily project-based, and culminates in a group project focused on building an interactive first-person world exploration application using the various real-time interaction and rendering algorithms learned throughout the semester. The prerequisite for this course is <a href=\"/search/?p=CIS%201210\" data-action=\"result-detail\" data-group=\"code:CIS 1210\" >CIS 1210</a>. We also recommend <a href=\"/search/?p=CIS%202400\" data-action=\"result-detail\" data-group=\"code:CIS 2400\" >CIS 2400</a>.",
+      "instructors": [
+        "Adam Mally"
+      ],
+      "meetings": [
+        {
+          "days": "TR",
+          "start_time": "13:45:00",
+          "end_time": "15:14:00",
+          "location": ""
+        }
+      ],
+      "linked_sections": [
+        "15137"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 80,
+        "seats_available": 80
+      }
+    },
+    {
+      "crn": "15137",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "402",
+      "title": "Interactive Computer Graphics",
+      "schedule_type": "Recitation",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "0",
+      "start_date": null,
+      "end_date": null,
+      "description": "This course focuses on programming the essential mathematical and geometric concepts underlying modern computer graphics. Using 3D interactive implementations, it covers fundamental topics such as mesh data structures, transformation sequences, rendering algorithms, and curve interpolation for animation. Students are also introduced to two programming languages widely used in the computer graphics industry: C++ and GLSL. The curriculum is heavily project-based, and culminates in a group project focused on building an interactive first-person world exploration application using the various real-time interaction and rendering algorithms learned throughout the semester. The prerequisite for this course is <a href=\"/search/?p=CIS%201210\" data-action=\"result-detail\" data-group=\"code:CIS 1210\" >CIS 1210</a>. We also recommend <a href=\"/search/?p=CIS%202400\" data-action=\"result-detail\" data-group=\"code:CIS 2400\" >CIS 2400</a>.",
+      "instructors": [
+        "Adam Mally"
+      ],
+      "meetings": [
+        {
+          "days": "F",
+          "start_time": "13:45:00",
+          "end_time": "15:14:00",
+          "location": ""
+        }
+      ],
+      "linked_sections": [
+        "14517"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 80,
+        "seats_available": 80
+      }
     }
   ],
-  "last_updated": "2025-10-09T08:26:17.916428"
+  "last_updated": "2025-10-10T09:38:45.292495"
 }

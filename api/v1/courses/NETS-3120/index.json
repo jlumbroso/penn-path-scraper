@@ -194,7 +194,73 @@
         "max_enrollment": null,
         "seats_available": null
       }
+    },
+    {
+      "crn": "14908",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "001",
+      "title": "Theory of Networks",
+      "schedule_type": "Lecture",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "1",
+      "start_date": null,
+      "end_date": null,
+      "description": "Want to understand how memes spread across the Internet? How organisms exhibit flocking behavior? How the structure of a network can help predict behavior among the nodes? This course is a rigorous study of the structure and function of complex networks. From World Wide Web to networks of banks and lenders that form the financial sector, to friendship networks that influence our opinion and everyday decision-making, networks have become an integral part of our daily lives.",
+      "instructors": [
+        "Victor Preciado"
+      ],
+      "meetings": [
+        {
+          "days": "TR",
+          "start_time": "17:15:00",
+          "end_time": "18:44:00",
+          "location": ""
+        }
+      ],
+      "linked_sections": [
+        "14909"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 70,
+        "seats_available": 70
+      }
+    },
+    {
+      "crn": "14909",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "201",
+      "title": "Theory of Networks",
+      "schedule_type": "Recitation",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "0",
+      "start_date": null,
+      "end_date": null,
+      "description": "Want to understand how memes spread across the Internet? How organisms exhibit flocking behavior? How the structure of a network can help predict behavior among the nodes? This course is a rigorous study of the structure and function of complex networks. From World Wide Web to networks of banks and lenders that form the financial sector, to friendship networks that influence our opinion and everyday decision-making, networks have become an integral part of our daily lives.",
+      "instructors": [
+        "Victor Preciado"
+      ],
+      "meetings": [
+        {
+          "days": "F",
+          "start_time": "10:15:00",
+          "end_time": "11:14:00",
+          "location": ""
+        }
+      ],
+      "linked_sections": [
+        "14908"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 70,
+        "seats_available": 70
+      }
     }
   ],
-  "last_updated": "2025-10-09T08:26:51.403442"
+  "last_updated": "2025-10-10T09:39:22.544409"
 }

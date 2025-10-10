@@ -6059,7 +6059,356 @@
         "max_enrollment": null,
         "seats_available": null
       }
+    },
+    {
+      "crn": "15152",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "001",
+      "title": "Calculus, Part I",
+      "schedule_type": "Lecture",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "0",
+      "start_date": null,
+      "end_date": null,
+      "description": "Brief review of High School calculus, applications of integrals, transcendental functions, methods of integration, infinite series, Taylor's theorem, and first order ordinary differential equations. Use of symbolic manipulation and graphics software in calculus.",
+      "instructors": [
+        "Jingwen Chen"
+      ],
+      "meetings": [],
+      "linked_sections": [
+        "16913",
+        "16915",
+        "16919",
+        "23940",
+        "24031",
+        "34904",
+        "34905"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 75,
+        "seats_available": 75
+      }
+    },
+    {
+      "crn": "15153",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "002",
+      "title": "Calculus, Part I",
+      "schedule_type": "Lecture",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "0",
+      "start_date": null,
+      "end_date": null,
+      "description": "Brief review of High School calculus, applications of integrals, transcendental functions, methods of integration, infinite series, Taylor's theorem, and first order ordinary differential equations. Use of symbolic manipulation and graphics software in calculus.",
+      "instructors": [
+        "Nakia Rimmer"
+      ],
+      "meetings": [
+        {
+          "days": "MW",
+          "start_time": "08:30:00",
+          "end_time": "09:59:00",
+          "location": ""
+        }
+      ],
+      "linked_sections": [
+        "16913",
+        "16915",
+        "16919",
+        "23940",
+        "24031",
+        "34904",
+        "34905"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 120,
+        "seats_available": 120
+      }
+    },
+    {
+      "crn": "15154",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "003",
+      "title": "Calculus, Part I",
+      "schedule_type": "Lecture",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "0",
+      "start_date": null,
+      "end_date": null,
+      "description": "Brief review of High School calculus, applications of integrals, transcendental functions, methods of integration, infinite series, Taylor's theorem, and first order ordinary differential equations. Use of symbolic manipulation and graphics software in calculus.",
+      "instructors": [
+        "Nakia Rimmer"
+      ],
+      "meetings": [
+        {
+          "days": "MW",
+          "start_time": "10:15:00",
+          "end_time": "11:44:00",
+          "location": ""
+        }
+      ],
+      "linked_sections": [
+        "16913",
+        "16915",
+        "16919",
+        "23940",
+        "24031",
+        "34904",
+        "34905"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 120,
+        "seats_available": 120
+      }
+    },
+    {
+      "crn": "16913",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "201",
+      "title": "Calculus, Part I",
+      "schedule_type": "Recitation",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "1",
+      "start_date": null,
+      "end_date": null,
+      "description": "Brief review of High School calculus, applications of integrals, transcendental functions, methods of integration, infinite series, Taylor's theorem, and first order ordinary differential equations. Use of symbolic manipulation and graphics software in calculus.",
+      "instructors": [],
+      "meetings": [
+        {
+          "days": "F",
+          "start_time": "08:30:00",
+          "end_time": "09:59:00",
+          "location": ""
+        }
+      ],
+      "linked_sections": [
+        "15152",
+        "15153",
+        "15154"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 45,
+        "seats_available": 45
+      }
+    },
+    {
+      "crn": "23940",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "202",
+      "title": "Calculus, Part I",
+      "schedule_type": "Recitation",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "1",
+      "start_date": null,
+      "end_date": null,
+      "description": "Brief review of High School calculus, applications of integrals, transcendental functions, methods of integration, infinite series, Taylor's theorem, and first order ordinary differential equations. Use of symbolic manipulation and graphics software in calculus.",
+      "instructors": [],
+      "meetings": [
+        {
+          "days": "F",
+          "start_time": "10:15:00",
+          "end_time": "11:44:00",
+          "location": ""
+        }
+      ],
+      "linked_sections": [
+        "15152",
+        "15153",
+        "15154"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 45,
+        "seats_available": 45
+      }
+    },
+    {
+      "crn": "16915",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "203",
+      "title": "Calculus, Part I",
+      "schedule_type": "Recitation",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "1",
+      "start_date": null,
+      "end_date": null,
+      "description": "Brief review of High School calculus, applications of integrals, transcendental functions, methods of integration, infinite series, Taylor's theorem, and first order ordinary differential equations. Use of symbolic manipulation and graphics software in calculus.",
+      "instructors": [],
+      "meetings": [],
+      "linked_sections": [
+        "15152",
+        "15153",
+        "15154"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 45,
+        "seats_available": 45
+      }
+    },
+    {
+      "crn": "16919",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "204",
+      "title": "Calculus, Part I",
+      "schedule_type": "Recitation",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "1",
+      "start_date": null,
+      "end_date": null,
+      "description": "Brief review of High School calculus, applications of integrals, transcendental functions, methods of integration, infinite series, Taylor's theorem, and first order ordinary differential equations. Use of symbolic manipulation and graphics software in calculus.",
+      "instructors": [],
+      "meetings": [
+        {
+          "days": "F",
+          "start_time": "08:30:00",
+          "end_time": "09:59:00",
+          "location": ""
+        }
+      ],
+      "linked_sections": [
+        "15152",
+        "15153",
+        "15154"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 45,
+        "seats_available": 45
+      }
+    },
+    {
+      "crn": "24031",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "205",
+      "title": "Calculus, Part I",
+      "schedule_type": "Recitation",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "1",
+      "start_date": null,
+      "end_date": null,
+      "description": "Brief review of High School calculus, applications of integrals, transcendental functions, methods of integration, infinite series, Taylor's theorem, and first order ordinary differential equations. Use of symbolic manipulation and graphics software in calculus.",
+      "instructors": [],
+      "meetings": [
+        {
+          "days": "F",
+          "start_time": "10:15:00",
+          "end_time": "11:44:00",
+          "location": ""
+        }
+      ],
+      "linked_sections": [
+        "15152",
+        "15153",
+        "15154"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 45,
+        "seats_available": 45
+      }
+    },
+    {
+      "crn": "34904",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "206",
+      "title": "Calculus, Part I",
+      "schedule_type": "Recitation",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "1",
+      "start_date": null,
+      "end_date": null,
+      "description": "Brief review of High School calculus, applications of integrals, transcendental functions, methods of integration, infinite series, Taylor's theorem, and first order ordinary differential equations. Use of symbolic manipulation and graphics software in calculus.",
+      "instructors": [],
+      "meetings": [],
+      "linked_sections": [
+        "15152",
+        "15153",
+        "15154"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 45,
+        "seats_available": 45
+      }
+    },
+    {
+      "crn": "34905",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "207",
+      "title": "Calculus, Part I",
+      "schedule_type": "Recitation",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "1",
+      "start_date": null,
+      "end_date": null,
+      "description": "Brief review of High School calculus, applications of integrals, transcendental functions, methods of integration, infinite series, Taylor's theorem, and first order ordinary differential equations. Use of symbolic manipulation and graphics software in calculus.",
+      "instructors": [],
+      "meetings": [
+        {
+          "days": "F",
+          "start_time": "08:30:00",
+          "end_time": "09:59:00",
+          "location": ""
+        }
+      ],
+      "linked_sections": [
+        "15152",
+        "15153",
+        "15154"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 45,
+        "seats_available": 45
+      }
+    },
+    {
+      "crn": "34540",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "601",
+      "title": "Calculus, Part I",
+      "schedule_type": "Lecture",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "1",
+      "start_date": null,
+      "end_date": null,
+      "description": "Brief review of High School calculus, applications of integrals, transcendental functions, methods of integration, infinite series, Taylor's theorem, and first order ordinary differential equations. Use of symbolic manipulation and graphics software in calculus.",
+      "instructors": [],
+      "meetings": [],
+      "linked_sections": [],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 24,
+        "seats_available": 24
+      }
     }
   ],
-  "last_updated": "2025-10-09T08:26:06.117585"
+  "last_updated": "2025-10-10T09:38:32.578388"
 }

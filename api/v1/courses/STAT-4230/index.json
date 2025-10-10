@@ -62,7 +62,38 @@
         "max_enrollment": null,
         "seats_available": null
       }
+    },
+    {
+      "crn": "33841",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "401",
+      "title": "Applied Machine Learning in Business",
+      "schedule_type": "Lecture",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "1",
+      "start_date": null,
+      "end_date": null,
+      "description": "This course introduces students to machine learning techniques used in business applications. The main topics include: cross validation, variable selection procedures, shrinkage methods such as lasso, logistic regression, k-nearest neighbors, ROC curves and confusion matrix, trees, kernel based learning, resampling techniques, random forests, boosting, neural networks &amp; deep learning, matrix methods including singular value decomposition (SVD) and its application in principal component analysis (PCA), and some unsupervised methods such as k-means and density based clustering. Students will learn to apply these methods in a wide range of settings such as marketing and finance, and will gain hands-on experience through class assignments and competitions. This course may be taken concurrently with the prerequisite with instructor permission.",
+      "instructors": [
+        "Kaihua Ding"
+      ],
+      "meetings": [
+        {
+          "days": "TR",
+          "start_time": "17:15:00",
+          "end_time": "18:44:00",
+          "location": ""
+        }
+      ],
+      "linked_sections": [],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 60,
+        "seats_available": 60
+      }
     }
   ],
-  "last_updated": "2025-10-09T08:26:38.566353"
+  "last_updated": "2025-10-10T09:39:07.588759"
 }

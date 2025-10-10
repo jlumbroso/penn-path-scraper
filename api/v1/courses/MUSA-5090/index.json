@@ -93,7 +93,38 @@
         "max_enrollment": null,
         "seats_available": null
       }
+    },
+    {
+      "crn": "24632",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "001",
+      "title": "Geospatial Cloud Computing & Visualization",
+      "schedule_type": "Lecture",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "1",
+      "start_date": null,
+      "end_date": null,
+      "description": "In this course you will learn how to collect, store, wrangle and display cartographic data in a cloud-based setting. You will learn reproducible approaches to retrieve spatial data from APIs data platforms; to store and query these data in databases like PostGIS and data warehouses like BigQuery; to wrangle these data with Python and/or JavaScript running on cloud-based infrastructure; and to visualize in various platforms including Carto and Looker. You will build your own APIs and develop your own custom web applications. This course is the second in a progression toward building web-based systems using geospatial data, and expands on the Fall course in JavaScript Programming for Urban Planners. Experience with Python OR JavaScript is required.",
+      "instructors": [
+        "Mjumbe Poe"
+      ],
+      "meetings": [
+        {
+          "days": "W",
+          "start_time": "13:45:00",
+          "end_time": "16:44:00",
+          "location": ""
+        }
+      ],
+      "linked_sections": [],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 30,
+        "seats_available": 30
+      }
     }
   ],
-  "last_updated": "2025-10-09T08:26:52.205928"
+  "last_updated": "2025-10-10T09:39:23.571613"
 }

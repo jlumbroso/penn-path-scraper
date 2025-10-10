@@ -602,7 +602,89 @@
         "max_enrollment": null,
         "seats_available": null
       }
+    },
+    {
+      "crn": "10892",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "001",
+      "title": "History of Modern Philosophy",
+      "schedule_type": "Lecture",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "1",
+      "start_date": null,
+      "end_date": null,
+      "description": "This course is an introduction to a few central themes in philosophy in the 17th and 18th centuries, and to some of the crucial thinkers who addressed those themes. Topics to be covered may include, among others, the nature of the human being (including the human mind), the relationship between God and the created world, the nature of freedom, and the relations among natural sciences, philosophy and theology in this rich period of human history.",
+      "instructors": [
+        "Karen Detlefsen"
+      ],
+      "meetings": [],
+      "linked_sections": [
+        "10893",
+        "10894"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 40,
+        "seats_available": 40
+      }
+    },
+    {
+      "crn": "10893",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "201",
+      "title": "History of Modern Philosophy",
+      "schedule_type": "Recitation",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "0",
+      "start_date": null,
+      "end_date": null,
+      "description": "This course is an introduction to a few central themes in philosophy in the 17th and 18th centuries, and to some of the crucial thinkers who addressed those themes. Topics to be covered may include, among others, the nature of the human being (including the human mind), the relationship between God and the created world, the nature of freedom, and the relations among natural sciences, philosophy and theology in this rich period of human history.",
+      "instructors": [],
+      "meetings": [
+        {
+          "days": "F",
+          "start_time": "10:15:00",
+          "end_time": "11:14:00",
+          "location": ""
+        }
+      ],
+      "linked_sections": [
+        "10892"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 20,
+        "seats_available": 20
+      }
+    },
+    {
+      "crn": "10894",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "202",
+      "title": "History of Modern Philosophy",
+      "schedule_type": "Recitation",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "0",
+      "start_date": null,
+      "end_date": null,
+      "description": "This course is an introduction to a few central themes in philosophy in the 17th and 18th centuries, and to some of the crucial thinkers who addressed those themes. Topics to be covered may include, among others, the nature of the human being (including the human mind), the relationship between God and the created world, the nature of freedom, and the relations among natural sciences, philosophy and theology in this rich period of human history.",
+      "instructors": [],
+      "meetings": [],
+      "linked_sections": [
+        "10892"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 20,
+        "seats_available": 20
+      }
     }
   ],
-  "last_updated": "2025-10-09T08:26:39.960608"
+  "last_updated": "2025-10-10T09:39:09.156235"
 }

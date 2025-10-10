@@ -1361,7 +1361,199 @@
         "max_enrollment": null,
         "seats_available": null
       }
+    },
+    {
+      "crn": "23605",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "001",
+      "title": "Mathematics of change, Part I",
+      "schedule_type": "Lecture",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "1",
+      "start_date": null,
+      "end_date": null,
+      "description": "Limits, orders of magnitude, differential and integral calculus; Taylor polynomials; estimating and bounding; probability densities. Mathematical modeling and applications to the social, economic and information sciences.",
+      "instructors": [
+        "Tainara Gobetti Borges"
+      ],
+      "meetings": [
+        {
+          "days": "TR",
+          "start_time": "10:15:00",
+          "end_time": "11:44:00",
+          "location": ""
+        }
+      ],
+      "linked_sections": [
+        "23845",
+        "23846"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 70,
+        "seats_available": 70
+      }
+    },
+    {
+      "crn": "24325",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "002",
+      "title": "Mathematics of change, Part I",
+      "schedule_type": "Lecture",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "1",
+      "start_date": null,
+      "end_date": null,
+      "description": "Limits, orders of magnitude, differential and integral calculus; Taylor polynomials; estimating and bounding; probability densities. Mathematical modeling and applications to the social, economic and information sciences.",
+      "instructors": [
+        "Brett Frankel"
+      ],
+      "meetings": [
+        {
+          "days": "MW",
+          "start_time": "10:15:00",
+          "end_time": "11:44:00",
+          "location": ""
+        }
+      ],
+      "linked_sections": [
+        "24326",
+        "24327"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 60,
+        "seats_available": 60
+      }
+    },
+    {
+      "crn": "23845",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "201",
+      "title": "Mathematics of change, Part I",
+      "schedule_type": "Recitation",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "0",
+      "start_date": null,
+      "end_date": null,
+      "description": "Limits, orders of magnitude, differential and integral calculus; Taylor polynomials; estimating and bounding; probability densities. Mathematical modeling and applications to the social, economic and information sciences.",
+      "instructors": [],
+      "meetings": [
+        {
+          "days": "MW",
+          "start_time": "08:30:00",
+          "end_time": "09:59:00",
+          "location": ""
+        }
+      ],
+      "linked_sections": [
+        "23605"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 35,
+        "seats_available": 35
+      }
+    },
+    {
+      "crn": "23846",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "202",
+      "title": "Mathematics of change, Part I",
+      "schedule_type": "Recitation",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "0",
+      "start_date": null,
+      "end_date": null,
+      "description": "Limits, orders of magnitude, differential and integral calculus; Taylor polynomials; estimating and bounding; probability densities. Mathematical modeling and applications to the social, economic and information sciences.",
+      "instructors": [],
+      "meetings": [
+        {
+          "days": "MW",
+          "start_time": "10:15:00",
+          "end_time": "11:44:00",
+          "location": ""
+        }
+      ],
+      "linked_sections": [
+        "23605"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 35,
+        "seats_available": 35
+      }
+    },
+    {
+      "crn": "24326",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "211",
+      "title": "Mathematics of change, Part I",
+      "schedule_type": "Recitation",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "0",
+      "start_date": null,
+      "end_date": null,
+      "description": "Limits, orders of magnitude, differential and integral calculus; Taylor polynomials; estimating and bounding; probability densities. Mathematical modeling and applications to the social, economic and information sciences.",
+      "instructors": [],
+      "meetings": [
+        {
+          "days": "TR",
+          "start_time": "08:30:00",
+          "end_time": "09:59:00",
+          "location": ""
+        }
+      ],
+      "linked_sections": [
+        "24325"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 30,
+        "seats_available": 30
+      }
+    },
+    {
+      "crn": "24327",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "212",
+      "title": "Mathematics of change, Part I",
+      "schedule_type": "Recitation",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "0",
+      "start_date": null,
+      "end_date": null,
+      "description": "Limits, orders of magnitude, differential and integral calculus; Taylor polynomials; estimating and bounding; probability densities. Mathematical modeling and applications to the social, economic and information sciences.",
+      "instructors": [],
+      "meetings": [
+        {
+          "days": "TR",
+          "start_time": "10:15:00",
+          "end_time": "11:44:00",
+          "location": ""
+        }
+      ],
+      "linked_sections": [
+        "24325"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 30,
+        "seats_available": 30
+      }
     }
   ],
-  "last_updated": "2025-10-09T08:26:05.715104"
+  "last_updated": "2025-10-10T09:38:32.144362"
 }

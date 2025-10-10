@@ -93,7 +93,38 @@
         "max_enrollment": null,
         "seats_available": null
       }
+    },
+    {
+      "crn": "15149",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "001",
+      "title": "Numerical and Applied Analysis II",
+      "schedule_type": "Lecture",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "1",
+      "start_date": null,
+      "end_date": null,
+      "description": "We will cover asymptotic methods, primarily for differential equations. In many problems of applied mathematics, there is a small parameter in the problem. Asymptotic analysis represents a collection of methods that takes advantage of the smallness of this parameter. After a brief discussion of non-dimensionalization, we will discuss regular perturbation methods, matched asymptotics, method of multiple scales, WKB approximation, and homogenization. Other topics will be discussed, time permitting. The prerequisite for this class is some familiarity with differential equations, but required background will be reviewed in class.",
+      "instructors": [
+        "Han Zhou"
+      ],
+      "meetings": [
+        {
+          "days": "TR",
+          "start_time": "10:15:00",
+          "end_time": "11:44:00",
+          "location": ""
+        }
+      ],
+      "linked_sections": [],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 30,
+        "seats_available": 30
+      }
     }
   ],
-  "last_updated": "2025-10-09T08:26:42.339475"
+  "last_updated": "2025-10-10T09:39:11.755376"
 }

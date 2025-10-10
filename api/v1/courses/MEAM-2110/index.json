@@ -371,7 +371,134 @@
         "max_enrollment": null,
         "seats_available": null
       }
+    },
+    {
+      "crn": "13861",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "001",
+      "title": "Engineering Mechanics: Dynamics",
+      "schedule_type": "Lecture",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "1",
+      "start_date": null,
+      "end_date": null,
+      "description": "This course introduces the basic concepts in kinematics and dynamics that are necessary to understand, analyze and design mechanisms and machines. These concepts are also fundamental to the modeling and analysis of human movement, biomechanics, animation of synthetic human models and robotics. The topics covered include: Particle dynamics using energy and momentum methods of analysis; Dynamics of systems of particles; Impact; Systems of variable mass; Kinematics and dynamics of rigid bodies in plane motion; Computer-aided dynamic simulation and animation.",
+      "instructors": [
+        "Michael Posa"
+      ],
+      "meetings": [],
+      "linked_sections": [
+        "13862",
+        "13863",
+        "13864"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 75,
+        "seats_available": 75
+      }
+    },
+    {
+      "crn": "13862",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "201",
+      "title": "Engineering Mechanics: Dynamics",
+      "schedule_type": "Recitation",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "0",
+      "start_date": null,
+      "end_date": null,
+      "description": "This course introduces the basic concepts in kinematics and dynamics that are necessary to understand, analyze and design mechanisms and machines. These concepts are also fundamental to the modeling and analysis of human movement, biomechanics, animation of synthetic human models and robotics. The topics covered include: Particle dynamics using energy and momentum methods of analysis; Dynamics of systems of particles; Impact; Systems of variable mass; Kinematics and dynamics of rigid bodies in plane motion; Computer-aided dynamic simulation and animation.",
+      "instructors": [
+        "Michael Posa"
+      ],
+      "meetings": [
+        {
+          "days": "M",
+          "start_time": "15:30:00",
+          "end_time": "16:29:00",
+          "location": ""
+        }
+      ],
+      "linked_sections": [
+        "13861"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 25,
+        "seats_available": 25
+      }
+    },
+    {
+      "crn": "13863",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "202",
+      "title": "Engineering Mechanics: Dynamics",
+      "schedule_type": "Recitation",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "0",
+      "start_date": null,
+      "end_date": null,
+      "description": "This course introduces the basic concepts in kinematics and dynamics that are necessary to understand, analyze and design mechanisms and machines. These concepts are also fundamental to the modeling and analysis of human movement, biomechanics, animation of synthetic human models and robotics. The topics covered include: Particle dynamics using energy and momentum methods of analysis; Dynamics of systems of particles; Impact; Systems of variable mass; Kinematics and dynamics of rigid bodies in plane motion; Computer-aided dynamic simulation and animation.",
+      "instructors": [
+        "Michael Posa"
+      ],
+      "meetings": [
+        {
+          "days": "M",
+          "start_time": "17:15:00",
+          "end_time": "18:14:00",
+          "location": ""
+        }
+      ],
+      "linked_sections": [
+        "13861"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 25,
+        "seats_available": 25
+      }
+    },
+    {
+      "crn": "13864",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "203",
+      "title": "Engineering Mechanics: Dynamics",
+      "schedule_type": "Recitation",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "0",
+      "start_date": null,
+      "end_date": null,
+      "description": "This course introduces the basic concepts in kinematics and dynamics that are necessary to understand, analyze and design mechanisms and machines. These concepts are also fundamental to the modeling and analysis of human movement, biomechanics, animation of synthetic human models and robotics. The topics covered include: Particle dynamics using energy and momentum methods of analysis; Dynamics of systems of particles; Impact; Systems of variable mass; Kinematics and dynamics of rigid bodies in plane motion; Computer-aided dynamic simulation and animation.",
+      "instructors": [
+        "Michael Posa"
+      ],
+      "meetings": [
+        {
+          "days": "T",
+          "start_time": "17:15:00",
+          "end_time": "18:14:00",
+          "location": ""
+        }
+      ],
+      "linked_sections": [
+        "13861"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 25,
+        "seats_available": 25
+      }
     }
   ],
-  "last_updated": "2025-10-09T08:26:50.632224"
+  "last_updated": "2025-10-10T09:39:21.662157"
 }

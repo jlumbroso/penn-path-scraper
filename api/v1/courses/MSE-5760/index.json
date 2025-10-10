@@ -117,7 +117,38 @@
         "max_enrollment": null,
         "seats_available": null
       }
+    },
+    {
+      "crn": "15764",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "001",
+      "title": "Machine Learning and Its Applications in Materials Science",
+      "schedule_type": "Lecture",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "1",
+      "start_date": null,
+      "end_date": null,
+      "description": "Beginning with a review of linear algebra, probability theory, Bayesian statistics, Statistical Mechanics notions of entropy, information and optimization tools, some of the major advances in deep learning over the past twenty years will be discussed in detail. These include the multilayer perceptron (MLP), convolutional neural network (CNN), recurrent neural networks (RNN), autoencoders, graph networks, Boltzmann machine, variational autoencoders and deep generative adversarial models. In conjunction with the weekly lectures, a set of labs will be offered (roughly 2 per month) that will demonstrate the workings of important models using data derived from Materials Science research papers and MSE databases. The labs will also complement the contents of the homework sets for each fortnight. The lab sessions will implement the following models: linear regression, logistic regression, random forest model, single layer and multi-layer perceptron, CNN, RNN, graph neural networks and general adversarial networks. A variety of data sets representing material properties for varied applications will be used in the labs. The homework sets will use additional data sets. For students with no prior coding skills, a preliminary Python Lab 0 tutorial will be held in the first week of classes. Students may obtain assistance from the TAs for coding logic and help with homework during office hours. A written project is due in the final week of classes. Students will submit a 1-2 page synopsis of a published paper from a peer-reviewed journal that uses ML and DL methods. This report will be graded on the student\u2019s ability to summarize the paper\u2019s ideas, results and discussions for future work.",
+      "instructors": [
+        "Mahadevan Khantha"
+      ],
+      "meetings": [
+        {
+          "days": "MW",
+          "start_time": "10:15:00",
+          "end_time": "11:44:00",
+          "location": ""
+        }
+      ],
+      "linked_sections": [],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 60,
+        "seats_available": 60
+      }
     }
   ],
-  "last_updated": "2025-10-09T08:26:51.297370"
+  "last_updated": "2025-10-10T09:39:22.425296"
 }

@@ -117,7 +117,38 @@
         "max_enrollment": null,
         "seats_available": null
       }
+    },
+    {
+      "crn": "17689",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "001",
+      "title": "Advanced Methods and Health Applications in Machine Learning",
+      "schedule_type": "Lecture",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "1",
+      "start_date": null,
+      "end_date": null,
+      "description": "Machine learning studies how computers learn from data and has enormous potential to impact biomedical research and applications. This course will cover fundamental topics in machine learning with an application focus on biomedical informatics. Specifically, the course will cover: supervised learning methods such as linear regression, logistic regression, nearest neighbors, support vector machines, decision trees and random forests; unsupervised learning topics such as clustering and dimensionality reduction; neural networks and deep learning methods for supervised or unsupervised learning tasks, including Convolutional Neural Network (CNN), Recurrent Neural Network (RNN), Auto Encoder (AE), Generative Adversarial Network (GAN), Graph Neural Network (GNN), Transformer, Generated Pretrained Transformer (GPT), and Large Language Model (LLM); and the applications of these machine learning techniques to various biomedical informatics problems via analyzing genomics, imaging, biomarker, electronic health record, clinical and/or other biomedical data. The precise topics may vary from year to year based on student interest and developments in the field. Students are required to have completed <a href=\"/search/?p=BMIN%205250\" data-action=\"result-detail\" data-group=\"code:BMIN 5250\"  class=\"notoffered\">BMIN 5250</a> (Python Class) or equivalent programming experience. It is recommended that students have basic knowledge in data analysis and biomedical research. Basic knowledge of machine learning, linear algebra, statistics and probability is preferred. NOTE: Non-majors need permission from the instructor.",
+      "instructors": [
+        "Li Shen"
+      ],
+      "meetings": [
+        {
+          "days": "R",
+          "start_time": "15:30:00",
+          "end_time": "18:29:00",
+          "location": ""
+        }
+      ],
+      "linked_sections": [],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 20,
+        "seats_available": 20
+      }
     }
   ],
-  "last_updated": "2025-10-09T08:26:53.654886"
+  "last_updated": "2025-10-10T09:39:25.246347"
 }

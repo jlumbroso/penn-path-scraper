@@ -173,7 +173,66 @@
         "max_enrollment": null,
         "seats_available": null
       }
+    },
+    {
+      "crn": "13317",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "001",
+      "title": "Molecular Thermodynamics and Chemical Kinetics",
+      "schedule_type": "Lecture",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "1",
+      "start_date": null,
+      "end_date": null,
+      "description": "Applications of physical chemistry to chemical engineering systems. Equilibrium statistical mechanics of ideal gases, dense fluids and interfacial phases. Chemical reaction rates. Collision and transition state theories. Heterogeneous catalysis. Electronic structure and properties of solids.",
+      "instructors": [
+        "Aleksandra Vojvodic"
+      ],
+      "meetings": [
+        {
+          "days": "TR",
+          "start_time": "10:15:00",
+          "end_time": "11:44:00",
+          "location": ""
+        }
+      ],
+      "linked_sections": [
+        "13318"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 45,
+        "seats_available": 45
+      }
+    },
+    {
+      "crn": "13318",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "201",
+      "title": "Molecular Thermodynamics and Chemical Kinetics",
+      "schedule_type": "Recitation",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "0",
+      "start_date": null,
+      "end_date": null,
+      "description": "Applications of physical chemistry to chemical engineering systems. Equilibrium statistical mechanics of ideal gases, dense fluids and interfacial phases. Chemical reaction rates. Collision and transition state theories. Heterogeneous catalysis. Electronic structure and properties of solids.",
+      "instructors": [
+        "Aleksandra Vojvodic"
+      ],
+      "meetings": [],
+      "linked_sections": [
+        "13317"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 45,
+        "seats_available": 45
+      }
     }
   ],
-  "last_updated": "2025-10-09T08:26:49.349237"
+  "last_updated": "2025-10-10T09:39:20.237909"
 }

@@ -596,7 +596,89 @@
         "max_enrollment": null,
         "seats_available": null
       }
+    },
+    {
+      "crn": "15435",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "001",
+      "title": "Algebra",
+      "schedule_type": "Lecture",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "1",
+      "start_date": null,
+      "end_date": null,
+      "description": "Syllabus for MATH 3700-<a href=\"/search/?p=MATH%203710\" data-action=\"result-detail\" data-group=\"code:MATH 3710\" >3710</a>: an introduction to the basic concepts of modern algebra. Linear algebra, eigenvalues and eigenvectors of matrices, groups, rings and fields. <a href=\"/search/?p=MATH%205020\" data-action=\"result-detail\" data-group=\"code:MATH 5020\"  class=\"notoffered\">MATH 5020</a>-<a href=\"/search/?p=MATH%205030\" data-action=\"result-detail\" data-group=\"code:MATH 5030\" >5030</a> is a masters level version of this course.",
+      "instructors": [
+        "Angela Gibney"
+      ],
+      "meetings": [
+        {
+          "days": "TR",
+          "start_time": "10:15:00",
+          "end_time": "11:44:00",
+          "location": ""
+        }
+      ],
+      "linked_sections": [
+        "15437",
+        "22820"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 27,
+        "seats_available": 27
+      }
+    },
+    {
+      "crn": "22820",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "101",
+      "title": "Algebra",
+      "schedule_type": "Laboratory",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "0",
+      "start_date": null,
+      "end_date": null,
+      "description": "Syllabus for MATH 3700-<a href=\"/search/?p=MATH%203710\" data-action=\"result-detail\" data-group=\"code:MATH 3710\" >3710</a>: an introduction to the basic concepts of modern algebra. Linear algebra, eigenvalues and eigenvectors of matrices, groups, rings and fields. <a href=\"/search/?p=MATH%205020\" data-action=\"result-detail\" data-group=\"code:MATH 5020\"  class=\"notoffered\">MATH 5020</a>-<a href=\"/search/?p=MATH%205030\" data-action=\"result-detail\" data-group=\"code:MATH 5030\" >5030</a> is a masters level version of this course.",
+      "instructors": [],
+      "meetings": [],
+      "linked_sections": [
+        "15435"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 14,
+        "seats_available": 14
+      }
+    },
+    {
+      "crn": "15437",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "102",
+      "title": "Algebra",
+      "schedule_type": "Laboratory",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "0",
+      "start_date": null,
+      "end_date": null,
+      "description": "Syllabus for MATH 3700-<a href=\"/search/?p=MATH%203710\" data-action=\"result-detail\" data-group=\"code:MATH 3710\" >3710</a>: an introduction to the basic concepts of modern algebra. Linear algebra, eigenvalues and eigenvectors of matrices, groups, rings and fields. <a href=\"/search/?p=MATH%205020\" data-action=\"result-detail\" data-group=\"code:MATH 5020\"  class=\"notoffered\">MATH 5020</a>-<a href=\"/search/?p=MATH%205030\" data-action=\"result-detail\" data-group=\"code:MATH 5030\" >5030</a> is a masters level version of this course.",
+      "instructors": [],
+      "meetings": [],
+      "linked_sections": [
+        "15435"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 13,
+        "seats_available": 13
+      }
     }
   ],
-  "last_updated": "2025-10-09T08:26:07.063091"
+  "last_updated": "2025-10-10T09:38:33.578868"
 }

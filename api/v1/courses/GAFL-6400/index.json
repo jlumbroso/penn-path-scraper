@@ -180,7 +180,73 @@
         "max_enrollment": null,
         "seats_available": null
       }
+    },
+    {
+      "crn": "11627",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "001",
+      "title": "Program Evaluation and Data Analysis",
+      "schedule_type": "Lecture",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "1",
+      "start_date": null,
+      "end_date": null,
+      "description": "How do we know if a given program is effectively achieving its goals? How can we compare which of several programs is actually producing the greatest benefit to society? Students learn the tools needed to analyze policies, with a particular emphasis on presenting the results of quantitative analysis effectively for a nontechnical audience. By the end of this course, you will be able to 1) design quantitative and qualitative program evaluations, 2) analyze data collected for program evaluation using rigorous techniques in R, and 3) effectively present quantitative results to non-technical audiences.",
+      "instructors": [
+        "Lauren Russell"
+      ],
+      "meetings": [
+        {
+          "days": "TR",
+          "start_time": "10:15:00",
+          "end_time": "11:44:00",
+          "location": ""
+        }
+      ],
+      "linked_sections": [
+        "11610"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 50,
+        "seats_available": 50
+      }
+    },
+    {
+      "crn": "11610",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "101",
+      "title": "Program Evaluation and Data Analysis",
+      "schedule_type": "Laboratory",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "0",
+      "start_date": null,
+      "end_date": null,
+      "description": "How do we know if a given program is effectively achieving its goals? How can we compare which of several programs is actually producing the greatest benefit to society? Students learn the tools needed to analyze policies, with a particular emphasis on presenting the results of quantitative analysis effectively for a nontechnical audience. By the end of this course, you will be able to 1) design quantitative and qualitative program evaluations, 2) analyze data collected for program evaluation using rigorous techniques in R, and 3) effectively present quantitative results to non-technical audiences.",
+      "instructors": [
+        "Lauren Russell"
+      ],
+      "meetings": [
+        {
+          "days": "F",
+          "start_time": "10:15:00",
+          "end_time": "11:14:00",
+          "location": ""
+        }
+      ],
+      "linked_sections": [
+        "11627"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 50,
+        "seats_available": 50
+      }
     }
   ],
-  "last_updated": "2025-10-09T08:26:45.135400"
+  "last_updated": "2025-10-10T09:39:15.158309"
 }

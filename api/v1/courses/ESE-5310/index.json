@@ -93,7 +93,38 @@
         "max_enrollment": null,
         "seats_available": null
       }
+    },
+    {
+      "crn": "12546",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "001",
+      "title": "Digital Signal Processing",
+      "schedule_type": "Lecture",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "1",
+      "start_date": null,
+      "end_date": null,
+      "description": "This course covers the fundamentals of discrete-time signals and systems and digital filters. Specific topics covered include: review of discrete-time signal and linear system representations in the time and frequency domain, and convolution; discrete-time Fourier transform (DTFT); Z-transforms; frequency response of linear discrete-time systems; sampling of continuous-time signals, analog to digital conversion, sampling-rate conversion; basic discrete-time filter structures and types; finite implulse response (FIR) and infinite impulse response (IIR) filters; design of FIR and IIR filters; discrete Fourier transform (DFT), the fast Fourier transform (FFT) algorithm and its applications in filtering and spectrum estimation.",
+      "instructors": [
+        "Tania Khanna"
+      ],
+      "meetings": [
+        {
+          "days": "TR",
+          "start_time": "15:30:00",
+          "end_time": "16:59:00",
+          "location": ""
+        }
+      ],
+      "linked_sections": [],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 100,
+        "seats_available": 100
+      }
     }
   ],
-  "last_updated": "2025-10-09T08:26:50.461470"
+  "last_updated": "2025-10-10T09:39:21.446602"
 }

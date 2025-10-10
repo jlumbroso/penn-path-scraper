@@ -93,7 +93,38 @@
         "max_enrollment": null,
         "seats_available": null
       }
+    },
+    {
+      "crn": "16844",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "001",
+      "title": "Database and Data Integration in Biomedical Research",
+      "schedule_type": "Lecture",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "1",
+      "start_date": null,
+      "end_date": null,
+      "description": "This course is intended to provide in-depth, practical exposure to the design, implementation, and use of databases in biomedical research, and to provide students with the skills needed to design and conduct a research project using primary and secondary data. Topics to be covered include: database architectures, data normalization, database implementation, client-server databases, concurrency, validation, Structured-Query Language (SQL) programming, reporting, maintenance, and security. All examples will use problems or data from biomedical domains. MySQL will be used as the database platform for the course, although the principles apply generally to biomedical research and other relational databases. NOTE: Non-majors need permission from the department",
+      "instructors": [
+        "Dokyoon Kim"
+      ],
+      "meetings": [
+        {
+          "days": "T",
+          "start_time": "13:45:00",
+          "end_time": "16:44:00",
+          "location": ""
+        }
+      ],
+      "linked_sections": [],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 25,
+        "seats_available": 25
+      }
     }
   ],
-  "last_updated": "2025-10-09T08:26:53.639973"
+  "last_updated": "2025-10-10T09:39:25.225319"
 }

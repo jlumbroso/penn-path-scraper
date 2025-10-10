@@ -321,7 +321,128 @@
         "max_enrollment": null,
         "seats_available": null
       }
+    },
+    {
+      "crn": "11762",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "001",
+      "title": "Experimental Physical Chemistry I",
+      "schedule_type": "Lecture",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "0",
+      "start_date": null,
+      "end_date": null,
+      "description": "Important methods, skills, and apparatus used for the acquisition and interpretation of quantitative information about chemical systems will be discussed in principle and used in the laboratory. Students are required to have completed Chem2210 prior to enrolling in Chem2230.",
+      "instructors": [
+        "Anthony Cirri"
+      ],
+      "meetings": [
+        {
+          "days": "F",
+          "start_time": "13:45:00",
+          "end_time": "14:44:00",
+          "location": ""
+        }
+      ],
+      "linked_sections": [
+        "11885",
+        "11886",
+        "28798"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 42,
+        "seats_available": 42
+      }
+    },
+    {
+      "crn": "11885",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "101",
+      "title": "Experimental Physical Chemistry I",
+      "schedule_type": "Laboratory",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "1",
+      "start_date": null,
+      "end_date": null,
+      "description": "Important methods, skills, and apparatus used for the acquisition and interpretation of quantitative information about chemical systems will be discussed in principle and used in the laboratory. Students are required to have completed Chem2210 prior to enrolling in Chem2230.",
+      "instructors": [],
+      "meetings": [
+        {
+          "days": "MW",
+          "start_time": "13:45:00",
+          "end_time": "17:44:00",
+          "location": ""
+        }
+      ],
+      "linked_sections": [
+        "11762"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 15,
+        "seats_available": 15
+      }
+    },
+    {
+      "crn": "11886",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "102",
+      "title": "Experimental Physical Chemistry I",
+      "schedule_type": "Laboratory",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "1",
+      "start_date": null,
+      "end_date": null,
+      "description": "Important methods, skills, and apparatus used for the acquisition and interpretation of quantitative information about chemical systems will be discussed in principle and used in the laboratory. Students are required to have completed Chem2210 prior to enrolling in Chem2230.",
+      "instructors": [],
+      "meetings": [
+        {
+          "days": "TR",
+          "start_time": "13:45:00",
+          "end_time": "17:44:00",
+          "location": ""
+        }
+      ],
+      "linked_sections": [
+        "11762"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 14,
+        "seats_available": 14
+      }
+    },
+    {
+      "crn": "28798",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "103",
+      "title": "Experimental Physical Chemistry I",
+      "schedule_type": "Laboratory",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "1",
+      "start_date": null,
+      "end_date": null,
+      "description": "Important methods, skills, and apparatus used for the acquisition and interpretation of quantitative information about chemical systems will be discussed in principle and used in the laboratory. Students are required to have completed Chem2210 prior to enrolling in Chem2230.",
+      "instructors": [],
+      "meetings": [],
+      "linked_sections": [
+        "11762"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 13,
+        "seats_available": 13
+      }
     }
   ],
-  "last_updated": "2025-10-09T08:26:43.220343"
+  "last_updated": "2025-10-10T09:39:12.817571"
 }

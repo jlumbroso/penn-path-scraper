@@ -239,7 +239,66 @@
         "max_enrollment": null,
         "seats_available": null
       }
+    },
+    {
+      "crn": "16983",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "001",
+      "title": "Fluid Mechanics",
+      "schedule_type": "Lecture",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "1",
+      "start_date": null,
+      "end_date": null,
+      "description": "This course is designed for students to understand the fundamental characteristics of fluids. We will develop, starting from first principles, the basic equations for fluid statics, and use them to assess buoyancy forces and determine the pressure variations in fluids with rigid body rotation. Students will understand in detail the basic types of fluid flow line patterns (eg. streamlines and streamtubes) and the different types of interchangeable energy forms (eg. kinetic, potential, and pressure). It is also important to develop, starting from first principles, the formulations for inviscid and viscous flow problems. These include the discussion of a control system and system boundaries, the detailed construction of conservations equations of mass, energy, and momentum for Newtonian fluids, the derivation of the Navier-Stokes equations, and the determination of appropriate initial and boundary conditions. A final objective of the course is to solve various fluid mechanics problems using control systems, dimensional analysis, and developed equations. Such problems include, but are not limited to, the terminal velocity of a falling sphere, Stokes flow, the relation between the friction factor and the Reynolds number, and flow profiles in numerous geometries. Prerequisite required: <a href=\"/search/?p=CBE%202310\" data-action=\"result-detail\" data-group=\"code:CBE 2310\" >CBE 2310</a> Thermodynamics of Fluids.",
+      "instructors": [
+        "John Crocker"
+      ],
+      "meetings": [
+        {
+          "days": "MWF",
+          "start_time": "10:15:00",
+          "end_time": "11:14:00",
+          "location": ""
+        }
+      ],
+      "linked_sections": [
+        "16984"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 40,
+        "seats_available": 40
+      }
+    },
+    {
+      "crn": "16984",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "201",
+      "title": "Fluid Mechanics",
+      "schedule_type": "Recitation",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "0",
+      "start_date": null,
+      "end_date": null,
+      "description": "This course is designed for students to understand the fundamental characteristics of fluids. We will develop, starting from first principles, the basic equations for fluid statics, and use them to assess buoyancy forces and determine the pressure variations in fluids with rigid body rotation. Students will understand in detail the basic types of fluid flow line patterns (eg. streamlines and streamtubes) and the different types of interchangeable energy forms (eg. kinetic, potential, and pressure). It is also important to develop, starting from first principles, the formulations for inviscid and viscous flow problems. These include the discussion of a control system and system boundaries, the detailed construction of conservations equations of mass, energy, and momentum for Newtonian fluids, the derivation of the Navier-Stokes equations, and the determination of appropriate initial and boundary conditions. A final objective of the course is to solve various fluid mechanics problems using control systems, dimensional analysis, and developed equations. Such problems include, but are not limited to, the terminal velocity of a falling sphere, Stokes flow, the relation between the friction factor and the Reynolds number, and flow profiles in numerous geometries. Prerequisite required: <a href=\"/search/?p=CBE%202310\" data-action=\"result-detail\" data-group=\"code:CBE 2310\" >CBE 2310</a> Thermodynamics of Fluids.",
+      "instructors": [
+        "John Crocker"
+      ],
+      "meetings": [],
+      "linked_sections": [
+        "16983"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 40,
+        "seats_available": 40
+      }
     }
   ],
-  "last_updated": "2025-10-09T08:26:49.339903"
+  "last_updated": "2025-10-10T09:39:20.225850"
 }

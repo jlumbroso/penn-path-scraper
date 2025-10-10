@@ -853,7 +853,82 @@
         "max_enrollment": null,
         "seats_available": null
       }
+    },
+    {
+      "crn": "15443",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "001",
+      "title": "Advanced Calculus",
+      "schedule_type": "Lecture",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "1",
+      "start_date": null,
+      "end_date": null,
+      "description": "Syllabus for MATH 3600-<a href=\"/search/?p=MATH%203610\" data-action=\"result-detail\" data-group=\"code:MATH 3610\" >3610</a>: a study of the foundations of the differential and integral calculus, including the real numbers and elementary topology, continuous and differentiable functions, uniform convergence of series of functions, and inverse and implicit function theorems. <a href=\"/search/?p=MATH%205080\" data-action=\"result-detail\" data-group=\"code:MATH 5080\"  class=\"notoffered\">MATH 5080</a>-<a href=\"/search/?p=MATH%205090\" data-action=\"result-detail\" data-group=\"code:MATH 5090\" >5090</a> is a masters level version of this course.",
+      "instructors": [
+        "Ryan Hynd"
+      ],
+      "meetings": [],
+      "linked_sections": [
+        "15445",
+        "15447"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 34,
+        "seats_available": 34
+      }
+    },
+    {
+      "crn": "15445",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "101",
+      "title": "Advanced Calculus",
+      "schedule_type": "Laboratory",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "0",
+      "start_date": null,
+      "end_date": null,
+      "description": "Syllabus for MATH 3600-<a href=\"/search/?p=MATH%203610\" data-action=\"result-detail\" data-group=\"code:MATH 3610\" >3610</a>: a study of the foundations of the differential and integral calculus, including the real numbers and elementary topology, continuous and differentiable functions, uniform convergence of series of functions, and inverse and implicit function theorems. <a href=\"/search/?p=MATH%205080\" data-action=\"result-detail\" data-group=\"code:MATH 5080\"  class=\"notoffered\">MATH 5080</a>-<a href=\"/search/?p=MATH%205090\" data-action=\"result-detail\" data-group=\"code:MATH 5090\" >5090</a> is a masters level version of this course.",
+      "instructors": [],
+      "meetings": [],
+      "linked_sections": [
+        "15443"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 17,
+        "seats_available": 17
+      }
+    },
+    {
+      "crn": "15447",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "102",
+      "title": "Advanced Calculus",
+      "schedule_type": "Laboratory",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "0",
+      "start_date": null,
+      "end_date": null,
+      "description": "Syllabus for MATH 3600-<a href=\"/search/?p=MATH%203610\" data-action=\"result-detail\" data-group=\"code:MATH 3610\" >3610</a>: a study of the foundations of the differential and integral calculus, including the real numbers and elementary topology, continuous and differentiable functions, uniform convergence of series of functions, and inverse and implicit function theorems. <a href=\"/search/?p=MATH%205080\" data-action=\"result-detail\" data-group=\"code:MATH 5080\"  class=\"notoffered\">MATH 5080</a>-<a href=\"/search/?p=MATH%205090\" data-action=\"result-detail\" data-group=\"code:MATH 5090\" >5090</a> is a masters level version of this course.",
+      "instructors": [],
+      "meetings": [],
+      "linked_sections": [
+        "15443"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 17,
+        "seats_available": 17
+      }
     }
   ],
-  "last_updated": "2025-10-09T08:26:06.987456"
+  "last_updated": "2025-10-10T09:38:33.490636"
 }

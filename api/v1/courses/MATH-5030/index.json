@@ -257,7 +257,82 @@
         "max_enrollment": null,
         "seats_available": null
       }
+    },
+    {
+      "crn": "15394",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "001",
+      "title": "Abstract Algebra",
+      "schedule_type": "Lecture",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "1",
+      "start_date": null,
+      "end_date": null,
+      "description": "Continuation of Math 5020.",
+      "instructors": [
+        "Brett Frankel"
+      ],
+      "meetings": [],
+      "linked_sections": [
+        "15395",
+        "15396"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 34,
+        "seats_available": 34
+      }
+    },
+    {
+      "crn": "15395",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "101",
+      "title": "Abstract Algebra",
+      "schedule_type": "Laboratory",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "0",
+      "start_date": null,
+      "end_date": null,
+      "description": "Continuation of Math 5020.",
+      "instructors": [],
+      "meetings": [],
+      "linked_sections": [
+        "15394"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 17,
+        "seats_available": 17
+      }
+    },
+    {
+      "crn": "15396",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "102",
+      "title": "Abstract Algebra",
+      "schedule_type": "Laboratory",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "0",
+      "start_date": null,
+      "end_date": null,
+      "description": "Continuation of Math 5020.",
+      "instructors": [],
+      "meetings": [],
+      "linked_sections": [
+        "15394"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 17,
+        "seats_available": 17
+      }
     }
   ],
-  "last_updated": "2025-10-09T08:26:46.639349"
+  "last_updated": "2025-10-10T09:39:16.964350"
 }

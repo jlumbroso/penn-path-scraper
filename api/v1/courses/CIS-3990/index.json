@@ -276,7 +276,66 @@
         "max_enrollment": null,
         "seats_available": null
       }
+    },
+    {
+      "crn": "35116",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "001",
+      "title": "Intermediate Computer Systems",
+      "schedule_type": "Lecture",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "1",
+      "start_date": null,
+      "end_date": null,
+      "description": "Visit the CIS department website for descriptions of available Special Topics classes.",
+      "instructors": [
+        "Travis Mcgaha"
+      ],
+      "meetings": [],
+      "linked_sections": [
+        "35340"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 40,
+        "seats_available": 40
+      }
+    },
+    {
+      "crn": "35340",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "201",
+      "title": "Intermediate Computer Systems",
+      "schedule_type": "Recitation",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "0",
+      "start_date": null,
+      "end_date": null,
+      "description": "Visit the CIS department website for descriptions of available Special Topics classes.",
+      "instructors": [
+        "Travis Mcgaha"
+      ],
+      "meetings": [
+        {
+          "days": "R",
+          "start_time": "15:30:00",
+          "end_time": "16:59:00",
+          "location": ""
+        }
+      ],
+      "linked_sections": [
+        "35116"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 40,
+        "seats_available": 40
+      }
     }
   ],
-  "last_updated": "2025-10-09T08:26:17.806721"
+  "last_updated": "2025-10-10T09:38:45.168931"
 }

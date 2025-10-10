@@ -250,7 +250,89 @@
         "max_enrollment": null,
         "seats_available": null
       }
+    },
+    {
+      "crn": "15469",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "001",
+      "title": "Honors Calculus, Part II",
+      "schedule_type": "Lecture",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "0",
+      "start_date": null,
+      "end_date": null,
+      "description": "This is an honors version of Math 2400 which explores the same topics but with greater mathematical rigor.",
+      "instructors": [
+        "Herman Gluck"
+      ],
+      "meetings": [
+        {
+          "days": "TR",
+          "start_time": "13:45:00",
+          "end_time": "15:14:00",
+          "location": ""
+        }
+      ],
+      "linked_sections": [
+        "16959",
+        "16960"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 80,
+        "seats_available": 80
+      }
+    },
+    {
+      "crn": "16959",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "201",
+      "title": "Honors Calculus, Part II",
+      "schedule_type": "Recitation",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "1",
+      "start_date": null,
+      "end_date": null,
+      "description": "This is an honors version of Math 2400 which explores the same topics but with greater mathematical rigor.",
+      "instructors": [],
+      "meetings": [],
+      "linked_sections": [
+        "15469"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 40,
+        "seats_available": 40
+      }
+    },
+    {
+      "crn": "16960",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "202",
+      "title": "Honors Calculus, Part II",
+      "schedule_type": "Recitation",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "1",
+      "start_date": null,
+      "end_date": null,
+      "description": "This is an honors version of Math 2400 which explores the same topics but with greater mathematical rigor.",
+      "instructors": [],
+      "meetings": [],
+      "linked_sections": [
+        "15469"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 40,
+        "seats_available": 40
+      }
     }
   ],
-  "last_updated": "2025-10-09T08:26:46.558698"
+  "last_updated": "2025-10-10T09:39:16.873025"
 }

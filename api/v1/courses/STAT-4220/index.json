@@ -192,7 +192,38 @@
         "max_enrollment": null,
         "seats_available": null
       }
+    },
+    {
+      "crn": "33894",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "401",
+      "title": "Predictive Analytics for Business",
+      "schedule_type": "Lecture",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "0.5",
+      "start_date": null,
+      "end_date": null,
+      "description": "This course follows from the introductory regression classes, <a href=\"/search/?p=STAT%201020\" data-action=\"result-detail\" data-group=\"code:STAT 1020\" >STAT 1020</a>, <a href=\"/search/?p=STAT%201120\" data-action=\"result-detail\" data-group=\"code:STAT 1120\" >STAT 1120</a>, and <a href=\"/search/?p=STAT%204310\" data-action=\"result-detail\" data-group=\"code:STAT 4310\" >STAT 4310</a> for undergraduates and <a href=\"/search/?p=STAT%206130\" data-action=\"result-detail\" data-group=\"code:STAT 6130\"  class=\"notoffered\">STAT 6130</a> for MBAs. It extends the ideas from regression modeling, focusing on the core business task of predictive analytics as applied to realistic business related data sets. In particular it introduces automated model selection tools, such as stepwise regression and various current model selection criteria such as AIC and BIC. It delves into classification methodologies such as logistic regression. It also introduces classification and regression trees (CART) and the popular predictive methodologies known as random forest and boosted trees. By the end of the course the student will be familiar with and have applied these concepts and will be ready to use them in a work setting. The methodologies are implemented in a variety of software packages. Applications in JMP emphasize concepts and key modeling decisions. This course may be taken concurrently with the prerequisite with instructor permission.",
+      "instructors": [
+        "Richard Waterman"
+      ],
+      "meetings": [
+        {
+          "days": "MW",
+          "start_time": "13:45:00",
+          "end_time": "15:14:00",
+          "location": ""
+        }
+      ],
+      "linked_sections": [],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 30,
+        "seats_available": 30
+      }
     }
   ],
-  "last_updated": "2025-10-09T08:26:38.560808"
+  "last_updated": "2025-10-10T09:39:07.581807"
 }

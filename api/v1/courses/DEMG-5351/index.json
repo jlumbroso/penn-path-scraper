@@ -279,7 +279,103 @@
         "max_enrollment": null,
         "seats_available": null
       }
+    },
+    {
+      "crn": "10542",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "401",
+      "title": "Quantitative Methods II",
+      "schedule_type": "Lecture",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "1",
+      "start_date": null,
+      "end_date": null,
+      "description": "As the second part of a two-semester sequence, this graduate course focuses on regression analysis as used in social science research. In particular, we discuss features and assumptions of linear regression and logistic regression models. We learn how to apply regression models to real social science data using Stata and how to interpret the results.",
+      "instructors": [
+        "Hyunjoon Park"
+      ],
+      "meetings": [
+        {
+          "days": "R",
+          "start_time": "15:30:00",
+          "end_time": "17:29:00",
+          "location": ""
+        }
+      ],
+      "linked_sections": [
+        "10543",
+        "10544"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 40,
+        "seats_available": 40
+      }
+    },
+    {
+      "crn": "10543",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "402",
+      "title": "Quantitative Methods II",
+      "schedule_type": "Recitation",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "0",
+      "start_date": null,
+      "end_date": null,
+      "description": "As the second part of a two-semester sequence, this graduate course focuses on regression analysis as used in social science research. In particular, we discuss features and assumptions of linear regression and logistic regression models. We learn how to apply regression models to real social science data using Stata and how to interpret the results.",
+      "instructors": [],
+      "meetings": [
+        {
+          "days": "F",
+          "start_time": "10:15:00",
+          "end_time": "11:14:00",
+          "location": ""
+        }
+      ],
+      "linked_sections": [
+        "10542"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 20,
+        "seats_available": 20
+      }
+    },
+    {
+      "crn": "10544",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "403",
+      "title": "Quantitative Methods II",
+      "schedule_type": "Recitation",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "0",
+      "start_date": null,
+      "end_date": null,
+      "description": "As the second part of a two-semester sequence, this graduate course focuses on regression analysis as used in social science research. In particular, we discuss features and assumptions of linear regression and logistic regression models. We learn how to apply regression models to real social science data using Stata and how to interpret the results.",
+      "instructors": [],
+      "meetings": [
+        {
+          "days": "F",
+          "start_time": "13:45:00",
+          "end_time": "14:44:00",
+          "location": ""
+        }
+      ],
+      "linked_sections": [
+        "10542"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 20,
+        "seats_available": 20
+      }
     }
   ],
-  "last_updated": "2025-10-09T08:26:44.129592"
+  "last_updated": "2025-10-10T09:39:13.970635"
 }

@@ -94,7 +94,38 @@
         "max_enrollment": null,
         "seats_available": null
       }
+    },
+    {
+      "crn": "14333",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "401",
+      "title": "Computer Organization and Design",
+      "schedule_type": "Lecture",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "1",
+      "start_date": null,
+      "end_date": null,
+      "description": "This is the second computer organization course and focuses on computer hardware design. Topics covered are: (1) basic digital system design including finite state machines, (2) instruction set design and simple RISC assembly programming, (3) quantitative evaluation of computer performance, (4) circuits for integer and floating-point arithmatic, (5) datapath and control, (6) micro-programming, (7) pipeling, (8) storage hierarchy and virtual memory, (9) input/output, (10) different forms of parallelism including instruction level parallelism, data-level parallelism using both vectors and message-passing multi-processors, and thread-level parallelism using shared memory multiprocessors. Basic cache coherence and synchronization. Prerequisite: Knowledge of at least one programming language.",
+      "instructors": [
+        "Joseph Devietti"
+      ],
+      "meetings": [
+        {
+          "days": "MW",
+          "start_time": "10:15:00",
+          "end_time": "11:44:00",
+          "location": ""
+        }
+      ],
+      "linked_sections": [],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 300,
+        "seats_available": 300
+      }
     }
   ],
-  "last_updated": "2025-10-09T08:26:49.532175"
+  "last_updated": "2025-10-10T09:39:20.466691"
 }

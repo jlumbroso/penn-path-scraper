@@ -259,7 +259,107 @@
         "max_enrollment": null,
         "seats_available": null
       }
+    },
+    {
+      "crn": "12476",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "001",
+      "title": "Fundamentals of Solid-State Circuits",
+      "schedule_type": "Lecture",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "1.5",
+      "start_date": null,
+      "end_date": null,
+      "description": "Analysis and design of basic active circuits involving semiconductor devices including diodes and bipolar transistors. Single stage, differential, multi-stage, and operational amplifiers will be discussed including their high frequency response. Wave shaping circuits, filters, feedback, stability, and power amplifiers will also be covered. A weekly three-hour laboratory will illustrate concepts and circuits discussed in the class.",
+      "instructors": [
+        "Thomas Farmer"
+      ],
+      "meetings": [
+        {
+          "days": "TR",
+          "start_time": "10:15:00",
+          "end_time": "11:44:00",
+          "location": ""
+        }
+      ],
+      "linked_sections": [
+        "12477",
+        "26960"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 40,
+        "seats_available": 40
+      }
+    },
+    {
+      "crn": "12477",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "101",
+      "title": "Fundamentals of Solid-State Circuits",
+      "schedule_type": "Laboratory",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "0",
+      "start_date": null,
+      "end_date": null,
+      "description": "Analysis and design of basic active circuits involving semiconductor devices including diodes and bipolar transistors. Single stage, differential, multi-stage, and operational amplifiers will be discussed including their high frequency response. Wave shaping circuits, filters, feedback, stability, and power amplifiers will also be covered. A weekly three-hour laboratory will illustrate concepts and circuits discussed in the class.",
+      "instructors": [
+        "Thomas Farmer"
+      ],
+      "meetings": [
+        {
+          "days": "W",
+          "start_time": "17:15:00",
+          "end_time": "20:14:00",
+          "location": ""
+        }
+      ],
+      "linked_sections": [
+        "12476"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 25,
+        "seats_available": 25
+      }
+    },
+    {
+      "crn": "26960",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "102",
+      "title": "Fundamentals of Solid-State Circuits",
+      "schedule_type": "Laboratory",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "0",
+      "start_date": null,
+      "end_date": null,
+      "description": "Analysis and design of basic active circuits involving semiconductor devices including diodes and bipolar transistors. Single stage, differential, multi-stage, and operational amplifiers will be discussed including their high frequency response. Wave shaping circuits, filters, feedback, stability, and power amplifiers will also be covered. A weekly three-hour laboratory will illustrate concepts and circuits discussed in the class.",
+      "instructors": [
+        "Thomas Farmer"
+      ],
+      "meetings": [
+        {
+          "days": "F",
+          "start_time": "17:15:00",
+          "end_time": "20:14:00",
+          "location": ""
+        }
+      ],
+      "linked_sections": [
+        "12476"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 25,
+        "seats_available": 25
+      }
     }
   ],
-  "last_updated": "2025-10-09T08:26:50.365701"
+  "last_updated": "2025-10-10T09:39:21.322406"
 }

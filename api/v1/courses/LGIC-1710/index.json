@@ -512,7 +512,103 @@
         "max_enrollment": null,
         "seats_available": null
       }
+    },
+    {
+      "crn": "12734",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "401",
+      "title": "Introduction to Logic",
+      "schedule_type": "Lecture",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "1",
+      "start_date": null,
+      "end_date": null,
+      "description": "This course provides an introduction to some of the fundamental ideas of logic. Topics will include truth functional logic, quantificational logic, and logical decision problems.",
+      "instructors": [
+        "Daniel Singer"
+      ],
+      "meetings": [
+        {
+          "days": "TR",
+          "start_time": "10:15:00",
+          "end_time": "11:14:00",
+          "location": ""
+        }
+      ],
+      "linked_sections": [
+        "12736",
+        "12738"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 40,
+        "seats_available": 40
+      }
+    },
+    {
+      "crn": "12736",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "402",
+      "title": "Introduction to Logic",
+      "schedule_type": "Recitation",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "0",
+      "start_date": null,
+      "end_date": null,
+      "description": "This course provides an introduction to some of the fundamental ideas of logic. Topics will include truth functional logic, quantificational logic, and logical decision problems.",
+      "instructors": [],
+      "meetings": [
+        {
+          "days": "F",
+          "start_time": "08:30:00",
+          "end_time": "09:29:00",
+          "location": ""
+        }
+      ],
+      "linked_sections": [
+        "12734"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 20,
+        "seats_available": 20
+      }
+    },
+    {
+      "crn": "12738",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "403",
+      "title": "Introduction to Logic",
+      "schedule_type": "Recitation",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "0",
+      "start_date": null,
+      "end_date": null,
+      "description": "This course provides an introduction to some of the fundamental ideas of logic. Topics will include truth functional logic, quantificational logic, and logical decision problems.",
+      "instructors": [],
+      "meetings": [
+        {
+          "days": "F",
+          "start_time": "10:15:00",
+          "end_time": "11:14:00",
+          "location": ""
+        }
+      ],
+      "linked_sections": [
+        "12734"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 20,
+        "seats_available": 20
+      }
     }
   ],
-  "last_updated": "2025-10-09T08:26:05.153242"
+  "last_updated": "2025-10-10T09:38:31.615681"
 }

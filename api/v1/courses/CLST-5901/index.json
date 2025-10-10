@@ -454,7 +454,73 @@
         "max_enrollment": null,
         "seats_available": null
       }
+    },
+    {
+      "crn": "13606",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "601",
+      "title": "Post-Baccalaureate Studies in Greek",
+      "schedule_type": "Lecture",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "1",
+      "start_date": null,
+      "end_date": null,
+      "description": "Intensive Greek reading course for students in the Post-Baccalaureate Program in Classical Studies. Readings are chosen to expose students to a variety of prose and poetry texts during their program experience. The Fall course includes some grammar review and analysis as well as translation. Permission of instructor required for non-Post-Baccalaureate students.",
+      "instructors": [
+        "Amelia Bensch-Schaus"
+      ],
+      "meetings": [
+        {
+          "days": "MW",
+          "start_time": "13:45:00",
+          "end_time": "14:44:00",
+          "location": ""
+        }
+      ],
+      "linked_sections": [
+        "34188"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 16,
+        "seats_available": 16
+      }
+    },
+    {
+      "crn": "34188",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "602",
+      "title": "Post-Baccalaureate Studies in Greek",
+      "schedule_type": "Recitation",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "0",
+      "start_date": null,
+      "end_date": null,
+      "description": "Intensive Greek reading course for students in the Post-Baccalaureate Program in Classical Studies. Readings are chosen to expose students to a variety of prose and poetry texts during their program experience. The Fall course includes some grammar review and analysis as well as translation. Permission of instructor required for non-Post-Baccalaureate students.",
+      "instructors": [
+        "Louis Polcin"
+      ],
+      "meetings": [
+        {
+          "days": "F",
+          "start_time": "13:45:00",
+          "end_time": "14:44:00",
+          "location": ""
+        }
+      ],
+      "linked_sections": [
+        "13606"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 16,
+        "seats_available": 16
+      }
     }
   ],
-  "last_updated": "2025-10-09T08:25:58.566968"
+  "last_updated": "2025-10-10T09:38:24.474725"
 }

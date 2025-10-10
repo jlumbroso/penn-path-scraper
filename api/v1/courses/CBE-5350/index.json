@@ -131,7 +131,59 @@
         "max_enrollment": null,
         "seats_available": null
       }
+    },
+    {
+      "crn": "16985",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "001",
+      "title": "Interfacial Phenomena",
+      "schedule_type": "Lecture",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "1",
+      "start_date": null,
+      "end_date": null,
+      "description": "This course provides an overview of fundamental concepts in colloid and interface science. Topics include the thermodynamics of interfaces, interfacial interactions (e.g. van der Waal's interactions, electrostatics, steric interactions), adsorption, the hydrodynamics and stability of interfacial systems, self assembly, etc. Connections to self-assembly and directed assembly of nanomaterials and emerging topics are explored. Pre-requisites: undergraduate thermodynamics, some familiarity with concepts of transport phenomena (including fluid flow and mass transfer) and differential equations",
+      "instructors": [
+        "Kathleen Stebe"
+      ],
+      "meetings": [],
+      "linked_sections": [
+        "24163"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 20,
+        "seats_available": 20
+      }
+    },
+    {
+      "crn": "24163",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "201",
+      "title": "Interfacial Phenomena",
+      "schedule_type": "Recitation",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "0",
+      "start_date": null,
+      "end_date": null,
+      "description": "This course provides an overview of fundamental concepts in colloid and interface science. Topics include the thermodynamics of interfaces, interfacial interactions (e.g. van der Waal's interactions, electrostatics, steric interactions), adsorption, the hydrodynamics and stability of interfacial systems, self assembly, etc. Connections to self-assembly and directed assembly of nanomaterials and emerging topics are explored. Pre-requisites: undergraduate thermodynamics, some familiarity with concepts of transport phenomena (including fluid flow and mass transfer) and differential equations",
+      "instructors": [
+        "Kathleen Stebe"
+      ],
+      "meetings": [],
+      "linked_sections": [
+        "16985"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 20,
+        "seats_available": 20
+      }
     }
   ],
-  "last_updated": "2025-10-09T08:26:49.420051"
+  "last_updated": "2025-10-10T09:39:20.330207"
 }

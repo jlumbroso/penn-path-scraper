@@ -196,7 +196,38 @@
         "max_enrollment": null,
         "seats_available": null
       }
+    },
+    {
+      "crn": "15042",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "160",
+      "title": "Physics Laboratory I",
+      "schedule_type": "Laboratory",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "0.5",
+      "start_date": null,
+      "end_date": null,
+      "description": "Experiments in classical mechanics.",
+      "instructors": [
+        "Peter Harnish"
+      ],
+      "meetings": [
+        {
+          "days": "M",
+          "start_time": "17:15:00",
+          "end_time": "19:14:00",
+          "location": ""
+        }
+      ],
+      "linked_sections": [],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 5,
+        "seats_available": 5
+      }
     }
   ],
-  "last_updated": "2025-10-09T08:26:09.082848"
+  "last_updated": "2025-10-10T09:38:35.760185"
 }

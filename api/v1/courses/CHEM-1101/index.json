@@ -5022,7 +5022,288 @@
         "max_enrollment": null,
         "seats_available": null
       }
+    },
+    {
+      "crn": "11759",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "001",
+      "title": "General Chemistry Laboratory I",
+      "schedule_type": "Lecture",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "0",
+      "start_date": null,
+      "end_date": null,
+      "description": "A general laboratory course covering aspects of qualitative and quantitative analysis, determination of chemical and physical properties, and chemical synthesis.",
+      "instructors": [
+        "Jenine Maeyer"
+      ],
+      "meetings": [
+        {
+          "days": "T",
+          "start_time": "15:30:00",
+          "end_time": "16:29:00",
+          "location": ""
+        }
+      ],
+      "linked_sections": [
+        "22143",
+        "22146",
+        "22149",
+        "22150",
+        "22151",
+        "24079",
+        "24080",
+        "24081"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 128,
+        "seats_available": 128
+      }
+    },
+    {
+      "crn": "22146",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "154",
+      "title": "General Chemistry Laboratory I",
+      "schedule_type": "Laboratory",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "0.5",
+      "start_date": null,
+      "end_date": null,
+      "description": "A general laboratory course covering aspects of qualitative and quantitative analysis, determination of chemical and physical properties, and chemical synthesis.",
+      "instructors": [],
+      "meetings": [],
+      "linked_sections": [
+        "11759"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 16,
+        "seats_available": 16
+      }
+    },
+    {
+      "crn": "24079",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "164",
+      "title": "General Chemistry Laboratory I",
+      "schedule_type": "Laboratory",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "0.5",
+      "start_date": null,
+      "end_date": null,
+      "description": "A general laboratory course covering aspects of qualitative and quantitative analysis, determination of chemical and physical properties, and chemical synthesis.",
+      "instructors": [],
+      "meetings": [
+        {
+          "days": "W",
+          "start_time": "15:30:00",
+          "end_time": "18:29:00",
+          "location": ""
+        }
+      ],
+      "linked_sections": [
+        "11759"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 16,
+        "seats_available": 16
+      }
+    },
+    {
+      "crn": "24080",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "165",
+      "title": "General Chemistry Laboratory I",
+      "schedule_type": "Laboratory",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "0.5",
+      "start_date": null,
+      "end_date": null,
+      "description": "A general laboratory course covering aspects of qualitative and quantitative analysis, determination of chemical and physical properties, and chemical synthesis.",
+      "instructors": [],
+      "meetings": [
+        {
+          "days": "W",
+          "start_time": "15:30:00",
+          "end_time": "18:29:00",
+          "location": ""
+        }
+      ],
+      "linked_sections": [
+        "11759"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 16,
+        "seats_available": 16
+      }
+    },
+    {
+      "crn": "24081",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "166",
+      "title": "General Chemistry Laboratory I",
+      "schedule_type": "Laboratory",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "0.5",
+      "start_date": null,
+      "end_date": null,
+      "description": "A general laboratory course covering aspects of qualitative and quantitative analysis, determination of chemical and physical properties, and chemical synthesis.",
+      "instructors": [],
+      "meetings": [
+        {
+          "days": "W",
+          "start_time": "15:30:00",
+          "end_time": "18:29:00",
+          "location": ""
+        }
+      ],
+      "linked_sections": [
+        "11759"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 16,
+        "seats_available": 16
+      }
+    },
+    {
+      "crn": "22143",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "174",
+      "title": "General Chemistry Laboratory I",
+      "schedule_type": "Laboratory",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "0.5",
+      "start_date": null,
+      "end_date": null,
+      "description": "A general laboratory course covering aspects of qualitative and quantitative analysis, determination of chemical and physical properties, and chemical synthesis.",
+      "instructors": [],
+      "meetings": [
+        {
+          "days": "R",
+          "start_time": "10:15:00",
+          "end_time": "13:14:00",
+          "location": ""
+        }
+      ],
+      "linked_sections": [
+        "11759"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 16,
+        "seats_available": 16
+      }
+    },
+    {
+      "crn": "22149",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "184",
+      "title": "General Chemistry Laboratory I",
+      "schedule_type": "Laboratory",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "0.5",
+      "start_date": null,
+      "end_date": null,
+      "description": "A general laboratory course covering aspects of qualitative and quantitative analysis, determination of chemical and physical properties, and chemical synthesis.",
+      "instructors": [],
+      "meetings": [
+        {
+          "days": "R",
+          "start_time": "13:45:00",
+          "end_time": "16:44:00",
+          "location": ""
+        }
+      ],
+      "linked_sections": [
+        "11759"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 16,
+        "seats_available": 16
+      }
+    },
+    {
+      "crn": "22150",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "185",
+      "title": "General Chemistry Laboratory I",
+      "schedule_type": "Laboratory",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "0.5",
+      "start_date": null,
+      "end_date": null,
+      "description": "A general laboratory course covering aspects of qualitative and quantitative analysis, determination of chemical and physical properties, and chemical synthesis.",
+      "instructors": [],
+      "meetings": [
+        {
+          "days": "R",
+          "start_time": "13:45:00",
+          "end_time": "16:44:00",
+          "location": ""
+        }
+      ],
+      "linked_sections": [
+        "11759"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 16,
+        "seats_available": 16
+      }
+    },
+    {
+      "crn": "22151",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "186",
+      "title": "General Chemistry Laboratory I",
+      "schedule_type": "Laboratory",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "0.5",
+      "start_date": null,
+      "end_date": null,
+      "description": "A general laboratory course covering aspects of qualitative and quantitative analysis, determination of chemical and physical properties, and chemical synthesis.",
+      "instructors": [],
+      "meetings": [
+        {
+          "days": "R",
+          "start_time": "13:45:00",
+          "end_time": "16:44:00",
+          "location": ""
+        }
+      ],
+      "linked_sections": [
+        "11759"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 16,
+        "seats_available": 16
+      }
     }
   ],
-  "last_updated": "2025-10-09T08:25:56.146390"
+  "last_updated": "2025-10-10T09:38:21.819653"
 }

@@ -181,7 +181,73 @@
         "max_enrollment": null,
         "seats_available": null
       }
+    },
+    {
+      "crn": "34272",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "001",
+      "title": "Human Physiology",
+      "schedule_type": "Lecture",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "1",
+      "start_date": null,
+      "end_date": null,
+      "description": "This course examines the physiological mechanisms underlying homeostasis in humans. Integration from the cellular to organismal level as well as cooperation of multiple organ systems will be explored. Examples of pathophysiology during disease states will be discussed and highlighted. Although the focus will be on humans, we will study comparative aspects from other vertebrate and non-vertebrate organisms.",
+      "instructors": [
+        "Xiaohong Witmer"
+      ],
+      "meetings": [
+        {
+          "days": "MW",
+          "start_time": "15:30:00",
+          "end_time": "16:59:00",
+          "location": ""
+        }
+      ],
+      "linked_sections": [
+        "35211"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 75,
+        "seats_available": 75
+      }
+    },
+    {
+      "crn": "35211",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "201",
+      "title": "Human Physiology",
+      "schedule_type": "Recitation",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "0",
+      "start_date": null,
+      "end_date": null,
+      "description": "This course examines the physiological mechanisms underlying homeostasis in humans. Integration from the cellular to organismal level as well as cooperation of multiple organ systems will be explored. Examples of pathophysiology during disease states will be discussed and highlighted. Although the focus will be on humans, we will study comparative aspects from other vertebrate and non-vertebrate organisms.",
+      "instructors": [
+        "Xiaohong Witmer"
+      ],
+      "meetings": [
+        {
+          "days": "F",
+          "start_time": "10:15:00",
+          "end_time": "11:14:00",
+          "location": ""
+        }
+      ],
+      "linked_sections": [
+        "34272"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 75,
+        "seats_available": 75
+      }
     }
   ],
-  "last_updated": "2025-10-09T08:27:03.318481"
+  "last_updated": "2025-10-10T09:39:36.500677"
 }

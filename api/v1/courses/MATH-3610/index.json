@@ -745,7 +745,164 @@
         "max_enrollment": null,
         "seats_available": null
       }
+    },
+    {
+      "crn": "15438",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "001",
+      "title": "Advanced Calculus",
+      "schedule_type": "Lecture",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "1",
+      "start_date": null,
+      "end_date": null,
+      "description": "Continuation of <a href=\"/search/?p=MATH%203600\" data-action=\"result-detail\" data-group=\"code:MATH 3600\" >MATH 3600</a>.",
+      "instructors": [
+        "Andrew Cooper"
+      ],
+      "meetings": [
+        {
+          "days": "TR",
+          "start_time": "13:45:00",
+          "end_time": "15:14:00",
+          "location": ""
+        }
+      ],
+      "linked_sections": [
+        "15440",
+        "15441"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 50,
+        "seats_available": 50
+      }
+    },
+    {
+      "crn": "23320",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "002",
+      "title": "Advanced Calculus",
+      "schedule_type": "Lecture",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "1",
+      "start_date": null,
+      "end_date": null,
+      "description": "Continuation of <a href=\"/search/?p=MATH%203600\" data-action=\"result-detail\" data-group=\"code:MATH 3600\" >MATH 3600</a>.",
+      "instructors": [
+        "Robert Strain"
+      ],
+      "meetings": [],
+      "linked_sections": [
+        "23321",
+        "23322"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 45,
+        "seats_available": 45
+      }
+    },
+    {
+      "crn": "15440",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "101",
+      "title": "Advanced Calculus",
+      "schedule_type": "Laboratory",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "0",
+      "start_date": null,
+      "end_date": null,
+      "description": "Continuation of <a href=\"/search/?p=MATH%203600\" data-action=\"result-detail\" data-group=\"code:MATH 3600\" >MATH 3600</a>.",
+      "instructors": [],
+      "meetings": [],
+      "linked_sections": [
+        "15438"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 25,
+        "seats_available": 25
+      }
+    },
+    {
+      "crn": "15441",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "102",
+      "title": "Advanced Calculus",
+      "schedule_type": "Laboratory",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "0",
+      "start_date": null,
+      "end_date": null,
+      "description": "Continuation of <a href=\"/search/?p=MATH%203600\" data-action=\"result-detail\" data-group=\"code:MATH 3600\" >MATH 3600</a>.",
+      "instructors": [],
+      "meetings": [],
+      "linked_sections": [
+        "15438"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 25,
+        "seats_available": 25
+      }
+    },
+    {
+      "crn": "23321",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "103",
+      "title": "Advanced Calculus",
+      "schedule_type": "Laboratory",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "0",
+      "start_date": null,
+      "end_date": null,
+      "description": "Continuation of <a href=\"/search/?p=MATH%203600\" data-action=\"result-detail\" data-group=\"code:MATH 3600\" >MATH 3600</a>.",
+      "instructors": [],
+      "meetings": [],
+      "linked_sections": [
+        "23320"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 22,
+        "seats_available": 22
+      }
+    },
+    {
+      "crn": "23322",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "104",
+      "title": "Advanced Calculus",
+      "schedule_type": "Laboratory",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "0",
+      "start_date": null,
+      "end_date": null,
+      "description": "Continuation of <a href=\"/search/?p=MATH%203600\" data-action=\"result-detail\" data-group=\"code:MATH 3600\" >MATH 3600</a>.",
+      "instructors": [],
+      "meetings": [],
+      "linked_sections": [
+        "23320"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 23,
+        "seats_available": 23
+      }
     }
   ],
-  "last_updated": "2025-10-09T08:26:07.029005"
+  "last_updated": "2025-10-10T09:38:33.539708"
 }

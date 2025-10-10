@@ -293,7 +293,91 @@
         "max_enrollment": null,
         "seats_available": null
       }
+    },
+    {
+      "crn": "12183",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "001",
+      "title": "Pediatric Acute Care NP: Professional Role and Intermediate Clinical Practice",
+      "schedule_type": "Lecture",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "1",
+      "start_date": null,
+      "end_date": null,
+      "description": "This course focuses on the implementation of the professional role of the Pediatric Acute Care Nurse Practitioner (PNP-AC). Particular emphasis is placed on the role components of the nurse practitioner in pediatric acute care. Applications of nursing, biological and behavioral science are emphasized in the advanced clinical assessment, clinical decision making and management skills needed to care for complex, unstable acutely and chronically ill children and their families. The role of the advanced practice nurse in promoting optimal child/family outcomes is emphasized.",
+      "instructors": [
+        "Jamie Carey",
+        "Jessica Strohm Farber"
+      ],
+      "meetings": [
+        {
+          "days": "W",
+          "start_time": "08:30:00",
+          "end_time": "11:29:00",
+          "location": ""
+        }
+      ],
+      "linked_sections": [
+        "12184;12199"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 20,
+        "seats_available": 20
+      }
+    },
+    {
+      "crn": "12184",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "101",
+      "title": "Pediatric Acute Care NP: Professional Role and Intermediate Clinical Practice",
+      "schedule_type": "Clinical",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "0",
+      "start_date": null,
+      "end_date": null,
+      "description": "This course focuses on the implementation of the professional role of the Pediatric Acute Care Nurse Practitioner (PNP-AC). Particular emphasis is placed on the role components of the nurse practitioner in pediatric acute care. Applications of nursing, biological and behavioral science are emphasized in the advanced clinical assessment, clinical decision making and management skills needed to care for complex, unstable acutely and chronically ill children and their families. The role of the advanced practice nurse in promoting optimal child/family outcomes is emphasized.",
+      "instructors": [
+        "Cynthia Schmus"
+      ],
+      "meetings": [],
+      "linked_sections": [
+        "12183;12199"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 40,
+        "seats_available": 40
+      }
+    },
+    {
+      "crn": "12199",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "201",
+      "title": "Pediatric Acute Care NP: Professional Role and Intermediate Clinical Practice",
+      "schedule_type": "Recitation",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "0",
+      "start_date": null,
+      "end_date": null,
+      "description": "This course focuses on the implementation of the professional role of the Pediatric Acute Care Nurse Practitioner (PNP-AC). Particular emphasis is placed on the role components of the nurse practitioner in pediatric acute care. Applications of nursing, biological and behavioral science are emphasized in the advanced clinical assessment, clinical decision making and management skills needed to care for complex, unstable acutely and chronically ill children and their families. The role of the advanced practice nurse in promoting optimal child/family outcomes is emphasized.",
+      "instructors": [],
+      "meetings": [],
+      "linked_sections": [
+        "12184;12183"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 40,
+        "seats_available": 40
+      }
     }
   ],
-  "last_updated": "2025-10-09T08:26:55.779295"
+  "last_updated": "2025-10-10T09:39:27.941477"
 }

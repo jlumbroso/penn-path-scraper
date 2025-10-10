@@ -332,7 +332,73 @@
         "max_enrollment": null,
         "seats_available": null
       }
+    },
+    {
+      "crn": "30028",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "001",
+      "title": "Design of Mechatronic Systems",
+      "schedule_type": "Lecture",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "1",
+      "start_date": null,
+      "end_date": null,
+      "description": "In many modern systems, mechanical elements are tightly coupled with electronic components and embedded computers. Mechatronics is the study of how these domains are interconnected. This hands-on, project-based course teaches: MECHANICAL elements --prototyping (lasercutting, 3D printing), microcontrollers (ATmega32-u4, <a href=\"/search/?p=ESP32\" data-action=\"result-detail\" data-group=\"code:ESP32\"  class=\"notoffered\">ESP32</a>), actuators (DC motors, servos, solenoids, LEDS) and sensor (light, sound, touch, force sensors), ELECTRONICS -- basic circuits, filters, op amps, discrete logic, sensing and control of voltage and current, and COMPUTING -- interfacing with the analog world, microprocessor technology, basic control theory, wireless communication and structured embedded programming (including register level) and some web programming. Prerequisite: knowledge of structured programming language (C, C++ preferred).",
+      "instructors": [
+        "Jessica Weakly"
+      ],
+      "meetings": [
+        {
+          "days": "MW",
+          "start_time": "13:45:00",
+          "end_time": "15:14:00",
+          "location": ""
+        }
+      ],
+      "linked_sections": [
+        "30029"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 70,
+        "seats_available": 70
+      }
+    },
+    {
+      "crn": "30029",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "201",
+      "title": "Design of Mechatronic Systems",
+      "schedule_type": "Recitation",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "0",
+      "start_date": null,
+      "end_date": null,
+      "description": "In many modern systems, mechanical elements are tightly coupled with electronic components and embedded computers. Mechatronics is the study of how these domains are interconnected. This hands-on, project-based course teaches: MECHANICAL elements --prototyping (lasercutting, 3D printing), microcontrollers (ATmega32-u4, <a href=\"/search/?p=ESP32\" data-action=\"result-detail\" data-group=\"code:ESP32\"  class=\"notoffered\">ESP32</a>), actuators (DC motors, servos, solenoids, LEDS) and sensor (light, sound, touch, force sensors), ELECTRONICS -- basic circuits, filters, op amps, discrete logic, sensing and control of voltage and current, and COMPUTING -- interfacing with the analog world, microprocessor technology, basic control theory, wireless communication and structured embedded programming (including register level) and some web programming. Prerequisite: knowledge of structured programming language (C, C++ preferred).",
+      "instructors": [
+        "Jessica Weakly"
+      ],
+      "meetings": [
+        {
+          "days": "F",
+          "start_time": "13:45:00",
+          "end_time": "14:44:00",
+          "location": ""
+        }
+      ],
+      "linked_sections": [
+        "30028"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 70,
+        "seats_available": 70
+      }
     }
   ],
-  "last_updated": "2025-10-09T08:26:21.233716"
+  "last_updated": "2025-10-10T09:38:49.007530"
 }

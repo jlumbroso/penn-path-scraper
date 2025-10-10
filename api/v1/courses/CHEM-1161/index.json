@@ -296,7 +296,96 @@
         "max_enrollment": null,
         "seats_available": null
       }
+    },
+    {
+      "crn": "17545",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "001",
+      "title": "Honors Chemistry II",
+      "schedule_type": "Lecture",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "1",
+      "start_date": null,
+      "end_date": null,
+      "description": "An advanced course for students who have had very strong background in Chemistry in High School (AP, IB, or equivalent). Advanced material from the general chemistry curriculum will be covered in the context topics selected from current research areas. A continuation of <a href=\"/search/?p=CHEM%201151\" data-action=\"result-detail\" data-group=\"code:CHEM 1151\"  class=\"notoffered\">CHEM 1151</a>: Honors Chemistry I, CHEM 1161: Honors Chemistry II will focus on topics in biochemistry and biophysical chemistry relating to thermodynamics, equilibrium, kinetics, and electrochemistry. Prerequisite: Advanced High School Chemistry (AP or equivalent).",
+      "instructors": [
+        "Anthony Cirri"
+      ],
+      "meetings": [],
+      "linked_sections": [
+        "17547",
+        "29177"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 40,
+        "seats_available": 40
+      }
+    },
+    {
+      "crn": "29177",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "201",
+      "title": "Honors Chemistry II",
+      "schedule_type": "Recitation",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "0",
+      "start_date": null,
+      "end_date": null,
+      "description": "An advanced course for students who have had very strong background in Chemistry in High School (AP, IB, or equivalent). Advanced material from the general chemistry curriculum will be covered in the context topics selected from current research areas. A continuation of <a href=\"/search/?p=CHEM%201151\" data-action=\"result-detail\" data-group=\"code:CHEM 1151\"  class=\"notoffered\">CHEM 1151</a>: Honors Chemistry I, CHEM 1161: Honors Chemistry II will focus on topics in biochemistry and biophysical chemistry relating to thermodynamics, equilibrium, kinetics, and electrochemistry. Prerequisite: Advanced High School Chemistry (AP or equivalent).",
+      "instructors": [],
+      "meetings": [
+        {
+          "days": "F",
+          "start_time": "08:30:00",
+          "end_time": "09:29:00",
+          "location": ""
+        }
+      ],
+      "linked_sections": [
+        "17545"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 20,
+        "seats_available": 20
+      }
+    },
+    {
+      "crn": "17547",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "202",
+      "title": "Honors Chemistry II",
+      "schedule_type": "Recitation",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "0",
+      "start_date": null,
+      "end_date": null,
+      "description": "An advanced course for students who have had very strong background in Chemistry in High School (AP, IB, or equivalent). Advanced material from the general chemistry curriculum will be covered in the context topics selected from current research areas. A continuation of <a href=\"/search/?p=CHEM%201151\" data-action=\"result-detail\" data-group=\"code:CHEM 1151\"  class=\"notoffered\">CHEM 1151</a>: Honors Chemistry I, CHEM 1161: Honors Chemistry II will focus on topics in biochemistry and biophysical chemistry relating to thermodynamics, equilibrium, kinetics, and electrochemistry. Prerequisite: Advanced High School Chemistry (AP or equivalent).",
+      "instructors": [],
+      "meetings": [
+        {
+          "days": "F",
+          "start_time": "15:30:00",
+          "end_time": "16:29:00",
+          "location": ""
+        }
+      ],
+      "linked_sections": [
+        "17545"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 20,
+        "seats_available": 20
+      }
     }
   ],
-  "last_updated": "2025-10-09T08:26:43.187852"
+  "last_updated": "2025-10-10T09:39:12.775240"
 }

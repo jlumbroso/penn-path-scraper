@@ -662,7 +662,158 @@
         "max_enrollment": null,
         "seats_available": null
       }
+    },
+    {
+      "crn": "15041",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "001",
+      "title": "Algorithms and Computation",
+      "schedule_type": "Lecture",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "1",
+      "start_date": null,
+      "end_date": null,
+      "description": "This course focuses primarily on the design and analysis of algorithms. We will begin with sorting and searching algorithms and then spend most of the course on graph algorithms. In order to study graph algorithms, general algorithm design patterns like dynamic programming and greedy algorithms will be introduced. A section of this course is also devoted to understanding NP-Completeness.",
+      "instructors": [
+        "Arvind Bhusnurmath"
+      ],
+      "meetings": [
+        {
+          "days": "TR",
+          "start_time": "13:45:00",
+          "end_time": "15:14:00",
+          "location": ""
+        }
+      ],
+      "linked_sections": [
+        "15144",
+        "15145",
+        "15146"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 100,
+        "seats_available": 100
+      }
+    },
+    {
+      "crn": "15144",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "201",
+      "title": "Algorithms and Computation",
+      "schedule_type": "Recitation",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "0",
+      "start_date": null,
+      "end_date": null,
+      "description": "This course focuses primarily on the design and analysis of algorithms. We will begin with sorting and searching algorithms and then spend most of the course on graph algorithms. In order to study graph algorithms, general algorithm design patterns like dynamic programming and greedy algorithms will be introduced. A section of this course is also devoted to understanding NP-Completeness.",
+      "instructors": [
+        "Arvind Bhusnurmath"
+      ],
+      "meetings": [
+        {
+          "days": "F",
+          "start_time": "10:15:00",
+          "end_time": "11:44:00",
+          "location": ""
+        }
+      ],
+      "linked_sections": [
+        "15041"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 48,
+        "seats_available": 48
+      }
+    },
+    {
+      "crn": "15145",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "202",
+      "title": "Algorithms and Computation",
+      "schedule_type": "Recitation",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "0",
+      "start_date": null,
+      "end_date": null,
+      "description": "This course focuses primarily on the design and analysis of algorithms. We will begin with sorting and searching algorithms and then spend most of the course on graph algorithms. In order to study graph algorithms, general algorithm design patterns like dynamic programming and greedy algorithms will be introduced. A section of this course is also devoted to understanding NP-Completeness.",
+      "instructors": [
+        "Arvind Bhusnurmath"
+      ],
+      "meetings": [],
+      "linked_sections": [
+        "15041"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 48,
+        "seats_available": 48
+      }
+    },
+    {
+      "crn": "15146",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "203",
+      "title": "Algorithms and Computation",
+      "schedule_type": "Recitation",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "0",
+      "start_date": null,
+      "end_date": null,
+      "description": "This course focuses primarily on the design and analysis of algorithms. We will begin with sorting and searching algorithms and then spend most of the course on graph algorithms. In order to study graph algorithms, general algorithm design patterns like dynamic programming and greedy algorithms will be introduced. A section of this course is also devoted to understanding NP-Completeness.",
+      "instructors": [
+        "Arvind Bhusnurmath"
+      ],
+      "meetings": [
+        {
+          "days": "F",
+          "start_time": "15:30:00",
+          "end_time": "16:59:00",
+          "location": ""
+        }
+      ],
+      "linked_sections": [
+        "15041"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 44,
+        "seats_available": 44
+      }
+    },
+    {
+      "crn": "17653",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "501",
+      "title": "Algorithms and Computation",
+      "schedule_type": "Lecture",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "1",
+      "start_date": null,
+      "end_date": null,
+      "description": "This course focuses primarily on the design and analysis of algorithms. We will begin with sorting and searching algorithms and then spend most of the course on graph algorithms. In order to study graph algorithms, general algorithm design patterns like dynamic programming and greedy algorithms will be introduced. A section of this course is also devoted to understanding NP-Completeness.",
+      "instructors": [
+        "Sampath Kannan"
+      ],
+      "meetings": [],
+      "linked_sections": [],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 650,
+        "seats_available": 650
+      }
     }
   ],
-  "last_updated": "2025-10-09T08:26:19.238173"
+  "last_updated": "2025-10-10T09:38:46.803513"
 }

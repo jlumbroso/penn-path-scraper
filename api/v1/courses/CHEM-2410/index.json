@@ -3159,7 +3159,153 @@
         "max_enrollment": null,
         "seats_available": null
       }
+    },
+    {
+      "crn": "29243",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "401",
+      "title": "Principles of Organic Chemistry I",
+      "schedule_type": "Lecture",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "1",
+      "start_date": null,
+      "end_date": null,
+      "description": "Fundamental course in organic chemistry based upon the modern concepts of structure and mechanism of reactions.",
+      "instructors": [
+        "Andrew Zahrt"
+      ],
+      "meetings": [
+        {
+          "days": "TR",
+          "start_time": "08:30:00",
+          "end_time": "09:59:00",
+          "location": ""
+        }
+      ],
+      "linked_sections": [
+        "29244",
+        "29245",
+        "29246",
+        "29247"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 108,
+        "seats_available": 108
+      }
+    },
+    {
+      "crn": "29244",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "410",
+      "title": "Principles of Organic Chemistry I",
+      "schedule_type": "Recitation",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "0",
+      "start_date": null,
+      "end_date": null,
+      "description": "Fundamental course in organic chemistry based upon the modern concepts of structure and mechanism of reactions.",
+      "instructors": [],
+      "meetings": [],
+      "linked_sections": [
+        "29243"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 27,
+        "seats_available": 27
+      }
+    },
+    {
+      "crn": "29245",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "411",
+      "title": "Principles of Organic Chemistry I",
+      "schedule_type": "Recitation",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "0",
+      "start_date": null,
+      "end_date": null,
+      "description": "Fundamental course in organic chemistry based upon the modern concepts of structure and mechanism of reactions.",
+      "instructors": [],
+      "meetings": [
+        {
+          "days": "R",
+          "start_time": "15:30:00",
+          "end_time": "16:29:00",
+          "location": ""
+        }
+      ],
+      "linked_sections": [
+        "29243"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 27,
+        "seats_available": 27
+      }
+    },
+    {
+      "crn": "29246",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "412",
+      "title": "Principles of Organic Chemistry I",
+      "schedule_type": "Recitation",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "0",
+      "start_date": null,
+      "end_date": null,
+      "description": "Fundamental course in organic chemistry based upon the modern concepts of structure and mechanism of reactions.",
+      "instructors": [],
+      "meetings": [
+        {
+          "days": "R",
+          "start_time": "17:15:00",
+          "end_time": "18:14:00",
+          "location": ""
+        }
+      ],
+      "linked_sections": [
+        "29243"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 27,
+        "seats_available": 27
+      }
+    },
+    {
+      "crn": "29247",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "413",
+      "title": "Principles of Organic Chemistry I",
+      "schedule_type": "Recitation",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "0",
+      "start_date": null,
+      "end_date": null,
+      "description": "Fundamental course in organic chemistry based upon the modern concepts of structure and mechanism of reactions.",
+      "instructors": [],
+      "meetings": [],
+      "linked_sections": [
+        "29243"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 27,
+        "seats_available": 27
+      }
     }
   ],
-  "last_updated": "2025-10-09T08:25:56.548755"
+  "last_updated": "2025-10-10T09:38:22.286488"
 }

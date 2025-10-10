@@ -1476,7 +1476,346 @@
         "max_enrollment": null,
         "seats_available": null
       }
+    },
+    {
+      "crn": "14434",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "001",
+      "title": "Machine Learning",
+      "schedule_type": "Lecture",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "1",
+      "start_date": null,
+      "end_date": null,
+      "description": "This course covers the foundations of statistical machine learning. The focus is on probabilistic and statistical methods for prediction and clustering in high dimensions. Topics covered include linear and logistic regression, SVMs, PCA and dimensionality reduction, EM and HMMs, and deep learning. Elementary probability, calculus, and linear algebra. Basic programming experience.",
+      "instructors": [
+        "Surbhi Goel",
+        "Eric Wong"
+      ],
+      "meetings": [
+        {
+          "days": "TR",
+          "start_time": "13:45:00",
+          "end_time": "15:14:00",
+          "location": ""
+        }
+      ],
+      "linked_sections": [
+        "24530",
+        "24532",
+        "24533",
+        "24534",
+        "24535",
+        "24536",
+        "24539",
+        "24540",
+        "35092",
+        "35093"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 200,
+        "seats_available": 200
+      }
+    },
+    {
+      "crn": "24530",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "201",
+      "title": "Machine Learning",
+      "schedule_type": "Recitation",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "0",
+      "start_date": null,
+      "end_date": null,
+      "description": "This course covers the foundations of statistical machine learning. The focus is on probabilistic and statistical methods for prediction and clustering in high dimensions. Topics covered include linear and logistic regression, SVMs, PCA and dimensionality reduction, EM and HMMs, and deep learning. Elementary probability, calculus, and linear algebra. Basic programming experience.",
+      "instructors": [],
+      "meetings": [
+        {
+          "days": "R",
+          "start_time": "17:15:00",
+          "end_time": "18:14:00",
+          "location": ""
+        }
+      ],
+      "linked_sections": [
+        "14434"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 24,
+        "seats_available": 24
+      }
+    },
+    {
+      "crn": "24532",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "202",
+      "title": "Machine Learning",
+      "schedule_type": "Recitation",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "0",
+      "start_date": null,
+      "end_date": null,
+      "description": "This course covers the foundations of statistical machine learning. The focus is on probabilistic and statistical methods for prediction and clustering in high dimensions. Topics covered include linear and logistic regression, SVMs, PCA and dimensionality reduction, EM and HMMs, and deep learning. Elementary probability, calculus, and linear algebra. Basic programming experience.",
+      "instructors": [],
+      "meetings": [
+        {
+          "days": "R",
+          "start_time": "17:15:00",
+          "end_time": "18:14:00",
+          "location": ""
+        }
+      ],
+      "linked_sections": [
+        "14434"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 24,
+        "seats_available": 24
+      }
+    },
+    {
+      "crn": "24533",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "203",
+      "title": "Machine Learning",
+      "schedule_type": "Recitation",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "0",
+      "start_date": null,
+      "end_date": null,
+      "description": "This course covers the foundations of statistical machine learning. The focus is on probabilistic and statistical methods for prediction and clustering in high dimensions. Topics covered include linear and logistic regression, SVMs, PCA and dimensionality reduction, EM and HMMs, and deep learning. Elementary probability, calculus, and linear algebra. Basic programming experience.",
+      "instructors": [],
+      "meetings": [],
+      "linked_sections": [
+        "14434"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 24,
+        "seats_available": 24
+      }
+    },
+    {
+      "crn": "24534",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "204",
+      "title": "Machine Learning",
+      "schedule_type": "Recitation",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "0",
+      "start_date": null,
+      "end_date": null,
+      "description": "This course covers the foundations of statistical machine learning. The focus is on probabilistic and statistical methods for prediction and clustering in high dimensions. Topics covered include linear and logistic regression, SVMs, PCA and dimensionality reduction, EM and HMMs, and deep learning. Elementary probability, calculus, and linear algebra. Basic programming experience.",
+      "instructors": [],
+      "meetings": [],
+      "linked_sections": [
+        "14434"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 24,
+        "seats_available": 24
+      }
+    },
+    {
+      "crn": "24535",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "205",
+      "title": "Machine Learning",
+      "schedule_type": "Recitation",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "0",
+      "start_date": null,
+      "end_date": null,
+      "description": "This course covers the foundations of statistical machine learning. The focus is on probabilistic and statistical methods for prediction and clustering in high dimensions. Topics covered include linear and logistic regression, SVMs, PCA and dimensionality reduction, EM and HMMs, and deep learning. Elementary probability, calculus, and linear algebra. Basic programming experience.",
+      "instructors": [],
+      "meetings": [
+        {
+          "days": "R",
+          "start_time": "15:30:00",
+          "end_time": "16:29:00",
+          "location": ""
+        }
+      ],
+      "linked_sections": [
+        "14434"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 24,
+        "seats_available": 24
+      }
+    },
+    {
+      "crn": "24536",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "206",
+      "title": "Machine Learning",
+      "schedule_type": "Recitation",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "0",
+      "start_date": null,
+      "end_date": null,
+      "description": "This course covers the foundations of statistical machine learning. The focus is on probabilistic and statistical methods for prediction and clustering in high dimensions. Topics covered include linear and logistic regression, SVMs, PCA and dimensionality reduction, EM and HMMs, and deep learning. Elementary probability, calculus, and linear algebra. Basic programming experience.",
+      "instructors": [],
+      "meetings": [
+        {
+          "days": "R",
+          "start_time": "15:30:00",
+          "end_time": "16:29:00",
+          "location": ""
+        }
+      ],
+      "linked_sections": [
+        "14434"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 24,
+        "seats_available": 24
+      }
+    },
+    {
+      "crn": "35092",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "207",
+      "title": "Machine Learning",
+      "schedule_type": "Recitation",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "0",
+      "start_date": null,
+      "end_date": null,
+      "description": "This course covers the foundations of statistical machine learning. The focus is on probabilistic and statistical methods for prediction and clustering in high dimensions. Topics covered include linear and logistic regression, SVMs, PCA and dimensionality reduction, EM and HMMs, and deep learning. Elementary probability, calculus, and linear algebra. Basic programming experience.",
+      "instructors": [],
+      "meetings": [
+        {
+          "days": "F",
+          "start_time": "13:45:00",
+          "end_time": "14:44:00",
+          "location": ""
+        }
+      ],
+      "linked_sections": [
+        "14434"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 24,
+        "seats_available": 24
+      }
+    },
+    {
+      "crn": "35093",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "208",
+      "title": "Machine Learning",
+      "schedule_type": "Recitation",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "0",
+      "start_date": null,
+      "end_date": null,
+      "description": "This course covers the foundations of statistical machine learning. The focus is on probabilistic and statistical methods for prediction and clustering in high dimensions. Topics covered include linear and logistic regression, SVMs, PCA and dimensionality reduction, EM and HMMs, and deep learning. Elementary probability, calculus, and linear algebra. Basic programming experience.",
+      "instructors": [],
+      "meetings": [
+        {
+          "days": "F",
+          "start_time": "13:45:00",
+          "end_time": "14:44:00",
+          "location": ""
+        }
+      ],
+      "linked_sections": [
+        "14434"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 24,
+        "seats_available": 24
+      }
+    },
+    {
+      "crn": "24539",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "209",
+      "title": "Machine Learning",
+      "schedule_type": "Recitation",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "0",
+      "start_date": null,
+      "end_date": null,
+      "description": "This course covers the foundations of statistical machine learning. The focus is on probabilistic and statistical methods for prediction and clustering in high dimensions. Topics covered include linear and logistic regression, SVMs, PCA and dimensionality reduction, EM and HMMs, and deep learning. Elementary probability, calculus, and linear algebra. Basic programming experience.",
+      "instructors": [],
+      "meetings": [
+        {
+          "days": "F",
+          "start_time": "15:30:00",
+          "end_time": "16:29:00",
+          "location": ""
+        }
+      ],
+      "linked_sections": [
+        "14434"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 24,
+        "seats_available": 24
+      }
+    },
+    {
+      "crn": "24540",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "210",
+      "title": "Machine Learning",
+      "schedule_type": "Recitation",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "0",
+      "start_date": null,
+      "end_date": null,
+      "description": "This course covers the foundations of statistical machine learning. The focus is on probabilistic and statistical methods for prediction and clustering in high dimensions. Topics covered include linear and logistic regression, SVMs, PCA and dimensionality reduction, EM and HMMs, and deep learning. Elementary probability, calculus, and linear algebra. Basic programming experience.",
+      "instructors": [],
+      "meetings": [
+        {
+          "days": "F",
+          "start_time": "15:30:00",
+          "end_time": "16:29:00",
+          "location": ""
+        }
+      ],
+      "linked_sections": [
+        "14434"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 24,
+        "seats_available": 24
+      }
     }
   ],
-  "last_updated": "2025-10-09T08:26:18.053047"
+  "last_updated": "2025-10-10T09:38:45.445066"
 }

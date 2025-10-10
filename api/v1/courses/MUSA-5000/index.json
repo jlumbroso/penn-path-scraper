@@ -155,7 +155,38 @@
         "max_enrollment": null,
         "seats_available": null
       }
+    },
+    {
+      "crn": "29966",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "401",
+      "title": "Statistical and Data Mining Methods for Urban Data Analysis",
+      "schedule_type": "Lecture",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "1",
+      "start_date": null,
+      "end_date": null,
+      "description": "This hands-on course will cover a wide range of methods frequently used for analyzing urban and spatial data. These methods are drawn from a variety of fields, including traditional statistics, spatial econometrics, and machine learning, and include 1) regression analysis (OLS, ridge/lasso, logistic, multinomial logit); 2) measures of spatial autocorrelation; 3) spatial regression (spatial lag, spatial error, geographically weighted regression); 4) point pattern analysis; 5) an introduction to clustering methods (k-means, hierarchical clustering, DBSCAN); and 6) big data and GIS. Students will learn the assumptions and limitations of each method, and assignments will focus on the implementation, presentation and interpretation of the analyses. Students will use R and GeoDa in this course.",
+      "instructors": [
+        "Eugene Brusilovskiy"
+      ],
+      "meetings": [
+        {
+          "days": "TW",
+          "start_time": "17:15:00",
+          "end_time": "18:44:00",
+          "location": ""
+        }
+      ],
+      "linked_sections": [],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 1,
+        "seats_available": 1
+      }
     }
   ],
-  "last_updated": "2025-10-09T08:26:24.173477"
+  "last_updated": "2025-10-10T09:38:52.220041"
 }

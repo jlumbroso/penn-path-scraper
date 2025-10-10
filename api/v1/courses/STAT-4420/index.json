@@ -93,7 +93,38 @@
         "max_enrollment": null,
         "seats_available": null
       }
+    },
+    {
+      "crn": "10451",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "001",
+      "title": "Introduction to Bayesian Data Analysis",
+      "schedule_type": "Lecture",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "1",
+      "start_date": null,
+      "end_date": null,
+      "description": "The course will introduce data analysis from the Bayesian perspective to undergraduate students. We will cover important concepts in Bayesian probability modeling as well as estimation using both optimization and simulation-based strategies. Key topics covered in the course include hierarchical models, mixture models, hidden Markov models and Markov Chain Monte Carlo. A course in probability (<a href=\"/search/?p=STAT%204300\" data-action=\"result-detail\" data-group=\"code:STAT 4300\" >STAT 4300</a> or equivalent); a course in statistical inference (<a href=\"/search/?p=STAT%201020\" data-action=\"result-detail\" data-group=\"code:STAT 1020\" >STAT 1020</a>, <a href=\"/search/?p=STAT%201120\" data-action=\"result-detail\" data-group=\"code:STAT 1120\" >STAT 1120</a>, <a href=\"/search/?p=STAT%204310\" data-action=\"result-detail\" data-group=\"code:STAT 4310\" >STAT 4310</a> or equivalent); and experience with the statistical software R (at the level of <a href=\"/search/?p=STAT%204050\" data-action=\"result-detail\" data-group=\"code:STAT 4050\" >STAT 4050</a> or <a href=\"/search/?p=STAT%204700\" data-action=\"result-detail\" data-group=\"code:STAT 4700\" >STAT 4700</a>) are recommended.",
+      "instructors": [
+        "Shane Jensen"
+      ],
+      "meetings": [
+        {
+          "days": "TR",
+          "start_time": "13:45:00",
+          "end_time": "15:14:00",
+          "location": ""
+        }
+      ],
+      "linked_sections": [],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 65,
+        "seats_available": 65
+      }
     }
   ],
-  "last_updated": "2025-10-09T08:26:59.529485"
+  "last_updated": "2025-10-10T09:39:32.426624"
 }

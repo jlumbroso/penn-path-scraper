@@ -449,7 +449,161 @@
         "max_enrollment": null,
         "seats_available": null
       }
+    },
+    {
+      "crn": "17280",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "401",
+      "title": "Feedback Control Design and Analysis",
+      "schedule_type": "Lecture",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "1",
+      "start_date": null,
+      "end_date": null,
+      "description": "Basic methods for analysis and design of feedback control in systems. Applications to practical systems. Methods presented include time response analysis, frequency response analysis, root locus, Nyquist and Bode plots, and the state-space approach.",
+      "instructors": [
+        "Bruce Kothmann"
+      ],
+      "meetings": [],
+      "linked_sections": [
+        "17284",
+        "17286",
+        "17290",
+        "17294"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 44,
+        "seats_available": 44
+      }
+    },
+    {
+      "crn": "17284",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "402",
+      "title": "Feedback Control Design and Analysis",
+      "schedule_type": "Laboratory",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "0",
+      "start_date": null,
+      "end_date": null,
+      "description": "Basic methods for analysis and design of feedback control in systems. Applications to practical systems. Methods presented include time response analysis, frequency response analysis, root locus, Nyquist and Bode plots, and the state-space approach.",
+      "instructors": [
+        "Bruce Kothmann"
+      ],
+      "meetings": [
+        {
+          "days": "T",
+          "start_time": "10:15:00",
+          "end_time": "11:44:00",
+          "location": ""
+        }
+      ],
+      "linked_sections": [
+        "17280"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 20,
+        "seats_available": 20
+      }
+    },
+    {
+      "crn": "17286",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "403",
+      "title": "Feedback Control Design and Analysis",
+      "schedule_type": "Laboratory",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "0",
+      "start_date": null,
+      "end_date": null,
+      "description": "Basic methods for analysis and design of feedback control in systems. Applications to practical systems. Methods presented include time response analysis, frequency response analysis, root locus, Nyquist and Bode plots, and the state-space approach.",
+      "instructors": [
+        "Bruce Kothmann"
+      ],
+      "meetings": [
+        {
+          "days": "W",
+          "start_time": "13:45:00",
+          "end_time": "15:14:00",
+          "location": ""
+        }
+      ],
+      "linked_sections": [
+        "17280"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 20,
+        "seats_available": 20
+      }
+    },
+    {
+      "crn": "17290",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "404",
+      "title": "Feedback Control Design and Analysis",
+      "schedule_type": "Laboratory",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "0",
+      "start_date": null,
+      "end_date": null,
+      "description": "Basic methods for analysis and design of feedback control in systems. Applications to practical systems. Methods presented include time response analysis, frequency response analysis, root locus, Nyquist and Bode plots, and the state-space approach.",
+      "instructors": [
+        "Bruce Kothmann"
+      ],
+      "meetings": [],
+      "linked_sections": [
+        "17280"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 20,
+        "seats_available": 20
+      }
+    },
+    {
+      "crn": "17294",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "405",
+      "title": "Feedback Control Design and Analysis",
+      "schedule_type": "Laboratory",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "0",
+      "start_date": null,
+      "end_date": null,
+      "description": "Basic methods for analysis and design of feedback control in systems. Applications to practical systems. Methods presented include time response analysis, frequency response analysis, root locus, Nyquist and Bode plots, and the state-space approach.",
+      "instructors": [
+        "Bruce Kothmann"
+      ],
+      "meetings": [
+        {
+          "days": "R",
+          "start_time": "13:45:00",
+          "end_time": "15:14:00",
+          "location": ""
+        }
+      ],
+      "linked_sections": [
+        "17280"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 20,
+        "seats_available": 20
+      }
     }
   ],
-  "last_updated": "2025-10-09T08:26:50.742303"
+  "last_updated": "2025-10-10T09:39:21.807310"
 }

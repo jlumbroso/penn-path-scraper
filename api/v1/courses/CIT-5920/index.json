@@ -86,9 +86,9 @@
       "meetings": [],
       "linked_sections": [],
       "current_enrollment": {
-        "enrolled": 232,
+        "enrolled": 231,
         "max_enrollment": 650,
-        "seats_available": 418
+        "seats_available": 419
       }
     },
     {
@@ -596,7 +596,31 @@
         "max_enrollment": null,
         "seats_available": null
       }
+    },
+    {
+      "crn": "17649",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "501",
+      "title": "Mathematical Foundations of Computer Science",
+      "schedule_type": "Lecture",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "1",
+      "start_date": null,
+      "end_date": null,
+      "description": "This course introduces you to math concepts that form the backbone of the majority of computer science. Topics covered include sets, functions, permutations and combinations, discrete probability, expectation, mathematical Induction and graph theory. The goal of the course is to ensure that students are comfortable enough with the math required for most of the CIS electives. <a href=\"/search/?p=CIS%205020\" data-action=\"result-detail\" data-group=\"code:CIS 5020\" >CIS 5020</a> and <a href=\"/search/?p=CIT%205960\" data-action=\"result-detail\" data-group=\"code:CIT 5960\" >CIT 5960</a> heavily rely on concepts taught in this course.",
+      "instructors": [
+        "Val Tannen"
+      ],
+      "meetings": [],
+      "linked_sections": [],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 650,
+        "seats_available": 650
+      }
     }
   ],
-  "last_updated": "2025-10-09T08:26:19.127493"
+  "last_updated": "2025-10-10T09:38:46.675437"
 }

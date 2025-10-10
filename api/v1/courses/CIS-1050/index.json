@@ -392,7 +392,141 @@
         "max_enrollment": null,
         "seats_available": null
       }
+    },
+    {
+      "crn": "15027",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "001",
+      "title": "Computational Data Exploration",
+      "schedule_type": "Lecture",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "1",
+      "start_date": null,
+      "end_date": null,
+      "description": "The primary goal of this course is to introduce computational methods of interacting with data. In this course, students will be introduced to the IPython programming environment. They will learn how to gather data, store it in appropriate data structures and then either write their own functions or use libraries to analyze and then display the salient information in that data. Data will be drawn from a variety of domains, including but not limited to travel, entertainment, politics, economics, biology etc.",
+      "instructors": [
+        "Arvind Bhusnurmath"
+      ],
+      "meetings": [
+        {
+          "days": "MWF",
+          "start_time": "10:15:00",
+          "end_time": "11:14:00",
+          "location": ""
+        }
+      ],
+      "linked_sections": [
+        "15028",
+        "15029",
+        "15030"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 60,
+        "seats_available": 60
+      }
+    },
+    {
+      "crn": "15028",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "201",
+      "title": "Computational Data Exploration",
+      "schedule_type": "Recitation",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "0",
+      "start_date": null,
+      "end_date": null,
+      "description": "The primary goal of this course is to introduce computational methods of interacting with data. In this course, students will be introduced to the IPython programming environment. They will learn how to gather data, store it in appropriate data structures and then either write their own functions or use libraries to analyze and then display the salient information in that data. Data will be drawn from a variety of domains, including but not limited to travel, entertainment, politics, economics, biology etc.",
+      "instructors": [
+        "Arvind Bhusnurmath"
+      ],
+      "meetings": [
+        {
+          "days": "R",
+          "start_time": "08:30:00",
+          "end_time": "09:29:00",
+          "location": ""
+        }
+      ],
+      "linked_sections": [
+        "15027"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 20,
+        "seats_available": 20
+      }
+    },
+    {
+      "crn": "15029",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "202",
+      "title": "Computational Data Exploration",
+      "schedule_type": "Recitation",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "0",
+      "start_date": null,
+      "end_date": null,
+      "description": "The primary goal of this course is to introduce computational methods of interacting with data. In this course, students will be introduced to the IPython programming environment. They will learn how to gather data, store it in appropriate data structures and then either write their own functions or use libraries to analyze and then display the salient information in that data. Data will be drawn from a variety of domains, including but not limited to travel, entertainment, politics, economics, biology etc.",
+      "instructors": [
+        "Arvind Bhusnurmath"
+      ],
+      "meetings": [
+        {
+          "days": "R",
+          "start_time": "15:30:00",
+          "end_time": "16:29:00",
+          "location": ""
+        }
+      ],
+      "linked_sections": [
+        "15027"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 20,
+        "seats_available": 20
+      }
+    },
+    {
+      "crn": "15030",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "203",
+      "title": "Computational Data Exploration",
+      "schedule_type": "Recitation",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "0",
+      "start_date": null,
+      "end_date": null,
+      "description": "The primary goal of this course is to introduce computational methods of interacting with data. In this course, students will be introduced to the IPython programming environment. They will learn how to gather data, store it in appropriate data structures and then either write their own functions or use libraries to analyze and then display the salient information in that data. Data will be drawn from a variety of domains, including but not limited to travel, entertainment, politics, economics, biology etc.",
+      "instructors": [
+        "Arvind Bhusnurmath"
+      ],
+      "meetings": [
+        {
+          "days": "R",
+          "start_time": "17:15:00",
+          "end_time": "18:14:00",
+          "location": ""
+        }
+      ],
+      "linked_sections": [
+        "15027"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 20,
+        "seats_available": 20
+      }
     }
   ],
-  "last_updated": "2025-10-09T08:26:49.476814"
+  "last_updated": "2025-10-10T09:39:20.405612"
 }

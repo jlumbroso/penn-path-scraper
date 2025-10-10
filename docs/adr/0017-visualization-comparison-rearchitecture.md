@@ -209,6 +209,72 @@ colors.getDepartmentColor('CIS');  // '#0A3380' (dark blue)
 colors.getTermGradient('202530');  // ['#011F5B', '#0A3380', ...] (Fall gradient)
 ```
 
+#### 5. `LabelFormatter`
+**Purpose**: Smart label shortening for multi-comparison charts
+
+**Challenge**: With 3+ comparisons, labels like "Engineering [Fall 2025]" become too long for chart legends.
+
+**Shortening Strategy** (progressive based on term count):
+
+| Terms | Format | Example |
+|-------|--------|---------|
+| 1-2 | Full | "Engineering [Fall 2025]" |
+| 3-4 | Short school + abbreviated term | "SEAS [F25]" |
+| 5+ | Concatenated | "seasF25" |
+
+**Implementation**:
+```javascript
+class LabelFormatter {
+    formatSchoolTermLabel(schoolCode, termCode, comparisonCount) {
+        const school = schoolMetadata[schoolCode];
+
+        if (comparisonCount <= 2) {
+            // Full format: "Engineering [Fall 2025]"
+            return `${school.short_name} [${formatTermCode(termCode)}]`;
+        } else if (comparisonCount <= 4) {
+            // Abbreviated: "SEAS [F25]"
+            const termAbbr = this.abbreviateTerm(termCode); // "F25"
+            return `${school.abbreviation} [${termAbbr}]`;
+        } else {
+            // Compact: "seasF25"
+            const termAbbr = this.abbreviateTerm(termCode);
+            return `${school.abbreviation.toLowerCase()}${termAbbr}`;
+        }
+    }
+
+    abbreviateTerm(termCode) {
+        // "202530" → "F25"
+        const year = termCode.substring(2, 4);  // "25"
+        const semester = termCode.substring(4, 5);  // "3"
+        const semesterMap = { '1': 'Sp', '2': 'Su', '3': 'F' };
+        return `${semesterMap[semester]}${year}`;
+    }
+}
+```
+
+**Usage**:
+```javascript
+const formatter = new LabelFormatter();
+
+// 2 comparisons
+formatter.formatSchoolTermLabel('E', '202530', 2);
+// → "Engineering [Fall 2025]"
+
+// 4 comparisons
+formatter.formatSchoolTermLabel('E', '202530', 4);
+// → "SEAS [F25]"
+
+// 6 comparisons
+formatter.formatSchoolTermLabel('E', '202530', 6);
+// → "seasF25"
+```
+
+**Rationale**:
+- Maintains readability at small counts
+- Progressively shortens as space decreases
+- Always unambiguous (SEAS vs. Wharton vs. SAS)
+- Lowercase in extreme case (easier to read in tight space)
+
 ---
 
 ## School Metadata System

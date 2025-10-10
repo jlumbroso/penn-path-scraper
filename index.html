@@ -1808,16 +1808,22 @@ fetch('<span class="string">https://jlumbroso.github.io/penn-path-scraper/api/v1
                             }]
                         },
                         options: {
-                            indexAxis: 'y',
                             responsive: true,
                             maintainAspectRatio: true,
                             plugins: { legend: { display: false } },
                             scales: {
-                                x: {
+                                y: {
                                     beginAtZero: true,
                                     title: {
                                         display: true,
                                         text: 'Total Students Enrolled',
+                                        font: { family: 'Pitch Sans, monospace' }
+                                    }
+                                },
+                                x: {
+                                    title: {
+                                        display: true,
+                                        text: 'School',
                                         font: { family: 'Pitch Sans, monospace' }
                                     }
                                 }

@@ -65,14 +65,21 @@
       "schedule_type": "Clinical",
       "status": "Active",
       "is_cancelled": false,
-      "credits": "1 to 7",
+      "credits": "7",
       "start_date": null,
       "end_date": null,
       "description": "See Course Finder.",
       "instructors": [
         "Colleen Shanahan"
       ],
-      "meetings": [],
+      "meetings": [
+        {
+          "days": "TR",
+          "start_time": "13:30:00",
+          "end_time": "15:30:00",
+          "location": ""
+        }
+      ],
       "linked_sections": [],
       "current_enrollment": {
         "enrolled": 0,
@@ -81,5 +88,5 @@
       }
     }
   ],
-  "last_updated": "2025-10-10T09:38:54.857382"
+  "last_updated": "2025-10-11T10:27:50.467946"
 }

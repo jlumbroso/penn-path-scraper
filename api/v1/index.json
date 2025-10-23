@@ -1,6 +1,6 @@
 {
   "api_version": "1.0",
-  "generated_at": "2025-10-22T09:38:16.889107",
+  "generated_at": "2025-10-23T09:42:06.954845",
   "terms": [
     {
       "code": "202530",
@@ -119,7 +119,7 @@
       "name": "Spring 2026",
       "start_date": null,
       "end_date": null,
-      "course_count": 5656
+      "course_count": 5772
     }
   ],
   "course_codes": [
@@ -1994,6 +1994,7 @@
     "CIMS-3300",
     "CIMS-3405",
     "CIMS-3408",
+    "CIMS-3411",
     "CIMS-3505",
     "CIMS-3506",
     "CIMS-3600",
@@ -3142,6 +3143,7 @@
     "DYNM-5580",
     "DYNM-6020",
     "DYNM-6030",
+    "DYNM-6040",
     "DYNM-6060",
     "DYNM-6090",
     "DYNM-6140",
@@ -5703,6 +5705,7 @@
     "GSWS-3400",
     "GSWS-3405",
     "GSWS-3408",
+    "GSWS-3411",
     "GSWS-3425",
     "GSWS-3440",
     "GSWS-3447",
@@ -6476,6 +6479,7 @@
     "ITAL-3335",
     "ITAL-3405",
     "ITAL-3408",
+    "ITAL-3411",
     "ITAL-3501",
     "ITAL-3505",
     "ITAL-3506",
@@ -10815,9 +10819,9 @@
     "ZULU-0800"
   ],
   "total_terms": 17,
-  "total_courses": 56889,
-  "total_course_codes": 10690,
-  "total_instructors": 7930,
+  "total_courses": 57005,
+  "total_course_codes": 10694,
+  "total_instructors": 7931,
   "endpoints": {
     "courses": "/api/v1/courses/{course-code}/",
     "enrollments": "/api/v1/courses/{course-code}/enrollments.json",

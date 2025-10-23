@@ -108,8 +108,8 @@
       ],
       "current_enrollment": {
         "enrolled": 21,
-        "max_enrollment": 21,
-        "seats_available": 0
+        "max_enrollment": 20,
+        "seats_available": -1
       }
     },
     {
@@ -504,7 +504,7 @@
       "section": "114",
       "title": "Introduction to Biology A",
       "schedule_type": "Laboratory",
-      "status": "Full",
+      "status": "Active",
       "is_cancelled": false,
       "credits": "0",
       "start_date": null,
@@ -528,8 +528,8 @@
       ],
       "current_enrollment": {
         "enrolled": 15,
-        "max_enrollment": 15,
-        "seats_available": 0
+        "max_enrollment": 16,
+        "seats_available": 1
       }
     },
     {
@@ -4204,5 +4204,5 @@
       }
     }
   ],
-  "last_updated": "2025-10-22T09:35:19.110114"
+  "last_updated": "2025-10-23T09:39:07.832824"
 }

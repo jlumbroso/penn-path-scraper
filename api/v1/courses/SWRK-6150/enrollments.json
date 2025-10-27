@@ -200,10 +200,15 @@
       "crn": "17330",
       "term": "202610",
       "section": "001",
-      "enrolled": 1,
+      "enrolled": 2,
       "capacity": 20,
-      "timestamp": "2025-10-26T10:34:04.193820",
+      "timestamp": "2025-10-27T10:03:56.268589",
       "snapshots": [
+        {
+          "timestamp": "2025-10-27T10:03:56.268589",
+          "enrolled": 2,
+          "capacity": 20
+        },
         {
           "timestamp": "2025-10-26T10:34:04.193820",
           "enrolled": 1,
@@ -295,10 +300,15 @@
       "crn": "17331",
       "term": "202610",
       "section": "002",
-      "enrolled": 0,
+      "enrolled": 1,
       "capacity": 20,
-      "timestamp": "2025-10-26T10:34:05.051365",
+      "timestamp": "2025-10-27T10:03:57.990420",
       "snapshots": [
+        {
+          "timestamp": "2025-10-27T10:03:57.990420",
+          "enrolled": 1,
+          "capacity": 20
+        },
         {
           "timestamp": "2025-10-26T10:34:05.051365",
           "enrolled": 0,
@@ -390,10 +400,15 @@
       "crn": "17332",
       "term": "202610",
       "section": "003",
-      "enrolled": 3,
+      "enrolled": 4,
       "capacity": 20,
-      "timestamp": "2025-10-26T10:34:05.886124",
+      "timestamp": "2025-10-27T10:03:58.655084",
       "snapshots": [
+        {
+          "timestamp": "2025-10-27T10:03:58.655084",
+          "enrolled": 4,
+          "capacity": 20
+        },
         {
           "timestamp": "2025-10-26T10:34:05.886124",
           "enrolled": 3,
@@ -487,8 +502,13 @@
       "section": "004",
       "enrolled": 1,
       "capacity": 12,
-      "timestamp": "2025-10-26T10:34:06.723665",
+      "timestamp": "2025-10-27T10:04:00.497542",
       "snapshots": [
+        {
+          "timestamp": "2025-10-27T10:04:00.497542",
+          "enrolled": 1,
+          "capacity": 12
+        },
         {
           "timestamp": "2025-10-26T10:34:06.723665",
           "enrolled": 1,
@@ -577,5 +597,5 @@
       ]
     }
   ],
-  "last_updated": "2025-10-26T10:49:50.530906"
+  "last_updated": "2025-10-27T10:18:19.814939"
 }

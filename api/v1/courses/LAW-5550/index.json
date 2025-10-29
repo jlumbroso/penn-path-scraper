@@ -929,7 +929,14 @@
       "end_date": null,
       "description": "See Course Finder.",
       "instructors": [],
-      "meetings": [],
+      "meetings": [
+        {
+          "days": "T",
+          "start_time": "18:40:00",
+          "end_time": "20:30:00",
+          "location": ""
+        }
+      ],
       "linked_sections": [],
       "current_enrollment": {
         "enrolled": 0,
@@ -1047,7 +1054,14 @@
       "instructors": [
         "Miguel Willis"
       ],
-      "meetings": [],
+      "meetings": [
+        {
+          "days": "R",
+          "start_time": "16:30:00",
+          "end_time": "18:20:00",
+          "location": ""
+        }
+      ],
       "linked_sections": [],
       "current_enrollment": {
         "enrolled": 0,
@@ -1056,5 +1070,5 @@
       }
     }
   ],
-  "last_updated": "2025-10-28T10:08:26.267704"
+  "last_updated": "2025-10-29T10:32:39.405715"
 }

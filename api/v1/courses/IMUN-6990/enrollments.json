@@ -54,7 +54,27 @@
       "capacity": null,
       "timestamp": null,
       "snapshots": []
+    },
+    {
+      "crn": "88957",
+      "term": "202530",
+      "section": "044",
+      "enrolled": 1,
+      "capacity": 5,
+      "timestamp": "2025-11-04T08:39:59.635116",
+      "snapshots": [
+        {
+          "timestamp": "2025-11-04T08:39:59.635116",
+          "enrolled": 1,
+          "capacity": 5
+        },
+        {
+          "timestamp": "2025-11-04T07:19:02.450321",
+          "enrolled": 1,
+          "capacity": 5
+        }
+      ]
     }
   ],
-  "last_updated": "2025-11-03T09:48:34.353956"
+  "last_updated": "2025-11-04T10:09:18.776683"
 }

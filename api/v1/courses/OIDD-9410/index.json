@@ -65,11 +65,12 @@
       "schedule_type": "Lecture",
       "status": "Active",
       "is_cancelled": false,
-      "credits": "0.5",
+      "credits": "1",
       "start_date": null,
       "end_date": null,
       "description": "Seminar on distribution systems models and theory. Reviews current research in the development and solution of models of distribution systems. Emphasizes multi-echelon inventory control, logistics management, network design, and competitive models.",
       "instructors": [
+        "Hamsa Bastani",
         "Hummy Song"
       ],
       "meetings": [
@@ -78,15 +79,21 @@
           "start_time": "13:45:00",
           "end_time": "16:44:00",
           "location": ""
+        },
+        {
+          "days": "F",
+          "start_time": "13:45:00",
+          "end_time": "16:44:00",
+          "location": ""
         }
       ],
       "linked_sections": [],
       "current_enrollment": {
         "enrolled": 0,
-        "max_enrollment": 18,
-        "seats_available": 18
+        "max_enrollment": 16,
+        "seats_available": 16
       }
     }
   ],
-  "last_updated": "2025-11-12T09:58:49.273833"
+  "last_updated": "2025-11-13T09:54:38.179398"
 }

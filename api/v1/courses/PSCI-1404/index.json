@@ -495,8 +495,8 @@
       ],
       "current_enrollment": {
         "enrolled": 0,
-        "max_enrollment": 100,
-        "seats_available": 100
+        "max_enrollment": 51,
+        "seats_available": 51
       }
     },
     {
@@ -530,8 +530,8 @@
       "section": "203",
       "title": "American Foreign Policy",
       "schedule_type": "Recitation",
-      "status": "Active",
-      "is_cancelled": false,
+      "status": "Canceled",
+      "is_cancelled": true,
       "credits": "0",
       "start_date": null,
       "end_date": null,
@@ -554,21 +554,14 @@
       "section": "204",
       "title": "American Foreign Policy",
       "schedule_type": "Recitation",
-      "status": "Active",
-      "is_cancelled": false,
+      "status": "Canceled",
+      "is_cancelled": true,
       "credits": "0",
       "start_date": null,
       "end_date": null,
       "description": "This course analyzes the formation and conduct of foreign policy in the United State. The course combines three elements: a study of the history of American foreign relations; an analysis of the causes of American foreign policy such sa the international system, public opinion, and the media; and a discussion of the major policy issues in contemporary U.S. foreign policy, including terrorism, civil wars, and economic policy.",
       "instructors": [],
-      "meetings": [
-        {
-          "days": "F",
-          "start_time": "10:15:00",
-          "end_time": "11:14:00",
-          "location": ""
-        }
-      ],
+      "meetings": [],
       "linked_sections": [
         "13501"
       ],
@@ -616,21 +609,14 @@
       "section": "206",
       "title": "American Foreign Policy",
       "schedule_type": "Recitation",
-      "status": "Active",
-      "is_cancelled": false,
+      "status": "Canceled",
+      "is_cancelled": true,
       "credits": "0",
       "start_date": null,
       "end_date": null,
       "description": "This course analyzes the formation and conduct of foreign policy in the United State. The course combines three elements: a study of the history of American foreign relations; an analysis of the causes of American foreign policy such sa the international system, public opinion, and the media; and a discussion of the major policy issues in contemporary U.S. foreign policy, including terrorism, civil wars, and economic policy.",
       "instructors": [],
-      "meetings": [
-        {
-          "days": "R",
-          "start_time": "15:30:00",
-          "end_time": "16:29:00",
-          "location": ""
-        }
-      ],
+      "meetings": [],
       "linked_sections": [
         "13501"
       ],
@@ -672,5 +658,5 @@
       }
     }
   ],
-  "last_updated": "2025-11-12T09:58:32.563965"
+  "last_updated": "2025-11-13T09:54:21.439284"
 }

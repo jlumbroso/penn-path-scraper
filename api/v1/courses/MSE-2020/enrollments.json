@@ -122,10 +122,15 @@
       "crn": "13447",
       "term": "202610",
       "section": "001",
-      "enrolled": 0,
+      "enrolled": 8,
       "capacity": 22,
-      "timestamp": "2025-11-17T09:15:59.009633",
+      "timestamp": "2025-11-18T09:33:28.822263",
       "snapshots": [
+        {
+          "timestamp": "2025-11-18T09:33:28.822263",
+          "enrolled": 8,
+          "capacity": 22
+        },
         {
           "timestamp": "2025-11-17T09:15:59.009633",
           "enrolled": 0,
@@ -327,10 +332,15 @@
       "crn": "13448",
       "term": "202610",
       "section": "101",
-      "enrolled": 0,
+      "enrolled": 4,
       "capacity": 12,
-      "timestamp": "2025-11-17T09:15:59.598418",
+      "timestamp": "2025-11-18T09:33:29.422722",
       "snapshots": [
+        {
+          "timestamp": "2025-11-18T09:33:29.422722",
+          "enrolled": 4,
+          "capacity": 12
+        },
         {
           "timestamp": "2025-11-17T09:15:59.598418",
           "enrolled": 0,
@@ -532,10 +542,15 @@
       "crn": "13449",
       "term": "202610",
       "section": "102",
-      "enrolled": 0,
-      "capacity": 10,
-      "timestamp": "2025-11-17T09:16:00.195472",
+      "enrolled": 4,
+      "capacity": 12,
+      "timestamp": "2025-11-18T09:33:30.034851",
       "snapshots": [
+        {
+          "timestamp": "2025-11-18T09:33:30.034851",
+          "enrolled": 4,
+          "capacity": 12
+        },
         {
           "timestamp": "2025-11-17T09:16:00.195472",
           "enrolled": 0,
@@ -732,7 +747,22 @@
           "capacity": 10
         }
       ]
+    },
+    {
+      "crn": "36902",
+      "term": "202610",
+      "section": "103",
+      "enrolled": 0,
+      "capacity": 12,
+      "timestamp": "2025-11-18T09:33:30.629485",
+      "snapshots": [
+        {
+          "timestamp": "2025-11-18T09:33:30.629485",
+          "enrolled": 0,
+          "capacity": 12
+        }
+      ]
     }
   ],
-  "last_updated": "2025-11-17T09:42:24.314678"
+  "last_updated": "2025-11-18T10:04:21.864787"
 }

@@ -264,12 +264,13 @@
       "meetings": [],
       "linked_sections": [
         "13448",
-        "13449"
+        "13449",
+        "36902"
       ],
       "current_enrollment": {
-        "enrolled": 0,
+        "enrolled": 8,
         "max_enrollment": 22,
-        "seats_available": 22
+        "seats_available": 14
       }
     },
     {
@@ -293,9 +294,9 @@
         "13447"
       ],
       "current_enrollment": {
-        "enrolled": 0,
+        "enrolled": 4,
         "max_enrollment": 12,
-        "seats_available": 12
+        "seats_available": 8
       }
     },
     {
@@ -326,11 +327,44 @@
         "13447"
       ],
       "current_enrollment": {
+        "enrolled": 4,
+        "max_enrollment": 12,
+        "seats_available": 8
+      }
+    },
+    {
+      "crn": "36902",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "103",
+      "title": "Materials Lab II",
+      "schedule_type": "Laboratory",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "0",
+      "start_date": null,
+      "end_date": null,
+      "description": "This is the second of three 0.5CU required laboratory courses in the undergraduate MSE program. This course will build on the experimental and professional skills introduced in <a href=\"/search/?p=MSE%202010\" data-action=\"result-detail\" data-group=\"code:MSE 2010\"  class=\"notoffered\">MSE 2010</a> and will reinforce concurrent lecture courses in materials thermodynamics and opto-electronics of materials. Hands-on experimental skills to be developed include phase transformations in metals and characterization using electron microscopy image analysis, thin-film fabrication methods and measurement techniques, nano-materials synthesis (including quantum dot technologies) and characterization of size and optical properties, and characterization of next-generation photovoltaic materials. Students will expand on their MATLAB skills for image analysis, I-V curve plotting, and presentation of high-quality figures for technical reports and presentations. Students will also be exposed to material life-cycle analysis, device sensitivity, and sustainability and how they each apply to materials design.",
+      "instructors": [
+        "Eric Huang"
+      ],
+      "meetings": [
+        {
+          "days": "F",
+          "start_time": "13:45:00",
+          "end_time": "16:44:00",
+          "location": ""
+        }
+      ],
+      "linked_sections": [
+        "13447"
+      ],
+      "current_enrollment": {
         "enrolled": 0,
-        "max_enrollment": 10,
-        "seats_available": 10
+        "max_enrollment": 12,
+        "seats_available": 12
       }
     }
   ],
-  "last_updated": "2025-11-17T09:42:24.307262"
+  "last_updated": "2025-11-18T10:04:21.857074"
 }

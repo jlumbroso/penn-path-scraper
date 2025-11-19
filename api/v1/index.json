@@ -1,6 +1,6 @@
 {
   "api_version": "1.0",
-  "generated_at": "2025-11-18T10:06:12.370806",
+  "generated_at": "2025-11-19T10:50:43.006162",
   "terms": [
     {
       "code": "202530",
@@ -119,7 +119,7 @@
       "name": "Spring 2026",
       "start_date": null,
       "end_date": null,
-      "course_count": 6155
+      "course_count": 6167
     }
   ],
   "course_codes": [
@@ -1388,6 +1388,7 @@
     "BIOE-5800",
     "BIOE-5810",
     "BIOE-5900",
+    "BIOE-5999",
     "BIOE-6000",
     "BIOE-6010",
     "BIOE-6020",
@@ -10446,6 +10447,7 @@
     "URBS-0005",
     "URBS-0010",
     "URBS-0011",
+    "URBS-0015",
     "URBS-0015A",
     "URBS-0015B",
     "URBS-0050",
@@ -10837,9 +10839,9 @@
     "ZULU-0800"
   ],
   "total_terms": 17,
-  "total_courses": 57413,
-  "total_course_codes": 10712,
-  "total_instructors": 8010,
+  "total_courses": 57425,
+  "total_course_codes": 10714,
+  "total_instructors": 8014,
   "endpoints": {
     "courses": "/api/v1/courses/{course-code}/",
     "enrollments": "/api/v1/courses/{course-code}/enrollments.json",

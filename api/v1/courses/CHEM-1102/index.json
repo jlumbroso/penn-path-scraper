@@ -4293,9 +4293,9 @@
         "35152"
       ],
       "current_enrollment": {
-        "enrolled": 140,
+        "enrolled": 179,
         "max_enrollment": 220,
-        "seats_available": 80
+        "seats_available": 41
       }
     },
     {
@@ -4358,9 +4358,9 @@
         "35152"
       ],
       "current_enrollment": {
-        "enrolled": 218,
+        "enrolled": 280,
         "max_enrollment": 300,
-        "seats_available": 82
+        "seats_available": 20
       }
     },
     {
@@ -4402,7 +4402,7 @@
       "section": "102",
       "title": "General Chemistry Laboratory II",
       "schedule_type": "Laboratory",
-      "status": "Active",
+      "status": "Full",
       "is_cancelled": false,
       "credits": "0.5",
       "start_date": null,
@@ -4422,9 +4422,9 @@
         "11761"
       ],
       "current_enrollment": {
-        "enrolled": 14,
+        "enrolled": 16,
         "max_enrollment": 16,
-        "seats_available": 2
+        "seats_available": 0
       }
     },
     {
@@ -4454,9 +4454,9 @@
         "11761"
       ],
       "current_enrollment": {
-        "enrolled": 4,
+        "enrolled": 15,
         "max_enrollment": 16,
-        "seats_available": 12
+        "seats_available": 1
       }
     },
     {
@@ -4486,9 +4486,9 @@
         "11761"
       ],
       "current_enrollment": {
-        "enrolled": 7,
+        "enrolled": 15,
         "max_enrollment": 16,
-        "seats_available": 9
+        "seats_available": 1
       }
     },
     {
@@ -4518,9 +4518,9 @@
         "11761"
       ],
       "current_enrollment": {
-        "enrolled": 7,
+        "enrolled": 11,
         "max_enrollment": 16,
-        "seats_available": 9
+        "seats_available": 5
       }
     },
     {
@@ -4550,9 +4550,9 @@
         "11761"
       ],
       "current_enrollment": {
-        "enrolled": 7,
+        "enrolled": 11,
         "max_enrollment": 16,
-        "seats_available": 9
+        "seats_available": 5
       }
     },
     {
@@ -4594,7 +4594,7 @@
       "section": "112",
       "title": "General Chemistry Laboratory II",
       "schedule_type": "Laboratory",
-      "status": "Active",
+      "status": "Full",
       "is_cancelled": false,
       "credits": "0.5",
       "start_date": null,
@@ -4614,9 +4614,9 @@
         "11761"
       ],
       "current_enrollment": {
-        "enrolled": 14,
+        "enrolled": 16,
         "max_enrollment": 16,
-        "seats_available": 2
+        "seats_available": 0
       }
     },
     {
@@ -4708,7 +4708,7 @@
       "section": "116",
       "title": "General Chemistry Laboratory II",
       "schedule_type": "Laboratory",
-      "status": "Active",
+      "status": "Full",
       "is_cancelled": false,
       "credits": "0.5",
       "start_date": null,
@@ -4721,9 +4721,9 @@
         "11761"
       ],
       "current_enrollment": {
-        "enrolled": 8,
+        "enrolled": 16,
         "max_enrollment": 16,
-        "seats_available": 8
+        "seats_available": 0
       }
     },
     {
@@ -4731,6 +4731,38 @@
       "term": "202610",
       "term_name": "Spring 2026",
       "section": "121",
+      "title": "General Chemistry Laboratory II",
+      "schedule_type": "Laboratory",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "0.5",
+      "start_date": null,
+      "end_date": null,
+      "description": "Continuation of <a href=\"/search/?p=CHEM%201101\" data-action=\"result-detail\" data-group=\"code:CHEM 1101\" >CHEM 1101</a>: General Chemistry Laboratory I",
+      "instructors": [],
+      "meetings": [
+        {
+          "days": "T",
+          "start_time": "13:45:00",
+          "end_time": "16:44:00",
+          "location": ""
+        }
+      ],
+      "linked_sections": [
+        "11760",
+        "11761"
+      ],
+      "current_enrollment": {
+        "enrolled": 15,
+        "max_enrollment": 16,
+        "seats_available": 1
+      }
+    },
+    {
+      "crn": "22166",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "122",
       "title": "General Chemistry Laboratory II",
       "schedule_type": "Laboratory",
       "status": "Full",
@@ -4759,45 +4791,13 @@
       }
     },
     {
-      "crn": "22166",
-      "term": "202610",
-      "term_name": "Spring 2026",
-      "section": "122",
-      "title": "General Chemistry Laboratory II",
-      "schedule_type": "Laboratory",
-      "status": "Active",
-      "is_cancelled": false,
-      "credits": "0.5",
-      "start_date": null,
-      "end_date": null,
-      "description": "Continuation of <a href=\"/search/?p=CHEM%201101\" data-action=\"result-detail\" data-group=\"code:CHEM 1101\" >CHEM 1101</a>: General Chemistry Laboratory I",
-      "instructors": [],
-      "meetings": [
-        {
-          "days": "T",
-          "start_time": "13:45:00",
-          "end_time": "16:44:00",
-          "location": ""
-        }
-      ],
-      "linked_sections": [
-        "11760",
-        "11761"
-      ],
-      "current_enrollment": {
-        "enrolled": 13,
-        "max_enrollment": 16,
-        "seats_available": 3
-      }
-    },
-    {
       "crn": "22167",
       "term": "202610",
       "term_name": "Spring 2026",
       "section": "123",
       "title": "General Chemistry Laboratory II",
       "schedule_type": "Laboratory",
-      "status": "Active",
+      "status": "Full",
       "is_cancelled": false,
       "credits": "0.5",
       "start_date": null,
@@ -4817,9 +4817,9 @@
         "11761"
       ],
       "current_enrollment": {
-        "enrolled": 9,
+        "enrolled": 16,
         "max_enrollment": 16,
-        "seats_available": 7
+        "seats_available": 0
       }
     },
     {
@@ -4893,7 +4893,7 @@
       "section": "126",
       "title": "General Chemistry Laboratory II",
       "schedule_type": "Laboratory",
-      "status": "Active",
+      "status": "Full",
       "is_cancelled": false,
       "credits": "0.5",
       "start_date": null,
@@ -4913,9 +4913,9 @@
         "11761"
       ],
       "current_enrollment": {
-        "enrolled": 15,
+        "enrolled": 16,
         "max_enrollment": 16,
-        "seats_available": 1
+        "seats_available": 0
       }
     },
     {
@@ -4957,7 +4957,7 @@
       "section": "132",
       "title": "General Chemistry Laboratory II",
       "schedule_type": "Laboratory",
-      "status": "Active",
+      "status": "Full",
       "is_cancelled": false,
       "credits": "0.5",
       "start_date": null,
@@ -4977,9 +4977,9 @@
         "11761"
       ],
       "current_enrollment": {
-        "enrolled": 3,
+        "enrolled": 16,
         "max_enrollment": 16,
-        "seats_available": 13
+        "seats_available": 0
       }
     },
     {
@@ -4989,7 +4989,7 @@
       "section": "133",
       "title": "General Chemistry Laboratory II",
       "schedule_type": "Laboratory",
-      "status": "Active",
+      "status": "Full",
       "is_cancelled": false,
       "credits": "0.5",
       "start_date": null,
@@ -5009,9 +5009,9 @@
         "11761"
       ],
       "current_enrollment": {
-        "enrolled": 5,
+        "enrolled": 16,
         "max_enrollment": 16,
-        "seats_available": 11
+        "seats_available": 0
       }
     },
     {
@@ -5041,9 +5041,9 @@
         "11761"
       ],
       "current_enrollment": {
-        "enrolled": 7,
+        "enrolled": 9,
         "max_enrollment": 16,
-        "seats_available": 9
+        "seats_available": 7
       }
     },
     {
@@ -5073,9 +5073,9 @@
         "11761"
       ],
       "current_enrollment": {
-        "enrolled": 7,
+        "enrolled": 9,
         "max_enrollment": 16,
-        "seats_available": 9
+        "seats_available": 7
       }
     },
     {
@@ -5123,9 +5123,9 @@
         "11761"
       ],
       "current_enrollment": {
-        "enrolled": 4,
+        "enrolled": 6,
         "max_enrollment": 16,
-        "seats_available": 12
+        "seats_available": 10
       }
     },
     {
@@ -5199,7 +5199,7 @@
       "section": "163",
       "title": "General Chemistry Laboratory II",
       "schedule_type": "Laboratory",
-      "status": "Active",
+      "status": "Full",
       "is_cancelled": false,
       "credits": "0.5",
       "start_date": null,
@@ -5219,9 +5219,9 @@
         "11761"
       ],
       "current_enrollment": {
-        "enrolled": 12,
+        "enrolled": 16,
         "max_enrollment": 16,
-        "seats_available": 4
+        "seats_available": 0
       }
     },
     {
@@ -5263,7 +5263,7 @@
       "section": "172",
       "title": "General Chemistry Laboratory II",
       "schedule_type": "Laboratory",
-      "status": "Active",
+      "status": "Full",
       "is_cancelled": false,
       "credits": "0.5",
       "start_date": null,
@@ -5283,9 +5283,9 @@
         "11761"
       ],
       "current_enrollment": {
-        "enrolled": 6,
+        "enrolled": 16,
         "max_enrollment": 16,
-        "seats_available": 10
+        "seats_available": 0
       }
     },
     {
@@ -5295,7 +5295,7 @@
       "section": "181",
       "title": "General Chemistry Laboratory II",
       "schedule_type": "Laboratory",
-      "status": "Active",
+      "status": "Full",
       "is_cancelled": false,
       "credits": "0.5",
       "start_date": null,
@@ -5315,9 +5315,9 @@
         "11761"
       ],
       "current_enrollment": {
-        "enrolled": 14,
+        "enrolled": 16,
         "max_enrollment": 16,
-        "seats_available": 2
+        "seats_available": 0
       }
     },
     {
@@ -5347,9 +5347,9 @@
         "11761"
       ],
       "current_enrollment": {
-        "enrolled": 1,
+        "enrolled": 8,
         "max_enrollment": 16,
-        "seats_available": 15
+        "seats_available": 8
       }
     },
     {
@@ -5379,9 +5379,9 @@
         "11761"
       ],
       "current_enrollment": {
-        "enrolled": 3,
+        "enrolled": 2,
         "max_enrollment": 16,
-        "seats_available": 13
+        "seats_available": 14
       }
     },
     {
@@ -5413,9 +5413,9 @@
         "34748"
       ],
       "current_enrollment": {
-        "enrolled": 9,
+        "enrolled": 10,
         "max_enrollment": 32,
-        "seats_available": 23
+        "seats_available": 22
       }
     },
     {
@@ -5446,9 +5446,9 @@
         "13754"
       ],
       "current_enrollment": {
-        "enrolled": 9,
+        "enrolled": 10,
         "max_enrollment": 16,
-        "seats_available": 7
+        "seats_available": 6
       }
     },
     {
@@ -5485,5 +5485,5 @@
       }
     }
   ],
-  "last_updated": "2025-11-18T10:03:00.585404"
+  "last_updated": "2025-11-19T10:47:26.182378"
 }

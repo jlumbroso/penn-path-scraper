@@ -161,10 +161,15 @@
       "crn": "15027",
       "term": "202610",
       "section": "001",
-      "enrolled": 20,
+      "enrolled": 18,
       "capacity": 60,
-      "timestamp": "2025-11-20T10:20:29.477721",
+      "timestamp": "2025-11-21T10:11:19.160257",
       "snapshots": [
+        {
+          "timestamp": "2025-11-21T10:11:19.160257",
+          "enrolled": 18,
+          "capacity": 60
+        },
         {
           "timestamp": "2025-11-20T10:20:29.477721",
           "enrolled": 20,
@@ -381,10 +386,15 @@
       "crn": "15028",
       "term": "202610",
       "section": "201",
-      "enrolled": 7,
+      "enrolled": 6,
       "capacity": 20,
-      "timestamp": "2025-11-20T10:20:30.270528",
+      "timestamp": "2025-11-21T10:11:19.943449",
       "snapshots": [
+        {
+          "timestamp": "2025-11-21T10:11:19.943449",
+          "enrolled": 6,
+          "capacity": 20
+        },
         {
           "timestamp": "2025-11-20T10:20:30.270528",
           "enrolled": 7,
@@ -601,10 +611,15 @@
       "crn": "15029",
       "term": "202610",
       "section": "202",
-      "enrolled": 12,
+      "enrolled": 11,
       "capacity": 20,
-      "timestamp": "2025-11-20T10:20:31.056264",
+      "timestamp": "2025-11-21T10:11:21.731928",
       "snapshots": [
+        {
+          "timestamp": "2025-11-21T10:11:21.731928",
+          "enrolled": 11,
+          "capacity": 20
+        },
         {
           "timestamp": "2025-11-20T10:20:31.056264",
           "enrolled": 12,
@@ -823,8 +838,13 @@
       "section": "203",
       "enrolled": 1,
       "capacity": 20,
-      "timestamp": "2025-11-20T10:20:31.852076",
+      "timestamp": "2025-11-21T10:11:23.524240",
       "snapshots": [
+        {
+          "timestamp": "2025-11-21T10:11:23.524240",
+          "enrolled": 1,
+          "capacity": 20
+        },
         {
           "timestamp": "2025-11-20T10:20:31.852076",
           "enrolled": 1,
@@ -1038,5 +1058,5 @@
       ]
     }
   ],
-  "last_updated": "2025-11-20T11:05:31.307508"
+  "last_updated": "2025-11-21T10:54:09.389852"
 }

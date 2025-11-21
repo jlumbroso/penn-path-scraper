@@ -7,8 +7,18 @@
       "section": "013",
       "enrolled": 2,
       "capacity": 2,
-      "timestamp": "2025-11-20T07:59:32.997677",
+      "timestamp": "2025-11-21T07:55:13.439080",
       "snapshots": [
+        {
+          "timestamp": "2025-11-21T07:55:13.439080",
+          "enrolled": 2,
+          "capacity": 2
+        },
+        {
+          "timestamp": "2025-11-21T06:17:27.462415",
+          "enrolled": 2,
+          "capacity": 2
+        },
         {
           "timestamp": "2025-11-20T07:59:32.997677",
           "enrolled": 2,
@@ -452,8 +462,18 @@
       "section": "014",
       "enrolled": 1,
       "capacity": 1,
-      "timestamp": "2025-11-20T07:59:33.791995",
+      "timestamp": "2025-11-21T07:55:14.246175",
       "snapshots": [
+        {
+          "timestamp": "2025-11-21T07:55:14.246175",
+          "enrolled": 1,
+          "capacity": 1
+        },
+        {
+          "timestamp": "2025-11-21T06:17:28.272221",
+          "enrolled": 1,
+          "capacity": 1
+        },
         {
           "timestamp": "2025-11-20T07:59:33.791995",
           "enrolled": 1,
@@ -897,8 +917,18 @@
       "section": "015",
       "enrolled": 1,
       "capacity": 1,
-      "timestamp": "2025-11-20T07:59:34.636624",
+      "timestamp": "2025-11-21T07:55:15.053234",
       "snapshots": [
+        {
+          "timestamp": "2025-11-21T07:55:15.053234",
+          "enrolled": 1,
+          "capacity": 1
+        },
+        {
+          "timestamp": "2025-11-21T06:17:29.063005",
+          "enrolled": 1,
+          "capacity": 1
+        },
         {
           "timestamp": "2025-11-20T07:59:34.636624",
           "enrolled": 1,
@@ -1342,8 +1372,18 @@
       "section": "016",
       "enrolled": 1,
       "capacity": 1,
-      "timestamp": "2025-11-20T07:59:35.419841",
+      "timestamp": "2025-11-21T07:55:15.864372",
       "snapshots": [
+        {
+          "timestamp": "2025-11-21T07:55:15.864372",
+          "enrolled": 1,
+          "capacity": 1
+        },
+        {
+          "timestamp": "2025-11-21T06:17:30.899343",
+          "enrolled": 1,
+          "capacity": 1
+        },
         {
           "timestamp": "2025-11-20T07:59:35.419841",
           "enrolled": 1,
@@ -1943,8 +1983,13 @@
       "section": "011",
       "enrolled": 1,
       "capacity": 2,
-      "timestamp": "2025-11-20T09:37:38.526794",
+      "timestamp": "2025-11-21T09:30:00.471789",
       "snapshots": [
+        {
+          "timestamp": "2025-11-21T09:30:00.471789",
+          "enrolled": 1,
+          "capacity": 2
+        },
         {
           "timestamp": "2025-11-20T09:37:38.526794",
           "enrolled": 1,
@@ -1963,8 +2008,13 @@
       "section": "012",
       "enrolled": 1,
       "capacity": 1,
-      "timestamp": "2025-11-20T09:37:39.315437",
+      "timestamp": "2025-11-21T09:30:01.283495",
       "snapshots": [
+        {
+          "timestamp": "2025-11-21T09:30:01.283495",
+          "enrolled": 1,
+          "capacity": 1
+        },
         {
           "timestamp": "2025-11-20T09:37:39.315437",
           "enrolled": 1,
@@ -1981,10 +2031,15 @@
       "crn": "36974",
       "term": "202610",
       "section": "013",
-      "enrolled": 1,
+      "enrolled": 0,
       "capacity": 1,
-      "timestamp": "2025-11-20T09:37:40.108877",
+      "timestamp": "2025-11-21T09:30:02.221622",
       "snapshots": [
+        {
+          "timestamp": "2025-11-21T09:30:02.221622",
+          "enrolled": 0,
+          "capacity": 1
+        },
         {
           "timestamp": "2025-11-20T09:37:40.108877",
           "enrolled": 1,
@@ -1996,7 +2051,22 @@
           "capacity": 1
         }
       ]
+    },
+    {
+      "crn": "37056",
+      "term": "202610",
+      "section": "014",
+      "enrolled": 1,
+      "capacity": 1,
+      "timestamp": "2025-11-21T09:30:03.054061",
+      "snapshots": [
+        {
+          "timestamp": "2025-11-21T09:30:03.054061",
+          "enrolled": 1,
+          "capacity": 1
+        }
+      ]
     }
   ],
-  "last_updated": "2025-11-20T11:04:06.788735"
+  "last_updated": "2025-11-21T10:52:44.515179"
 }

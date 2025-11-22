@@ -610,8 +610,8 @@
       "section": "302",
       "title": "Elementary Italian II",
       "schedule_type": "Seminar",
-      "status": "Active",
-      "is_cancelled": false,
+      "status": "Canceled",
+      "is_cancelled": true,
       "credits": "1",
       "start_date": null,
       "end_date": null,
@@ -620,9 +620,9 @@
       "meetings": [],
       "linked_sections": [],
       "current_enrollment": {
-        "enrolled": 1,
+        "enrolled": 0,
         "max_enrollment": 15,
-        "seats_available": 14
+        "seats_available": 15
       }
     },
     {
@@ -649,9 +649,9 @@
       ],
       "linked_sections": [],
       "current_enrollment": {
-        "enrolled": 5,
+        "enrolled": 6,
         "max_enrollment": 15,
-        "seats_available": 10
+        "seats_available": 9
       }
     },
     {
@@ -706,5 +706,5 @@
       }
     }
   ],
-  "last_updated": "2025-11-21T10:53:00.874710"
+  "last_updated": "2025-11-22T10:16:35.303756"
 }

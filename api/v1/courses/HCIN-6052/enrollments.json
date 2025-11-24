@@ -67,8 +67,13 @@
       "section": "001",
       "enrolled": 3,
       "capacity": 30,
-      "timestamp": "2025-11-23T09:55:59.071158",
+      "timestamp": "2025-11-24T10:20:44.074924",
       "snapshots": [
+        {
+          "timestamp": "2025-11-24T10:20:44.074924",
+          "enrolled": 3,
+          "capacity": 30
+        },
         {
           "timestamp": "2025-11-23T09:55:59.071158",
           "enrolled": 3,
@@ -300,10 +305,15 @@
       "crn": "24425",
       "term": "202610",
       "section": "002",
-      "enrolled": 5,
+      "enrolled": 6,
       "capacity": 100,
-      "timestamp": "2025-11-23T09:55:59.764276",
+      "timestamp": "2025-11-24T10:20:44.859725",
       "snapshots": [
+        {
+          "timestamp": "2025-11-24T10:20:44.859725",
+          "enrolled": 6,
+          "capacity": 100
+        },
         {
           "timestamp": "2025-11-23T09:55:59.764276",
           "enrolled": 5,
@@ -532,5 +542,5 @@
       ]
     }
   ],
-  "last_updated": "2025-11-23T10:16:35.641528"
+  "last_updated": "2025-11-24T10:42:58.592191"
 }

@@ -7,8 +7,18 @@
       "section": "001",
       "enrolled": 2,
       "capacity": 2,
-      "timestamp": "2025-11-24T08:57:17.776451",
+      "timestamp": "2025-11-25T09:00:58.248429",
       "snapshots": [
+        {
+          "timestamp": "2025-11-25T09:00:58.248429",
+          "enrolled": 2,
+          "capacity": 2
+        },
+        {
+          "timestamp": "2025-11-25T07:27:31.539332",
+          "enrolled": 2,
+          "capacity": 2
+        },
         {
           "timestamp": "2025-11-24T08:57:17.776451",
           "enrolled": 2,
@@ -487,8 +497,18 @@
       "section": "002",
       "enrolled": 2,
       "capacity": 3,
-      "timestamp": "2025-11-24T08:57:18.539444",
+      "timestamp": "2025-11-25T09:00:59.041846",
       "snapshots": [
+        {
+          "timestamp": "2025-11-25T09:00:59.041846",
+          "enrolled": 2,
+          "capacity": 3
+        },
+        {
+          "timestamp": "2025-11-25T07:27:32.339908",
+          "enrolled": 2,
+          "capacity": 3
+        },
         {
           "timestamp": "2025-11-24T08:57:18.539444",
           "enrolled": 2,
@@ -1048,8 +1068,13 @@
       "section": "001",
       "enrolled": 0,
       "capacity": 2,
-      "timestamp": "2025-11-24T10:18:21.759865",
+      "timestamp": "2025-11-25T10:25:03.599559",
       "snapshots": [
+        {
+          "timestamp": "2025-11-25T10:25:03.599559",
+          "enrolled": 0,
+          "capacity": 2
+        },
         {
           "timestamp": "2025-11-24T10:18:21.759865",
           "enrolled": 0,
@@ -1286,10 +1311,15 @@
       "crn": "30367",
       "term": "202610",
       "section": "002",
-      "enrolled": 0,
+      "enrolled": 3,
       "capacity": 4,
-      "timestamp": "2025-11-24T10:18:22.522214",
+      "timestamp": "2025-11-25T10:25:04.400748",
       "snapshots": [
+        {
+          "timestamp": "2025-11-25T10:25:04.400748",
+          "enrolled": 3,
+          "capacity": 4
+        },
         {
           "timestamp": "2025-11-24T10:18:22.522214",
           "enrolled": 0,
@@ -1523,5 +1553,5 @@
       ]
     }
   ],
-  "last_updated": "2025-11-24T10:42:25.659101"
+  "last_updated": "2025-11-25T10:49:43.398776"
 }

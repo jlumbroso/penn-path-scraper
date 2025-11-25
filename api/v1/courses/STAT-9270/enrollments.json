@@ -44,10 +44,15 @@
       "crn": "10342",
       "term": "202610",
       "section": "001",
-      "enrolled": 0,
+      "enrolled": 1,
       "capacity": 40,
-      "timestamp": "2025-11-24T10:40:48.528635",
+      "timestamp": "2025-11-25T10:47:55.076652",
       "snapshots": [
+        {
+          "timestamp": "2025-11-25T10:47:55.076652",
+          "enrolled": 1,
+          "capacity": 40
+        },
         {
           "timestamp": "2025-11-24T10:40:48.528635",
           "enrolled": 0,
@@ -281,5 +286,5 @@
       ]
     }
   ],
-  "last_updated": "2025-11-24T10:43:05.277467"
+  "last_updated": "2025-11-25T10:50:31.672075"
 }

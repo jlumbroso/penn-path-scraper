@@ -209,11 +209,42 @@
       ],
       "linked_sections": [],
       "current_enrollment": {
-        "enrolled": 40,
+        "enrolled": null,
+        "max_enrollment": null,
+        "seats_available": null
+      }
+    },
+    {
+      "crn": "37252",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "402",
+      "title": "Engineering Economics",
+      "schedule_type": "Lecture",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "1",
+      "start_date": null,
+      "end_date": null,
+      "description": "This course investigates methods of economic analysis for decision making among alternative courses of action in engineering applications. Topics include: cost-driven design economics, break-even analysis, money-time relationships, rates of return, cost estimation, depreciation and taxes, foreign exchange rates, life cycle analysis, benefit-cost ratios, risk analysis, capital financing and allocation, and financial statement analysis. Case studies apply these topics to actual engineering problems. Prerequisite: Knowledge of Differential Calculus",
+      "instructors": [
+        "Ali Zaidi"
+      ],
+      "meetings": [
+        {
+          "days": "TR",
+          "start_time": "10:15:00",
+          "end_time": "11:44:00",
+          "location": ""
+        }
+      ],
+      "linked_sections": [],
+      "current_enrollment": {
+        "enrolled": 12,
         "max_enrollment": 40,
-        "seats_available": 0
+        "seats_available": 28
       }
     }
   ],
-  "last_updated": "2025-12-01T09:51:04.078766"
+  "last_updated": "2025-12-02T10:06:08.998997"
 }

@@ -7,8 +7,18 @@
       "section": "001",
       "enrolled": 35,
       "capacity": 50,
-      "timestamp": "2025-12-01T08:41:22.222204",
+      "timestamp": "2025-12-02T08:52:42.873909",
       "snapshots": [
+        {
+          "timestamp": "2025-12-02T08:52:42.873909",
+          "enrolled": 35,
+          "capacity": 50
+        },
+        {
+          "timestamp": "2025-12-02T07:33:31.728893",
+          "enrolled": 35,
+          "capacity": 50
+        },
         {
           "timestamp": "2025-12-01T08:41:22.222204",
           "enrolled": 35,
@@ -562,8 +572,18 @@
       "section": "002",
       "enrolled": 18,
       "capacity": 50,
-      "timestamp": "2025-12-01T08:41:22.818981",
+      "timestamp": "2025-12-02T08:52:43.510752",
       "snapshots": [
+        {
+          "timestamp": "2025-12-02T08:52:43.510752",
+          "enrolled": 18,
+          "capacity": 50
+        },
+        {
+          "timestamp": "2025-12-02T07:33:32.373734",
+          "enrolled": 18,
+          "capacity": 50
+        },
         {
           "timestamp": "2025-12-01T08:41:22.818981",
           "enrolled": 18,
@@ -1235,10 +1255,15 @@
       "crn": "28805",
       "term": "202610",
       "section": "001",
-      "enrolled": 48,
+      "enrolled": 49,
       "capacity": 50,
-      "timestamp": "2025-12-01T09:48:56.487362",
+      "timestamp": "2025-12-02T10:03:57.482359",
       "snapshots": [
+        {
+          "timestamp": "2025-12-02T10:03:57.482359",
+          "enrolled": 49,
+          "capacity": 50
+        },
         {
           "timestamp": "2025-12-01T09:48:56.487362",
           "enrolled": 48,
@@ -1512,8 +1537,13 @@
       "section": "002",
       "enrolled": 10,
       "capacity": 50,
-      "timestamp": "2025-12-01T09:48:57.080982",
+      "timestamp": "2025-12-02T10:03:58.132684",
       "snapshots": [
+        {
+          "timestamp": "2025-12-02T10:03:58.132684",
+          "enrolled": 10,
+          "capacity": 50
+        },
         {
           "timestamp": "2025-12-01T09:48:57.080982",
           "enrolled": 10,
@@ -1782,5 +1812,5 @@
       ]
     }
   ],
-  "last_updated": "2025-12-01T09:51:36.085470"
+  "last_updated": "2025-12-02T10:06:39.922148"
 }

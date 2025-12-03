@@ -101,10 +101,15 @@
       "crn": "33927",
       "term": "202610",
       "section": "001",
-      "enrolled": 45,
+      "enrolled": 42,
       "capacity": 51,
-      "timestamp": "2025-12-02T09:20:29.188354",
+      "timestamp": "2025-12-03T09:14:22.826541",
       "snapshots": [
+        {
+          "timestamp": "2025-12-03T09:14:22.826541",
+          "enrolled": 42,
+          "capacity": 51
+        },
         {
           "timestamp": "2025-12-02T09:20:29.188354",
           "enrolled": 45,
@@ -381,10 +386,15 @@
       "crn": "33928",
       "term": "202610",
       "section": "201",
-      "enrolled": 17,
+      "enrolled": 15,
       "capacity": 17,
-      "timestamp": "2025-12-02T09:20:29.833183",
+      "timestamp": "2025-12-03T09:14:23.429143",
       "snapshots": [
+        {
+          "timestamp": "2025-12-03T09:14:23.429143",
+          "enrolled": 15,
+          "capacity": 17
+        },
         {
           "timestamp": "2025-12-02T09:20:29.833183",
           "enrolled": 17,
@@ -661,10 +671,15 @@
       "crn": "33929",
       "term": "202610",
       "section": "202",
-      "enrolled": 13,
+      "enrolled": 12,
       "capacity": 17,
-      "timestamp": "2025-12-02T09:20:30.480822",
+      "timestamp": "2025-12-03T09:14:24.044978",
       "snapshots": [
+        {
+          "timestamp": "2025-12-03T09:14:24.044978",
+          "enrolled": 12,
+          "capacity": 17
+        },
         {
           "timestamp": "2025-12-02T09:20:30.480822",
           "enrolled": 13,
@@ -943,8 +958,13 @@
       "section": "203",
       "enrolled": 15,
       "capacity": 17,
-      "timestamp": "2025-12-02T09:20:31.133153",
+      "timestamp": "2025-12-03T09:14:24.668319",
       "snapshots": [
+        {
+          "timestamp": "2025-12-03T09:14:24.668319",
+          "enrolled": 15,
+          "capacity": 17
+        },
         {
           "timestamp": "2025-12-02T09:20:31.133153",
           "enrolled": 15,
@@ -1218,5 +1238,5 @@
       ]
     }
   ],
-  "last_updated": "2025-12-02T10:07:16.741719"
+  "last_updated": "2025-12-03T09:59:27.113913"
 }

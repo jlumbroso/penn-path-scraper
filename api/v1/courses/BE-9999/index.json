@@ -4292,9 +4292,9 @@
       "meetings": [],
       "linked_sections": [],
       "current_enrollment": {
-        "enrolled": 0,
+        "enrolled": 1,
         "max_enrollment": 10,
-        "seats_available": 10
+        "seats_available": 9
       }
     },
     {
@@ -4364,9 +4364,9 @@
       "meetings": [],
       "linked_sections": [],
       "current_enrollment": {
-        "enrolled": 1,
+        "enrolled": 2,
         "max_enrollment": 10,
-        "seats_available": 9
+        "seats_available": 8
       }
     },
     {
@@ -5592,7 +5592,31 @@
         "max_enrollment": 10,
         "seats_available": 10
       }
+    },
+    {
+      "crn": "88981",
+      "term": "202530",
+      "term_name": "Fall 2025",
+      "section": "004",
+      "title": "Independent Study Research",
+      "schedule_type": "Independent Study",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "1 to 3",
+      "start_date": null,
+      "end_date": null,
+      "description": "For Bioengineering doctoral students studying a specific advanced subject area. Students should discuss with the faculty supervisor the scope of the independent study/research and know the expectations and work involved.",
+      "instructors": [
+        "Edward Kreider"
+      ],
+      "meetings": [],
+      "linked_sections": [],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 1,
+        "seats_available": 1
+      }
     }
   ],
-  "last_updated": "2025-12-02T10:06:02.471514"
+  "last_updated": "2025-12-03T09:58:10.649869"
 }

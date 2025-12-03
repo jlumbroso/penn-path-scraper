@@ -536,8 +536,8 @@
       "section": "002",
       "title": "Law and Social Policy",
       "schedule_type": "Lecture",
-      "status": "Active",
-      "is_cancelled": false,
+      "status": "Canceled",
+      "is_cancelled": true,
       "credits": "1",
       "start_date": null,
       "end_date": null,
@@ -545,19 +545,12 @@
       "instructors": [
         "Vikram Patel"
       ],
-      "meetings": [
-        {
-          "days": "M",
-          "start_time": "17:15:00",
-          "end_time": "19:44:00",
-          "location": ""
-        }
-      ],
+      "meetings": [],
       "linked_sections": [],
       "current_enrollment": {
-        "enrolled": 2,
+        "enrolled": 0,
         "max_enrollment": 12,
-        "seats_available": 10
+        "seats_available": 12
       }
     },
     {
@@ -586,9 +579,9 @@
       ],
       "linked_sections": [],
       "current_enrollment": {
-        "enrolled": 7,
+        "enrolled": 9,
         "max_enrollment": 12,
-        "seats_available": 5
+        "seats_available": 3
       }
     },
     {
@@ -598,7 +591,7 @@
       "section": "004",
       "title": "Law and Social Policy",
       "schedule_type": "Lecture",
-      "status": "Full",
+      "status": "Active",
       "is_cancelled": false,
       "credits": "1",
       "start_date": null,
@@ -611,8 +604,8 @@
       "linked_sections": [],
       "current_enrollment": {
         "enrolled": 12,
-        "max_enrollment": 12,
-        "seats_available": 0
+        "max_enrollment": 13,
+        "seats_available": 1
       }
     },
     {
@@ -622,8 +615,8 @@
       "section": "005",
       "title": "Law and Social Policy",
       "schedule_type": "Lecture",
-      "status": "Active",
-      "is_cancelled": false,
+      "status": "Canceled",
+      "is_cancelled": true,
       "credits": "1",
       "start_date": null,
       "end_date": null,
@@ -641,11 +634,11 @@
       ],
       "linked_sections": [],
       "current_enrollment": {
-        "enrolled": 1,
+        "enrolled": 0,
         "max_enrollment": 12,
-        "seats_available": 11
+        "seats_available": 12
       }
     }
   ],
-  "last_updated": "2025-12-02T10:07:05.491580"
+  "last_updated": "2025-12-03T09:59:15.579590"
 }

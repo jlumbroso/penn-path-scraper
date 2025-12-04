@@ -690,7 +690,7 @@
       "section": "401",
       "title": "Painting I",
       "schedule_type": "Studio",
-      "status": "Active",
+      "status": "Full",
       "is_cancelled": false,
       "credits": "1",
       "start_date": null,
@@ -709,9 +709,9 @@
       ],
       "linked_sections": [],
       "current_enrollment": {
-        "enrolled": 1,
+        "enrolled": 2,
         "max_enrollment": 2,
-        "seats_available": 1
+        "seats_available": 0
       }
     },
     {
@@ -808,5 +808,5 @@
       }
     }
   ],
-  "last_updated": "2025-12-03T09:58:24.852945"
+  "last_updated": "2025-12-04T10:57:23.925395"
 }

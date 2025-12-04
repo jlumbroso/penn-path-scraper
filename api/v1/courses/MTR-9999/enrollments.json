@@ -7,8 +7,18 @@
       "section": "001",
       "enrolled": 1,
       "capacity": 30,
-      "timestamp": "2025-12-03T08:33:49.900220",
+      "timestamp": "2025-12-04T09:09:13.494678",
       "snapshots": [
+        {
+          "timestamp": "2025-12-04T09:09:13.494678",
+          "enrolled": 1,
+          "capacity": 30
+        },
+        {
+          "timestamp": "2025-12-04T07:33:07.013091",
+          "enrolled": 1,
+          "capacity": 30
+        },
         {
           "timestamp": "2025-12-03T08:33:49.900220",
           "enrolled": 1,
@@ -582,8 +592,18 @@
       "section": "002",
       "enrolled": 1,
       "capacity": 30,
-      "timestamp": "2025-12-03T08:33:50.513313",
+      "timestamp": "2025-12-04T09:09:14.297620",
       "snapshots": [
+        {
+          "timestamp": "2025-12-04T09:09:14.297620",
+          "enrolled": 1,
+          "capacity": 30
+        },
+        {
+          "timestamp": "2025-12-04T07:33:07.806754",
+          "enrolled": 1,
+          "capacity": 30
+        },
         {
           "timestamp": "2025-12-03T08:33:50.513313",
           "enrolled": 1,
@@ -1349,8 +1369,13 @@
       "section": "001",
       "enrolled": 3,
       "capacity": 25,
-      "timestamp": "2025-12-03T09:41:00.200345",
+      "timestamp": "2025-12-04T10:35:18.876742",
       "snapshots": [
+        {
+          "timestamp": "2025-12-04T10:35:18.876742",
+          "enrolled": 3,
+          "capacity": 25
+        },
         {
           "timestamp": "2025-12-03T09:41:00.200345",
           "enrolled": 3,
@@ -1627,7 +1652,22 @@
           "capacity": 25
         }
       ]
+    },
+    {
+      "crn": "37306",
+      "term": "202610",
+      "section": "002",
+      "enrolled": 0,
+      "capacity": 25,
+      "timestamp": "2025-12-04T10:35:19.679213",
+      "snapshots": [
+        {
+          "timestamp": "2025-12-04T10:35:19.679213",
+          "enrolled": 0,
+          "capacity": 25
+        }
+      ]
     }
   ],
-  "last_updated": "2025-12-03T09:58:33.913383"
+  "last_updated": "2025-12-04T10:57:33.062224"
 }

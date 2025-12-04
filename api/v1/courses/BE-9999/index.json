@@ -2996,9 +2996,9 @@
       "meetings": [],
       "linked_sections": [],
       "current_enrollment": {
-        "enrolled": 1,
+        "enrolled": 2,
         "max_enrollment": 10,
-        "seats_available": 9
+        "seats_available": 8
       }
     },
     {
@@ -3260,9 +3260,9 @@
       "meetings": [],
       "linked_sections": [],
       "current_enrollment": {
-        "enrolled": 0,
+        "enrolled": 1,
         "max_enrollment": 10,
-        "seats_available": 10
+        "seats_available": 9
       }
     },
     {
@@ -5616,7 +5616,31 @@
         "max_enrollment": 1,
         "seats_available": 1
       }
+    },
+    {
+      "crn": "37311",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "106",
+      "title": "Independent Study Research",
+      "schedule_type": "Independent Study",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "1 to 3",
+      "start_date": null,
+      "end_date": null,
+      "description": "For Bioengineering doctoral students studying a specific advanced subject area. Students should discuss with the faculty supervisor the scope of the independent study/research and know the expectations and work involved.",
+      "instructors": [
+        "Edward Kreider"
+      ],
+      "meetings": [],
+      "linked_sections": [],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 10,
+        "seats_available": 10
+      }
     }
   ],
-  "last_updated": "2025-12-03T09:58:10.649869"
+  "last_updated": "2025-12-04T10:57:09.744876"
 }

@@ -205,8 +205,13 @@
       "section": "008",
       "enrolled": 0,
       "capacity": 1,
-      "timestamp": "2025-12-04T10:34:14.497543",
+      "timestamp": "2025-12-05T09:50:01.094129",
       "snapshots": [
+        {
+          "timestamp": "2025-12-05T09:50:01.094129",
+          "enrolled": 0,
+          "capacity": 1
+        },
         {
           "timestamp": "2025-12-04T10:34:14.497543",
           "enrolled": 0,
@@ -495,8 +500,13 @@
       "section": "009",
       "enrolled": 0,
       "capacity": 1,
-      "timestamp": "2025-12-04T10:34:15.294994",
+      "timestamp": "2025-12-05T09:50:01.754615",
       "snapshots": [
+        {
+          "timestamp": "2025-12-05T09:50:01.754615",
+          "enrolled": 0,
+          "capacity": 1
+        },
         {
           "timestamp": "2025-12-04T10:34:15.294994",
           "enrolled": 0,
@@ -785,8 +795,18 @@
       "section": "011",
       "enrolled": 1,
       "capacity": 1,
-      "timestamp": "2025-12-04T09:08:03.381940",
+      "timestamp": "2025-12-05T08:39:13.049812",
       "snapshots": [
+        {
+          "timestamp": "2025-12-05T08:39:13.049812",
+          "enrolled": 1,
+          "capacity": 1
+        },
+        {
+          "timestamp": "2025-12-05T07:19:12.124094",
+          "enrolled": 1,
+          "capacity": 1
+        },
         {
           "timestamp": "2025-12-04T09:08:03.381940",
           "enrolled": 1,
@@ -1150,5 +1170,5 @@
       ]
     }
   ],
-  "last_updated": "2025-12-04T10:57:52.034095"
+  "last_updated": "2025-12-05T10:09:46.573247"
 }

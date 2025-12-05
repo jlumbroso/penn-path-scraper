@@ -787,8 +787,8 @@
       "section": "001",
       "title": "Topics in Advanced Empirical Microeconomics",
       "schedule_type": "Lecture",
-      "status": "Full",
-      "is_cancelled": false,
+      "status": "Canceled",
+      "is_cancelled": true,
       "credits": "1",
       "start_date": null,
       "end_date": null,
@@ -796,19 +796,12 @@
       "instructors": [
         "Andrew Shephard"
       ],
-      "meetings": [
-        {
-          "days": "T",
-          "start_time": "15:30:00",
-          "end_time": "18:29:00",
-          "location": ""
-        }
-      ],
+      "meetings": [],
       "linked_sections": [],
       "current_enrollment": {
-        "enrolled": 1,
+        "enrolled": 0,
         "max_enrollment": 1,
-        "seats_available": 0
+        "seats_available": 1
       }
     },
     {
@@ -905,5 +898,5 @@
       }
     }
   ],
-  "last_updated": "2025-12-04T10:56:42.555957"
+  "last_updated": "2025-12-05T10:08:32.535060"
 }

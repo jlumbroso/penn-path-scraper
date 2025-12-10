@@ -94,8 +94,8 @@
       "section": "001",
       "title": "Social Policy Through Literature",
       "schedule_type": "Lecture",
-      "status": "Active",
-      "is_cancelled": false,
+      "status": "Canceled",
+      "is_cancelled": true,
       "credits": "1",
       "start_date": null,
       "end_date": null,
@@ -103,21 +103,14 @@
       "instructors": [
         "Allan Irving"
       ],
-      "meetings": [
-        {
-          "days": "W",
-          "start_time": "08:30:00",
-          "end_time": "10:59:00",
-          "location": ""
-        }
-      ],
+      "meetings": [],
       "linked_sections": [],
       "current_enrollment": {
-        "enrolled": 7,
+        "enrolled": 0,
         "max_enrollment": 15,
-        "seats_available": 8
+        "seats_available": 15
       }
     }
   ],
-  "last_updated": "2025-12-09T10:54:24.348733"
+  "last_updated": "2025-12-10T10:03:27.305498"
 }

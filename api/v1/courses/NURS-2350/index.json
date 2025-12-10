@@ -5287,7 +5287,7 @@
       "section": "114",
       "title": "HUP: Cedar",
       "schedule_type": "Clinical",
-      "status": "Active",
+      "status": "Full",
       "is_cancelled": false,
       "credits": "0",
       "start_date": null,
@@ -5302,9 +5302,9 @@
         "12023"
       ],
       "current_enrollment": {
-        "enrolled": 5,
+        "enrolled": 6,
         "max_enrollment": 6,
-        "seats_available": 1
+        "seats_available": 0
       }
     },
     {
@@ -5314,7 +5314,7 @@
       "section": "115",
       "title": "Belmont",
       "schedule_type": "Clinical",
-      "status": "Full",
+      "status": "Active",
       "is_cancelled": false,
       "credits": "0",
       "start_date": null,
@@ -5329,9 +5329,9 @@
         "12023"
       ],
       "current_enrollment": {
-        "enrolled": 8,
+        "enrolled": 7,
         "max_enrollment": 8,
-        "seats_available": 0
+        "seats_available": 1
       }
     },
     {
@@ -5544,7 +5544,7 @@
       "section": "208",
       "title": "Psychiatric, Behavioral, and Mental Health Nursing",
       "schedule_type": "Laboratory",
-      "status": "Full",
+      "status": "Active",
       "is_cancelled": false,
       "credits": "0",
       "start_date": null,
@@ -5563,9 +5563,9 @@
       ],
       "linked_sections": [],
       "current_enrollment": {
-        "enrolled": 8,
+        "enrolled": 7,
         "max_enrollment": 8,
-        "seats_available": 0
+        "seats_available": 1
       }
     },
     {
@@ -5575,7 +5575,7 @@
       "section": "209",
       "title": "Psychiatric, Behavioral, and Mental Health Nursing",
       "schedule_type": "Laboratory",
-      "status": "Active",
+      "status": "Full",
       "is_cancelled": false,
       "credits": "0",
       "start_date": null,
@@ -5587,9 +5587,9 @@
       "meetings": [],
       "linked_sections": [],
       "current_enrollment": {
-        "enrolled": 7,
+        "enrolled": 8,
         "max_enrollment": 8,
-        "seats_available": 1
+        "seats_available": 0
       }
     },
     {
@@ -5648,5 +5648,5 @@
       }
     }
   ],
-  "last_updated": "2025-12-09T10:54:22.793881"
+  "last_updated": "2025-12-10T10:03:25.799325"
 }

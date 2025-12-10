@@ -2492,7 +2492,7 @@
       "section": "001",
       "title": "Principles of Biological Chemistry",
       "schedule_type": "Lecture",
-      "status": "Full",
+      "status": "Active",
       "is_cancelled": false,
       "credits": "1",
       "start_date": null,
@@ -2505,14 +2505,19 @@
       "linked_sections": [
         "11765",
         "11766",
+        "11767",
         "11768",
         "11769",
-        "19854"
+        "19854",
+        "20045",
+        "29166",
+        "29167",
+        "29168"
       ],
       "current_enrollment": {
-        "enrolled": 125,
-        "max_enrollment": 125,
-        "seats_available": 0
+        "enrolled": 217,
+        "max_enrollment": 225,
+        "seats_available": 8
       }
     },
     {
@@ -2522,7 +2527,7 @@
       "section": "002",
       "title": "Principles of Biological Chemistry",
       "schedule_type": "Lecture",
-      "status": "Full",
+      "status": "Active",
       "is_cancelled": false,
       "credits": "1",
       "start_date": null,
@@ -2532,9 +2537,9 @@
       "meetings": [],
       "linked_sections": [],
       "current_enrollment": {
-        "enrolled": 93,
+        "enrolled": 0,
         "max_enrollment": 93,
-        "seats_available": 0
+        "seats_available": 93
       }
     },
     {
@@ -2714,11 +2719,13 @@
           "location": ""
         }
       ],
-      "linked_sections": [],
+      "linked_sections": [
+        "11763"
+      ],
       "current_enrollment": {
         "enrolled": 24,
-        "max_enrollment": 25,
-        "seats_available": 1
+        "max_enrollment": 26,
+        "seats_available": 2
       }
     },
     {
@@ -2743,7 +2750,9 @@
           "location": ""
         }
       ],
-      "linked_sections": [],
+      "linked_sections": [
+        "11763"
+      ],
       "current_enrollment": {
         "enrolled": 25,
         "max_enrollment": 25,
@@ -2772,7 +2781,9 @@
           "location": ""
         }
       ],
-      "linked_sections": [],
+      "linked_sections": [
+        "11763"
+      ],
       "current_enrollment": {
         "enrolled": null,
         "max_enrollment": null,
@@ -2786,7 +2797,7 @@
       "section": "223",
       "title": "Principles of Biological Chemistry",
       "schedule_type": "Recitation",
-      "status": "Full",
+      "status": "Active",
       "is_cancelled": false,
       "credits": "0",
       "start_date": null,
@@ -2801,11 +2812,13 @@
           "location": ""
         }
       ],
-      "linked_sections": [],
+      "linked_sections": [
+        "11763"
+      ],
       "current_enrollment": {
-        "enrolled": 25,
+        "enrolled": 24,
         "max_enrollment": 25,
-        "seats_available": 0
+        "seats_available": 1
       }
     },
     {
@@ -2823,7 +2836,9 @@
       "description": "Fundamentals of biological chemistry, including the structure of biological macromolecules and their mechanism of action, intermediary metabolism, and the chemical basis of information transfer. Course can be taken concurrently with <a href=\"/search/?p=CHEM%202420\" data-action=\"result-detail\" data-group=\"code:CHEM 2420\" >CHEM 2420</a> or <a href=\"/search/?p=CHEM%202425\" data-action=\"result-detail\" data-group=\"code:CHEM 2425\"  class=\"notoffered\">CHEM 2425</a>.",
       "instructors": [],
       "meetings": [],
-      "linked_sections": [],
+      "linked_sections": [
+        "11763"
+      ],
       "current_enrollment": {
         "enrolled": 18,
         "max_enrollment": 25,
@@ -2831,5 +2846,5 @@
       }
     }
   ],
-  "last_updated": "2025-12-09T10:52:39.291139"
+  "last_updated": "2025-12-10T10:01:46.980998"
 }

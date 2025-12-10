@@ -5557,8 +5557,9 @@
         "12320",
         "12321",
         "12322",
-        "30407;11999",
-        "35422"
+        "30407",
+        "35422",
+        "37376;11999"
       ],
       "current_enrollment": {
         "enrolled": 91,
@@ -6029,7 +6030,7 @@
       "section": "113",
       "title": "Nursing of Women and Infants",
       "schedule_type": "Clinical",
-      "status": "Active",
+      "status": "Full",
       "is_cancelled": false,
       "credits": "0",
       "start_date": null,
@@ -6056,8 +6057,8 @@
       ],
       "current_enrollment": {
         "enrolled": 7,
-        "max_enrollment": 8,
-        "seats_available": 1
+        "max_enrollment": 6,
+        "seats_available": -1
       }
     },
     {
@@ -6664,14 +6665,51 @@
         "12314",
         "12315",
         "12316",
-        "30407;11998"
+        "30407",
+        "37376;11998"
       ],
       "current_enrollment": {
         "enrolled": 90,
         "max_enrollment": 98,
         "seats_available": 8
       }
+    },
+    {
+      "crn": "37376",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "114",
+      "title": "Nursing of Women and Infants",
+      "schedule_type": "Clinical",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "0",
+      "start_date": null,
+      "end_date": null,
+      "description": "This course emphasizes the child-bearing cycle, and the related issues of maternal and infant mortality and morbidity. It also explores women and infant's health care and health promotion needs across the lifespan. It provides a global perspective, and uses the United Nations' Pillars of Safe Motherhood and World Health Organization's Millennium Development Goals as the vehicles to enable students to understand the interrelationships among issues of health and health promotion; social, economic, political and environmental contexts; and the care of women across the lifespan. Clinical experiences provide opportunities for students to understand the connections between the local and the global; to use their developing knowledge base to affect the health of women and their infants. Students will have opportunities for hospital-based care of child-bearing women and their infants. In addition, community-based experiences with individual women and with groups of women across the life cycle will be provided in order to enhance teaching, interviewing and assessment skills.",
+      "instructors": [],
+      "meetings": [],
+      "linked_sections": [
+        "11999",
+        "12000",
+        "12001",
+        "12002",
+        "12003",
+        "12004",
+        "12005",
+        "12318",
+        "12319",
+        "12320",
+        "12321",
+        "12322",
+        "35422;11998"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 1,
+        "seats_available": 1
+      }
     }
   ],
-  "last_updated": "2025-12-09T10:54:21.996732"
+  "last_updated": "2025-12-10T10:03:25.155410"
 }

@@ -2527,8 +2527,8 @@
       "section": "002",
       "title": "Principles of Biological Chemistry",
       "schedule_type": "Lecture",
-      "status": "Active",
-      "is_cancelled": false,
+      "status": "Canceled",
+      "is_cancelled": true,
       "credits": "1",
       "start_date": null,
       "end_date": null,
@@ -2673,7 +2673,7 @@
       "section": "205",
       "title": "Principles of Biological Chemistry",
       "schedule_type": "Recitation",
-      "status": "Full",
+      "status": "Active",
       "is_cancelled": false,
       "credits": "0",
       "start_date": null,
@@ -2692,9 +2692,9 @@
         "11763"
       ],
       "current_enrollment": {
-        "enrolled": 25,
+        "enrolled": 24,
         "max_enrollment": 25,
-        "seats_available": 0
+        "seats_available": 1
       }
     },
     {
@@ -2704,7 +2704,7 @@
       "section": "220",
       "title": "Principles of Biological Chemistry",
       "schedule_type": "Recitation",
-      "status": "Active",
+      "status": "Full",
       "is_cancelled": false,
       "credits": "0",
       "start_date": null,
@@ -2723,9 +2723,9 @@
         "11763"
       ],
       "current_enrollment": {
-        "enrolled": 24,
+        "enrolled": 26,
         "max_enrollment": 26,
-        "seats_available": 2
+        "seats_available": 0
       }
     },
     {
@@ -2766,21 +2766,14 @@
       "section": "222",
       "title": "Principles of Biological Chemistry",
       "schedule_type": "Recitation",
-      "status": "Full",
-      "is_cancelled": false,
+      "status": "Canceled",
+      "is_cancelled": true,
       "credits": "0",
       "start_date": null,
       "end_date": null,
       "description": "Fundamentals of biological chemistry, including the structure of biological macromolecules and their mechanism of action, intermediary metabolism, and the chemical basis of information transfer. Course can be taken concurrently with <a href=\"/search/?p=CHEM%202420\" data-action=\"result-detail\" data-group=\"code:CHEM 2420\" >CHEM 2420</a> or <a href=\"/search/?p=CHEM%202425\" data-action=\"result-detail\" data-group=\"code:CHEM 2425\"  class=\"notoffered\">CHEM 2425</a>.",
       "instructors": [],
-      "meetings": [
-        {
-          "days": "W",
-          "start_time": "08:30:00",
-          "end_time": "09:29:00",
-          "location": ""
-        }
-      ],
+      "meetings": [],
       "linked_sections": [
         "11763"
       ],
@@ -2840,11 +2833,11 @@
         "11763"
       ],
       "current_enrollment": {
-        "enrolled": 18,
+        "enrolled": 19,
         "max_enrollment": 25,
-        "seats_available": 7
+        "seats_available": 6
       }
     }
   ],
-  "last_updated": "2025-12-10T10:01:46.980998"
+  "last_updated": "2025-12-11T11:13:26.080012"
 }

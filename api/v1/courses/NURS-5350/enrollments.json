@@ -7,8 +7,18 @@
       "section": "006",
       "enrolled": 0,
       "capacity": 5,
-      "timestamp": "2025-12-15T08:58:04.396340",
+      "timestamp": "2025-12-16T08:45:13.730508",
       "snapshots": [
+        {
+          "timestamp": "2025-12-16T08:45:13.730508",
+          "enrolled": 0,
+          "capacity": 5
+        },
+        {
+          "timestamp": "2025-12-16T07:24:42.698862",
+          "enrolled": 0,
+          "capacity": 5
+        },
         {
           "timestamp": "2025-12-15T08:58:04.396340",
           "enrolled": 0,
@@ -882,8 +892,13 @@
       "section": "005",
       "enrolled": 10,
       "capacity": 20,
-      "timestamp": "2025-12-15T10:15:50.116062",
+      "timestamp": "2025-12-16T09:56:14.951319",
       "snapshots": [
+        {
+          "timestamp": "2025-12-16T09:56:14.951319",
+          "enrolled": 10,
+          "capacity": 20
+        },
         {
           "timestamp": "2025-12-15T10:15:50.116062",
           "enrolled": 10,
@@ -1227,8 +1242,13 @@
       "section": "001",
       "enrolled": 0,
       "capacity": 20,
-      "timestamp": "2025-12-15T10:15:50.814581",
+      "timestamp": "2025-12-16T09:56:15.591833",
       "snapshots": [
+        {
+          "timestamp": "2025-12-16T09:56:15.591833",
+          "enrolled": 0,
+          "capacity": 20
+        },
         {
           "timestamp": "2025-12-15T10:15:50.814581",
           "enrolled": 0,
@@ -1570,10 +1590,15 @@
       "crn": "26107",
       "term": "202610",
       "section": "002",
-      "enrolled": 6,
+      "enrolled": 7,
       "capacity": 20,
-      "timestamp": "2025-12-15T10:15:51.516248",
+      "timestamp": "2025-12-16T09:56:16.233966",
       "snapshots": [
+        {
+          "timestamp": "2025-12-16T09:56:16.233966",
+          "enrolled": 7,
+          "capacity": 20
+        },
         {
           "timestamp": "2025-12-15T10:15:51.516248",
           "enrolled": 6,
@@ -1912,5 +1937,5 @@
       ]
     }
   ],
-  "last_updated": "2025-12-15T10:32:31.793455"
+  "last_updated": "2025-12-16T10:11:54.431232"
 }

@@ -389,8 +389,8 @@
       "section": "103",
       "title": "Honors Physics II: Electromagnetism and Radiation",
       "schedule_type": "Laboratory",
-      "status": "Active",
-      "is_cancelled": false,
+      "status": "Canceled",
+      "is_cancelled": true,
       "credits": "0",
       "start_date": null,
       "end_date": null,
@@ -410,9 +410,9 @@
         "10817"
       ],
       "current_enrollment": {
-        "enrolled": 1,
-        "max_enrollment": 15,
-        "seats_available": 14
+        "enrolled": null,
+        "max_enrollment": null,
+        "seats_available": null
       }
     },
     {
@@ -450,11 +450,11 @@
         "26543"
       ],
       "current_enrollment": {
-        "enrolled": 14,
+        "enrolled": 13,
         "max_enrollment": 36,
-        "seats_available": 22
+        "seats_available": 23
       }
     }
   ],
-  "last_updated": "2025-12-15T10:32:56.847313"
+  "last_updated": "2025-12-16T10:12:20.043372"
 }

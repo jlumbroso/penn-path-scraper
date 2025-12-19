@@ -231,7 +231,64 @@
         "max_enrollment": null,
         "seats_available": null
       }
+    },
+    {
+      "crn": "37463",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "001",
+      "title": "Rust Programming",
+      "schedule_type": "Lecture",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "0.5",
+      "start_date": null,
+      "end_date": null,
+      "description": "Rust is a new, practical, community-developed systems programming language that &quot;runs blazingly fast, prevents almost all crashes, and eliminates data ra (rust-lang.org). Rust derives from a rich history of languages to create a multi-paradigm (imperative/functional), low-level language that focuses on high-performance, zero-cost safety guarantee in concurrent programs. It has begun to gain traction in industry, showing a recognized need for a new low-level systems language. In this course, we will cover what makes Rust so unique and apply it to practical systems programming problems. Topics covered will include traits and generics; memory safety (move semantics, borrowing, and lifetimes); Rust's rich macro system; closures; and concurrency. Evaluation is based on regular homework assignments as well as a final project and class participation. Prerequisite: <a href=\"/search/?p=CIS%201200\" data-action=\"result-detail\" data-group=\"code:CIS 1200\" >CIS 1200</a> Recommended additional prerequisite: <a href=\"/search/?p=CIS%202400\" data-action=\"result-detail\" data-group=\"code:CIS 2400\" >CIS 2400</a> or exposure to C or C++",
+      "instructors": [
+        "Swapneel Sheth"
+      ],
+      "meetings": [],
+      "linked_sections": [
+        "37464"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 20,
+        "seats_available": 20
+      }
+    },
+    {
+      "crn": "37464",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "201",
+      "title": "Rust Programming",
+      "schedule_type": "Recitation",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "0",
+      "start_date": null,
+      "end_date": null,
+      "description": "Rust is a new, practical, community-developed systems programming language that &quot;runs blazingly fast, prevents almost all crashes, and eliminates data ra (rust-lang.org). Rust derives from a rich history of languages to create a multi-paradigm (imperative/functional), low-level language that focuses on high-performance, zero-cost safety guarantee in concurrent programs. It has begun to gain traction in industry, showing a recognized need for a new low-level systems language. In this course, we will cover what makes Rust so unique and apply it to practical systems programming problems. Topics covered will include traits and generics; memory safety (move semantics, borrowing, and lifetimes); Rust's rich macro system; closures; and concurrency. Evaluation is based on regular homework assignments as well as a final project and class participation. Prerequisite: <a href=\"/search/?p=CIS%201200\" data-action=\"result-detail\" data-group=\"code:CIS 1200\" >CIS 1200</a> Recommended additional prerequisite: <a href=\"/search/?p=CIS%202400\" data-action=\"result-detail\" data-group=\"code:CIS 2400\" >CIS 2400</a> or exposure to C or C++",
+      "instructors": [],
+      "meetings": [
+        {
+          "days": "M",
+          "start_time": "17:15:00",
+          "end_time": "18:44:00",
+          "location": ""
+        }
+      ],
+      "linked_sections": [
+        "37463"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 20,
+        "seats_available": 20
+      }
     }
   ],
-  "last_updated": "2025-12-18T09:49:57.378918"
+  "last_updated": "2025-12-19T11:02:29.517667"
 }

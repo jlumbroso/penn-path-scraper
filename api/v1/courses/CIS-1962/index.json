@@ -171,7 +171,66 @@
         "max_enrollment": null,
         "seats_available": null
       }
+    },
+    {
+      "crn": "37455",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "001",
+      "title": "JavaScript Programming",
+      "schedule_type": "Lecture",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "0.5",
+      "start_date": null,
+      "end_date": null,
+      "description": "This course provides an introduction to modern web development frameworks, techniques, and practices used to deliver robust client side applications on the web. The emphasis will be on developing JavaScript programs that run in the browser. Topics covered include the JavaScript language, web browser internals, the Document Object Model (DOM), <a href=\"/search/?p=HTML5\" data-action=\"result-detail\" data-group=\"code:HTML5\"  class=\"notoffered\">HTML5</a>, client-side app architecture and compile-to-JS languages like (Coffeescript, TypeScript, etc.). This course is most useful for students who have some programming and web development experience and want to develop moderate JavaScript skills to be able to build complex, interactive applications in the browser.",
+      "instructors": [
+        "Swapneel Sheth"
+      ],
+      "meetings": [],
+      "linked_sections": [
+        "37456"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 20,
+        "seats_available": 20
+      }
+    },
+    {
+      "crn": "37456",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "201",
+      "title": "JavaScript Programming",
+      "schedule_type": "Recitation",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "0",
+      "start_date": null,
+      "end_date": null,
+      "description": "This course provides an introduction to modern web development frameworks, techniques, and practices used to deliver robust client side applications on the web. The emphasis will be on developing JavaScript programs that run in the browser. Topics covered include the JavaScript language, web browser internals, the Document Object Model (DOM), <a href=\"/search/?p=HTML5\" data-action=\"result-detail\" data-group=\"code:HTML5\"  class=\"notoffered\">HTML5</a>, client-side app architecture and compile-to-JS languages like (Coffeescript, TypeScript, etc.). This course is most useful for students who have some programming and web development experience and want to develop moderate JavaScript skills to be able to build complex, interactive applications in the browser.",
+      "instructors": [
+        "Voravich Silapachairueng"
+      ],
+      "meetings": [
+        {
+          "days": "R",
+          "start_time": "17:15:00",
+          "end_time": "18:44:00",
+          "location": ""
+        }
+      ],
+      "linked_sections": [
+        "37455"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 20,
+        "seats_available": 20
+      }
     }
   ],
-  "last_updated": "2025-12-18T09:49:57.458656"
+  "last_updated": "2025-12-19T11:02:29.625419"
 }

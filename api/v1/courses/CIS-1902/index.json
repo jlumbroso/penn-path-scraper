@@ -205,7 +205,64 @@
         "max_enrollment": 20,
         "seats_available": 3
       }
+    },
+    {
+      "crn": "37461",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "001",
+      "title": "Python Programming",
+      "schedule_type": "Lecture",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "0.5",
+      "start_date": null,
+      "end_date": null,
+      "description": "Python is an elegant, concise, and powerful language that is useful for tasks large and small. Python has quickly become a popular language for getting things done efficiently in many in all domains: scripting, systems programming, research tools, and web development. This course will provide an introduction to this modern high-level language using hands-on experience through programming assignments and a collaborative final application development project.",
+      "instructors": [
+        "Swapneel Sheth"
+      ],
+      "meetings": [],
+      "linked_sections": [
+        "37462"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 15,
+        "seats_available": 15
+      }
+    },
+    {
+      "crn": "37462",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "201",
+      "title": "Python Programming",
+      "schedule_type": "Recitation",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "0",
+      "start_date": null,
+      "end_date": null,
+      "description": "Python is an elegant, concise, and powerful language that is useful for tasks large and small. Python has quickly become a popular language for getting things done efficiently in many in all domains: scripting, systems programming, research tools, and web development. This course will provide an introduction to this modern high-level language using hands-on experience through programming assignments and a collaborative final application development project.",
+      "instructors": [],
+      "meetings": [
+        {
+          "days": "W",
+          "start_time": "10:15:00",
+          "end_time": "11:44:00",
+          "location": ""
+        }
+      ],
+      "linked_sections": [
+        "37461"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 15,
+        "seats_available": 15
+      }
     }
   ],
-  "last_updated": "2025-12-18T09:50:43.504753"
+  "last_updated": "2025-12-19T11:03:26.582980"
 }

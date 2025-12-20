@@ -200,10 +200,15 @@
       "crn": "11183",
       "term": "202610",
       "section": "001",
-      "enrolled": 20,
+      "enrolled": 19,
       "capacity": 48,
-      "timestamp": "2025-12-19T09:45:08.846450",
+      "timestamp": "2025-12-20T09:38:03.752776",
       "snapshots": [
+        {
+          "timestamp": "2025-12-20T09:38:03.752776",
+          "enrolled": 19,
+          "capacity": 48
+        },
         {
           "timestamp": "2025-12-19T09:45:08.846450",
           "enrolled": 20,
@@ -566,9 +571,14 @@
       "term": "202610",
       "section": "201",
       "enrolled": 6,
-      "capacity": 12,
-      "timestamp": "2025-12-19T09:45:09.654948",
+      "capacity": 20,
+      "timestamp": "2025-12-20T09:38:04.549795",
       "snapshots": [
+        {
+          "timestamp": "2025-12-20T09:38:04.549795",
+          "enrolled": 6,
+          "capacity": 20
+        },
         {
           "timestamp": "2025-12-19T09:45:09.654948",
           "enrolled": 6,
@@ -930,10 +940,15 @@
       "crn": "23825",
       "term": "202610",
       "section": "203",
-      "enrolled": 4,
-      "capacity": 12,
-      "timestamp": "2025-12-19T09:45:12.337787",
+      "enrolled": 1,
+      "capacity": 2,
+      "timestamp": "2025-12-20T09:38:06.164179",
       "snapshots": [
+        {
+          "timestamp": "2025-12-20T09:38:06.164179",
+          "enrolled": 1,
+          "capacity": 2
+        },
         {
           "timestamp": "2025-12-19T09:45:12.337787",
           "enrolled": 4,
@@ -1295,10 +1310,15 @@
       "crn": "36495",
       "term": "202610",
       "section": "202",
-      "enrolled": 4,
-      "capacity": 12,
-      "timestamp": "2025-12-19T09:45:10.451072",
+      "enrolled": 8,
+      "capacity": 20,
+      "timestamp": "2025-12-20T09:38:05.365076",
       "snapshots": [
+        {
+          "timestamp": "2025-12-20T09:38:05.365076",
+          "enrolled": 8,
+          "capacity": 20
+        },
         {
           "timestamp": "2025-12-19T09:45:10.451072",
           "enrolled": 4,
@@ -1887,5 +1907,5 @@
       ]
     }
   ],
-  "last_updated": "2025-12-19T11:03:17.953590"
+  "last_updated": "2025-12-20T10:55:44.478126"
 }

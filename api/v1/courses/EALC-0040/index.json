@@ -464,9 +464,9 @@
         "36504"
       ],
       "current_enrollment": {
-        "enrolled": 20,
+        "enrolled": 19,
         "max_enrollment": 48,
-        "seats_available": 28
+        "seats_available": 29
       }
     },
     {
@@ -482,7 +482,9 @@
       "start_date": null,
       "end_date": null,
       "description": "Survey of the civilization of Japan from prehistoric times to the present.",
-      "instructors": [],
+      "instructors": [
+        "Jiayin Yuan"
+      ],
       "meetings": [
         {
           "days": "F",
@@ -496,8 +498,8 @@
       ],
       "current_enrollment": {
         "enrolled": 6,
-        "max_enrollment": 12,
-        "seats_available": 6
+        "max_enrollment": 20,
+        "seats_available": 14
       }
     },
     {
@@ -519,9 +521,9 @@
         "11183"
       ],
       "current_enrollment": {
-        "enrolled": 4,
-        "max_enrollment": 12,
-        "seats_available": 8
+        "enrolled": 1,
+        "max_enrollment": 2,
+        "seats_available": 1
       }
     },
     {
@@ -537,15 +539,17 @@
       "start_date": null,
       "end_date": null,
       "description": "Survey of the civilization of Japan from prehistoric times to the present.",
-      "instructors": [],
+      "instructors": [
+        "Jiayin Yuan"
+      ],
       "meetings": [],
       "linked_sections": [
         "11183"
       ],
       "current_enrollment": {
-        "enrolled": 4,
-        "max_enrollment": 12,
-        "seats_available": 8
+        "enrolled": 8,
+        "max_enrollment": 20,
+        "seats_available": 12
       }
     },
     {
@@ -555,8 +559,8 @@
       "section": "204",
       "title": "Introduction to East Asia: Japan",
       "schedule_type": "Recitation",
-      "status": "Active",
-      "is_cancelled": false,
+      "status": "Canceled",
+      "is_cancelled": true,
       "credits": "0",
       "start_date": null,
       "end_date": null,
@@ -574,11 +578,11 @@
         "11183"
       ],
       "current_enrollment": {
-        "enrolled": 2,
-        "max_enrollment": 12,
-        "seats_available": 10
+        "enrolled": null,
+        "max_enrollment": null,
+        "seats_available": null
       }
     }
   ],
-  "last_updated": "2025-12-19T11:03:17.937907"
+  "last_updated": "2025-12-20T10:55:44.462131"
 }

@@ -4359,9 +4359,9 @@
         "22220"
       ],
       "current_enrollment": {
-        "enrolled": 76,
+        "enrolled": 75,
         "max_enrollment": 108,
-        "seats_available": 32
+        "seats_available": 33
       }
     },
     {
@@ -4452,9 +4452,9 @@
         "17394"
       ],
       "current_enrollment": {
-        "enrolled": 7,
+        "enrolled": 6,
         "max_enrollment": 12,
-        "seats_available": 5
+        "seats_available": 6
       }
     },
     {
@@ -4464,8 +4464,8 @@
       "section": "120",
       "title": "Principles of Organic Chemistry I Laboratory",
       "schedule_type": "Laboratory",
-      "status": "Active",
-      "is_cancelled": false,
+      "status": "Canceled",
+      "is_cancelled": true,
       "credits": "0",
       "start_date": null,
       "end_date": null,
@@ -4483,9 +4483,9 @@
         "17394"
       ],
       "current_enrollment": {
-        "enrolled": 0,
-        "max_enrollment": 12,
-        "seats_available": 12
+        "enrolled": null,
+        "max_enrollment": null,
+        "seats_available": null
       }
     },
     {
@@ -4613,5 +4613,5 @@
       }
     }
   ],
-  "last_updated": "2025-12-19T11:01:48.627635"
+  "last_updated": "2025-12-20T10:54:16.096159"
 }

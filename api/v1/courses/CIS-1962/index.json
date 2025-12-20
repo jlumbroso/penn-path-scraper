@@ -190,12 +190,13 @@
       ],
       "meetings": [],
       "linked_sections": [
-        "37456"
+        "37456",
+        "37552"
       ],
       "current_enrollment": {
         "enrolled": 0,
-        "max_enrollment": 20,
-        "seats_available": 20
+        "max_enrollment": 40,
+        "seats_available": 40
       }
     },
     {
@@ -230,7 +231,38 @@
         "max_enrollment": 20,
         "seats_available": 20
       }
+    },
+    {
+      "crn": "37552",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "202",
+      "title": "JavaScript Programming",
+      "schedule_type": "Recitation",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "0",
+      "start_date": null,
+      "end_date": null,
+      "description": "This course provides an introduction to modern web development frameworks, techniques, and practices used to deliver robust client side applications on the web. The emphasis will be on developing JavaScript programs that run in the browser. Topics covered include the JavaScript language, web browser internals, the Document Object Model (DOM), <a href=\"/search/?p=HTML5\" data-action=\"result-detail\" data-group=\"code:HTML5\"  class=\"notoffered\">HTML5</a>, client-side app architecture and compile-to-JS languages like (Coffeescript, TypeScript, etc.). This course is most useful for students who have some programming and web development experience and want to develop moderate JavaScript skills to be able to build complex, interactive applications in the browser.",
+      "instructors": [],
+      "meetings": [
+        {
+          "days": "W",
+          "start_time": "15:30:00",
+          "end_time": "16:59:00",
+          "location": ""
+        }
+      ],
+      "linked_sections": [
+        "37455"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 20,
+        "seats_available": 20
+      }
     }
   ],
-  "last_updated": "2025-12-19T11:02:29.625419"
+  "last_updated": "2025-12-20T10:54:56.936917"
 }

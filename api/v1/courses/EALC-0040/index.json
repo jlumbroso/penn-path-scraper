@@ -509,8 +509,8 @@
       "section": "203",
       "title": "Introduction to East Asia: Japan",
       "schedule_type": "Recitation",
-      "status": "Active",
-      "is_cancelled": false,
+      "status": "Canceled",
+      "is_cancelled": true,
       "credits": "0",
       "start_date": null,
       "end_date": null,
@@ -521,9 +521,9 @@
         "11183"
       ],
       "current_enrollment": {
-        "enrolled": 0,
-        "max_enrollment": 2,
-        "seats_available": 2
+        "enrolled": null,
+        "max_enrollment": null,
+        "seats_available": null
       }
     },
     {
@@ -566,14 +566,7 @@
       "end_date": null,
       "description": "Survey of the civilization of Japan from prehistoric times to the present.",
       "instructors": [],
-      "meetings": [
-        {
-          "days": "F",
-          "start_time": "13:45:00",
-          "end_time": "14:44:00",
-          "location": ""
-        }
-      ],
+      "meetings": [],
       "linked_sections": [
         "11183"
       ],
@@ -584,5 +577,5 @@
       }
     }
   ],
-  "last_updated": "2025-12-22T10:49:28.713094"
+  "last_updated": "2025-12-23T10:48:33.954030"
 }

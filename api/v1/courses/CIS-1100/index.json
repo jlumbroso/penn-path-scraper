@@ -4412,7 +4412,7 @@
           "days": "MWF",
           "start_time": "13:45:00",
           "end_time": "14:44:00",
-          "location": ""
+          "location": "TOWN 100"
         }
       ],
       "linked_sections": [
@@ -4430,9 +4430,9 @@
         "14514"
       ],
       "current_enrollment": {
-        "enrolled": 76,
+        "enrolled": 77,
         "max_enrollment": 200,
-        "seats_available": 124
+        "seats_available": 123
       }
     },
     {
@@ -4442,7 +4442,7 @@
       "section": "201",
       "title": "Introduction to Computer Programming",
       "schedule_type": "Recitation",
-      "status": "Active",
+      "status": "Full",
       "is_cancelled": false,
       "credits": "0",
       "start_date": null,
@@ -4454,16 +4454,16 @@
           "days": "M",
           "start_time": "15:30:00",
           "end_time": "16:59:00",
-          "location": ""
+          "location": "AGH 216A"
         }
       ],
       "linked_sections": [
         "14161"
       ],
       "current_enrollment": {
-        "enrolled": 18,
+        "enrolled": 20,
         "max_enrollment": 20,
-        "seats_available": 2
+        "seats_available": 0
       }
     },
     {
@@ -4485,7 +4485,7 @@
           "days": "M",
           "start_time": "15:30:00",
           "end_time": "16:59:00",
-          "location": ""
+          "location": "AGH 216B"
         }
       ],
       "linked_sections": [
@@ -4516,7 +4516,7 @@
           "days": "M",
           "start_time": "17:15:00",
           "end_time": "18:44:00",
-          "location": ""
+          "location": "AGH 216A"
         }
       ],
       "linked_sections": [
@@ -4547,7 +4547,7 @@
           "days": "T",
           "start_time": "10:15:00",
           "end_time": "11:44:00",
-          "location": ""
+          "location": "AGH 216A"
         }
       ],
       "linked_sections": [
@@ -4578,7 +4578,7 @@
           "days": "T",
           "start_time": "10:15:00",
           "end_time": "11:44:00",
-          "location": ""
+          "location": "MOOR 100A"
         }
       ],
       "linked_sections": [
@@ -4609,9 +4609,9 @@
         "14161"
       ],
       "current_enrollment": {
-        "enrolled": 15,
+        "enrolled": 14,
         "max_enrollment": 20,
-        "seats_available": 5
+        "seats_available": 6
       }
     },
     {
@@ -4657,16 +4657,16 @@
           "days": "T",
           "start_time": "13:45:00",
           "end_time": "15:14:00",
-          "location": ""
+          "location": "AGH 216A"
         }
       ],
       "linked_sections": [
         "14161"
       ],
       "current_enrollment": {
-        "enrolled": 17,
+        "enrolled": 16,
         "max_enrollment": 20,
-        "seats_available": 3
+        "seats_available": 4
       }
     },
     {
@@ -4688,7 +4688,7 @@
           "days": "T",
           "start_time": "13:45:00",
           "end_time": "15:14:00",
-          "location": ""
+          "location": "AGH 216B"
         }
       ],
       "linked_sections": [
@@ -4719,16 +4719,16 @@
           "days": "T",
           "start_time": "15:30:00",
           "end_time": "16:59:00",
-          "location": ""
+          "location": "AGH 216A"
         }
       ],
       "linked_sections": [
         "14161"
       ],
       "current_enrollment": {
-        "enrolled": 5,
+        "enrolled": 6,
         "max_enrollment": 20,
-        "seats_available": 15
+        "seats_available": 14
       }
     },
     {
@@ -4750,7 +4750,7 @@
           "days": "T",
           "start_time": "15:30:00",
           "end_time": "16:59:00",
-          "location": ""
+          "location": "AGH 216B"
         }
       ],
       "linked_sections": [
@@ -4781,7 +4781,7 @@
           "days": "T",
           "start_time": "17:15:00",
           "end_time": "18:44:00",
-          "location": ""
+          "location": "AGH 216A"
         }
       ],
       "linked_sections": [
@@ -4794,5 +4794,5 @@
       }
     }
   ],
-  "last_updated": "2026-01-05T09:06:16.821580"
+  "last_updated": "2026-01-06T09:30:04.739145"
 }

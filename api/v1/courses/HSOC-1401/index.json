@@ -453,7 +453,7 @@
       "section": "001",
       "title": "The Peoples Health",
       "schedule_type": "Lecture",
-      "status": "Active",
+      "status": "Full",
       "is_cancelled": false,
       "credits": "1",
       "start_date": null,
@@ -467,7 +467,7 @@
           "days": "MW",
           "start_time": "13:45:00",
           "end_time": "15:14:00",
-          "location": ""
+          "location": "FAGN 213"
         }
       ],
       "linked_sections": [
@@ -475,9 +475,9 @@
         "34199"
       ],
       "current_enrollment": {
-        "enrolled": 39,
+        "enrolled": 40,
         "max_enrollment": 40,
-        "seats_available": 1
+        "seats_available": 0
       }
     },
     {
@@ -487,7 +487,7 @@
       "section": "201",
       "title": "The Peoples Health",
       "schedule_type": "Recitation",
-      "status": "Active",
+      "status": "Full",
       "is_cancelled": false,
       "credits": "0",
       "start_date": null,
@@ -501,16 +501,16 @@
           "days": "F",
           "start_time": "10:15:00",
           "end_time": "11:14:00",
-          "location": ""
+          "location": "WILL 316"
         }
       ],
       "linked_sections": [
         "34197"
       ],
       "current_enrollment": {
-        "enrolled": 19,
+        "enrolled": 20,
         "max_enrollment": 20,
-        "seats_available": 1
+        "seats_available": 0
       }
     },
     {
@@ -540,5 +540,5 @@
       }
     }
   ],
-  "last_updated": "2026-01-05T09:07:37.250260"
+  "last_updated": "2026-01-06T09:31:25.696195"
 }

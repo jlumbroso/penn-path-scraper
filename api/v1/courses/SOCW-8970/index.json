@@ -1249,7 +1249,7 @@
           "days": "M",
           "start_time": "10:15:00",
           "end_time": "12:44:00",
-          "location": ""
+          "location": "EDUC 120"
         }
       ],
       "linked_sections": [
@@ -1292,7 +1292,7 @@
           "days": "M",
           "start_time": "17:15:00",
           "end_time": "19:44:00",
-          "location": ""
+          "location": "EDUC 007"
         }
       ],
       "linked_sections": [
@@ -1303,9 +1303,9 @@
         "24771"
       ],
       "current_enrollment": {
-        "enrolled": 20,
+        "enrolled": 21,
         "max_enrollment": 35,
-        "seats_available": 15
+        "seats_available": 14
       }
     },
     {
@@ -1315,7 +1315,7 @@
       "section": "410",
       "title": "Applied Linear Modeling - Lab",
       "schedule_type": "Laboratory",
-      "status": "Active",
+      "status": "Full",
       "is_cancelled": false,
       "credits": "0",
       "start_date": null,
@@ -1330,7 +1330,7 @@
           "days": "T",
           "start_time": "10:15:00",
           "end_time": "11:14:00",
-          "location": ""
+          "location": "CAST 218"
         }
       ],
       "linked_sections": [
@@ -1338,9 +1338,9 @@
         "24758"
       ],
       "current_enrollment": {
-        "enrolled": 15,
+        "enrolled": 16,
         "max_enrollment": 16,
-        "seats_available": 1
+        "seats_available": 0
       }
     },
     {
@@ -1426,7 +1426,7 @@
           "days": "W",
           "start_time": "15:30:00",
           "end_time": "16:29:00",
-          "location": ""
+          "location": "CAST 218"
         }
       ],
       "linked_sections": [
@@ -1461,7 +1461,7 @@
           "days": "R",
           "start_time": "17:15:00",
           "end_time": "18:14:00",
-          "location": ""
+          "location": "CAST 218"
         }
       ],
       "linked_sections": [
@@ -1475,5 +1475,5 @@
       }
     }
   ],
-  "last_updated": "2026-01-05T09:06:49.812054"
+  "last_updated": "2026-01-06T09:30:37.699086"
 }

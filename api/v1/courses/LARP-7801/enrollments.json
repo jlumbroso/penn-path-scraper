@@ -893,10 +893,20 @@
       "crn": "35018",
       "term": "202610",
       "section": "301",
-      "enrolled": 2,
+      "enrolled": 3,
       "capacity": 15,
-      "timestamp": "2026-01-06T08:57:30.335302",
+      "timestamp": "2026-01-07T08:46:04.248700",
       "snapshots": [
+        {
+          "timestamp": "2026-01-07T08:46:04.248700",
+          "enrolled": 3,
+          "capacity": 15
+        },
+        {
+          "timestamp": "2026-01-07T07:15:51.369282",
+          "enrolled": 3,
+          "capacity": 15
+        },
         {
           "timestamp": "2026-01-06T08:57:30.335302",
           "enrolled": 2,
@@ -1375,5 +1385,5 @@
       ]
     }
   ],
-  "last_updated": "2026-01-06T09:30:20.270364"
+  "last_updated": "2026-01-07T09:16:42.339380"
 }

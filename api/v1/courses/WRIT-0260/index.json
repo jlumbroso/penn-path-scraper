@@ -349,7 +349,7 @@
       "section": "302",
       "title": "Critical Writing Seminar in CLST: Fuel",
       "schedule_type": "Seminar",
-      "status": "Active",
+      "status": "Full",
       "is_cancelled": false,
       "credits": "1",
       "start_date": null,
@@ -368,9 +368,9 @@
       ],
       "linked_sections": [],
       "current_enrollment": {
-        "enrolled": 3,
-        "max_enrollment": 16,
-        "seats_available": 13
+        "enrolled": null,
+        "max_enrollment": null,
+        "seats_available": null
       }
     },
     {
@@ -380,8 +380,8 @@
       "section": "303",
       "title": "Critical Writing Seminar in CLST: Fuel",
       "schedule_type": "Seminar",
-      "status": "Active",
-      "is_cancelled": false,
+      "status": "Canceled",
+      "is_cancelled": true,
       "credits": "1",
       "start_date": null,
       "end_date": null,
@@ -436,5 +436,5 @@
       }
     }
   ],
-  "last_updated": "2026-01-08T08:46:25.809826"
+  "last_updated": "2026-01-09T09:06:06.648774"
 }

@@ -911,10 +911,20 @@
       "crn": "28962",
       "term": "202610",
       "section": "001",
-      "enrolled": 39,
+      "enrolled": 40,
       "capacity": 50,
-      "timestamp": "2026-01-10T08:41:33.153310",
+      "timestamp": "2026-01-11T08:46:52.082258",
       "snapshots": [
+        {
+          "timestamp": "2026-01-11T08:46:52.082258",
+          "enrolled": 40,
+          "capacity": 50
+        },
+        {
+          "timestamp": "2026-01-11T07:28:03.049265",
+          "enrolled": 40,
+          "capacity": 50
+        },
         {
           "timestamp": "2026-01-10T08:41:33.153310",
           "enrolled": 39,
@@ -1433,5 +1443,5 @@
       ]
     }
   ],
-  "last_updated": "2026-01-10T08:48:52.923334"
+  "last_updated": "2026-01-11T08:54:12.892937"
 }

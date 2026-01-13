@@ -244,8 +244,18 @@
       "section": "001",
       "enrolled": 103,
       "capacity": 103,
-      "timestamp": "2026-01-12T08:39:45.265208",
+      "timestamp": "2026-01-13T09:01:39.745123",
       "snapshots": [
+        {
+          "timestamp": "2026-01-13T09:01:39.745123",
+          "enrolled": 103,
+          "capacity": 103
+        },
+        {
+          "timestamp": "2026-01-13T07:27:19.857366",
+          "enrolled": 103,
+          "capacity": 103
+        },
         {
           "timestamp": "2026-01-12T08:39:45.265208",
           "enrolled": 103,
@@ -789,8 +799,18 @@
       "section": "100",
       "enrolled": 103,
       "capacity": 103,
-      "timestamp": "2026-01-12T08:39:45.920544",
+      "timestamp": "2026-01-13T09:01:40.500049",
       "snapshots": [
+        {
+          "timestamp": "2026-01-13T09:01:40.500049",
+          "enrolled": 103,
+          "capacity": 103
+        },
+        {
+          "timestamp": "2026-01-13T07:27:20.635738",
+          "enrolled": 103,
+          "capacity": 103
+        },
         {
           "timestamp": "2026-01-12T08:39:45.920544",
           "enrolled": 103,
@@ -1332,10 +1352,20 @@
       "crn": "11980",
       "term": "202610",
       "section": "201",
-      "enrolled": 100,
-      "capacity": 20,
-      "timestamp": "2025-12-10T09:44:46.557423",
+      "enrolled": 19,
+      "capacity": 19,
+      "timestamp": "2026-01-13T09:01:41.261563",
       "snapshots": [
+        {
+          "timestamp": "2026-01-13T09:01:41.261563",
+          "enrolled": 19,
+          "capacity": 19
+        },
+        {
+          "timestamp": "2026-01-13T07:27:21.400121",
+          "enrolled": 19,
+          "capacity": 19
+        },
         {
           "timestamp": "2025-12-10T09:44:46.557423",
           "enrolled": 100,
@@ -1652,10 +1682,20 @@
       "crn": "11983",
       "term": "202610",
       "section": "204",
-      "enrolled": 0,
-      "capacity": 18,
-      "timestamp": "2025-12-10T09:44:47.218482",
+      "enrolled": 16,
+      "capacity": 16,
+      "timestamp": "2026-01-13T09:01:43.583436",
       "snapshots": [
+        {
+          "timestamp": "2026-01-13T09:01:43.583436",
+          "enrolled": 16,
+          "capacity": 16
+        },
+        {
+          "timestamp": "2026-01-13T07:27:23.688882",
+          "enrolled": 16,
+          "capacity": 16
+        },
         {
           "timestamp": "2025-12-10T09:44:47.218482",
           "enrolled": 0,
@@ -1682,17 +1722,67 @@
       "crn": "11985",
       "term": "202610",
       "section": "206",
-      "enrolled": 0,
-      "capacity": 18,
-      "timestamp": "2025-12-10T09:44:48.494902",
+      "enrolled": 16,
+      "capacity": 16,
+      "timestamp": "2026-01-13T09:01:44.349665",
       "snapshots": [
+        {
+          "timestamp": "2026-01-13T09:01:44.349665",
+          "enrolled": 16,
+          "capacity": 16
+        },
+        {
+          "timestamp": "2026-01-13T07:27:24.451461",
+          "enrolled": 16,
+          "capacity": 16
+        },
         {
           "timestamp": "2025-12-10T09:44:48.494902",
           "enrolled": 0,
           "capacity": 18
         }
       ]
+    },
+    {
+      "crn": "11981",
+      "term": "202610",
+      "section": "202",
+      "enrolled": 18,
+      "capacity": 18,
+      "timestamp": "2026-01-13T09:01:42.032469",
+      "snapshots": [
+        {
+          "timestamp": "2026-01-13T09:01:42.032469",
+          "enrolled": 18,
+          "capacity": 18
+        },
+        {
+          "timestamp": "2026-01-13T07:27:22.156917",
+          "enrolled": 18,
+          "capacity": 18
+        }
+      ]
+    },
+    {
+      "crn": "11982",
+      "term": "202610",
+      "section": "203",
+      "enrolled": 16,
+      "capacity": 16,
+      "timestamp": "2026-01-13T09:01:42.814241",
+      "snapshots": [
+        {
+          "timestamp": "2026-01-13T09:01:42.814241",
+          "enrolled": 16,
+          "capacity": 16
+        },
+        {
+          "timestamp": "2026-01-13T07:27:22.920139",
+          "enrolled": 16,
+          "capacity": 16
+        }
+      ]
     }
   ],
-  "last_updated": "2026-01-12T09:00:11.139713"
+  "last_updated": "2026-01-13T09:24:45.906345"
 }

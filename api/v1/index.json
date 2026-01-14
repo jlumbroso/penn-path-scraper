@@ -1,6 +1,6 @@
 {
   "api_version": "1.0",
-  "generated_at": "2026-01-13T09:26:20.599479",
+  "generated_at": "2026-01-14T08:46:47.204652",
   "terms": [
     {
       "code": "202530",
@@ -119,7 +119,7 @@
       "name": "Spring 2026",
       "start_date": null,
       "end_date": null,
-      "course_count": 6428
+      "course_count": 6464
     },
     {
       "code": "202620",
@@ -8729,6 +8729,7 @@
     "NURS-8900",
     "NURS-8970",
     "NURS-9000",
+    "NURS-9900",
     "NURS-9950",
     "NUTR-6000",
     "NUTR-6010",
@@ -10866,9 +10867,9 @@
     "ZULU-0800"
   ],
   "total_terms": 18,
-  "total_courses": 57689,
-  "total_course_codes": 10734,
-  "total_instructors": 8146,
+  "total_courses": 57725,
+  "total_course_codes": 10735,
+  "total_instructors": 8151,
   "endpoints": {
     "courses": "/api/v1/courses/{course-code}/",
     "enrollments": "/api/v1/courses/{course-code}/enrollments.json",

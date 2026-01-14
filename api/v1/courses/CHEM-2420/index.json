@@ -2683,12 +2683,13 @@
         "17311",
         "17312",
         "17313",
-        "17314"
+        "17314",
+        "37777"
       ],
       "current_enrollment": {
-        "enrolled": 135,
-        "max_enrollment": 136,
-        "seats_available": 1
+        "enrolled": 139,
+        "max_enrollment": 150,
+        "seats_available": 11
       }
     },
     {
@@ -2723,9 +2724,9 @@
         "29961"
       ],
       "current_enrollment": {
-        "enrolled": 87,
+        "enrolled": 83,
         "max_enrollment": 135,
-        "seats_available": 48
+        "seats_available": 52
       }
     },
     {
@@ -2754,9 +2755,9 @@
       ],
       "linked_sections": [],
       "current_enrollment": {
-        "enrolled": 126,
+        "enrolled": 127,
         "max_enrollment": 135,
-        "seats_available": 9
+        "seats_available": 8
       }
     },
     {
@@ -2971,9 +2972,9 @@
         "17810"
       ],
       "current_enrollment": {
-        "enrolled": 20,
+        "enrolled": 18,
         "max_enrollment": 27,
-        "seats_available": 7
+        "seats_available": 9
       }
     },
     {
@@ -3019,9 +3020,9 @@
         "17810"
       ],
       "current_enrollment": {
-        "enrolled": 19,
+        "enrolled": 18,
         "max_enrollment": 27,
-        "seats_available": 8
+        "seats_available": 9
       }
     },
     {
@@ -3050,9 +3051,9 @@
         "17810"
       ],
       "current_enrollment": {
-        "enrolled": 22,
+        "enrolled": 21,
         "max_enrollment": 27,
-        "seats_available": 5
+        "seats_available": 6
       }
     },
     {
@@ -3075,11 +3076,42 @@
       "meetings": [],
       "linked_sections": [],
       "current_enrollment": {
-        "enrolled": 31,
+        "enrolled": 30,
         "max_enrollment": 36,
-        "seats_available": 5
+        "seats_available": 6
+      }
+    },
+    {
+      "crn": "37777",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "415",
+      "title": "Principles of Organic Chemistry II",
+      "schedule_type": "Recitation",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "0",
+      "start_date": null,
+      "end_date": null,
+      "description": "Continuation of <a href=\"/search/?p=CHEM%202410\" data-action=\"result-detail\" data-group=\"code:CHEM 2410\" >CHEM 2410</a>: Principles of Organic Chemistry I.",
+      "instructors": [],
+      "meetings": [
+        {
+          "days": "R",
+          "start_time": "17:15:00",
+          "end_time": "18:14:00",
+          "location": "DRLB 2C8"
+        }
+      ],
+      "linked_sections": [
+        "14495"
+      ],
+      "current_enrollment": {
+        "enrolled": 4,
+        "max_enrollment": 25,
+        "seats_available": 21
       }
     }
   ],
-  "last_updated": "2026-01-13T09:23:10.580946"
+  "last_updated": "2026-01-14T08:42:55.127222"
 }

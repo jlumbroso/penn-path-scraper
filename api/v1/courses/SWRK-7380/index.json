@@ -219,8 +219,8 @@
       "section": "001",
       "title": "Anxiety and Depression",
       "schedule_type": "Lecture",
-      "status": "Canceled",
-      "is_cancelled": true,
+      "status": "Active",
+      "is_cancelled": false,
       "credits": "1",
       "start_date": null,
       "end_date": null,
@@ -233,16 +233,16 @@
           "days": "R",
           "start_time": "08:30:00",
           "end_time": "10:59:00",
-          "location": ""
+          "location": "PSYL A30"
         }
       ],
       "linked_sections": [],
       "current_enrollment": {
-        "enrolled": 0,
+        "enrolled": 4,
         "max_enrollment": 24,
-        "seats_available": 24
+        "seats_available": 20
       }
     }
   ],
-  "last_updated": "2026-01-13T09:24:27.267004"
+  "last_updated": "2026-01-14T08:44:28.778526"
 }

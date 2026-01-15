@@ -2649,7 +2649,27 @@
       "capacity": null,
       "timestamp": null,
       "snapshots": []
+    },
+    {
+      "crn": "37844",
+      "term": "202610",
+      "section": "007",
+      "enrolled": 1,
+      "capacity": 1,
+      "timestamp": "2026-01-15T09:13:11.877035",
+      "snapshots": [
+        {
+          "timestamp": "2026-01-15T09:13:11.877035",
+          "enrolled": 1,
+          "capacity": 1
+        },
+        {
+          "timestamp": "2026-01-15T07:33:24.844601",
+          "enrolled": 1,
+          "capacity": 1
+        }
+      ]
     }
   ],
-  "last_updated": "2026-01-14T08:44:11.850983"
+  "last_updated": "2026-01-15T09:32:11.282353"
 }

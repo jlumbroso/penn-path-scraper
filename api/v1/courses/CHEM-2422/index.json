@@ -3632,7 +3632,7 @@
       "section": "141",
       "title": "Principles of Organic Chemistry II Laboratory",
       "schedule_type": "Laboratory",
-      "status": "Full",
+      "status": "Active",
       "is_cancelled": false,
       "credits": "0",
       "start_date": null,
@@ -3651,9 +3651,9 @@
         "17400"
       ],
       "current_enrollment": {
-        "enrolled": 12,
+        "enrolled": 11,
         "max_enrollment": 12,
-        "seats_available": 0
+        "seats_available": 1
       }
     },
     {
@@ -3713,9 +3713,9 @@
         "17400"
       ],
       "current_enrollment": {
-        "enrolled": 11,
+        "enrolled": 10,
         "max_enrollment": 12,
-        "seats_available": 1
+        "seats_available": 2
       }
     },
     {
@@ -3761,9 +3761,9 @@
         "17400"
       ],
       "current_enrollment": {
-        "enrolled": 10,
+        "enrolled": 11,
         "max_enrollment": 12,
-        "seats_available": 2
+        "seats_available": 1
       }
     },
     {
@@ -3845,7 +3845,7 @@
       "section": "161",
       "title": "Principles of Organic Chemistry II Laboratory",
       "schedule_type": "Laboratory",
-      "status": "Active",
+      "status": "Full",
       "is_cancelled": false,
       "credits": "0",
       "start_date": null,
@@ -3857,9 +3857,9 @@
         "17400"
       ],
       "current_enrollment": {
-        "enrolled": 11,
+        "enrolled": 12,
         "max_enrollment": 12,
-        "seats_available": 1
+        "seats_available": 0
       }
     },
     {
@@ -4044,37 +4044,6 @@
       "section": "181",
       "title": "Principles of Organic Chemistry II Laboratory",
       "schedule_type": "Laboratory",
-      "status": "Full",
-      "is_cancelled": false,
-      "credits": "0",
-      "start_date": null,
-      "end_date": null,
-      "description": "Lab for <a href=\"/search/?p=CHEM%202421\" data-action=\"result-detail\" data-group=\"code:CHEM 2421\" >CHEM 2421</a>: Principles of Organic Chemistry II with Laboratory",
-      "instructors": [],
-      "meetings": [
-        {
-          "days": "W",
-          "start_time": "15:30:00",
-          "end_time": "18:29:00",
-          "location": ""
-        }
-      ],
-      "linked_sections": [
-        "17400"
-      ],
-      "current_enrollment": {
-        "enrolled": 12,
-        "max_enrollment": 12,
-        "seats_available": 0
-      }
-    },
-    {
-      "crn": "30100",
-      "term": "202610",
-      "term_name": "Spring 2026",
-      "section": "182",
-      "title": "Principles of Organic Chemistry II Laboratory",
-      "schedule_type": "Laboratory",
       "status": "Active",
       "is_cancelled": false,
       "credits": "0",
@@ -4097,6 +4066,37 @@
         "enrolled": 11,
         "max_enrollment": 12,
         "seats_available": 1
+      }
+    },
+    {
+      "crn": "30100",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "182",
+      "title": "Principles of Organic Chemistry II Laboratory",
+      "schedule_type": "Laboratory",
+      "status": "Full",
+      "is_cancelled": false,
+      "credits": "0",
+      "start_date": null,
+      "end_date": null,
+      "description": "Lab for <a href=\"/search/?p=CHEM%202421\" data-action=\"result-detail\" data-group=\"code:CHEM 2421\" >CHEM 2421</a>: Principles of Organic Chemistry II with Laboratory",
+      "instructors": [],
+      "meetings": [
+        {
+          "days": "W",
+          "start_time": "15:30:00",
+          "end_time": "18:29:00",
+          "location": ""
+        }
+      ],
+      "linked_sections": [
+        "17400"
+      ],
+      "current_enrollment": {
+        "enrolled": 12,
+        "max_enrollment": 12,
+        "seats_available": 0
       }
     },
     {
@@ -4131,5 +4131,5 @@
       }
     }
   ],
-  "last_updated": "2026-01-14T08:42:55.625035"
+  "last_updated": "2026-01-15T09:30:54.831679"
 }

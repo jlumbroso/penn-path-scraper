@@ -1532,8 +1532,8 @@
       "section": "139",
       "title": "Behavioral Health",
       "schedule_type": "Clinical",
-      "status": "Active",
-      "is_cancelled": false,
+      "status": "Canceled",
+      "is_cancelled": true,
       "credits": "0",
       "start_date": null,
       "end_date": null,
@@ -1556,8 +1556,8 @@
       "section": "136",
       "title": "Cardiology",
       "schedule_type": "Clinical",
-      "status": "Active",
-      "is_cancelled": false,
+      "status": "Canceled",
+      "is_cancelled": true,
       "credits": "0",
       "start_date": null,
       "end_date": null,
@@ -1580,8 +1580,8 @@
       "section": "133",
       "title": "Emergency department",
       "schedule_type": "Clinical",
-      "status": "Active",
-      "is_cancelled": false,
+      "status": "Canceled",
+      "is_cancelled": true,
       "credits": "0",
       "start_date": null,
       "end_date": null,
@@ -1604,8 +1604,8 @@
       "section": "132",
       "title": "ICU",
       "schedule_type": "Clinical",
-      "status": "Active",
-      "is_cancelled": false,
+      "status": "Canceled",
+      "is_cancelled": true,
       "credits": "0",
       "start_date": null,
       "end_date": null,
@@ -1616,9 +1616,9 @@
       "meetings": [],
       "linked_sections": [],
       "current_enrollment": {
-        "enrolled": 2,
+        "enrolled": 0,
         "max_enrollment": 19,
-        "seats_available": 17
+        "seats_available": 19
       }
     },
     {
@@ -1662,7 +1662,7 @@
       "section": "201",
       "title": "SIM Group A - 7am",
       "schedule_type": "Laboratory",
-      "status": "Active",
+      "status": "Full",
       "is_cancelled": false,
       "credits": "0",
       "start_date": null,
@@ -1676,8 +1676,8 @@
       "linked_sections": [],
       "current_enrollment": {
         "enrolled": 8,
-        "max_enrollment": 92,
-        "seats_available": 84
+        "max_enrollment": 8,
+        "seats_available": 0
       }
     },
     {
@@ -1687,7 +1687,7 @@
       "section": "300",
       "title": "SAIL Group A",
       "schedule_type": "Seminar",
-      "status": "Active",
+      "status": "Full",
       "is_cancelled": false,
       "credits": "0",
       "start_date": null,
@@ -1708,8 +1708,8 @@
       "linked_sections": [],
       "current_enrollment": {
         "enrolled": 47,
-        "max_enrollment": 48,
-        "seats_available": 1
+        "max_enrollment": 47,
+        "seats_available": 0
       }
     },
     {
@@ -1719,8 +1719,8 @@
       "section": "131",
       "title": "Medical/Surgery",
       "schedule_type": "Clinical",
-      "status": "Active",
-      "is_cancelled": false,
+      "status": "Canceled",
+      "is_cancelled": true,
       "credits": "0",
       "start_date": null,
       "end_date": null,
@@ -1743,8 +1743,8 @@
       "section": "135",
       "title": "Neurology/neurosurgery",
       "schedule_type": "Clinical",
-      "status": "Active",
-      "is_cancelled": false,
+      "status": "Canceled",
+      "is_cancelled": true,
       "credits": "0",
       "start_date": null,
       "end_date": null,
@@ -1767,8 +1767,8 @@
       "section": "137",
       "title": "Oncology",
       "schedule_type": "Clinical",
-      "status": "Active",
-      "is_cancelled": false,
+      "status": "Canceled",
+      "is_cancelled": true,
       "credits": "0",
       "start_date": null,
       "end_date": null,
@@ -1791,8 +1791,8 @@
       "section": "138",
       "title": "PACU/OR",
       "schedule_type": "Clinical",
-      "status": "Active",
-      "is_cancelled": false,
+      "status": "Canceled",
+      "is_cancelled": true,
       "credits": "0",
       "start_date": null,
       "end_date": null,
@@ -1815,8 +1815,8 @@
       "section": "140",
       "title": "Pediatric ICU/ED",
       "schedule_type": "Clinical",
-      "status": "Active",
-      "is_cancelled": false,
+      "status": "Canceled",
+      "is_cancelled": true,
       "credits": "0",
       "start_date": null,
       "end_date": null,
@@ -1839,8 +1839,8 @@
       "section": "141",
       "title": "Pediatric Medical-Surgery",
       "schedule_type": "Clinical",
-      "status": "Active",
-      "is_cancelled": false,
+      "status": "Canceled",
+      "is_cancelled": true,
       "credits": "0",
       "start_date": null,
       "end_date": null,
@@ -1863,8 +1863,8 @@
       "section": "134",
       "title": "Womens Health",
       "schedule_type": "Clinical",
-      "status": "Active",
-      "is_cancelled": false,
+      "status": "Canceled",
+      "is_cancelled": true,
       "credits": "0",
       "start_date": null,
       "end_date": null,
@@ -1887,7 +1887,7 @@
       "section": "301",
       "title": "SAIL Group B",
       "schedule_type": "Seminar",
-      "status": "Active",
+      "status": "Full",
       "is_cancelled": false,
       "credits": "0",
       "start_date": null,
@@ -1907,11 +1907,11 @@
       ],
       "linked_sections": [],
       "current_enrollment": {
-        "enrolled": 46,
-        "max_enrollment": 48,
-        "seats_available": 2
+        "enrolled": 47,
+        "max_enrollment": 47,
+        "seats_available": 0
       }
     }
   ],
-  "last_updated": "2026-01-15T09:32:53.898383"
+  "last_updated": "2026-01-16T09:00:30.945055"
 }

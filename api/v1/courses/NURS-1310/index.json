@@ -682,9 +682,9 @@
         "34311"
       ],
       "current_enrollment": {
-        "enrolled": 0,
-        "max_enrollment": 10,
-        "seats_available": 10
+        "enrolled": 3,
+        "max_enrollment": 4,
+        "seats_available": 1
       }
     },
     {
@@ -694,7 +694,7 @@
       "section": "201",
       "title": "Human Anatomy and Physiology - Part A",
       "schedule_type": "Laboratory",
-      "status": "Active",
+      "status": "Full",
       "is_cancelled": false,
       "credits": "0",
       "start_date": null,
@@ -708,9 +708,9 @@
         "22877"
       ],
       "current_enrollment": {
-        "enrolled": 0,
-        "max_enrollment": 2,
-        "seats_available": 2
+        "enrolled": 3,
+        "max_enrollment": 3,
+        "seats_available": 0
       }
     },
     {
@@ -720,8 +720,8 @@
       "section": "202",
       "title": "Human Anatomy and Physiology - Part A",
       "schedule_type": "Laboratory",
-      "status": "Active",
-      "is_cancelled": false,
+      "status": "Canceled",
+      "is_cancelled": true,
       "credits": "0",
       "start_date": null,
       "end_date": null,
@@ -734,9 +734,9 @@
         "22877"
       ],
       "current_enrollment": {
-        "enrolled": 0,
-        "max_enrollment": 1,
-        "seats_available": 1
+        "enrolled": null,
+        "max_enrollment": null,
+        "seats_available": null
       }
     },
     {
@@ -772,8 +772,8 @@
       "section": "204",
       "title": "Human Anatomy and Physiology - Part A",
       "schedule_type": "Laboratory",
-      "status": "Active",
-      "is_cancelled": false,
+      "status": "Canceled",
+      "is_cancelled": true,
       "credits": "0",
       "start_date": null,
       "end_date": null,
@@ -798,8 +798,8 @@
       "section": "206",
       "title": "Human Anatomy and Physiology - Part A",
       "schedule_type": "Laboratory",
-      "status": "Active",
-      "is_cancelled": false,
+      "status": "Canceled",
+      "is_cancelled": true,
       "credits": "0",
       "start_date": null,
       "end_date": null,
@@ -824,8 +824,8 @@
       "section": "207",
       "title": "Human Anatomy and Physiology - Part A",
       "schedule_type": "Laboratory",
-      "status": "Active",
-      "is_cancelled": false,
+      "status": "Canceled",
+      "is_cancelled": true,
       "credits": "0",
       "start_date": null,
       "end_date": null,
@@ -844,5 +844,5 @@
       }
     }
   ],
-  "last_updated": "2026-01-15T09:32:52.180239"
+  "last_updated": "2026-01-16T09:00:29.236354"
 }

@@ -542,7 +542,7 @@
       "section": "401",
       "title": "Beginning Chinese II",
       "schedule_type": "Lecture",
-      "status": "Full",
+      "status": "Active",
       "is_cancelled": false,
       "credits": "1",
       "start_date": null,
@@ -554,9 +554,9 @@
       "meetings": [],
       "linked_sections": [],
       "current_enrollment": {
-        "enrolled": 16,
+        "enrolled": 15,
         "max_enrollment": 16,
-        "seats_available": 0
+        "seats_available": 1
       }
     },
     {
@@ -597,7 +597,7 @@
       "section": "403",
       "title": "Beginning Chinese II",
       "schedule_type": "Lecture",
-      "status": "Full",
+      "status": "Active",
       "is_cancelled": false,
       "credits": "1",
       "start_date": null,
@@ -610,8 +610,8 @@
       "linked_sections": [],
       "current_enrollment": {
         "enrolled": 15,
-        "max_enrollment": 15,
-        "seats_available": 0
+        "max_enrollment": 16,
+        "seats_available": 1
       }
     },
     {
@@ -632,16 +632,16 @@
       ],
       "meetings": [
         {
-          "days": "MW",
+          "days": "MTR",
+          "start_time": "13:45:00",
+          "end_time": "14:44:00",
+          "location": "WILL 25"
+        },
+        {
+          "days": "W",
           "start_time": "13:45:00",
           "end_time": "14:44:00",
           "location": "WILL 204"
-        },
-        {
-          "days": "TR",
-          "start_time": "13:45:00",
-          "end_time": "14:44:00",
-          "location": "WILL 304"
         }
       ],
       "linked_sections": [],
@@ -677,11 +677,11 @@
       ],
       "linked_sections": [],
       "current_enrollment": {
-        "enrolled": 8,
+        "enrolled": 9,
         "max_enrollment": 15,
-        "seats_available": 7
+        "seats_available": 6
       }
     }
   ],
-  "last_updated": "2026-01-15T09:32:31.747425"
+  "last_updated": "2026-01-16T09:00:09.100498"
 }

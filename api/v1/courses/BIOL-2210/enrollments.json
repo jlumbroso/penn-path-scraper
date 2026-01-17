@@ -2787,9 +2787,19 @@
       "term": "202610",
       "section": "401",
       "enrolled": 120,
-      "capacity": 120,
-      "timestamp": "2026-01-16T07:41:28.155079",
+      "capacity": 123,
+      "timestamp": "2026-01-17T07:43:47.015137",
       "snapshots": [
+        {
+          "timestamp": "2026-01-17T07:43:47.015137",
+          "enrolled": 120,
+          "capacity": 123
+        },
+        {
+          "timestamp": "2026-01-17T06:17:22.872074",
+          "enrolled": 120,
+          "capacity": 123
+        },
         {
           "timestamp": "2026-01-16T07:41:28.155079",
           "enrolled": 120,
@@ -3371,10 +3381,20 @@
       "crn": "10740",
       "term": "202610",
       "section": "402",
-      "enrolled": 60,
-      "capacity": 60,
-      "timestamp": "2026-01-16T07:41:29.798735",
+      "enrolled": 58,
+      "capacity": 62,
+      "timestamp": "2026-01-17T07:43:47.721006",
       "snapshots": [
+        {
+          "timestamp": "2026-01-17T07:43:47.721006",
+          "enrolled": 58,
+          "capacity": 62
+        },
+        {
+          "timestamp": "2026-01-17T06:17:23.602490",
+          "enrolled": 58,
+          "capacity": 62
+        },
         {
           "timestamp": "2026-01-16T07:41:29.798735",
           "enrolled": 60,
@@ -3956,10 +3976,20 @@
       "crn": "10741",
       "term": "202610",
       "section": "403",
-      "enrolled": 60,
-      "capacity": 60,
-      "timestamp": "2026-01-16T07:41:30.485335",
+      "enrolled": 62,
+      "capacity": 64,
+      "timestamp": "2026-01-17T07:43:48.423620",
       "snapshots": [
+        {
+          "timestamp": "2026-01-17T07:43:48.423620",
+          "enrolled": 62,
+          "capacity": 64
+        },
+        {
+          "timestamp": "2026-01-17T06:17:25.331770",
+          "enrolled": 62,
+          "capacity": 64
+        },
         {
           "timestamp": "2026-01-16T07:41:30.485335",
           "enrolled": 60,
@@ -4538,5 +4568,5 @@
       ]
     }
   ],
-  "last_updated": "2026-01-16T08:58:28.433628"
+  "last_updated": "2026-01-17T09:03:09.817545"
 }

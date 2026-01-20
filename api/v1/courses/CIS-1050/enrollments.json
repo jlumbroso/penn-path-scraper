@@ -161,10 +161,20 @@
       "crn": "15027",
       "term": "202610",
       "section": "001",
-      "enrolled": 14,
+      "enrolled": 15,
       "capacity": 60,
-      "timestamp": "2026-01-19T08:16:35.377325",
+      "timestamp": "2026-01-20T08:08:25.784484",
       "snapshots": [
+        {
+          "timestamp": "2026-01-20T08:08:25.784484",
+          "enrolled": 15,
+          "capacity": 60
+        },
+        {
+          "timestamp": "2026-01-20T06:53:10.441431",
+          "enrolled": 15,
+          "capacity": 60
+        },
         {
           "timestamp": "2026-01-19T08:16:35.377325",
           "enrolled": 14,
@@ -778,8 +788,18 @@
       "section": "201",
       "enrolled": 5,
       "capacity": 20,
-      "timestamp": "2026-01-19T08:16:36.016653",
+      "timestamp": "2026-01-20T08:08:26.376456",
       "snapshots": [
+        {
+          "timestamp": "2026-01-20T08:08:26.376456",
+          "enrolled": 5,
+          "capacity": 20
+        },
+        {
+          "timestamp": "2026-01-20T06:53:12.066616",
+          "enrolled": 5,
+          "capacity": 20
+        },
         {
           "timestamp": "2026-01-19T08:16:36.016653",
           "enrolled": 5,
@@ -1391,10 +1411,20 @@
       "crn": "15029",
       "term": "202610",
       "section": "202",
-      "enrolled": 8,
+      "enrolled": 9,
       "capacity": 20,
-      "timestamp": "2026-01-19T08:16:36.673822",
+      "timestamp": "2026-01-20T08:08:26.977666",
       "snapshots": [
+        {
+          "timestamp": "2026-01-20T08:08:26.977666",
+          "enrolled": 9,
+          "capacity": 20
+        },
+        {
+          "timestamp": "2026-01-20T06:53:12.660635",
+          "enrolled": 9,
+          "capacity": 20
+        },
         {
           "timestamp": "2026-01-19T08:16:36.673822",
           "enrolled": 8,
@@ -2008,8 +2038,18 @@
       "section": "203",
       "enrolled": 1,
       "capacity": 20,
-      "timestamp": "2026-01-19T08:16:37.331381",
+      "timestamp": "2026-01-20T08:08:27.579432",
       "snapshots": [
+        {
+          "timestamp": "2026-01-20T08:08:27.579432",
+          "enrolled": 1,
+          "capacity": 20
+        },
+        {
+          "timestamp": "2026-01-20T06:53:13.259670",
+          "enrolled": 1,
+          "capacity": 20
+        },
         {
           "timestamp": "2026-01-19T08:16:37.331381",
           "enrolled": 1,
@@ -2618,5 +2658,5 @@
       ]
     }
   ],
-  "last_updated": "2026-01-19T08:55:58.166656"
+  "last_updated": "2026-01-20T08:47:18.069954"
 }

@@ -335,9 +335,9 @@
         "34529"
       ],
       "current_enrollment": {
-        "enrolled": 22,
+        "enrolled": 21,
         "max_enrollment": 40,
-        "seats_available": 18
+        "seats_available": 19
       }
     },
     {
@@ -347,8 +347,8 @@
       "section": "402",
       "title": "Modern Architecture, from the Enlightenment to the Present",
       "schedule_type": "Recitation",
-      "status": "Active",
-      "is_cancelled": false,
+      "status": "Canceled",
+      "is_cancelled": true,
       "credits": "0",
       "start_date": null,
       "end_date": null,
@@ -356,21 +356,14 @@
       "instructors": [
         "Ana Ozaki"
       ],
-      "meetings": [
-        {
-          "days": "F",
-          "start_time": "15:30:00",
-          "end_time": "16:29:00",
-          "location": "JAFF B17"
-        }
-      ],
+      "meetings": [],
       "linked_sections": [
         "23311"
       ],
       "current_enrollment": {
-        "enrolled": 1,
+        "enrolled": 0,
         "max_enrollment": 10,
-        "seats_available": 9
+        "seats_available": 10
       }
     },
     {
@@ -389,14 +382,7 @@
       "instructors": [
         "Ana Ozaki"
       ],
-      "meetings": [
-        {
-          "days": "F",
-          "start_time": "10:15:00",
-          "end_time": "11:14:00",
-          "location": "JAFF B17"
-        }
-      ],
+      "meetings": [],
       "linked_sections": [
         "23311"
       ],
@@ -473,5 +459,5 @@
       }
     }
   ],
-  "last_updated": "2026-01-20T08:47:04.875326"
+  "last_updated": "2026-01-21T08:56:02.587970"
 }

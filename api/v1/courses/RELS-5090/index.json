@@ -41,14 +41,21 @@
       "instructors": [
         "Steven Weitzman"
       ],
-      "meetings": [],
+      "meetings": [
+        {
+          "days": "R",
+          "start_time": "10:15:00",
+          "end_time": "12:14:00",
+          "location": "COLL 311F"
+        }
+      ],
       "linked_sections": [],
       "current_enrollment": {
         "enrolled": 3,
-        "max_enrollment": 15,
-        "seats_available": 12
+        "max_enrollment": 5,
+        "seats_available": 2
       }
     }
   ],
-  "last_updated": "2026-01-20T08:47:43.939720"
+  "last_updated": "2026-01-21T08:56:41.276877"
 }

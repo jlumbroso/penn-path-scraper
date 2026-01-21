@@ -102,8 +102,8 @@
       "section": "001",
       "title": "Case Study: Cancer",
       "schedule_type": "Lecture",
-      "status": "Active",
-      "is_cancelled": false,
+      "status": "Canceled",
+      "is_cancelled": true,
       "credits": "1",
       "start_date": null,
       "end_date": null,
@@ -122,11 +122,11 @@
       ],
       "linked_sections": [],
       "current_enrollment": {
-        "enrolled": 3,
+        "enrolled": 0,
         "max_enrollment": 20,
-        "seats_available": 17
+        "seats_available": 20
       }
     }
   ],
-  "last_updated": "2026-01-20T08:47:28.705216"
+  "last_updated": "2026-01-21T08:56:26.045095"
 }

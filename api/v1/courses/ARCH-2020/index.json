@@ -405,9 +405,9 @@
         "17711"
       ],
       "current_enrollment": {
-        "enrolled": 5,
+        "enrolled": 6,
         "max_enrollment": 5,
-        "seats_available": 0
+        "seats_available": -1
       }
     },
     {
@@ -450,7 +450,7 @@
       "section": "203",
       "title": "Design Fundamentals II",
       "schedule_type": "Studio",
-      "status": "Full",
+      "status": "Active",
       "is_cancelled": false,
       "credits": "1.5",
       "start_date": null,
@@ -471,9 +471,9 @@
         "17711"
       ],
       "current_enrollment": {
-        "enrolled": 5,
+        "enrolled": 4,
         "max_enrollment": 5,
-        "seats_available": 0
+        "seats_available": 1
       }
     },
     {
@@ -510,5 +510,5 @@
       }
     }
   ],
-  "last_updated": "2026-01-22T08:57:05.405508"
+  "last_updated": "2026-01-23T08:54:30.639890"
 }

@@ -70,8 +70,8 @@
       "section": "301",
       "title": "Urban Journalism",
       "schedule_type": "Seminar",
-      "status": "Active",
-      "is_cancelled": false,
+      "status": "Canceled",
+      "is_cancelled": true,
       "credits": "1",
       "start_date": null,
       "end_date": null,
@@ -79,21 +79,14 @@
       "instructors": [
         "Benjamin Herold"
       ],
-      "meetings": [
-        {
-          "days": "W",
-          "start_time": "10:15:00",
-          "end_time": "13:14:00",
-          "location": "COLL 311F"
-        }
-      ],
+      "meetings": [],
       "linked_sections": [],
       "current_enrollment": {
-        "enrolled": 1,
+        "enrolled": 0,
         "max_enrollment": 14,
-        "seats_available": 13
+        "seats_available": 14
       }
     }
   ],
-  "last_updated": "2026-01-23T08:54:54.014879"
+  "last_updated": "2026-01-24T08:45:59.909634"
 }

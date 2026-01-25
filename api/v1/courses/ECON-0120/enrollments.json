@@ -4463,10 +4463,20 @@
       "crn": "10874",
       "term": "202610",
       "section": "401",
-      "enrolled": 33,
+      "enrolled": 32,
       "capacity": 45,
-      "timestamp": "2026-01-24T07:41:20.441204",
+      "timestamp": "2026-01-25T07:39:48.282744",
       "snapshots": [
+        {
+          "timestamp": "2026-01-25T07:39:48.282744",
+          "enrolled": 32,
+          "capacity": 45
+        },
+        {
+          "timestamp": "2026-01-25T06:25:38.783179",
+          "enrolled": 32,
+          "capacity": 45
+        },
         {
           "timestamp": "2026-01-24T07:41:20.441204",
           "enrolled": 33,
@@ -5130,8 +5140,18 @@
       "section": "402",
       "enrolled": 31,
       "capacity": 60,
-      "timestamp": "2026-01-24T07:41:21.095237",
+      "timestamp": "2026-01-25T07:39:48.896852",
       "snapshots": [
+        {
+          "timestamp": "2026-01-25T07:39:48.896852",
+          "enrolled": 31,
+          "capacity": 60
+        },
+        {
+          "timestamp": "2026-01-25T06:25:39.413151",
+          "enrolled": 31,
+          "capacity": 60
+        },
         {
           "timestamp": "2026-01-24T07:41:21.095237",
           "enrolled": 31,
@@ -5790,5 +5810,5 @@
       ]
     }
   ],
-  "last_updated": "2026-01-24T08:43:53.267386"
+  "last_updated": "2026-01-25T08:41:05.876869"
 }

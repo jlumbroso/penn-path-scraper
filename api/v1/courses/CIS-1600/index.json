@@ -4707,9 +4707,9 @@
         "14929"
       ],
       "current_enrollment": {
-        "enrolled": 204,
+        "enrolled": 203,
         "max_enrollment": 210,
-        "seats_available": 6
+        "seats_available": 7
       }
     },
     {
@@ -4855,9 +4855,9 @@
         "14515"
       ],
       "current_enrollment": {
-        "enrolled": 13,
+        "enrolled": 12,
         "max_enrollment": 15,
-        "seats_available": 2
+        "seats_available": 3
       }
     },
     {
@@ -4910,9 +4910,9 @@
         "14515"
       ],
       "current_enrollment": {
-        "enrolled": 8,
+        "enrolled": 7,
         "max_enrollment": 15,
-        "seats_available": 7
+        "seats_available": 8
       }
     },
     {
@@ -5077,7 +5077,7 @@
       "section": "213",
       "title": "Mathematical Foundations of Computer Science",
       "schedule_type": "Recitation",
-      "status": "Active",
+      "status": "Full",
       "is_cancelled": false,
       "credits": "0",
       "start_date": null,
@@ -5096,9 +5096,9 @@
         "14515"
       ],
       "current_enrollment": {
-        "enrolled": 15,
+        "enrolled": 16,
         "max_enrollment": 16,
-        "seats_available": 1
+        "seats_available": 0
       }
     },
     {
@@ -5106,30 +5106,6 @@
       "term": "202610",
       "term_name": "Spring 2026",
       "section": "214",
-      "title": "Mathematical Foundations of Computer Science",
-      "schedule_type": "Recitation",
-      "status": "Active",
-      "is_cancelled": false,
-      "credits": "0",
-      "start_date": null,
-      "end_date": null,
-      "description": "What are the basic mathematical concepts and techniques needed in computer science? This course provides an introduction to proof principles and logics, functions and relations, induction principles, combinatorics and graph theory, as well as a rigorous grounding in writing and reading mathematical proofs.",
-      "instructors": [],
-      "meetings": [],
-      "linked_sections": [
-        "14515"
-      ],
-      "current_enrollment": {
-        "enrolled": 14,
-        "max_enrollment": 15,
-        "seats_available": 1
-      }
-    },
-    {
-      "crn": "14927",
-      "term": "202610",
-      "term_name": "Spring 2026",
-      "section": "215",
       "title": "Mathematical Foundations of Computer Science",
       "schedule_type": "Recitation",
       "status": "Full",
@@ -5147,6 +5123,30 @@
         "enrolled": 15,
         "max_enrollment": 15,
         "seats_available": 0
+      }
+    },
+    {
+      "crn": "14927",
+      "term": "202610",
+      "term_name": "Spring 2026",
+      "section": "215",
+      "title": "Mathematical Foundations of Computer Science",
+      "schedule_type": "Recitation",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "0",
+      "start_date": null,
+      "end_date": null,
+      "description": "What are the basic mathematical concepts and techniques needed in computer science? This course provides an introduction to proof principles and logics, functions and relations, induction principles, combinatorics and graph theory, as well as a rigorous grounding in writing and reading mathematical proofs.",
+      "instructors": [],
+      "meetings": [],
+      "linked_sections": [
+        "14515"
+      ],
+      "current_enrollment": {
+        "enrolled": 14,
+        "max_enrollment": 15,
+        "seats_available": 1
       }
     },
     {
@@ -5212,5 +5212,5 @@
       }
     }
   ],
-  "last_updated": "2026-01-25T08:41:43.785725"
+  "last_updated": "2026-01-26T09:03:50.479545"
 }

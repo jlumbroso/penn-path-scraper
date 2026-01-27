@@ -18,7 +18,27 @@
       "capacity": null,
       "timestamp": null,
       "snapshots": []
+    },
+    {
+      "crn": "38025",
+      "term": "202610",
+      "section": "005",
+      "enrolled": 1,
+      "capacity": 1,
+      "timestamp": "2026-01-27T08:14:53.044461",
+      "snapshots": [
+        {
+          "timestamp": "2026-01-27T08:14:53.044461",
+          "enrolled": 1,
+          "capacity": 1
+        },
+        {
+          "timestamp": "2026-01-27T06:53:56.291119",
+          "enrolled": 1,
+          "capacity": 1
+        }
+      ]
     }
   ],
-  "last_updated": "2026-01-26T09:05:11.619859"
+  "last_updated": "2026-01-27T08:58:47.956880"
 }

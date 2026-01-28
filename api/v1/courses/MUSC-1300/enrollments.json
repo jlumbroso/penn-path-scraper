@@ -2732,10 +2732,20 @@
       "crn": "10980",
       "term": "202610",
       "section": "001",
-      "enrolled": 24,
+      "enrolled": 26,
       "capacity": 30,
-      "timestamp": "2026-01-27T08:03:17.342396",
+      "timestamp": "2026-01-28T08:03:26.515738",
       "snapshots": [
+        {
+          "timestamp": "2026-01-28T08:03:26.515738",
+          "enrolled": 26,
+          "capacity": 30
+        },
+        {
+          "timestamp": "2026-01-28T06:42:33.992415",
+          "enrolled": 26,
+          "capacity": 30
+        },
         {
           "timestamp": "2026-01-27T08:03:17.342396",
           "enrolled": 24,
@@ -3427,10 +3437,20 @@
       "crn": "28555",
       "term": "202610",
       "section": "002",
-      "enrolled": 20,
+      "enrolled": 19,
       "capacity": 25,
-      "timestamp": "2026-01-27T08:03:17.992044",
+      "timestamp": "2026-01-28T08:03:27.153736",
       "snapshots": [
+        {
+          "timestamp": "2026-01-28T08:03:27.153736",
+          "enrolled": 19,
+          "capacity": 25
+        },
+        {
+          "timestamp": "2026-01-28T06:42:35.657202",
+          "enrolled": 19,
+          "capacity": 25
+        },
         {
           "timestamp": "2026-01-27T08:03:17.992044",
           "enrolled": 20,
@@ -4122,10 +4142,20 @@
       "crn": "28556",
       "term": "202610",
       "section": "003",
-      "enrolled": 14,
+      "enrolled": 15,
       "capacity": 25,
-      "timestamp": "2026-01-27T08:03:18.636531",
+      "timestamp": "2026-01-28T08:03:27.798205",
       "snapshots": [
+        {
+          "timestamp": "2026-01-28T08:03:27.798205",
+          "enrolled": 15,
+          "capacity": 25
+        },
+        {
+          "timestamp": "2026-01-28T06:42:36.306824",
+          "enrolled": 16,
+          "capacity": 25
+        },
         {
           "timestamp": "2026-01-27T08:03:18.636531",
           "enrolled": 14,
@@ -4814,5 +4844,5 @@
       ]
     }
   ],
-  "last_updated": "2026-01-27T08:56:50.416093"
+  "last_updated": "2026-01-28T08:57:42.512865"
 }

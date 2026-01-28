@@ -861,9 +861,19 @@
       "term": "202610",
       "section": "301",
       "enrolled": 1,
-      "capacity": 20,
-      "timestamp": "2026-01-27T07:54:49.064044",
+      "capacity": 5,
+      "timestamp": "2026-01-28T07:55:14.672188",
       "snapshots": [
+        {
+          "timestamp": "2026-01-28T07:55:14.672188",
+          "enrolled": 1,
+          "capacity": 5
+        },
+        {
+          "timestamp": "2026-01-28T06:33:46.917184",
+          "enrolled": 1,
+          "capacity": 5
+        },
         {
           "timestamp": "2026-01-27T07:54:49.064044",
           "enrolled": 1,
@@ -1552,5 +1562,5 @@
       ]
     }
   ],
-  "last_updated": "2026-01-27T08:56:38.598246"
+  "last_updated": "2026-01-28T08:57:30.717286"
 }

@@ -2489,9 +2489,9 @@
         "37778"
       ],
       "current_enrollment": {
-        "enrolled": 146,
+        "enrolled": 148,
         "max_enrollment": 150,
-        "seats_available": 4
+        "seats_available": 2
       }
     },
     {
@@ -2526,9 +2526,9 @@
         "29962"
       ],
       "current_enrollment": {
-        "enrolled": 89,
+        "enrolled": 88,
         "max_enrollment": 135,
-        "seats_available": 46
+        "seats_available": 47
       }
     },
     {
@@ -2563,9 +2563,9 @@
       ],
       "linked_sections": [],
       "current_enrollment": {
-        "enrolled": 128,
+        "enrolled": 127,
         "max_enrollment": 135,
-        "seats_available": 7
+        "seats_available": 8
       }
     },
     {
@@ -2699,9 +2699,9 @@
         "14496"
       ],
       "current_enrollment": {
-        "enrolled": 21,
+        "enrolled": 22,
         "max_enrollment": 27,
-        "seats_available": 6
+        "seats_available": 5
       }
     },
     {
@@ -2767,9 +2767,9 @@
         "17811"
       ],
       "current_enrollment": {
-        "enrolled": 20,
+        "enrolled": 19,
         "max_enrollment": 27,
-        "seats_available": 7
+        "seats_available": 8
       }
     },
     {
@@ -2785,7 +2785,10 @@
       "start_date": null,
       "end_date": null,
       "description": "Continuation of <a href=\"/search/?p=CHEM%202411\" data-action=\"result-detail\" data-group=\"code:CHEM 2411\" >CHEM 2411</a>: Principles of Organic Chemistry I with Laboratory",
-      "instructors": [],
+      "instructors": [
+        "Kyle Hsu",
+        "John Pezzullo"
+      ],
       "meetings": [
         {
           "days": "R",
@@ -2798,9 +2801,9 @@
         "17811"
       ],
       "current_enrollment": {
-        "enrolled": 22,
+        "enrolled": 23,
         "max_enrollment": 27,
-        "seats_available": 5
+        "seats_available": 4
       }
     },
     {
@@ -2810,8 +2813,8 @@
       "section": "424",
       "title": "Principles of Organic Chemistry II with Laboratory",
       "schedule_type": "Recitation",
-      "status": "Full",
-      "is_cancelled": false,
+      "status": "Canceled",
+      "is_cancelled": true,
       "credits": "0",
       "start_date": null,
       "end_date": null,
@@ -2840,7 +2843,10 @@
       "start_date": null,
       "end_date": null,
       "description": "Continuation of <a href=\"/search/?p=CHEM%202411\" data-action=\"result-detail\" data-group=\"code:CHEM 2411\" >CHEM 2411</a>: Principles of Organic Chemistry I with Laboratory",
-      "instructors": [],
+      "instructors": [
+        "Kyle Hsu",
+        "John Pezzullo"
+      ],
       "meetings": [],
       "linked_sections": [
         "17811"
@@ -2914,11 +2920,11 @@
         "14496"
       ],
       "current_enrollment": {
-        "enrolled": 21,
+        "enrolled": 22,
         "max_enrollment": 25,
-        "seats_available": 4
+        "seats_available": 3
       }
     }
   ],
-  "last_updated": "2026-01-28T08:57:18.412072"
+  "last_updated": "2026-01-29T08:51:17.352144"
 }

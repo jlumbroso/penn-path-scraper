@@ -1448,9 +1448,9 @@
         "28194"
       ],
       "current_enrollment": {
-        "enrolled": 2,
+        "enrolled": 5,
         "max_enrollment": 6,
-        "seats_available": 4
+        "seats_available": 1
       }
     },
     {
@@ -1604,7 +1604,7 @@
       "section": "110",
       "title": "HUP Pavilion: 10 Center - Neurosurgery",
       "schedule_type": "Clinical",
-      "status": "Active",
+      "status": "Full",
       "is_cancelled": false,
       "credits": "0",
       "start_date": null,
@@ -1628,9 +1628,9 @@
         "28194"
       ],
       "current_enrollment": {
-        "enrolled": 5,
+        "enrolled": 6,
         "max_enrollment": 6,
-        "seats_available": 1
+        "seats_available": 0
       }
     },
     {
@@ -1640,7 +1640,7 @@
       "section": "111",
       "title": "HUP Founders 11: General Medicine",
       "schedule_type": "Clinical",
-      "status": "Active",
+      "status": "Full",
       "is_cancelled": false,
       "credits": "0",
       "start_date": null,
@@ -1664,9 +1664,9 @@
         "28194"
       ],
       "current_enrollment": {
-        "enrolled": 5,
+        "enrolled": 6,
         "max_enrollment": 6,
-        "seats_available": 1
+        "seats_available": 0
       }
     },
     {
@@ -2379,8 +2379,8 @@
       "section": "120",
       "title": "Nurses Coordinating Care for Adults and Older Adults",
       "schedule_type": "Clinical",
-      "status": "Active",
-      "is_cancelled": false,
+      "status": "Canceled",
+      "is_cancelled": true,
       "credits": "0",
       "start_date": null,
       "end_date": null,
@@ -2402,9 +2402,9 @@
         "28194"
       ],
       "current_enrollment": {
-        "enrolled": 5,
+        "enrolled": 0,
         "max_enrollment": 6,
-        "seats_available": 1
+        "seats_available": 6
       }
     },
     {
@@ -2433,5 +2433,5 @@
       }
     }
   ],
-  "last_updated": "2026-01-29T08:52:59.899791"
+  "last_updated": "2026-01-30T08:48:51.328961"
 }

@@ -3259,9 +3259,9 @@
       ],
       "linked_sections": [],
       "current_enrollment": {
-        "enrolled": 8,
+        "enrolled": 7,
         "max_enrollment": 15,
-        "seats_available": 7
+        "seats_available": 8
       }
     },
     {
@@ -3282,7 +3282,13 @@
       ],
       "meetings": [
         {
-          "days": "MWF",
+          "days": "MW",
+          "start_time": "10:15:00",
+          "end_time": "11:14:00",
+          "location": "WILL 317"
+        },
+        {
+          "days": "F",
           "start_time": "10:15:00",
           "end_time": "11:14:00",
           "location": "WILL 2"
@@ -3557,7 +3563,7 @@
       "section": "313",
       "title": "Intermediate Spanish II",
       "schedule_type": "Seminar",
-      "status": "Active",
+      "status": "Full",
       "is_cancelled": false,
       "credits": "1",
       "start_date": null,
@@ -3576,9 +3582,9 @@
       ],
       "linked_sections": [],
       "current_enrollment": {
-        "enrolled": 14,
+        "enrolled": 15,
         "max_enrollment": 15,
-        "seats_available": 1
+        "seats_available": 0
       }
     },
     {
@@ -3613,5 +3619,5 @@
       }
     }
   ],
-  "last_updated": "2026-01-29T08:51:46.533364"
+  "last_updated": "2026-01-30T08:47:23.792486"
 }

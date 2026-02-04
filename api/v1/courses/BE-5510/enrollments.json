@@ -61,8 +61,18 @@
       "section": "001",
       "enrolled": 42,
       "capacity": 45,
-      "timestamp": "2026-02-03T08:07:07.297951",
+      "timestamp": "2026-02-04T08:13:45.059210",
       "snapshots": [
+        {
+          "timestamp": "2026-02-04T08:13:45.059210",
+          "enrolled": 42,
+          "capacity": 45
+        },
+        {
+          "timestamp": "2026-02-04T07:00:30.614138",
+          "enrolled": 42,
+          "capacity": 45
+        },
         {
           "timestamp": "2026-02-03T08:07:07.297951",
           "enrolled": 42,
@@ -821,5 +831,5 @@
       ]
     }
   ],
-  "last_updated": "2026-02-03T08:44:47.710606"
+  "last_updated": "2026-02-04T08:54:32.803973"
 }

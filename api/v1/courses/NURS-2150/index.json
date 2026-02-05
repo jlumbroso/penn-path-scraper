@@ -5837,9 +5837,9 @@
         "35422;11998"
       ],
       "current_enrollment": {
-        "enrolled": 5,
+        "enrolled": 6,
         "max_enrollment": 1,
-        "seats_available": -4
+        "seats_available": -5
       }
     },
     {
@@ -6005,8 +6005,8 @@
       "section": "112",
       "title": "PAH",
       "schedule_type": "Clinical",
-      "status": "Active",
-      "is_cancelled": false,
+      "status": "Canceled",
+      "is_cancelled": true,
       "credits": "0",
       "start_date": null,
       "end_date": null,
@@ -6072,9 +6072,9 @@
         "35422;11998"
       ],
       "current_enrollment": {
-        "enrolled": 6,
+        "enrolled": 7,
         "max_enrollment": 1,
-        "seats_available": -5
+        "seats_available": -6
       }
     },
     {
@@ -6111,9 +6111,9 @@
         "35422;11998"
       ],
       "current_enrollment": {
-        "enrolled": 6,
+        "enrolled": 5,
         "max_enrollment": 1,
-        "seats_available": -5
+        "seats_available": -4
       }
     },
     {
@@ -6732,5 +6732,5 @@
       }
     }
   ],
-  "last_updated": "2026-02-04T08:54:43.883349"
+  "last_updated": "2026-02-05T09:07:27.828802"
 }

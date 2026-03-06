@@ -242,7 +242,71 @@
         "max_enrollment": null,
         "seats_available": null
       }
+    },
+    {
+      "crn": "40711",
+      "term": "202620",
+      "term_name": "Summer 2026",
+      "section": "900",
+      "title": "High Risk Neonatal Clinical III",
+      "schedule_type": "Lecture",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "1",
+      "start_date": null,
+      "end_date": null,
+      "description": "This clinical course is designed with emphasis on continued development of advanced clinical decision-making skills in the care of critically ill children. Emphasis is placed on knowledge and skills that allow the advanced practitioner to efficiently and effectively manage children who are dependent upon or assisted by technological devices to carry out life processes.",
+      "instructors": [
+        "Sura Lee",
+        "Molly May",
+        "Jamie Carey",
+        "Danielle Corsi",
+        "Jessica Strohm Farber",
+        "Megan Levy"
+      ],
+      "meetings": [
+        {
+          "days": "M",
+          "start_time": "08:30:00",
+          "end_time": "16:29:00",
+          "location": ""
+        }
+      ],
+      "linked_sections": [
+        "40688"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 8,
+        "seats_available": 8
+      }
+    },
+    {
+      "crn": "40688",
+      "term": "202620",
+      "term_name": "Summer 2026",
+      "section": "901",
+      "title": "High Risk Neonatal Clinical III",
+      "schedule_type": "Clinical",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "0",
+      "start_date": null,
+      "end_date": null,
+      "description": "This clinical course is designed with emphasis on continued development of advanced clinical decision-making skills in the care of critically ill children. Emphasis is placed on knowledge and skills that allow the advanced practitioner to efficiently and effectively manage children who are dependent upon or assisted by technological devices to carry out life processes.",
+      "instructors": [
+        "Danielle Corsi"
+      ],
+      "meetings": [],
+      "linked_sections": [
+        "40711"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 8,
+        "seats_available": 8
+      }
     }
   ],
-  "last_updated": "2026-03-05T08:40:39.050734"
+  "last_updated": "2026-03-06T09:03:10.631813"
 }

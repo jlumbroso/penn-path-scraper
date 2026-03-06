@@ -2836,8 +2836,18 @@
       "section": "401",
       "enrolled": 11,
       "capacity": 11,
-      "timestamp": "2026-03-05T08:11:07.334852",
+      "timestamp": "2026-03-06T08:23:21.028192",
       "snapshots": [
+        {
+          "timestamp": "2026-03-06T08:23:21.028192",
+          "enrolled": 11,
+          "capacity": 11
+        },
+        {
+          "timestamp": "2026-03-06T07:08:45.608354",
+          "enrolled": 11,
+          "capacity": 11
+        },
         {
           "timestamp": "2026-03-05T08:11:07.334852",
           "enrolled": 11,
@@ -3891,8 +3901,18 @@
       "section": "402",
       "enrolled": 9,
       "capacity": 11,
-      "timestamp": "2026-03-05T08:11:07.938078",
+      "timestamp": "2026-03-06T08:23:21.710572",
       "snapshots": [
+        {
+          "timestamp": "2026-03-06T08:23:21.710572",
+          "enrolled": 9,
+          "capacity": 11
+        },
+        {
+          "timestamp": "2026-03-06T07:08:46.236572",
+          "enrolled": 9,
+          "capacity": 11
+        },
         {
           "timestamp": "2026-03-05T08:11:07.938078",
           "enrolled": 9,
@@ -4946,8 +4966,18 @@
       "section": "403",
       "enrolled": 10,
       "capacity": 9,
-      "timestamp": "2026-03-05T08:11:08.538313",
+      "timestamp": "2026-03-06T08:23:22.378775",
       "snapshots": [
+        {
+          "timestamp": "2026-03-06T08:23:22.378775",
+          "enrolled": 10,
+          "capacity": 9
+        },
+        {
+          "timestamp": "2026-03-06T07:08:46.928812",
+          "enrolled": 10,
+          "capacity": 9
+        },
         {
           "timestamp": "2026-03-05T08:11:08.538313",
           "enrolled": 10,
@@ -5994,7 +6024,22 @@
           "capacity": 9
         }
       ]
+    },
+    {
+      "crn": "41400",
+      "term": "202620",
+      "section": "910",
+      "enrolled": 0,
+      "capacity": 27,
+      "timestamp": "2026-03-06T08:56:31.157257",
+      "snapshots": [
+        {
+          "timestamp": "2026-03-06T08:56:31.157257",
+          "enrolled": 0,
+          "capacity": 27
+        }
+      ]
     }
   ],
-  "last_updated": "2026-03-05T08:39:54.668197"
+  "last_updated": "2026-03-06T09:02:26.174337"
 }

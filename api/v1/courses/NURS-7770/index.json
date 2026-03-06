@@ -212,7 +212,63 @@
         "max_enrollment": null,
         "seats_available": null
       }
+    },
+    {
+      "crn": "40686",
+      "term": "202620",
+      "term_name": "Summer 2026",
+      "section": "900",
+      "title": "High Risk Neonatal Clinical II",
+      "schedule_type": "Lecture",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "1",
+      "start_date": null,
+      "end_date": null,
+      "description": "This clinical course is designed with emphasis on continued development of advanced clinical skills in the care of critically ill children. Emphasis is placed on integration of the roles of the advanced practitioner. This course adds to the student's previous knowledge and skills in advanced practice and prepares them to manage care of critically ill children.",
+      "instructors": [
+        "Sura Lee",
+        "Molly May",
+        "Jamie Carey",
+        "Danielle Corsi",
+        "Jessica Strohm Farber"
+      ],
+      "meetings": [],
+      "linked_sections": [
+        "40687"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 8,
+        "seats_available": 8
+      }
+    },
+    {
+      "crn": "40687",
+      "term": "202620",
+      "term_name": "Summer 2026",
+      "section": "901",
+      "title": "High Risk Neonatal Clinical II",
+      "schedule_type": "Clinical",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "0",
+      "start_date": null,
+      "end_date": null,
+      "description": "This clinical course is designed with emphasis on continued development of advanced clinical skills in the care of critically ill children. Emphasis is placed on integration of the roles of the advanced practitioner. This course adds to the student's previous knowledge and skills in advanced practice and prepares them to manage care of critically ill children.",
+      "instructors": [
+        "Molly May"
+      ],
+      "meetings": [],
+      "linked_sections": [
+        "40686"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 8,
+        "seats_available": 8
+      }
     }
   ],
-  "last_updated": "2026-03-05T08:40:39.038140"
+  "last_updated": "2026-03-06T09:03:10.615404"
 }

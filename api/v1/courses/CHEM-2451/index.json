@@ -479,7 +479,59 @@
         "max_enrollment": null,
         "seats_available": null
       }
+    },
+    {
+      "crn": "41149",
+      "term": "202620",
+      "term_name": "Summer 2026",
+      "section": "910",
+      "title": "Experimental Organic Chemistry A",
+      "schedule_type": "Lecture",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "0.5",
+      "start_date": null,
+      "end_date": null,
+      "description": "A basic laboratory course in which both the theoretical and practical aspects of a variety of organic reactions and multistep syntheses are emphasized. Modern chromatographic, instrumental, and spectroscopic techniques are applied to experimental organic chemistry. <a href=\"/search/?p=CHEM%202410\" data-action=\"result-detail\" data-group=\"code:CHEM 2410\" >CHEM 2410</a> is a required co-requisite for CHEM 2451 for Penn undergraduate students. LPS students may take <a href=\"/search/?p=CHEM%202410\" data-action=\"result-detail\" data-group=\"code:CHEM 2410\" >CHEM 2410</a> as a pre-requisite or a co-requisite to CHEM 2451.",
+      "instructors": [
+        "Simon Tong"
+      ],
+      "meetings": [],
+      "linked_sections": [
+        "41184"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 36,
+        "seats_available": 36
+      }
+    },
+    {
+      "crn": "41184",
+      "term": "202620",
+      "term_name": "Summer 2026",
+      "section": "911",
+      "title": "Experimental Organic Chemistry A",
+      "schedule_type": "Laboratory",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "0",
+      "start_date": null,
+      "end_date": null,
+      "description": "A basic laboratory course in which both the theoretical and practical aspects of a variety of organic reactions and multistep syntheses are emphasized. Modern chromatographic, instrumental, and spectroscopic techniques are applied to experimental organic chemistry. <a href=\"/search/?p=CHEM%202410\" data-action=\"result-detail\" data-group=\"code:CHEM 2410\" >CHEM 2410</a> is a required co-requisite for CHEM 2451 for Penn undergraduate students. LPS students may take <a href=\"/search/?p=CHEM%202410\" data-action=\"result-detail\" data-group=\"code:CHEM 2410\" >CHEM 2410</a> as a pre-requisite or a co-requisite to CHEM 2451.",
+      "instructors": [
+        "Simon Tong"
+      ],
+      "meetings": [],
+      "linked_sections": [
+        "41149"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 36,
+        "seats_available": 36
+      }
     }
   ],
-  "last_updated": "2026-03-05T08:38:57.269083"
+  "last_updated": "2026-03-06T09:01:29.018442"
 }

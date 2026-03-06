@@ -321,7 +321,61 @@
         "max_enrollment": null,
         "seats_available": null
       }
+    },
+    {
+      "crn": "41784",
+      "term": "202620",
+      "term_name": "Summer 2026",
+      "section": "900",
+      "title": "Integration I",
+      "schedule_type": "Lecture",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "1",
+      "start_date": null,
+      "end_date": null,
+      "description": "Intensive integration of theory and clinical practice in women's health care with emphasis on ambulatory care. Clinical practice in all areas of ambulatory women's health care, teaching rounds, case presentations, and seminars with professional colleagues.",
+      "instructors": [
+        "Hanne Harbison",
+        "Naeemah Ali"
+      ],
+      "meetings": [],
+      "linked_sections": [
+        "41783"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 10,
+        "seats_available": 10
+      }
+    },
+    {
+      "crn": "41783",
+      "term": "202620",
+      "term_name": "Summer 2026",
+      "section": "901",
+      "title": "Integration I",
+      "schedule_type": "Clinical",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "0",
+      "start_date": null,
+      "end_date": null,
+      "description": "Intensive integration of theory and clinical practice in women's health care with emphasis on ambulatory care. Clinical practice in all areas of ambulatory women's health care, teaching rounds, case presentations, and seminars with professional colleagues.",
+      "instructors": [
+        "Hanne Harbison",
+        "Naeemah Ali"
+      ],
+      "meetings": [],
+      "linked_sections": [
+        "41784"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 10,
+        "seats_available": 10
+      }
     }
   ],
-  "last_updated": "2026-03-05T08:40:19.429954"
+  "last_updated": "2026-03-06T09:02:50.714422"
 }

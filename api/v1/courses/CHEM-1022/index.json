@@ -3209,7 +3209,73 @@
         "max_enrollment": 34,
         "seats_available": 0
       }
+    },
+    {
+      "crn": "41144",
+      "term": "202620",
+      "term_name": "Summer 2026",
+      "section": "920",
+      "title": "General Chemistry II",
+      "schedule_type": "Lecture",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "1",
+      "start_date": null,
+      "end_date": null,
+      "description": "Continuation of <a href=\"/search/?p=CHEM%201012\" data-action=\"result-detail\" data-group=\"code:CHEM 1012\" >CHEM 1012</a>: General Chemistry I. The second term stresses the thermodynamic approach to chemical reactions, electrochemical processes, and reaction rates and mechanisms. It includes special topics in chemistry.",
+      "instructors": [
+        "Jonathan Fagan"
+      ],
+      "meetings": [
+        {
+          "days": "MTWRF",
+          "start_time": "08:30:00",
+          "end_time": "10:14:00",
+          "location": ""
+        }
+      ],
+      "linked_sections": [
+        "41192"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 36,
+        "seats_available": 36
+      }
+    },
+    {
+      "crn": "41192",
+      "term": "202620",
+      "term_name": "Summer 2026",
+      "section": "921",
+      "title": "General Chemistry II",
+      "schedule_type": "Recitation",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "0",
+      "start_date": null,
+      "end_date": null,
+      "description": "Continuation of <a href=\"/search/?p=CHEM%201012\" data-action=\"result-detail\" data-group=\"code:CHEM 1012\" >CHEM 1012</a>: General Chemistry I. The second term stresses the thermodynamic approach to chemical reactions, electrochemical processes, and reaction rates and mechanisms. It includes special topics in chemistry.",
+      "instructors": [
+        "Jonathan Fagan"
+      ],
+      "meetings": [
+        {
+          "days": "MWF",
+          "start_time": "10:15:00",
+          "end_time": "11:59:00",
+          "location": ""
+        }
+      ],
+      "linked_sections": [
+        "41144"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 36,
+        "seats_available": 36
+      }
     }
   ],
-  "last_updated": "2026-03-05T08:38:53.871597"
+  "last_updated": "2026-03-06T09:01:25.622298"
 }

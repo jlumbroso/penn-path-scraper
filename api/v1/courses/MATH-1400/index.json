@@ -6183,7 +6183,11 @@
       "start_date": null,
       "end_date": null,
       "description": "Brief review of High School calculus, applications of integrals, transcendental functions, methods of integration, infinite series, Taylor's theorem, and first order ordinary differential equations. Use of symbolic manipulation and graphics software in calculus.",
-      "instructors": [],
+      "instructors": [
+        "Shiv Lele",
+        "Nakia Rimmer",
+        "Jingwen Chen"
+      ],
       "meetings": [
         {
           "days": "F",
@@ -6216,7 +6220,11 @@
       "start_date": null,
       "end_date": null,
       "description": "Brief review of High School calculus, applications of integrals, transcendental functions, methods of integration, infinite series, Taylor's theorem, and first order ordinary differential equations. Use of symbolic manipulation and graphics software in calculus.",
-      "instructors": [],
+      "instructors": [
+        "Shiv Lele",
+        "Nakia Rimmer",
+        "Jingwen Chen"
+      ],
       "meetings": [
         {
           "days": "F",
@@ -6250,6 +6258,7 @@
       "end_date": null,
       "description": "Brief review of High School calculus, applications of integrals, transcendental functions, methods of integration, infinite series, Taylor's theorem, and first order ordinary differential equations. Use of symbolic manipulation and graphics software in calculus.",
       "instructors": [
+        "Nakia Rimmer",
         "Jingwen Chen",
         "Daley McMahon"
       ],
@@ -6278,7 +6287,11 @@
       "start_date": null,
       "end_date": null,
       "description": "Brief review of High School calculus, applications of integrals, transcendental functions, methods of integration, infinite series, Taylor's theorem, and first order ordinary differential equations. Use of symbolic manipulation and graphics software in calculus.",
-      "instructors": [],
+      "instructors": [
+        "Nakia Rimmer",
+        "Jingwen Chen",
+        "Yufei Gao"
+      ],
       "meetings": [
         {
           "days": "F",
@@ -6312,6 +6325,7 @@
       "end_date": null,
       "description": "Brief review of High School calculus, applications of integrals, transcendental functions, methods of integration, infinite series, Taylor's theorem, and first order ordinary differential equations. Use of symbolic manipulation and graphics software in calculus.",
       "instructors": [
+        "Nakia Rimmer",
         "Jingwen Chen",
         "Daley McMahon"
       ],
@@ -6347,7 +6361,11 @@
       "start_date": null,
       "end_date": null,
       "description": "Brief review of High School calculus, applications of integrals, transcendental functions, methods of integration, infinite series, Taylor's theorem, and first order ordinary differential equations. Use of symbolic manipulation and graphics software in calculus.",
-      "instructors": [],
+      "instructors": [
+        "Nakia Rimmer",
+        "Jingwen Chen",
+        "Yufei Gao"
+      ],
       "meetings": [],
       "linked_sections": [
         "15152",
@@ -6367,8 +6385,8 @@
       "section": "207",
       "title": "Calculus, Part I",
       "schedule_type": "Recitation",
-      "status": "Full",
-      "is_cancelled": false,
+      "status": "Canceled",
+      "is_cancelled": true,
       "credits": "1",
       "start_date": null,
       "end_date": null,
@@ -6379,7 +6397,7 @@
           "days": "F",
           "start_time": "08:30:00",
           "end_time": "09:59:00",
-          "location": "DRLB A6"
+          "location": ""
         }
       ],
       "linked_sections": [
@@ -6416,7 +6434,60 @@
         "max_enrollment": 24,
         "seats_available": 17
       }
+    },
+    {
+      "crn": "41140",
+      "term": "202620",
+      "term_name": "Summer 2026",
+      "section": "910",
+      "title": "Calculus, Part I",
+      "schedule_type": "Lecture",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "1",
+      "start_date": null,
+      "end_date": null,
+      "description": "Brief review of High School calculus, applications of integrals, transcendental functions, methods of integration, infinite series, Taylor's theorem, and first order ordinary differential equations. Use of symbolic manipulation and graphics software in calculus.",
+      "instructors": [
+        "Nakia Rimmer"
+      ],
+      "meetings": [
+        {
+          "days": "MTWR",
+          "start_time": "17:15:00",
+          "end_time": "19:14:00",
+          "location": ""
+        }
+      ],
+      "linked_sections": [],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 60,
+        "seats_available": 60
+      }
+    },
+    {
+      "crn": "40971",
+      "term": "202620",
+      "term_name": "Summer 2026",
+      "section": "920",
+      "title": "Calculus, Part I",
+      "schedule_type": "Lecture",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "1",
+      "start_date": null,
+      "end_date": null,
+      "description": "Brief review of High School calculus, applications of integrals, transcendental functions, methods of integration, infinite series, Taylor's theorem, and first order ordinary differential equations. Use of symbolic manipulation and graphics software in calculus.",
+      "instructors": [],
+      "meetings": [],
+      "linked_sections": [],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 50,
+        "seats_available": 50
+      }
     }
   ],
-  "last_updated": "2026-03-05T08:39:18.277840"
+  "last_updated": "2026-03-06T09:01:49.837100"
 }

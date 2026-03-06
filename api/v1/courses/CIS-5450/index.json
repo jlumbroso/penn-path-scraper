@@ -985,7 +985,32 @@
         "max_enrollment": 650,
         "seats_available": 530
       }
+    },
+    {
+      "crn": "41835",
+      "term": "202620",
+      "term_name": "Summer 2026",
+      "section": "501",
+      "title": "Big Data Analytics",
+      "schedule_type": "Lecture",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "1",
+      "start_date": null,
+      "end_date": null,
+      "description": "In the new era of big data, we are increasingly faced with the challenges of processing vast volumes of data. Given the limits of individual machines (compute power, memory, bandwidth), increasingly the solution is to process the data in parallel on many machines. This course focuses on the fundamentals of scaling computation to handle common data analytics tasks. You will learn about basic tasks in collecting, wrangling, and structuring data; programming models for performing certain kinds of computation in a scalable way across many compute nodes; common approaches to converting algorithms to such programming models; standard toolkits for data analysis consisting of a wide variety of primitives; and popular distributed frameworks for analytics tasks such as filtering, graph analysis, clustering, and classification. Recommended: broad familiarity with probability and statistics, as well as programming in Python. Additional background in statistics, data analysis (e.g., in Matlab or R), and machine learning is helpful (example : <a href=\"/search/?p=ESE%205420\" data-action=\"result-detail\" data-group=\"code:ESE 5420\" >ESE 5420</a>).",
+      "instructors": [
+        "Zachary Ives",
+        "Nan Zheng"
+      ],
+      "meetings": [],
+      "linked_sections": [],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 650,
+        "seats_available": 650
+      }
     }
   ],
-  "last_updated": "2026-03-05T08:39:46.781331"
+  "last_updated": "2026-03-06T09:02:18.310671"
 }

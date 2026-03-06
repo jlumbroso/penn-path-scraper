@@ -4209,7 +4209,174 @@
         "max_enrollment": 20,
         "seats_available": 1
       }
+    },
+    {
+      "crn": "40988",
+      "term": "202620",
+      "term_name": "Summer 2026",
+      "section": "910",
+      "title": "Introduction to Biology A",
+      "schedule_type": "Lecture",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "1.5",
+      "start_date": null,
+      "end_date": null,
+      "description": "General principles of biology focusing on the basic chemistry of life, cell biology, molecular biology, and genetics in all types of living organisms. Particular emphasis will be given to links between the fundamental processes covered and current challenges of humankind in the areas of energy, food, and health.",
+      "instructors": [
+        "John Zimmerman"
+      ],
+      "meetings": [
+        {
+          "days": "MTWRF",
+          "start_time": "13:45:00",
+          "end_time": "15:29:00",
+          "location": ""
+        }
+      ],
+      "linked_sections": [
+        "41076"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 20,
+        "seats_available": 20
+      }
+    },
+    {
+      "crn": "41076",
+      "term": "202620",
+      "term_name": "Summer 2026",
+      "section": "911",
+      "title": "Introduction to Biology A",
+      "schedule_type": "Laboratory",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "0",
+      "start_date": null,
+      "end_date": null,
+      "description": "General principles of biology focusing on the basic chemistry of life, cell biology, molecular biology, and genetics in all types of living organisms. Particular emphasis will be given to links between the fundamental processes covered and current challenges of humankind in the areas of energy, food, and health.",
+      "instructors": [
+        "Karl Siegert",
+        "Xiaohong Witmer"
+      ],
+      "meetings": [
+        {
+          "days": "TR",
+          "start_time": "10:15:00",
+          "end_time": "13:14:00",
+          "location": ""
+        }
+      ],
+      "linked_sections": [
+        "40988"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 20,
+        "seats_available": 20
+      }
+    },
+    {
+      "crn": "41090",
+      "term": "202620",
+      "term_name": "Summer 2026",
+      "section": "920",
+      "title": "Introduction to Biology A",
+      "schedule_type": "Lecture",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "1.5",
+      "start_date": null,
+      "end_date": null,
+      "description": "General principles of biology focusing on the basic chemistry of life, cell biology, molecular biology, and genetics in all types of living organisms. Particular emphasis will be given to links between the fundamental processes covered and current challenges of humankind in the areas of energy, food, and health.",
+      "instructors": [
+        "Xiaohong Witmer"
+      ],
+      "meetings": [
+        {
+          "days": "MTWRF",
+          "start_time": "13:45:00",
+          "end_time": "15:29:00",
+          "location": ""
+        }
+      ],
+      "linked_sections": [
+        "41093",
+        "44278"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 40,
+        "seats_available": 40
+      }
+    },
+    {
+      "crn": "41093",
+      "term": "202620",
+      "term_name": "Summer 2026",
+      "section": "921",
+      "title": "Introduction to Biology A",
+      "schedule_type": "Laboratory",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "0",
+      "start_date": null,
+      "end_date": null,
+      "description": "General principles of biology focusing on the basic chemistry of life, cell biology, molecular biology, and genetics in all types of living organisms. Particular emphasis will be given to links between the fundamental processes covered and current challenges of humankind in the areas of energy, food, and health.",
+      "instructors": [
+        "Xiaohong Witmer"
+      ],
+      "meetings": [
+        {
+          "days": "TR",
+          "start_time": "10:15:00",
+          "end_time": "13:14:00",
+          "location": ""
+        }
+      ],
+      "linked_sections": [
+        "41090"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 20,
+        "seats_available": 20
+      }
+    },
+    {
+      "crn": "44278",
+      "term": "202620",
+      "term_name": "Summer 2026",
+      "section": "922",
+      "title": "Introduction to Biology A",
+      "schedule_type": "Laboratory",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "0",
+      "start_date": null,
+      "end_date": null,
+      "description": "General principles of biology focusing on the basic chemistry of life, cell biology, molecular biology, and genetics in all types of living organisms. Particular emphasis will be given to links between the fundamental processes covered and current challenges of humankind in the areas of energy, food, and health.",
+      "instructors": [
+        "Linda Robinson"
+      ],
+      "meetings": [
+        {
+          "days": "TR",
+          "start_time": "10:15:00",
+          "end_time": "13:14:00",
+          "location": ""
+        }
+      ],
+      "linked_sections": [
+        "41090"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 20,
+        "seats_available": 20
+      }
     }
   ],
-  "last_updated": "2026-03-05T08:38:51.223279"
+  "last_updated": "2026-03-06T09:01:22.980134"
 }

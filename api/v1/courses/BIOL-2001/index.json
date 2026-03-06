@@ -372,7 +372,73 @@
         "max_enrollment": null,
         "seats_available": null
       }
+    },
+    {
+      "crn": "42386",
+      "term": "202620",
+      "term_name": "Summer 2026",
+      "section": "900",
+      "title": "Essentials of Cell Biology",
+      "schedule_type": "Lecture",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "1",
+      "start_date": null,
+      "end_date": null,
+      "description": "An intermediate level exploration of cell structure and function including membrane structure, intracellular organelles, membrane trafficking, surface receptors and signal transduction, the cytoskeleton, cell motility and communication, and the cell cycle. This course is open to students in the College of Liberal and Professional Studies only.",
+      "instructors": [
+        "Xiaohong Witmer"
+      ],
+      "meetings": [
+        {
+          "days": "TR",
+          "start_time": "17:15:00",
+          "end_time": "19:14:00",
+          "location": ""
+        }
+      ],
+      "linked_sections": [
+        "42387"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 30,
+        "seats_available": 30
+      }
+    },
+    {
+      "crn": "42387",
+      "term": "202620",
+      "term_name": "Summer 2026",
+      "section": "901",
+      "title": "Essentials of Cell Biology",
+      "schedule_type": "Recitation",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "0",
+      "start_date": null,
+      "end_date": null,
+      "description": "An intermediate level exploration of cell structure and function including membrane structure, intracellular organelles, membrane trafficking, surface receptors and signal transduction, the cytoskeleton, cell motility and communication, and the cell cycle. This course is open to students in the College of Liberal and Professional Studies only.",
+      "instructors": [
+        "Xiaohong Witmer"
+      ],
+      "meetings": [
+        {
+          "days": "TR",
+          "start_time": "19:15:00",
+          "end_time": "19:59:00",
+          "location": ""
+        }
+      ],
+      "linked_sections": [
+        "42386"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 30,
+        "seats_available": 30
+      }
     }
   ],
-  "last_updated": "2026-03-05T08:38:52.271154"
+  "last_updated": "2026-03-06T09:01:24.016503"
 }

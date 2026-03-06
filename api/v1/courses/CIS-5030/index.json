@@ -56,7 +56,32 @@
         "max_enrollment": 50,
         "seats_available": 24
       }
+    },
+    {
+      "crn": "44700",
+      "term": "202620",
+      "term_name": "Summer 2026",
+      "section": "501",
+      "title": "Algorithms for Big Data",
+      "schedule_type": "Lecture",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "1",
+      "start_date": null,
+      "end_date": null,
+      "description": "This course focuses on algorithmic techniques needed for processing large amounts of data. A traditional course in algorithm design teaches foundational principles (divide-and-conquer, dynamic programming, graph algorithms) that are primarily suited for solving computational problems in polynomial time. What happens when traditional techniques meet modern scales and \u201cpolynomial\u201d-time is too slow? When data does not fit in a single machine? When one cannot even inspect the entire dataset? This course will set the mathematical and algorithmic foundations for processing large amounts of data. The key will be to incorporate randomness and approximation and to develop the algorithmic techniques needed to keep up with ever-increasing scales. Recommended preparation for the course would be completion of <a href=\"/search/?p=CIS%203200\" data-action=\"result-detail\" data-group=\"code:CIS 3200\" >CIS 3200</a> or equivalent course.",
+      "instructors": [
+        "Erik Waingarten",
+        "Anindya De"
+      ],
+      "meetings": [],
+      "linked_sections": [],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 650,
+        "seats_available": 650
+      }
     }
   ],
-  "last_updated": "2026-03-05T08:39:46.326579"
+  "last_updated": "2026-03-06T09:02:17.850552"
 }

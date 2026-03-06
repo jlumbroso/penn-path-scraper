@@ -3354,7 +3354,73 @@
         "max_enrollment": 22,
         "seats_available": 5
       }
+    },
+    {
+      "crn": "41094",
+      "term": "202620",
+      "term_name": "Summer 2026",
+      "section": "920",
+      "title": "Introduction to Biology B",
+      "schedule_type": "Lecture",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "1.5",
+      "start_date": null,
+      "end_date": null,
+      "description": "General principles of biology focusing on evolution, physiology, development, and ecology in all types of living organisms.",
+      "instructors": [
+        "John Zimmerman"
+      ],
+      "meetings": [
+        {
+          "days": "MTWRF",
+          "start_time": "13:45:00",
+          "end_time": "15:29:00",
+          "location": ""
+        }
+      ],
+      "linked_sections": [
+        "41095"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 30,
+        "seats_available": 30
+      }
+    },
+    {
+      "crn": "41095",
+      "term": "202620",
+      "term_name": "Summer 2026",
+      "section": "921",
+      "title": "Introduction to Biology B",
+      "schedule_type": "Laboratory",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "0",
+      "start_date": null,
+      "end_date": null,
+      "description": "General principles of biology focusing on evolution, physiology, development, and ecology in all types of living organisms.",
+      "instructors": [
+        "Linda Robinson"
+      ],
+      "meetings": [
+        {
+          "days": "MW",
+          "start_time": "10:15:00",
+          "end_time": "13:15:00",
+          "location": ""
+        }
+      ],
+      "linked_sections": [
+        "41094"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 20,
+        "seats_available": 20
+      }
     }
   ],
-  "last_updated": "2026-03-05T08:38:51.587864"
+  "last_updated": "2026-03-06T09:01:23.338581"
 }

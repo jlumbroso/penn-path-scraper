@@ -4320,7 +4320,64 @@
         "max_enrollment": 18,
         "seats_available": 18
       }
+    },
+    {
+      "crn": "44728",
+      "term": "202620",
+      "term_name": "Summer 2026",
+      "section": "920",
+      "title": "Programming Languages and Techniques II",
+      "schedule_type": "Lecture",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "1",
+      "start_date": null,
+      "end_date": null,
+      "description": "This is a course about Algorithms and Data Structures using the Java programming language. We introduce the basic concepts about complexity of an algorithm and methods on how to compute the running time of algorithms. Then, we describe data structures like stacks, queues, maps, trees, and graphs, and we construct efficient algorithms based on these representations. The course builds upon existing implementations of basic data structures in Java and extends them for the structures like trees, studying the performance of operations on such structures, and their efficiency when used in real-world applications.",
+      "instructors": [
+        "Arvind Bhusnurmath"
+      ],
+      "meetings": [
+        {
+          "days": "MTWR",
+          "start_time": "10:15:00",
+          "end_time": "12:15:00",
+          "location": ""
+        }
+      ],
+      "linked_sections": [
+        "44729"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 50,
+        "seats_available": 50
+      }
+    },
+    {
+      "crn": "44729",
+      "term": "202620",
+      "term_name": "Summer 2026",
+      "section": "921",
+      "title": "Programming Languages and Techniques II",
+      "schedule_type": "Recitation",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "0",
+      "start_date": null,
+      "end_date": null,
+      "description": "This is a course about Algorithms and Data Structures using the Java programming language. We introduce the basic concepts about complexity of an algorithm and methods on how to compute the running time of algorithms. Then, we describe data structures like stacks, queues, maps, trees, and graphs, and we construct efficient algorithms based on these representations. The course builds upon existing implementations of basic data structures in Java and extends them for the structures like trees, studying the performance of operations on such structures, and their efficiency when used in real-world applications.",
+      "instructors": [],
+      "meetings": [],
+      "linked_sections": [
+        "44728"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 50,
+        "seats_available": 50
+      }
     }
   ],
-  "last_updated": "2026-03-05T08:39:44.721561"
+  "last_updated": "2026-03-06T09:02:16.225571"
 }

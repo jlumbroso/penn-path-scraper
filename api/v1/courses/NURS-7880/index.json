@@ -224,7 +224,61 @@
         "max_enrollment": null,
         "seats_available": null
       }
+    },
+    {
+      "crn": "40692",
+      "term": "202620",
+      "term_name": "Summer 2026",
+      "section": "900",
+      "title": "Intrapartum / Postpartum / Newborn Care, Clinical",
+      "schedule_type": "Lecture",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "1",
+      "start_date": null,
+      "end_date": null,
+      "description": "Clinical care and management of women, newborns and their families during the intrapartum, postpartum and newborn periods. Includes management of selected obstetrical emergencies and medical complications. Clinical assignments related to module objectives.",
+      "instructors": [],
+      "meetings": [],
+      "linked_sections": [
+        "40693"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 11,
+        "seats_available": 11
+      }
+    },
+    {
+      "crn": "40693",
+      "term": "202620",
+      "term_name": "Summer 2026",
+      "section": "901",
+      "title": "Intrapartum / Postpartum / Newborn Care, Clinical",
+      "schedule_type": "Clinical",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "0",
+      "start_date": null,
+      "end_date": null,
+      "description": "Clinical care and management of women, newborns and their families during the intrapartum, postpartum and newborn periods. Includes management of selected obstetrical emergencies and medical complications. Clinical assignments related to module objectives.",
+      "instructors": [
+        "Emily Slocum",
+        "Emma Dorsey",
+        "Maggie Power",
+        "Cara McGuinness",
+        "Kathryn Feniello"
+      ],
+      "meetings": [],
+      "linked_sections": [
+        "40692"
+      ],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 20,
+        "seats_available": 20
+      }
     }
   ],
-  "last_updated": "2026-03-05T08:40:39.088062"
+  "last_updated": "2026-03-06T09:03:10.679309"
 }

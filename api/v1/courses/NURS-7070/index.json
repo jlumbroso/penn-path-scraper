@@ -580,7 +580,7 @@
       "schedule_type": "Clinical",
       "status": "Active",
       "is_cancelled": false,
-      "credits": "1",
+      "credits": "0",
       "start_date": null,
       "end_date": null,
       "description": "Supervised advanced psychiatric mental health nursing practice with children, adolescents and their families, or adults and/or older adults and their families in a variety of settings, depending on the subspecialty option selected. Outcome evaluation, termination and professional role development. A minimum of 16 hours of practice and 3 hours of small group supervision is required.",
@@ -629,8 +629,8 @@
       ],
       "current_enrollment": {
         "enrolled": 0,
-        "max_enrollment": 34,
-        "seats_available": 34
+        "max_enrollment": 9,
+        "seats_available": 9
       }
     },
     {
@@ -719,7 +719,7 @@
         {
           "days": "T",
           "start_time": "08:30:00",
-          "end_time": "11:30:00",
+          "end_time": "11:29:00",
           "location": ""
         }
       ],
@@ -731,7 +731,41 @@
         "max_enrollment": 8,
         "seats_available": 8
       }
+    },
+    {
+      "crn": "44861",
+      "term": "202620",
+      "term_name": "Summer 2026",
+      "section": "900",
+      "title": "Advanced Practice Nursing Practice: Psychiatric Mental Health NP III",
+      "schedule_type": "Lecture",
+      "status": "Active",
+      "is_cancelled": false,
+      "credits": "1",
+      "start_date": null,
+      "end_date": null,
+      "description": "Supervised advanced psychiatric mental health nursing practice with children, adolescents and their families, or adults and/or older adults and their families in a variety of settings, depending on the subspecialty option selected. Outcome evaluation, termination and professional role development. A minimum of 16 hours of practice and 3 hours of small group supervision is required.",
+      "instructors": [
+        "Joseph Schatz",
+        "Janan Mccormick",
+        "Alexander Chianese",
+        "Alison Ercole"
+      ],
+      "meetings": [
+        {
+          "days": "T",
+          "start_time": "08:30:00",
+          "end_time": "11:29:00",
+          "location": ""
+        }
+      ],
+      "linked_sections": [],
+      "current_enrollment": {
+        "enrolled": 0,
+        "max_enrollment": 30,
+        "seats_available": 30
+      }
     }
   ],
-  "last_updated": "2026-03-06T09:03:10.377108"
+  "last_updated": "2026-03-07T08:53:17.736375"
 }

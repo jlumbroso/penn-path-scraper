@@ -1,6 +1,6 @@
 {
   "api_version": "1.0",
-  "generated_at": "2026-03-06T09:05:41.164082",
+  "generated_at": "2026-03-07T08:55:49.896171",
   "terms": [
     {
       "code": "202530",
@@ -119,14 +119,14 @@
       "name": "Spring 2026",
       "start_date": null,
       "end_date": null,
-      "course_count": 6545
+      "course_count": 6546
     },
     {
       "code": "202620",
       "name": "Summer 2026",
       "start_date": null,
       "end_date": null,
-      "course_count": 696
+      "course_count": 698
     }
   ],
   "course_codes": [
@@ -6205,6 +6205,7 @@
     "HPR-6200",
     "HPR-6210",
     "HPR-6260",
+    "HPR-6270",
     "HPR-6600",
     "HPR-6610",
     "HPR-6700",
@@ -8607,6 +8608,7 @@
     "NURS-6060",
     "NURS-6070",
     "NURS-6080",
+    "NURS-6081",
     "NURS-6090",
     "NURS-6110",
     "NURS-6120",
@@ -10894,8 +10896,8 @@
     "ZULU-0800"
   ],
   "total_terms": 18,
-  "total_courses": 58502,
-  "total_course_codes": 10762,
+  "total_courses": 58505,
+  "total_course_codes": 10764,
   "total_instructors": 8236,
   "endpoints": {
     "courses": "/api/v1/courses/{course-code}/",

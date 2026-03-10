@@ -1,6 +1,6 @@
 {
   "api_version": "1.0",
-  "generated_at": "2026-03-09T09:46:40.525974",
+  "generated_at": "2026-03-10T09:02:16.789128",
   "terms": [
     {
       "code": "202530",
@@ -126,7 +126,7 @@
       "name": "Summer 2026",
       "start_date": null,
       "end_date": null,
-      "course_count": 698
+      "course_count": 703
     }
   ],
   "course_codes": [
@@ -8420,6 +8420,7 @@
     "NPLD-5970",
     "NPLD-5980",
     "NPLD-7010",
+    "NPLD-7030",
     "NPLD-7200",
     "NPLD-7300",
     "NPLD-7500",
@@ -10896,9 +10897,9 @@
     "ZULU-0800"
   ],
   "total_terms": 18,
-  "total_courses": 58505,
-  "total_course_codes": 10764,
-  "total_instructors": 8236,
+  "total_courses": 58510,
+  "total_course_codes": 10765,
+  "total_instructors": 8245,
   "endpoints": {
     "courses": "/api/v1/courses/{course-code}/",
     "enrollments": "/api/v1/courses/{course-code}/enrollments.json",

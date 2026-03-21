@@ -1,6 +1,6 @@
 {
   "api_version": "1.0",
-  "generated_at": "2026-03-20T08:56:55.370289",
+  "generated_at": "2026-03-21T08:47:15.797817",
   "terms": [
     {
       "code": "202530",
@@ -126,7 +126,7 @@
       "name": "Summer 2026",
       "start_date": null,
       "end_date": null,
-      "course_count": 711
+      "course_count": 716
     }
   ],
   "course_codes": [
@@ -10641,6 +10641,7 @@
     "VCSN-6600",
     "VCSN-6620",
     "VCSN-6630",
+    "VCSN-6670",
     "VCSN-7005",
     "VCSN-7015",
     "VCSN-7135",
@@ -10897,8 +10898,8 @@
     "ZULU-0800"
   ],
   "total_terms": 18,
-  "total_courses": 58520,
-  "total_course_codes": 10765,
+  "total_courses": 58525,
+  "total_course_codes": 10766,
   "total_instructors": 8260,
   "endpoints": {
     "courses": "/api/v1/courses/{course-code}/",

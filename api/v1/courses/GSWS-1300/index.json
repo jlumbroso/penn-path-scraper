@@ -161,9 +161,9 @@
       ],
       "linked_sections": [],
       "current_enrollment": {
-        "enrolled": 0,
+        "enrolled": 1,
         "max_enrollment": 30,
-        "seats_available": 30
+        "seats_available": 29
       }
     },
     {
@@ -173,8 +173,8 @@
       "section": "950",
       "title": "Queer Politics, Queer Communities",
       "schedule_type": "Lecture",
-      "status": "Active",
-      "is_cancelled": false,
+      "status": "Canceled",
+      "is_cancelled": true,
       "credits": "1",
       "start_date": null,
       "end_date": null,
@@ -191,5 +191,5 @@
       }
     }
   ],
-  "last_updated": "2026-03-23T09:23:14.081461"
+  "last_updated": "2026-03-24T09:20:29.072097"
 }

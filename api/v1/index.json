@@ -1,6 +1,6 @@
 {
   "api_version": "1.0",
-  "generated_at": "2026-03-24T09:22:55.731333",
+  "generated_at": "2026-03-25T09:11:34.678835",
   "terms": [
     {
       "code": "202530",
@@ -126,7 +126,7 @@
       "name": "Summer 2026",
       "start_date": null,
       "end_date": null,
-      "course_count": 717
+      "course_count": 719
     }
   ],
   "course_codes": [
@@ -10898,9 +10898,9 @@
     "ZULU-0800"
   ],
   "total_terms": 18,
-  "total_courses": 58526,
+  "total_courses": 58528,
   "total_course_codes": 10766,
-  "total_instructors": 8262,
+  "total_instructors": 8265,
   "endpoints": {
     "courses": "/api/v1/courses/{course-code}/",
     "enrollments": "/api/v1/courses/{course-code}/enrollments.json",

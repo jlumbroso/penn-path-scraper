@@ -1885,8 +1885,18 @@
       "section": "501",
       "enrolled": 261,
       "capacity": 650,
-      "timestamp": "2026-03-24T08:33:10.989453",
+      "timestamp": "2026-03-25T08:23:58.966944",
       "snapshots": [
+        {
+          "timestamp": "2026-03-25T08:23:58.966944",
+          "enrolled": 261,
+          "capacity": 650
+        },
+        {
+          "timestamp": "2026-03-25T07:11:41.449481",
+          "enrolled": 261,
+          "capacity": 650
+        },
         {
           "timestamp": "2026-03-24T08:33:10.989453",
           "enrolled": 261,
@@ -3130,8 +3140,13 @@
       "section": "501",
       "enrolled": 1,
       "capacity": 650,
-      "timestamp": "2026-03-24T09:12:45.844742",
+      "timestamp": "2026-03-25T09:01:34.405461",
       "snapshots": [
+        {
+          "timestamp": "2026-03-25T09:01:34.405461",
+          "enrolled": 1,
+          "capacity": 650
+        },
         {
           "timestamp": "2026-03-24T09:12:45.844742",
           "enrolled": 1,
@@ -3233,10 +3248,15 @@
       "crn": "44750",
       "term": "202620",
       "section": "901",
-      "enrolled": 4,
+      "enrolled": 5,
       "capacity": 35,
-      "timestamp": "2026-03-24T09:12:46.478030",
+      "timestamp": "2026-03-25T09:01:35.024807",
       "snapshots": [
+        {
+          "timestamp": "2026-03-25T09:01:35.024807",
+          "enrolled": 5,
+          "capacity": 35
+        },
         {
           "timestamp": "2026-03-24T09:12:46.478030",
           "enrolled": 4,
@@ -3338,10 +3358,15 @@
       "crn": "44754",
       "term": "202620",
       "section": "902",
-      "enrolled": 4,
+      "enrolled": 5,
       "capacity": 35,
-      "timestamp": "2026-03-24T09:12:47.125861",
+      "timestamp": "2026-03-25T09:01:35.644785",
       "snapshots": [
+        {
+          "timestamp": "2026-03-25T09:01:35.644785",
+          "enrolled": 5,
+          "capacity": 35
+        },
         {
           "timestamp": "2026-03-24T09:12:47.125861",
           "enrolled": 4,
@@ -3440,5 +3465,5 @@
       ]
     }
   ],
-  "last_updated": "2026-03-24T09:19:25.432590"
+  "last_updated": "2026-03-25T09:07:58.839947"
 }

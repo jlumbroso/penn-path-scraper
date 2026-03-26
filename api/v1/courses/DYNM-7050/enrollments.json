@@ -1553,10 +1553,15 @@
       "crn": "43049",
       "term": "202620",
       "section": "900",
-      "enrolled": 2,
+      "enrolled": 3,
       "capacity": 16,
-      "timestamp": "2026-03-25T08:59:18.639761",
+      "timestamp": "2026-03-26T09:20:31.031102",
       "snapshots": [
+        {
+          "timestamp": "2026-03-26T09:20:31.031102",
+          "enrolled": 3,
+          "capacity": 16
+        },
         {
           "timestamp": "2026-03-25T08:59:18.639761",
           "enrolled": 2,
@@ -1660,5 +1665,5 @@
       ]
     }
   ],
-  "last_updated": "2026-03-25T09:07:11.529664"
+  "last_updated": "2026-03-26T09:28:57.606744"
 }

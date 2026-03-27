@@ -1,6 +1,6 @@
 {
   "api_version": "1.0",
-  "generated_at": "2026-03-26T09:33:17.250796",
+  "generated_at": "2026-03-27T09:08:06.864206",
   "terms": [
     {
       "code": "202530",
@@ -126,7 +126,7 @@
       "name": "Summer 2026",
       "start_date": null,
       "end_date": null,
-      "course_count": 725
+      "course_count": 726
     }
   ],
   "course_codes": [
@@ -6383,6 +6383,7 @@
     "IMP-6000",
     "IMP-6025",
     "IMP-6050",
+    "IMP-6055",
     "IMP-6100",
     "IMP-6200",
     "IMP-6300",
@@ -10898,8 +10899,8 @@
     "ZULU-0800"
   ],
   "total_terms": 18,
-  "total_courses": 58535,
-  "total_course_codes": 10766,
+  "total_courses": 58536,
+  "total_course_codes": 10767,
   "total_instructors": 8265,
   "endpoints": {
     "courses": "/api/v1/courses/{course-code}/",

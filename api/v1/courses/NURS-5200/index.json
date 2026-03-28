@@ -964,13 +964,19 @@
           "start_time": "08:30:00",
           "end_time": "11:29:00",
           "location": ""
+        },
+        {
+          "days": "F",
+          "start_time": "12:30:00",
+          "end_time": "15:29:00",
+          "location": ""
         }
       ],
       "linked_sections": [],
       "current_enrollment": {
-        "enrolled": 48,
+        "enrolled": 50,
         "max_enrollment": 60,
-        "seats_available": 12
+        "seats_available": 10
       }
     },
     {
@@ -1001,9 +1007,9 @@
       ],
       "linked_sections": [],
       "current_enrollment": {
-        "enrolled": 57,
+        "enrolled": 55,
         "max_enrollment": 60,
-        "seats_available": 3
+        "seats_available": 5
       }
     },
     {
@@ -1073,9 +1079,9 @@
       "meetings": [],
       "linked_sections": [],
       "current_enrollment": {
-        "enrolled": 3,
+        "enrolled": 4,
         "max_enrollment": 7,
-        "seats_available": 4
+        "seats_available": 3
       }
     },
     {
@@ -1085,7 +1091,7 @@
       "section": "104",
       "title": "Nurses Caring for Family II: Pediatric Health and Wellness",
       "schedule_type": "Clinical",
-      "status": "Active",
+      "status": "Full",
       "is_cancelled": false,
       "credits": "0",
       "start_date": null,
@@ -1097,9 +1103,9 @@
       "meetings": [],
       "linked_sections": [],
       "current_enrollment": {
-        "enrolled": 6,
+        "enrolled": 7,
         "max_enrollment": 7,
-        "seats_available": 1
+        "seats_available": 0
       }
     },
     {
@@ -1229,7 +1235,7 @@
       "section": "110",
       "title": "Nurses Caring for Family II: Pediatric Health and Wellness",
       "schedule_type": "Clinical",
-      "status": "Active",
+      "status": "Full",
       "is_cancelled": false,
       "credits": "0",
       "start_date": null,
@@ -1241,9 +1247,9 @@
       "meetings": [],
       "linked_sections": [],
       "current_enrollment": {
-        "enrolled": 6,
+        "enrolled": 7,
         "max_enrollment": 7,
-        "seats_available": 1
+        "seats_available": 0
       }
     },
     {
@@ -1481,9 +1487,9 @@
       "meetings": [],
       "linked_sections": [],
       "current_enrollment": {
-        "enrolled": 5,
+        "enrolled": 7,
         "max_enrollment": 8,
-        "seats_available": 3
+        "seats_available": 1
       }
     },
     {
@@ -1622,9 +1628,9 @@
       "meetings": [],
       "linked_sections": [],
       "current_enrollment": {
-        "enrolled": 7,
+        "enrolled": 6,
         "max_enrollment": 8,
-        "seats_available": 1
+        "seats_available": 2
       }
     },
     {
@@ -1658,7 +1664,7 @@
       "section": "211",
       "title": "Nurses Caring for Family II: Pediatric Health and Wellness",
       "schedule_type": "Laboratory",
-      "status": "Active",
+      "status": "Full",
       "is_cancelled": false,
       "credits": "0",
       "start_date": null,
@@ -1670,9 +1676,9 @@
       "meetings": [],
       "linked_sections": [],
       "current_enrollment": {
-        "enrolled": 7,
+        "enrolled": 8,
         "max_enrollment": 8,
-        "seats_available": 1
+        "seats_available": 0
       }
     },
     {
@@ -1762,5 +1768,5 @@
       }
     }
   ],
-  "last_updated": "2026-03-27T09:05:26.313545"
+  "last_updated": "2026-03-28T09:41:58.730861"
 }

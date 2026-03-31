@@ -4215,8 +4215,18 @@
       "section": "002",
       "enrolled": 9,
       "capacity": 20,
-      "timestamp": "2026-03-30T08:56:12.211007",
+      "timestamp": "2026-03-31T08:37:19.236272",
       "snapshots": [
+        {
+          "timestamp": "2026-03-31T08:37:19.236272",
+          "enrolled": 9,
+          "capacity": 20
+        },
+        {
+          "timestamp": "2026-03-31T07:28:06.849812",
+          "enrolled": 9,
+          "capacity": 20
+        },
         {
           "timestamp": "2026-03-30T08:56:12.211007",
           "enrolled": 9,
@@ -5520,8 +5530,18 @@
       "section": "003",
       "enrolled": 20,
       "capacity": 20,
-      "timestamp": "2026-03-30T08:56:12.867126",
+      "timestamp": "2026-03-31T08:37:19.832279",
       "snapshots": [
+        {
+          "timestamp": "2026-03-31T08:37:19.832279",
+          "enrolled": 20,
+          "capacity": 20
+        },
+        {
+          "timestamp": "2026-03-31T07:28:07.448589",
+          "enrolled": 20,
+          "capacity": 20
+        },
         {
           "timestamp": "2026-03-30T08:56:12.867126",
           "enrolled": 20,
@@ -6823,10 +6843,15 @@
       "crn": "41412",
       "term": "202620",
       "section": "910",
-      "enrolled": 30,
+      "enrolled": 29,
       "capacity": 30,
-      "timestamp": "2026-03-30T09:23:59.192725",
+      "timestamp": "2026-03-31T09:02:52.039639",
       "snapshots": [
+        {
+          "timestamp": "2026-03-31T09:02:52.039639",
+          "enrolled": 29,
+          "capacity": 30
+        },
         {
           "timestamp": "2026-03-30T09:23:59.192725",
           "enrolled": 30,
@@ -6960,8 +6985,13 @@
       "section": "912",
       "enrolled": 30,
       "capacity": 30,
-      "timestamp": "2026-03-30T09:23:59.866333",
+      "timestamp": "2026-03-31T09:02:52.634242",
       "snapshots": [
+        {
+          "timestamp": "2026-03-31T09:02:52.634242",
+          "enrolled": 30,
+          "capacity": 30
+        },
         {
           "timestamp": "2026-03-30T09:23:59.866333",
           "enrolled": 30,
@@ -7090,5 +7120,5 @@
       ]
     }
   ],
-  "last_updated": "2026-03-30T09:29:41.262409"
+  "last_updated": "2026-03-31T09:07:58.697486"
 }

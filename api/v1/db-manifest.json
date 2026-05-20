@@ -2,11 +2,11 @@
   "database": {
     "release_tag": "latest-data",
     "download_url": "https://github.com/jlumbroso/penn-path-scraper/releases/download/latest-data/courses.db.gz",
-    "compressed_size": 191472360,
-    "sha256": "9552c9b01e7ae43bb793f266e15f03bd7cefeb74d04c3cb2394ed7602b2164d8",
+    "compressed_size": 192117517,
+    "sha256": "3d807908ea17a9012c39f802247c0ffaf31d8369cf7d374d2bc4a768d5648fbe",
     "format": "sqlite3",
     "compression": "gzip",
-    "updated_at": "2026-05-19T10:08:52Z"
+    "updated_at": "2026-05-20T10:11:05Z"
   },
   "instructions": {
     "download": "curl -L https://github.com/jlumbroso/penn-path-scraper/releases/download/latest-data/courses.db.gz -o courses.db.gz",
